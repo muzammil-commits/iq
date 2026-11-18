@@ -66,8 +66,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
           : 'py-3 border-b border-slate-100/90'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-4">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between gap-2 lg:gap-4">
           
           {/* Logo Section */}
           <Link to="/" className="flex items-center gap-2 group shrink-0" aria-label="IQ Overseas Home">
@@ -78,39 +78,39 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
             />
           </Link>
 
-          {/* Desktop Navigation Menu */}
-          <nav className="hidden xl:flex items-center space-x-0.5 lg:space-x-1" aria-label="Main Navigation">
+          {/* Desktop Navigation Menu - Strictly single line with whitespace-nowrap */}
+          <nav className="hidden xl:flex items-center space-x-1 2xl:space-x-1.5 shrink-0" aria-label="Main Navigation">
             {/* 1. Home */}
             <Link
               to="/"
-              className={`px-3 py-2 text-xs lg:text-sm font-semibold transition-colors duration-200 rounded-lg relative ${
+              className={`px-2.5 py-2 text-xs 2xl:text-sm font-bold transition-colors duration-200 rounded-lg relative whitespace-nowrap ${
                 location.pathname === '/'
-                  ? 'text-iq-navy font-bold'
+                  ? 'text-iq-navy'
                   : 'text-slate-700 hover:text-iq-navy hover:bg-slate-50'
               }`}
             >
               Home
               {location.pathname === '/' && (
-                <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-iq-red rounded-full" />
+                <span className="absolute bottom-0 left-2.5 right-2.5 h-0.5 bg-iq-red rounded-full" />
               )}
             </Link>
 
-            {/* 2. About Company */}
+            {/* 2. About Company - single line */}
             <Link
               to="/about"
-              className={`px-3 py-2 text-xs lg:text-sm font-semibold transition-colors duration-200 rounded-lg relative ${
+              className={`px-2.5 py-2 text-xs 2xl:text-sm font-bold transition-colors duration-200 rounded-lg relative whitespace-nowrap ${
                 isActive('/about')
-                  ? 'text-iq-navy font-bold'
+                  ? 'text-iq-navy'
                   : 'text-slate-700 hover:text-iq-navy hover:bg-slate-50'
               }`}
             >
               About Company
               {isActive('/about') && (
-                <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-iq-red rounded-full" />
+                <span className="absolute bottom-0 left-2.5 right-2.5 h-0.5 bg-iq-red rounded-full" />
               )}
             </Link>
 
-            {/* 3. Services Dropdown */}
+            {/* 3. Services Dropdown - single line */}
             <div
               className="relative group"
               onMouseEnter={() => setActiveDropdown('services')}
@@ -118,16 +118,16 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
             >
               <Link
                 to="/services"
-                className={`inline-flex items-center gap-1 px-3 py-2 text-xs lg:text-sm font-semibold transition-colors duration-200 rounded-lg relative ${
+                className={`inline-flex items-center gap-1 px-2.5 py-2 text-xs 2xl:text-sm font-bold transition-colors duration-200 rounded-lg relative whitespace-nowrap ${
                   isActive('/services')
-                    ? 'text-iq-navy font-bold'
+                    ? 'text-iq-navy'
                     : 'text-slate-700 hover:text-iq-navy hover:bg-slate-50'
                 }`}
               >
                 <span>Services</span>
                 <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:rotate-180 group-hover:text-iq-red transition-transform duration-200" />
                 {isActive('/services') && (
-                  <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-iq-red rounded-full" />
+                  <span className="absolute bottom-0 left-2.5 right-2.5 h-0.5 bg-iq-red rounded-full" />
                 )}
               </Link>
 
@@ -185,7 +185,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
               )}
             </div>
 
-            {/* 4. Visa Dropdown */}
+            {/* 4. Visa Dropdown - single line */}
             <div
               className="relative group"
               onMouseEnter={() => setActiveDropdown('visa')}
@@ -193,16 +193,16 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
             >
               <Link
                 to="/visa"
-                className={`inline-flex items-center gap-1 px-3 py-2 text-xs lg:text-sm font-semibold transition-colors duration-200 rounded-lg relative ${
+                className={`inline-flex items-center gap-1 px-2.5 py-2 text-xs 2xl:text-sm font-bold transition-colors duration-200 rounded-lg relative whitespace-nowrap ${
                   isActive('/visa')
-                    ? 'text-iq-navy font-bold'
+                    ? 'text-iq-navy'
                     : 'text-slate-700 hover:text-iq-navy hover:bg-slate-50'
                 }`}
               >
                 <span>Visa</span>
                 <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:rotate-180 group-hover:text-iq-red transition-transform duration-200" />
                 {isActive('/visa') && (
-                  <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-iq-red rounded-full" />
+                  <span className="absolute bottom-0 left-2.5 right-2.5 h-0.5 bg-iq-red rounded-full" />
                 )}
               </Link>
 
@@ -239,7 +239,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
               )}
             </div>
 
-            {/* 5. Masters Dropdown (Ivy Overseas Style Country Options) */}
+            {/* 5. Masters Dropdown - single line */}
             <div
               className="relative group"
               onMouseEnter={() => setActiveDropdown('masters')}
@@ -247,16 +247,16 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
             >
               <Link
                 to="/masters"
-                className={`inline-flex items-center gap-1 px-3 py-2 text-xs lg:text-sm font-semibold transition-colors duration-200 rounded-lg relative ${
+                className={`inline-flex items-center gap-1 px-2.5 py-2 text-xs 2xl:text-sm font-bold transition-colors duration-200 rounded-lg relative whitespace-nowrap ${
                   isActive('/masters')
-                    ? 'text-iq-navy font-bold'
+                    ? 'text-iq-navy'
                     : 'text-slate-700 hover:text-iq-navy hover:bg-slate-50'
                 }`}
               >
                 <span>Masters</span>
                 <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:rotate-180 group-hover:text-iq-red transition-transform duration-200" />
                 {isActive('/masters') && (
-                  <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-iq-red rounded-full" />
+                  <span className="absolute bottom-0 left-2.5 right-2.5 h-0.5 bg-iq-red rounded-full" />
                 )}
               </Link>
 
@@ -303,7 +303,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
               )}
             </div>
 
-            {/* 6. Bachelors Dropdown (Ivy Overseas Style UG Options) */}
+            {/* 6. Bachelors Dropdown - single line */}
             <div
               className="relative group"
               onMouseEnter={() => setActiveDropdown('bachelors')}
@@ -311,16 +311,16 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
             >
               <Link
                 to="/bachelors"
-                className={`inline-flex items-center gap-1 px-3 py-2 text-xs lg:text-sm font-semibold transition-colors duration-200 rounded-lg relative ${
+                className={`inline-flex items-center gap-1 px-2.5 py-2 text-xs 2xl:text-sm font-bold transition-colors duration-200 rounded-lg relative whitespace-nowrap ${
                   isActive('/bachelors')
-                    ? 'text-iq-navy font-bold'
+                    ? 'text-iq-navy'
                     : 'text-slate-700 hover:text-iq-navy hover:bg-slate-50'
                 }`}
               >
                 <span>Bachelors</span>
                 <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:rotate-180 group-hover:text-iq-red transition-transform duration-200" />
                 {isActive('/bachelors') && (
-                  <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-iq-red rounded-full" />
+                  <span className="absolute bottom-0 left-2.5 right-2.5 h-0.5 bg-iq-red rounded-full" />
                 )}
               </Link>
 
@@ -367,7 +367,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
               )}
             </div>
 
-            {/* 7. Training Dropdown (Ivy Overseas Style Coaching) */}
+            {/* 7. Training Dropdown - single line */}
             <div
               className="relative group"
               onMouseEnter={() => setActiveDropdown('training')}
@@ -375,16 +375,16 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
             >
               <Link
                 to="/training"
-                className={`inline-flex items-center gap-1 px-3 py-2 text-xs lg:text-sm font-semibold transition-colors duration-200 rounded-lg relative ${
+                className={`inline-flex items-center gap-1 px-2.5 py-2 text-xs 2xl:text-sm font-bold transition-colors duration-200 rounded-lg relative whitespace-nowrap ${
                   isActive('/training')
-                    ? 'text-iq-navy font-bold'
+                    ? 'text-iq-navy'
                     : 'text-slate-700 hover:text-iq-navy hover:bg-slate-50'
                 }`}
               >
                 <span>Training</span>
                 <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:rotate-180 group-hover:text-iq-red transition-transform duration-200" />
                 {isActive('/training') && (
-                  <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-iq-red rounded-full" />
+                  <span className="absolute bottom-0 left-2.5 right-2.5 h-0.5 bg-iq-red rounded-full" />
                 )}
               </Link>
 
@@ -433,33 +433,33 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
               )}
             </div>
 
-            {/* 8. Success Stories */}
+            {/* 8. Success Stories - single line */}
             <Link
               to="/success-stories"
-              className={`px-3 py-2 text-xs lg:text-sm font-semibold transition-colors duration-200 rounded-lg relative ${
+              className={`px-2.5 py-2 text-xs 2xl:text-sm font-bold transition-colors duration-200 rounded-lg relative whitespace-nowrap ${
                 isActive('/success-stories')
-                  ? 'text-iq-navy font-bold'
+                  ? 'text-iq-navy'
                   : 'text-slate-700 hover:text-iq-navy hover:bg-slate-50'
               }`}
             >
               Success Stories
               {isActive('/success-stories') && (
-                <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-iq-red rounded-full" />
+                <span className="absolute bottom-0 left-2.5 right-2.5 h-0.5 bg-iq-red rounded-full" />
               )}
             </Link>
 
-            {/* 9. Contact Us */}
+            {/* 9. Contact Us - single line */}
             <Link
               to="/contact"
-              className={`px-3 py-2 text-xs lg:text-sm font-semibold transition-colors duration-200 rounded-lg relative ${
+              className={`px-2.5 py-2 text-xs 2xl:text-sm font-bold transition-colors duration-200 rounded-lg relative whitespace-nowrap ${
                 isActive('/contact')
-                  ? 'text-iq-navy font-bold'
+                  ? 'text-iq-navy'
                   : 'text-slate-700 hover:text-iq-navy hover:bg-slate-50'
               }`}
             >
               Contact Us
               {isActive('/contact') && (
-                <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-iq-red rounded-full" />
+                <span className="absolute bottom-0 left-2.5 right-2.5 h-0.5 bg-iq-red rounded-full" />
               )}
             </Link>
           </nav>
