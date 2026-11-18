@@ -87,16 +87,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
 
       {/* 
         MOBILE HERO FULL BACKGROUND (image copy 4.png)
-        Ultra-bright, vivid background for mobile view
+        Bright, high-clarity background without heavy opaque filters
       */}
       <div className="lg:hidden absolute inset-0 z-0 overflow-hidden">
         <img
           src="/images/hero-mobile.png"
           alt="IQ Overseas Mobile Hero Background"
-          className="w-full h-full object-cover object-top filter brightness-[1.14] contrast-[1.08] saturate-[1.10]"
+          className="w-full h-full object-cover object-top filter brightness-[1.10] contrast-[1.05]"
         />
-        {/* Crystal clear gradient preserving ultra-bright photo visibility */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/15 via-transparent to-white/75 pointer-events-none" />
+        {/* Soft natural gradient ensuring background photo clarity and bright visibility */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/25 via-white/10 to-white/70 pointer-events-none" />
       </div>
 
       {/* Main Content Container Layer */}
@@ -104,8 +104,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
-          {/* Left Column: Heading, Subtitle & CTAs directly on top of the bright background */}
-          <div className="lg:col-span-7 xl:col-span-6 space-y-4 sm:space-y-6 text-center lg:text-left bg-white/70 lg:bg-transparent backdrop-blur-[2px] lg:backdrop-blur-none p-4 sm:p-6 lg:p-0 rounded-3xl border border-white/60 lg:border-transparent shadow-xs lg:shadow-none">
+          {/* Left Column: Heading, Subtitle & CTAs directly on top of the bright background - NO background patch work */}
+          <div className="lg:col-span-7 xl:col-span-6 space-y-4 sm:space-y-6 text-center lg:text-left">
             
             {/* Category Pill */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-xs text-iq-navy text-xs sm:text-sm font-bold tracking-wide">
@@ -115,8 +115,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
               <span className="text-slate-600 font-semibold">IQ Overseas Guntur</span>
             </div>
 
-            {/* Main Headline */}
-            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-[46px] xl:text-[54px] font-black text-iq-navy tracking-tight leading-[1.15]">
+            {/* Main Headline with crystal-clear contrast and crisp text clarity on mobile */}
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-[46px] xl:text-[54px] font-black text-iq-navy tracking-tight leading-[1.15] [text-shadow:_0_1px_3px_rgba(255,255,255,0.9),_0_2px_8px_rgba(255,255,255,0.7)] lg:[text-shadow:none]">
               {slide.title}{' '}
               <span className="text-iq-red relative inline-block">
                 {slide.highlightedText}
@@ -130,8 +130,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
               </span>
             </h1>
 
-            {/* Description */}
-            <p className="text-xs sm:text-base md:text-lg text-slate-700 leading-relaxed max-w-xl mx-auto lg:mx-0 font-medium">
+            {/* Description with high clarity on mobile */}
+            <p className="text-xs sm:text-base md:text-lg text-slate-800 lg:text-slate-700 leading-relaxed max-w-xl mx-auto lg:mx-0 font-semibold lg:font-medium [text-shadow:_0_1px_3px_rgba(255,255,255,0.95)] lg:[text-shadow:none]">
               {slide.description}
             </p>
 
