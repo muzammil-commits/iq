@@ -10,14 +10,14 @@ export const QuickSearchAction: React.FC = () => {
   const [serviceFilter, setServiceFilter] = useState('All');
   const [destinationFilter, setDestinationFilter] = useState('All');
 
-  // Quick Action pills
+  // Quick Action pills with popup hints
   const quickActions = [
-    { label: 'Study Abroad', path: '/services' },
-    { label: 'Masters', path: '/masters' },
-    { label: 'Bachelors', path: '/bachelors' },
-    { label: 'Visa Assistance', path: '/visa' },
-    { label: 'Training', path: '/training' },
-    { label: 'Career Counselling', path: '/services/career-counselling' },
+    { label: 'Study Abroad', path: '/services', hint: '500+ global partner universities' },
+    { label: 'Masters', path: '/masters', hint: 'Top MS, MBA & STEM degrees' },
+    { label: 'Bachelors', path: '/bachelors', hint: 'Undergrad admissions & scholarships' },
+    { label: 'Visa Assistance', path: '/visa', hint: '98%+ high visa success guidance' },
+    { label: 'Training', path: '/training', hint: 'IELTS, TOEFL, GRE coaching' },
+    { label: 'Career Counselling', path: '/services/career-counselling', hint: '1-on-1 profile evaluation' },
   ];
 
   // Dynamic live search results
@@ -112,10 +112,10 @@ export const QuickSearchAction: React.FC = () => {
 
   return (
     <div className="w-full relative z-30 -mt-14 sm:-mt-16 lg:-mt-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      {/* 50% Overlap Card: 50% sits in Hero Section, 50% sits in Trust Strip below */}
-      <div className="bg-white/98 backdrop-blur-xl rounded-3xl p-5 sm:p-6 lg:p-7 border border-slate-200/90 shadow-[0_20px_50px_rgba(7,27,104,0.15)] ring-1 ring-black/5">
+      {/* 50% Overlap Card: 100% Solid Pure White, No Background Bleed Through */}
+      <div className="bg-white rounded-3xl p-5 sm:p-6 lg:p-7 border border-slate-200 shadow-[0_25px_60px_rgba(7,27,104,0.18)] transition-all duration-300 hover:shadow-[0_30px_70px_rgba(7,27,104,0.24)]">
         
-        {/* Quick Action Heading & Navigation Pills */}
+        {/* Quick Action Heading & Navigation Pills with Interactive Tooltip Popups */}
         <div className="mb-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
             <h3 className="text-base sm:text-lg font-bold text-iq-navy flex items-center gap-2">
@@ -127,16 +127,25 @@ export const QuickSearchAction: React.FC = () => {
             </span>
           </div>
 
-          {/* Quick Filter Pills */}
+          {/* Quick Filter Pills with Interactive Hover Popups */}
           <div className="flex flex-wrap items-center gap-2">
             {quickActions.map((action) => (
-              <Link
-                key={action.label}
-                to={action.path}
-                className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white/90 hover:bg-iq-navy hover:text-white text-slate-700 transition-all duration-200 border border-slate-200/80 shadow-2xs hover:shadow-xs"
-              >
-                {action.label}
-              </Link>
+              <div key={action.label} className="relative group">
+                <Link
+                  to={action.path}
+                  className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-100/90 hover:bg-iq-navy hover:text-white text-slate-700 transition-all duration-200 border border-slate-200/80 shadow-2xs hover:shadow-xs inline-flex items-center gap-1 cursor-pointer"
+                >
+                  <span>{action.label}</span>
+                </Link>
+
+                {/* Animated Hover Popup Tooltip */}
+                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:flex flex-col items-center pointer-events-none z-50 animate-in fade-in zoom-in-95 duration-150">
+                  <div className="bg-iq-navy text-white text-[11px] font-bold py-1 px-2.5 rounded-lg shadow-xl whitespace-nowrap border border-white/20">
+                    {action.hint}
+                  </div>
+                  <div className="w-2 h-2 bg-iq-navy rotate-45 -mt-1" />
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -153,13 +162,13 @@ export const QuickSearchAction: React.FC = () => {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search courses, services or destinations..."
-                className="w-full pl-10 pr-4 py-2.5 bg-white/95 border border-slate-200/90 rounded-2xl text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-iq-navy/20 focus:border-iq-navy transition-all shadow-2xs"
+                className="w-full pl-10 pr-4 py-2.5 bg-slate-50/70 hover:bg-white focus:bg-white border border-slate-200/90 rounded-2xl text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-iq-navy/20 focus:border-iq-navy transition-all shadow-2xs"
               />
               {query && (
                 <button
                   type="button"
                   onClick={() => setQuery('')}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-xs font-bold"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-xs font-bold cursor-pointer"
                 >
                   Clear
                 </button>
@@ -171,7 +180,7 @@ export const QuickSearchAction: React.FC = () => {
               <select
                 value={studyLevel}
                 onChange={(e) => setStudyLevel(e.target.value)}
-                className="w-full px-3 py-2.5 bg-white/95 border border-slate-200/90 rounded-2xl text-xs sm:text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-iq-navy/20 focus:border-iq-navy transition-all font-medium shadow-2xs"
+                className="w-full px-3 py-2.5 bg-slate-50/70 hover:bg-white focus:bg-white border border-slate-200/90 rounded-2xl text-xs sm:text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-iq-navy/20 focus:border-iq-navy transition-all font-medium shadow-2xs cursor-pointer"
               >
                 <option value="All">Study Level</option>
                 <option value="Masters">Masters</option>
@@ -185,7 +194,7 @@ export const QuickSearchAction: React.FC = () => {
               <select
                 value={serviceFilter}
                 onChange={(e) => setServiceFilter(e.target.value)}
-                className="w-full px-3 py-2.5 bg-white/95 border border-slate-200/90 rounded-2xl text-xs sm:text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-iq-navy/20 focus:border-iq-navy transition-all font-medium shadow-2xs"
+                className="w-full px-3 py-2.5 bg-slate-50/70 hover:bg-white focus:bg-white border border-slate-200/90 rounded-2xl text-xs sm:text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-iq-navy/20 focus:border-iq-navy transition-all font-medium shadow-2xs cursor-pointer"
               >
                 <option value="All">All Services</option>
                 <option value="Career Counselling">Career Counselling</option>
@@ -202,7 +211,7 @@ export const QuickSearchAction: React.FC = () => {
               <select
                 value={destinationFilter}
                 onChange={(e) => setDestinationFilter(e.target.value)}
-                className="w-full px-3 py-2.5 bg-white/95 border border-slate-200/90 rounded-2xl text-xs sm:text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-iq-navy/20 focus:border-iq-navy transition-all font-medium shadow-2xs"
+                className="w-full px-3 py-2.5 bg-slate-50/70 hover:bg-white focus:bg-white border border-slate-200/90 rounded-2xl text-xs sm:text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-iq-navy/20 focus:border-iq-navy transition-all font-medium shadow-2xs cursor-pointer"
               >
                 <option value="All">Destination</option>
                 <option value="United States">USA</option>
@@ -218,7 +227,7 @@ export const QuickSearchAction: React.FC = () => {
             <div className="md:col-span-1">
               <button
                 type="submit"
-                className="w-full py-2.5 px-4 bg-iq-red hover:bg-iq-red-hover text-white rounded-2xl text-xs sm:text-sm font-bold flex items-center justify-center transition-colors shadow-sm"
+                className="w-full py-2.5 px-4 bg-iq-red hover:bg-iq-red-hover text-white rounded-2xl text-xs sm:text-sm font-bold flex items-center justify-center transition-colors shadow-sm cursor-pointer"
                 title="Search"
               >
                 <Search className="w-4 h-4" />
@@ -227,19 +236,22 @@ export const QuickSearchAction: React.FC = () => {
 
           </div>
 
-          {/* Active Search Dropdown Results */}
+          {/* Active Search Dropdown Results with Solid White Background & Popup Animation */}
           {searchResults.length > 0 && (
-            <div className="mt-3 p-3.5 bg-white/95 backdrop-blur-md rounded-2xl border border-slate-200 shadow-lg animate-in fade-in duration-200">
-              <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center justify-between">
-                <span>Matching Results ({searchResults.length})</span>
-                <span className="text-[10px] text-iq-navy font-semibold">Click to open</span>
+            <div className="mt-3 p-4 bg-white rounded-2xl border-2 border-iq-navy/15 shadow-2xl animate-in fade-in slide-in-from-top-2 duration-200">
+              <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-2.5 flex items-center justify-between">
+                <span className="flex items-center gap-1.5 text-iq-navy">
+                  <Sparkles className="w-3.5 h-3.5 text-iq-red" />
+                  Matching Results ({searchResults.length})
+                </span>
+                <span className="text-[10px] text-iq-red font-bold">Click to view details</span>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5">
                 {searchResults.map((res, i) => (
                   <Link
                     key={i}
                     to={res.link}
-                    className="p-3 bg-slate-50/70 hover:bg-white rounded-xl border border-slate-200/70 hover:border-iq-navy hover:shadow-xs transition-all group flex flex-col justify-between"
+                    className="p-3 bg-slate-50/80 hover:bg-blue-50/50 rounded-xl border border-slate-200/80 hover:border-iq-navy hover:shadow-xs transition-all group flex flex-col justify-between"
                   >
                     <div>
                       <div className="text-xs font-bold text-iq-navy group-hover:text-iq-red transition-colors flex items-center justify-between">
@@ -247,7 +259,7 @@ export const QuickSearchAction: React.FC = () => {
                         <ArrowRight className="w-3 h-3 text-slate-300 group-hover:text-iq-red transition-colors" />
                       </div>
                       <div className="text-[10px] text-iq-red font-medium mt-0.5">{res.category}</div>
-                      <p className="text-[11px] text-slate-500 line-clamp-2 mt-1 leading-snug">
+                      <p className="text-[11px] text-slate-600 line-clamp-2 mt-1 leading-snug">
                         {res.description}
                       </p>
                     </div>

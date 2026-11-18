@@ -173,63 +173,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
           </div>
 
           {/* 
-            Desktop Right Column: Layered Interactive Floating Cards
-            They float right over the student and globe visual of image copy 3.png in the background!
+            Desktop Right Column: Unobstructed view of the hero background image (student, landmarks & airplane)
+            The 4 floating cards and badge have been removed as requested.
           */}
-          <div className="hidden lg:block lg:col-span-5 xl:col-span-6 relative min-h-[480px] pointer-events-none">
-            <div className="w-full h-full relative pointer-events-auto">
-              
-              {/* Card 1: Student Support (Top Right - Green Icon) */}
-              <div className="absolute top-2 right-4 2xl:right-8 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3 animate-float-slow transition-transform hover:scale-105">
-                <div className="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-xs">
-                  <Users className="w-5 h-5 text-white" />
-                </div>
-                <div>
-                  <div className="text-xs font-extrabold text-iq-navy">Student Support</div>
-                  <div className="text-[10px] text-slate-500 font-medium">Pre & post departure</div>
-                </div>
-              </div>
-
-              {/* Card 2: Global Universities (Upper Right Center - Navy Icon) */}
-              <div className="absolute top-28 right-4 2xl:right-8 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3 animate-float-delayed transition-transform hover:scale-105">
-                <div className="w-10 h-10 rounded-xl bg-iq-navy text-white flex items-center justify-center shrink-0 shadow-xs">
-                  <GraduationCap className="w-5 h-5 text-white" />
-                </div>
-                <div>
-                  <div className="text-xs font-extrabold text-iq-navy">Global Universities</div>
-                  <div className="text-[10px] text-slate-500 font-medium">World-ranked programs</div>
-                </div>
-              </div>
-
-              {/* Card 3: Career Guidance (Lower Right Center - Red Icon) */}
-              <div className="absolute top-56 right-4 2xl:right-8 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3 animate-float-slow transition-transform hover:scale-105">
-                <div className="w-10 h-10 rounded-xl bg-iq-red text-white flex items-center justify-center shrink-0 shadow-xs">
-                  <Briefcase className="w-5 h-5 text-white" />
-                </div>
-                <div>
-                  <div className="text-xs font-extrabold text-iq-navy">Career Guidance</div>
-                  <div className="text-[10px] text-slate-500 font-medium">Profile & ROI roadmap</div>
-                </div>
-              </div>
-
-              {/* Card 4: Visa Assistance (Bottom Right - Navy/Shield Icon) */}
-              <div className="absolute bottom-4 right-4 2xl:right-8 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3 animate-float-delayed transition-transform hover:scale-105">
-                <div className="w-10 h-10 rounded-xl bg-iq-navy text-white flex items-center justify-center shrink-0 shadow-xs">
-                  <ShieldCheck className="w-5 h-5 text-emerald-400" />
-                </div>
-                <div>
-                  <div className="text-xs font-extrabold text-iq-navy">Visa Assistance</div>
-                  <div className="text-[10px] text-slate-500 font-medium">Filing & mock interviews</div>
-                </div>
-              </div>
-
-              {/* Bottom Badge: Guntur to Global Campuses */}
-              <div className="absolute bottom-4 left-6 bg-iq-navy/95 backdrop-blur-md text-white px-4 py-2.5 rounded-2xl text-xs font-bold flex items-center gap-2.5 shadow-xl border border-white/20">
-                <Plane className="w-4 h-4 text-iq-red animate-pulse" />
-                <span>Guntur to Global Campuses</span>
-              </div>
-            </div>
-          </div>
+          <div className="hidden lg:block lg:col-span-5 xl:col-span-6 min-h-[420px] pointer-events-none" />
 
         </div>
 

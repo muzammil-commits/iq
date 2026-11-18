@@ -37,22 +37,22 @@ export const TrustStrip: React.FC = () => {
                 {getIcon(item.icon)}
               </div>
 
-              {/* Text & Metrics */}
+              {/* Text & Metrics - 100% Visible with ZERO truncation */}
               <div className="flex-1 min-w-0">
-                <div className="flex items-center justify-between gap-1">
-                  <h4 className="text-sm sm:text-base font-extrabold text-white tracking-wide group-hover:text-sky-200 transition-colors truncate">
+                <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-1.5">
+                  <h4 className="text-sm sm:text-base font-extrabold text-white tracking-wide group-hover:text-sky-200 transition-colors whitespace-normal">
                     {item.title}
                   </h4>
-                  <span className="text-[10px] font-mono font-bold text-amber-300 bg-amber-400/10 px-1.5 py-0.5 rounded border border-amber-400/20 shrink-0">
+                  <span className="text-[10px] font-mono font-bold text-amber-300 bg-amber-400/15 px-2 py-0.5 rounded border border-amber-400/30 shrink-0 self-start xl:self-auto whitespace-nowrap">
                     {item.badge}
                   </span>
                 </div>
 
-                <div className="text-xs font-bold text-blue-200 mt-0.5">
+                <div className="text-xs sm:text-sm font-bold text-blue-200 mt-1">
                   {item.metric}
                 </div>
 
-                <p className="text-[11px] text-blue-100/70 leading-snug mt-0.5 line-clamp-1">
+                <p className="text-[11px] sm:text-xs text-blue-100/80 leading-relaxed mt-1">
                   {item.desc}
                 </p>
               </div>
