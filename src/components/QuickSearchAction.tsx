@@ -111,9 +111,9 @@ export const QuickSearchAction: React.FC = () => {
   };
 
   return (
-    <div className="w-full relative z-20 py-5 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      {/* Seamless container blended directly with section background as requested */}
-      <div className="bg-gradient-to-r from-slate-100/70 via-blue-50/50 to-slate-100/70 backdrop-blur-md rounded-3xl p-5 sm:p-6 border border-slate-200/70 shadow-xs">
+    <div className="w-full relative z-30 -mt-14 sm:-mt-16 lg:-mt-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 50% Overlap Card: 50% sits in Hero Section, 50% sits in Trust Strip below */}
+      <div className="bg-white/98 backdrop-blur-xl rounded-3xl p-5 sm:p-6 lg:p-7 border border-slate-200/90 shadow-[0_20px_50px_rgba(7,27,104,0.15)] ring-1 ring-black/5">
         
         {/* Quick Action Heading & Navigation Pills */}
         <div className="mb-4">

@@ -62,7 +62,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
 
   return (
     <section
-      className="relative w-full overflow-hidden min-h-[580px] lg:min-h-[640px] xl:min-h-[680px] flex flex-col justify-between border-b border-slate-100"
+      className="relative w-full overflow-hidden bg-white min-h-[580px] lg:min-h-[660px] xl:min-h-[700px] flex flex-col justify-between pb-20 sm:pb-24 lg:pb-28"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onTouchStart={handleTouchStart}
@@ -72,8 +72,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
     >
       {/* 
         DESKTOP HERO FULL BACKGROUND (image copy 3.png)
-        The user explicitly requested:
-        "in the hero section pic set the baground like text baground hero setion baground - C:\Users\muzam\Desktop\IQ\image copy 3.png - et this picin desktop view in ghe hero setion and"
+        Rich international background with world map, airplane & student
       */}
       <div className="hidden lg:block absolute inset-0 z-0">
         <img
@@ -81,35 +80,85 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
           alt="IQ Overseas Hero Background Banner"
           className="w-full h-full object-cover object-right 2xl:object-center filter brightness-[1.02]"
         />
-        {/* Soft elegant gradient on the left so the text sits on top of the sky while keeping the sky & plane visible */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent w-full lg:w-[62%] 2xl:w-[55%] pointer-events-none" />
+        {/* Soft elegant gradient on the left so the text sits on top while keeping background scenery visible */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-transparent w-full lg:w-[62%] 2xl:w-[55%] pointer-events-none" />
         <div className="absolute top-0 right-0 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl pointer-events-none" />
       </div>
 
-      {/* 
-        MOBILE HERO FULL BACKGROUND (image copy 4.png)
-        The user explicitly requested:
-        "C:\Users\muzam\Desktop\IQ\image copy 4.png - this pic in ghe mobile view hero section with animgted , in ghe etxt bagroound and"
-      */}
-      <div className="lg:hidden absolute inset-0 z-0">
-        <img
-          src="/images/hero-mobile.png"
-          alt="IQ Overseas Mobile Hero Background"
-          className="w-full h-full object-cover object-top filter brightness-[1.05]"
-        />
-        {/* Bright atmospheric gradient so text on top is 100% crisp and readable */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/85 to-white/90 pointer-events-none" />
-      </div>
-
       {/* Main Content Container Layer */}
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 pb-6 w-full relative z-10 flex-1 flex flex-col justify-center">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-10 w-full relative z-10 flex-1 flex flex-col justify-center">
+        
+        {/* 
+          MOBILE HERO TOP VISUAL STAGE (media_1795003369186_3fb77c26.png)
+          Shows the bright lady student on left + the 4 stacked cards on right
+          Placed directly below the header in mobile view as requested!
+        */}
+        <div className="lg:hidden w-full relative rounded-3xl overflow-hidden shadow-xl mb-6 border border-slate-200/80 bg-gradient-to-r from-[#071B68] to-blue-900">
+          <div className="relative h-[290px] sm:h-[350px] w-full">
+            {/* The bright mobile hero photo */}
+            <img
+              src="/images/hero-mobile.png"
+              alt="IQ Overseas Student"
+              className="w-full h-full object-cover object-left filter brightness-105 contrast-[1.03]"
+            />
+            {/* Soft gradient to cleanly blend the 4 cards on the right */}
+            <div className="absolute inset-y-0 right-0 w-[64%] sm:w-[55%] bg-gradient-to-l from-white/95 via-white/85 to-transparent flex flex-col justify-center gap-2 p-2 sm:p-3.5 z-10">
+              
+              {/* Card 1: Student Support (Green Icon) */}
+              <div className="bg-white/95 backdrop-blur-md rounded-xl p-2 sm:p-2.5 shadow-sm border border-slate-100 flex items-center gap-2.5 transform transition-transform hover:scale-102">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-2xs">
+                  <Users className="w-4 h-4 text-white" />
+                </div>
+                <div className="min-w-0">
+                  <div className="text-[11px] sm:text-xs font-black text-iq-navy leading-tight truncate">Student Support</div>
+                  <div className="text-[9px] sm:text-[10px] text-slate-500 font-medium truncate">Pre & post departure</div>
+                </div>
+              </div>
+
+              {/* Card 2: Global Universities (Navy Icon) */}
+              <div className="bg-white/95 backdrop-blur-md rounded-xl p-2 sm:p-2.5 shadow-sm border border-slate-100 flex items-center gap-2.5 transform transition-transform hover:scale-102">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-iq-navy text-white flex items-center justify-center shrink-0 shadow-2xs">
+                  <GraduationCap className="w-4 h-4 text-white" />
+                </div>
+                <div className="min-w-0">
+                  <div className="text-[11px] sm:text-xs font-black text-iq-navy leading-tight truncate">Global Universities</div>
+                  <div className="text-[9px] sm:text-[10px] text-slate-500 font-medium truncate">World-ranked programs</div>
+                </div>
+              </div>
+
+              {/* Card 3: Career Guidance (Red Icon) */}
+              <div className="bg-white/95 backdrop-blur-md rounded-xl p-2 sm:p-2.5 shadow-sm border border-slate-100 flex items-center gap-2.5 transform transition-transform hover:scale-102">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-iq-red text-white flex items-center justify-center shrink-0 shadow-2xs">
+                  <Briefcase className="w-4 h-4 text-white" />
+                </div>
+                <div className="min-w-0">
+                  <div className="text-[11px] sm:text-xs font-black text-iq-navy leading-tight truncate">Career Guidance</div>
+                  <div className="text-[9px] sm:text-[10px] text-slate-500 font-medium truncate">Profile & ROI roadmap</div>
+                </div>
+              </div>
+
+              {/* Card 4: Visa Assistance (Navy Icon with Shield) */}
+              <div className="bg-white/95 backdrop-blur-md rounded-xl p-2 sm:p-2.5 shadow-sm border border-slate-100 flex items-center gap-2.5 transform transition-transform hover:scale-102">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-iq-navy text-white flex items-center justify-center shrink-0 shadow-2xs">
+                  <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                </div>
+                <div className="min-w-0">
+                  <div className="text-[11px] sm:text-xs font-black text-iq-navy leading-tight truncate">Visa Assistance</div>
+                  <div className="text-[9px] sm:text-[10px] text-slate-500 font-medium truncate">Filing & mock interviews</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           {/* Left Column: Heading, Subtitle & CTAs directly on top of the background */}
-          <div className="lg:col-span-7 xl:col-span-6 space-y-5 sm:space-y-6 text-center lg:text-left">
+          <div className="lg:col-span-7 xl:col-span-6 space-y-4 sm:space-y-6 text-center lg:text-left">
             
             {/* Category Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-slate-200/90 shadow-xs text-iq-navy text-xs sm:text-sm font-bold tracking-wide">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-xs text-iq-navy text-xs sm:text-sm font-bold tracking-wide">
               <span className="w-2 h-2 rounded-full bg-iq-red animate-pulse" />
               <span>{slide.category}</span>
               <span className="text-slate-300">|</span>
@@ -117,7 +166,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[46px] xl:text-[54px] font-black text-iq-navy tracking-tight leading-[1.12]">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-[46px] xl:text-[54px] font-black text-iq-navy tracking-tight leading-[1.15]">
               {slide.title}{' '}
               <span className="text-iq-red relative inline-block">
                 {slide.highlightedText}
@@ -132,12 +181,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
             </h1>
 
             {/* Description */}
-            <p className="text-sm sm:text-base md:text-lg text-slate-700 leading-relaxed max-w-xl mx-auto lg:mx-0 font-medium">
+            <p className="text-xs sm:text-base md:text-lg text-slate-700 leading-relaxed max-w-xl mx-auto lg:mx-0 font-medium">
               {slide.description}
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-1">
               <Link
                 to={slide.primaryCtaLink}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 text-sm sm:text-base font-extrabold text-white bg-iq-red hover:bg-iq-red-hover rounded-full shadow-[0_8px_25px_rgba(227,6,19,0.35)] hover:shadow-[0_12px_32px_rgba(227,6,19,0.45)] transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer"
@@ -156,67 +205,32 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
             </div>
 
             {/* Trust Highlights below CTAs */}
-            <div className="pt-4 grid grid-cols-3 gap-3 border-t border-slate-300/60 text-left max-w-md mx-auto lg:mx-0">
-              <div className="bg-white/85 backdrop-blur-md p-2.5 rounded-2xl border border-slate-200/80 shadow-2xs">
-                <div className="text-xs font-bold text-iq-navy">100% Focused</div>
-                <div className="text-[11px] text-slate-500">Student First</div>
+            <div className="pt-3 sm:pt-4 grid grid-cols-3 gap-2.5 sm:gap-3 border-t border-slate-300/60 text-left max-w-md mx-auto lg:mx-0">
+              <div className="bg-white/90 backdrop-blur-md p-2 sm:p-2.5 rounded-2xl border border-slate-200/80 shadow-2xs">
+                <div className="text-[11px] sm:text-xs font-bold text-iq-navy">100% Focused</div>
+                <div className="text-[10px] sm:text-[11px] text-slate-500">Student First</div>
               </div>
-              <div className="bg-white/85 backdrop-blur-md p-2.5 rounded-2xl border border-slate-200/80 shadow-2xs">
-                <div className="text-xs font-bold text-iq-navy">Global Reach</div>
-                <div className="text-[11px] text-slate-500">Tier-1 Countries</div>
+              <div className="bg-white/90 backdrop-blur-md p-2 sm:p-2.5 rounded-2xl border border-slate-200/80 shadow-2xs">
+                <div className="text-[11px] sm:text-xs font-bold text-iq-navy">Global Reach</div>
+                <div className="text-[10px] sm:text-[11px] text-slate-500">Tier-1 Countries</div>
               </div>
-              <div className="bg-white/85 backdrop-blur-md p-2.5 rounded-2xl border border-slate-200/80 shadow-2xs">
-                <div className="text-xs font-bold text-iq-navy">Full Support</div>
-                <div className="text-[11px] text-slate-500">Profile to Visa</div>
+              <div className="bg-white/90 backdrop-blur-md p-2 sm:p-2.5 rounded-2xl border border-slate-200/80 shadow-2xs">
+                <div className="text-[11px] sm:text-xs font-bold text-iq-navy">Full Support</div>
+                <div className="text-[10px] sm:text-[11px] text-slate-500">Profile to Visa</div>
               </div>
             </div>
 
           </div>
 
           {/* 
-            Right Column: Layered Interactive Floating Cards
+            Desktop Right Column: Layered Interactive Floating Cards
             They float right over the student and globe visual of image copy 3.png in the background!
           */}
-          <div className="lg:col-span-5 xl:col-span-6 relative min-h-[380px] lg:min-h-[480px] pointer-events-none">
-            
-            {/* Desktop Floating Cards overlaid onto background image */}
-            <div className="hidden lg:block w-full h-full relative pointer-events-auto">
+          <div className="hidden lg:block lg:col-span-5 xl:col-span-6 relative min-h-[480px] pointer-events-none">
+            <div className="w-full h-full relative pointer-events-auto">
               
-              {/* Card 1: Global Universities (Top Right) */}
+              {/* Card 1: Student Support (Top Right - Green Icon) */}
               <div className="absolute top-2 right-4 2xl:right-8 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3 animate-float-slow transition-transform hover:scale-105">
-                <div className="w-10 h-10 rounded-xl bg-iq-navy text-white flex items-center justify-center shrink-0 shadow-xs">
-                  <GraduationCap className="w-5 h-5 text-white" />
-                </div>
-                <div>
-                  <div className="text-xs font-extrabold text-iq-navy">Global Universities</div>
-                  <div className="text-[10px] text-slate-500 font-medium">World-ranked programs</div>
-                </div>
-              </div>
-
-              {/* Card 2: Career Guidance (Upper Right Center) */}
-              <div className="absolute top-28 right-4 2xl:right-8 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3 animate-float-delayed transition-transform hover:scale-105">
-                <div className="w-10 h-10 rounded-xl bg-iq-red text-white flex items-center justify-center shrink-0 shadow-xs">
-                  <Briefcase className="w-5 h-5 text-white" />
-                </div>
-                <div>
-                  <div className="text-xs font-extrabold text-iq-navy">Career Guidance</div>
-                  <div className="text-[10px] text-slate-500 font-medium">Profile & ROI roadmap</div>
-                </div>
-              </div>
-
-              {/* Card 3: Visa Assistance (Lower Right Center) */}
-              <div className="absolute top-56 right-4 2xl:right-8 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3 animate-float-slow transition-transform hover:scale-105">
-                <div className="w-10 h-10 rounded-xl bg-iq-navy text-white flex items-center justify-center shrink-0 shadow-xs">
-                  <ShieldCheck className="w-5 h-5 text-emerald-400" />
-                </div>
-                <div>
-                  <div className="text-xs font-extrabold text-iq-navy">Visa Assistance</div>
-                  <div className="text-[10px] text-slate-500 font-medium">Filing & mock interviews</div>
-                </div>
-              </div>
-
-              {/* Card 4: Student Support (Bottom Right) */}
-              <div className="absolute bottom-4 right-4 2xl:right-8 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3 animate-float-delayed transition-transform hover:scale-105">
                 <div className="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-xs">
                   <Users className="w-5 h-5 text-white" />
                 </div>
@@ -226,29 +240,45 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
                 </div>
               </div>
 
+              {/* Card 2: Global Universities (Upper Right Center - Navy Icon) */}
+              <div className="absolute top-28 right-4 2xl:right-8 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3 animate-float-delayed transition-transform hover:scale-105">
+                <div className="w-10 h-10 rounded-xl bg-iq-navy text-white flex items-center justify-center shrink-0 shadow-xs">
+                  <GraduationCap className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <div className="text-xs font-extrabold text-iq-navy">Global Universities</div>
+                  <div className="text-[10px] text-slate-500 font-medium">World-ranked programs</div>
+                </div>
+              </div>
+
+              {/* Card 3: Career Guidance (Lower Right Center - Red Icon) */}
+              <div className="absolute top-56 right-4 2xl:right-8 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3 animate-float-slow transition-transform hover:scale-105">
+                <div className="w-10 h-10 rounded-xl bg-iq-red text-white flex items-center justify-center shrink-0 shadow-xs">
+                  <Briefcase className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <div className="text-xs font-extrabold text-iq-navy">Career Guidance</div>
+                  <div className="text-[10px] text-slate-500 font-medium">Profile & ROI roadmap</div>
+                </div>
+              </div>
+
+              {/* Card 4: Visa Assistance (Bottom Right - Navy/Shield Icon) */}
+              <div className="absolute bottom-4 right-4 2xl:right-8 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3 animate-float-delayed transition-transform hover:scale-105">
+                <div className="w-10 h-10 rounded-xl bg-iq-navy text-white flex items-center justify-center shrink-0 shadow-xs">
+                  <ShieldCheck className="w-5 h-5 text-emerald-400" />
+                </div>
+                <div>
+                  <div className="text-xs font-extrabold text-iq-navy">Visa Assistance</div>
+                  <div className="text-[10px] text-slate-500 font-medium">Filing & mock interviews</div>
+                </div>
+              </div>
+
               {/* Bottom Badge: Guntur to Global Campuses */}
               <div className="absolute bottom-4 left-6 bg-iq-navy/95 backdrop-blur-md text-white px-4 py-2.5 rounded-2xl text-xs font-bold flex items-center gap-2.5 shadow-xl border border-white/20">
                 <Plane className="w-4 h-4 text-iq-red animate-pulse" />
                 <span>Guntur to Global Campuses</span>
               </div>
             </div>
-
-            {/* Mobile View Floating Badges */}
-            <div className="lg:hidden flex flex-wrap items-center justify-center gap-2 pt-2 pointer-events-auto">
-              <div className="bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-xl text-xs font-bold text-iq-navy shadow-md flex items-center gap-1.5 border border-slate-200">
-                <GraduationCap className="w-4 h-4 text-iq-red" />
-                <span>Masters & Bachelors</span>
-              </div>
-              <div className="bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-xl text-xs font-bold text-iq-navy shadow-md flex items-center gap-1.5 border border-slate-200">
-                <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                <span>Visa Guidance</span>
-              </div>
-              <div className="bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-xl text-xs font-bold text-iq-navy shadow-md flex items-center gap-1.5 border border-slate-200">
-                <Users className="w-4 h-4 text-blue-600" />
-                <span>100% Student Care</span>
-              </div>
-            </div>
-
           </div>
 
         </div>
@@ -260,7 +290,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
               <button
                 key={s.id}
                 onClick={() => setCurrentSlide(idx)}
-                className={`h-2 rounded-full transition-all duration-300 ${
+                className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
                   currentSlide === idx
                     ? 'w-8 bg-iq-red shadow-[0_0_8px_rgba(227,6,19,0.5)]'
                     : 'w-2 bg-slate-400 hover:bg-slate-600'
@@ -276,14 +306,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
           <div className="flex items-center gap-2">
             <button
               onClick={prevSlide}
-              className="w-8 h-8 rounded-full bg-white/90 hover:bg-iq-navy hover:text-white text-slate-700 border border-slate-300 flex items-center justify-center transition-colors shadow-xs"
+              className="w-8 h-8 rounded-full bg-white/90 hover:bg-iq-navy hover:text-white text-slate-700 border border-slate-300 flex items-center justify-center transition-colors shadow-xs cursor-pointer"
               aria-label="Previous Slide"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
             <button
               onClick={nextSlide}
-              className="w-8 h-8 rounded-full bg-white/90 hover:bg-iq-navy hover:text-white text-slate-700 border border-slate-300 flex items-center justify-center transition-colors shadow-xs"
+              className="w-8 h-8 rounded-full bg-white/90 hover:bg-iq-navy hover:text-white text-slate-700 border border-slate-300 flex items-center justify-center transition-colors shadow-xs cursor-pointer"
               aria-label="Next Slide"
             >
               <ChevronRight className="w-4 h-4" />
