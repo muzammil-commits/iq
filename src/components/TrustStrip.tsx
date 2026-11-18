@@ -1,40 +1,58 @@
 import React from 'react';
-import { Globe, Users, ShieldCheck, Trophy } from 'lucide-react';
+import { Globe, Users, ShieldCheck, Trophy, Sparkles, Award } from 'lucide-react';
 import { TRUST_STRIP_ITEMS } from '../data/siteContent';
 
 export const TrustStrip: React.FC = () => {
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case 'Globe':
-        return <Globe className="w-5 h-5 text-blue-300" />;
+        return <Globe className="w-6 h-6 text-sky-400" />;
       case 'Users':
-        return <Users className="w-5 h-5 text-blue-300" />;
+        return <Users className="w-6 h-6 text-blue-300" />;
       case 'ShieldCheck':
-        return <ShieldCheck className="w-5 h-5 text-emerald-400" />;
+        return <ShieldCheck className="w-6 h-6 text-emerald-400" />;
       case 'Trophy':
-        return <Trophy className="w-5 h-5 text-amber-400" />;
+        return <Trophy className="w-6 h-6 text-amber-400" />;
       default:
-        return <Globe className="w-5 h-5 text-blue-300" />;
+        return <Globe className="w-6 h-6 text-sky-400" />;
     }
   };
 
   return (
-    <div className="w-full bg-[#071B68] text-white py-4 sm:py-5 border-y border-iq-navy-light/40 relative z-10 shadow-inner">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 items-center justify-between divide-y-0 md:divide-x md:divide-white/10">
-          {TRUST_STRIP_ITEMS.map((item) => (
+    <div className="w-full bg-gradient-to-r from-[#030E38] via-[#071B68] to-[#040F3D] text-white py-6 sm:py-8 border-y-2 border-amber-400/20 relative z-10 shadow-2xl overflow-hidden">
+      {/* Background ambient lighting for grand look */}
+      <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:20px_20px] opacity-[0.04] pointer-events-none" />
+      <div className="absolute -left-20 top-0 w-60 h-60 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
+      <div className="absolute -right-20 bottom-0 w-60 h-60 bg-red-500/10 rounded-full blur-2xl pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+          {TRUST_STRIP_ITEMS.map((item, idx) => (
             <div
               key={item.id}
-              className="flex items-center gap-3 px-2 sm:px-4 py-1.5 group hover:bg-white/5 rounded-xl transition-colors cursor-default"
+              className="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 backdrop-blur-md rounded-2xl p-4 sm:p-5 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-900/30 group flex items-start gap-4"
             >
-              <div className="w-10 h-10 rounded-xl bg-white/10 group-hover:bg-iq-red flex items-center justify-center shrink-0 transition-colors duration-300">
+              {/* Icon Container */}
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-white/10 to-white/5 border border-white/15 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:border-iq-red transition-all duration-300 shadow-md">
                 {getIcon(item.icon)}
               </div>
-              <div>
-                <h4 className="text-xs sm:text-sm font-bold text-white tracking-wide group-hover:text-blue-100 transition-colors">
-                  {item.title}
-                </h4>
-                <p className="text-[11px] text-blue-200/80 hidden sm:block">
+
+              {/* Text & Metrics */}
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center justify-between gap-1">
+                  <h4 className="text-sm sm:text-base font-extrabold text-white tracking-wide group-hover:text-sky-200 transition-colors truncate">
+                    {item.title}
+                  </h4>
+                  <span className="text-[10px] font-mono font-bold text-amber-300 bg-amber-400/10 px-1.5 py-0.5 rounded border border-amber-400/20 shrink-0">
+                    {item.badge}
+                  </span>
+                </div>
+
+                <div className="text-xs font-bold text-blue-200 mt-0.5">
+                  {item.metric}
+                </div>
+
+                <p className="text-[11px] text-blue-100/70 leading-snug mt-0.5 line-clamp-1">
                   {item.desc}
                 </p>
               </div>

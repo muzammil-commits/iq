@@ -1,7 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, ChevronRight, Search, Phone, MessageSquare, ArrowRight } from 'lucide-react';
-import { BRAND_INFO, SERVICES_DATA } from '../data/siteContent';
+import {
+  Menu,
+  X,
+  ChevronDown,
+  ChevronRight,
+  Search,
+  MessageSquare,
+  ArrowRight,
+  GraduationCap,
+  School,
+  BookOpenCheck,
+  ShieldCheck,
+  Globe2,
+  Sparkles
+} from 'lucide-react';
+import {
+  BRAND_INFO,
+  SERVICES_DATA,
+  MASTERS_DROPDOWN,
+  BACHELORS_DROPDOWN,
+  TRAINING_DROPDOWN
+} from '../data/siteContent';
 
 interface HeaderProps {
   onOpenConsultation: () => void;
@@ -10,8 +30,8 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
-  const [visaDropdownOpen, setVisaDropdownOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [mobileAccordion, setMobileAccordion] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
@@ -26,31 +46,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
   // Close menus on route change
   useEffect(() => {
     setMobileMenuOpen(false);
-    setServicesDropdownOpen(false);
-    setVisaDropdownOpen(false);
+    setActiveDropdown(null);
+    setMobileAccordion(null);
   }, [location.pathname]);
-
-  const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'About Company', path: '/about' },
-    {
-      name: 'Services',
-      path: '/services',
-      hasDropdown: true,
-      type: 'services'
-    },
-    {
-      name: 'Visa',
-      path: '/visa',
-      hasDropdown: true,
-      type: 'visa'
-    },
-    { name: 'Masters', path: '/masters' },
-    { name: 'Bachelors', path: '/bachelors' },
-    { name: 'Training', path: '/training' },
-    { name: 'Success Stories', path: '/success-stories' },
-    { name: 'Contact Us', path: '/contact' }
-  ];
 
   const educationServices = SERVICES_DATA.filter(s => s.category === 'Overseas Education & Student Support');
   const visaServices = SERVICES_DATA.filter(s => s.category === 'Visa Consultancy Services');
@@ -64,8 +62,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
     <header
       className={`sticky top-0 z-40 w-full bg-white transition-all duration-300 ${
         scrolled
-          ? 'shadow-[0_4px_20px_rgba(7,27,104,0.08)] py-2.5 border-b border-slate-100'
-          : 'py-3.5 border-b border-slate-100/80'
+          ? 'shadow-[0_4px_25px_rgba(7,27,104,0.08)] py-2 border-b border-slate-100'
+          : 'py-3 border-b border-slate-100/90'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -76,181 +74,397 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
             <img
               src="/images/logo.png"
               alt="IQ Overseas Edu Consultants Logo"
-              className="h-11 sm:h-14 md:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+              className="h-10 sm:h-12 md:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
             />
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden xl:flex items-center space-x-1 lg:space-x-1.5" aria-label="Main Navigation">
-            {navLinks.map((link) => {
-              const active = isActive(link.path);
+          {/* Desktop Navigation Menu */}
+          <nav className="hidden xl:flex items-center space-x-0.5 lg:space-x-1" aria-label="Main Navigation">
+            {/* 1. Home */}
+            <Link
+              to="/"
+              className={`px-3 py-2 text-xs lg:text-sm font-semibold transition-colors duration-200 rounded-lg relative ${
+                location.pathname === '/'
+                  ? 'text-iq-navy font-bold'
+                  : 'text-slate-700 hover:text-iq-navy hover:bg-slate-50'
+              }`}
+            >
+              Home
+              {location.pathname === '/' && (
+                <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-iq-red rounded-full" />
+              )}
+            </Link>
 
-              if (link.type === 'services') {
-                return (
-                  <div
-                    key={link.name}
-                    className="relative group"
-                    onMouseEnter={() => setServicesDropdownOpen(true)}
-                    onMouseLeave={() => setServicesDropdownOpen(false)}
-                  >
-                    <Link
-                      to={link.path}
-                      className={`inline-flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-md relative ${
-                        active
-                          ? 'text-iq-navy font-semibold'
-                          : 'text-slate-700 hover:text-iq-navy hover:bg-slate-50'
-                      }`}
-                    >
-                      {link.name}
-                      <ChevronDown
-                        className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 group-hover:rotate-180 group-hover:text-iq-red ${
-                          servicesDropdownOpen ? 'rotate-180 text-iq-red' : ''
-                        }`}
-                      />
-                      {active && (
-                        <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-iq-red rounded-full" />
-                      )}
-                    </Link>
+            {/* 2. About Company */}
+            <Link
+              to="/about"
+              className={`px-3 py-2 text-xs lg:text-sm font-semibold transition-colors duration-200 rounded-lg relative ${
+                isActive('/about')
+                  ? 'text-iq-navy font-bold'
+                  : 'text-slate-700 hover:text-iq-navy hover:bg-slate-50'
+              }`}
+            >
+              About Company
+              {isActive('/about') && (
+                <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-iq-red rounded-full" />
+              )}
+            </Link>
 
-                    {/* Services Dropdown */}
-                    <div
-                      className={`absolute top-full left-1/2 -translate-x-1/2 w-[540px] bg-white rounded-xl shadow-2xl border border-slate-100 p-4 transition-all duration-200 transform ${
-                        servicesDropdownOpen
-                          ? 'opacity-100 visible translate-y-1'
-                          : 'opacity-0 invisible pointer-events-none translate-y-3'
-                      }`}
-                    >
-                      <div className="grid grid-cols-2 gap-4">
-                        <div>
-                          <div className="text-[11px] font-bold uppercase tracking-wider text-iq-navy px-2 pb-2 mb-1 border-b border-slate-100">
-                            Student Support (01–06)
-                          </div>
-                          <div className="space-y-0.5">
-                            {educationServices.map((service) => (
-                              <Link
-                                key={service.id}
-                                to={`/services/${service.slug}`}
-                                className="block px-2.5 py-1.5 rounded-lg text-xs font-medium text-slate-700 hover:bg-iq-navy/5 hover:text-iq-navy transition-colors"
-                              >
-                                <span className="text-iq-red font-semibold mr-1.5">{service.number}</span>
-                                {service.title}
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
+            {/* 3. Services Dropdown */}
+            <div
+              className="relative group"
+              onMouseEnter={() => setActiveDropdown('services')}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              <Link
+                to="/services"
+                className={`inline-flex items-center gap-1 px-3 py-2 text-xs lg:text-sm font-semibold transition-colors duration-200 rounded-lg relative ${
+                  isActive('/services')
+                    ? 'text-iq-navy font-bold'
+                    : 'text-slate-700 hover:text-iq-navy hover:bg-slate-50'
+                }`}
+              >
+                <span>Services</span>
+                <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:rotate-180 group-hover:text-iq-red transition-transform duration-200" />
+                {isActive('/services') && (
+                  <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-iq-red rounded-full" />
+                )}
+              </Link>
 
-                        <div>
-                          <div className="text-[11px] font-bold uppercase tracking-wider text-iq-red px-2 pb-2 mb-1 border-b border-slate-100">
-                            Visa Consultancy (07–10)
-                          </div>
-                          <div className="space-y-0.5">
-                            {visaServices.map((service) => (
-                              <Link
-                                key={service.id}
-                                to={`/services/${service.slug}`}
-                                className="block px-2.5 py-1.5 rounded-lg text-xs font-medium text-slate-700 hover:bg-iq-red/5 hover:text-iq-red transition-colors"
-                              >
-                                <span className="text-iq-navy font-semibold mr-1.5">{service.number}</span>
-                                {service.title}
-                              </Link>
-                            ))}
-                            <div className="pt-2 mt-2 border-t border-slate-100">
-                              <Link
-                                to="/services"
-                                className="inline-flex items-center gap-1 text-xs font-semibold text-iq-navy hover:text-iq-red px-2 transition-colors"
-                              >
-                                View All 10 Services <ArrowRight className="w-3 h-3" />
-                              </Link>
-                            </div>
-                          </div>
-                        </div>
+              {activeDropdown === 'services' && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 w-[580px] bg-white rounded-2xl shadow-2xl border border-slate-100 p-5 animate-in fade-in slide-in-from-top-2 duration-200">
+                  <div className="grid grid-cols-2 gap-5">
+                    <div>
+                      <div className="text-[11px] font-bold uppercase tracking-wider text-iq-navy px-2 pb-2 mb-2 border-b border-slate-100 flex items-center justify-between">
+                        <span>Student Support</span>
+                        <span className="text-iq-red font-mono">01–06</span>
                       </div>
-                    </div>
-                  </div>
-                );
-              }
-
-              if (link.type === 'visa') {
-                return (
-                  <div
-                    key={link.name}
-                    className="relative group"
-                    onMouseEnter={() => setVisaDropdownOpen(true)}
-                    onMouseLeave={() => setVisaDropdownOpen(false)}
-                  >
-                    <Link
-                      to={link.path}
-                      className={`inline-flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-md relative ${
-                        active
-                          ? 'text-iq-navy font-semibold'
-                          : 'text-slate-700 hover:text-iq-navy hover:bg-slate-50'
-                      }`}
-                    >
-                      {link.name}
-                      <ChevronDown
-                        className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 group-hover:rotate-180 group-hover:text-iq-red ${
-                          visaDropdownOpen ? 'rotate-180 text-iq-red' : ''
-                        }`}
-                      />
-                      {active && (
-                        <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-iq-red rounded-full" />
-                      )}
-                    </Link>
-
-                    {/* Visa Dropdown */}
-                    <div
-                      className={`absolute top-full left-1/2 -translate-x-1/2 w-64 bg-white rounded-xl shadow-2xl border border-slate-100 p-3 transition-all duration-200 transform ${
-                        visaDropdownOpen
-                          ? 'opacity-100 visible translate-y-1'
-                          : 'opacity-0 invisible pointer-events-none translate-y-3'
-                      }`}
-                    >
                       <div className="space-y-1">
-                        {visaServices.map((v) => (
+                        {educationServices.map((service) => (
                           <Link
-                            key={v.id}
-                            to={`/services/${v.slug}`}
-                            className="block px-3 py-2 rounded-lg text-xs font-medium text-slate-700 hover:bg-iq-navy/5 hover:text-iq-navy transition-colors"
+                            key={service.id}
+                            to={`/services/${service.slug}`}
+                            className="block px-2.5 py-1.5 rounded-lg text-xs font-medium text-slate-700 hover:bg-iq-navy/5 hover:text-iq-navy transition-colors"
                           >
-                            <div className="font-semibold">{v.title}</div>
-                            <p className="text-[11px] text-slate-400 line-clamp-1">{v.shortDescription}</p>
+                            <span className="text-iq-red font-semibold mr-1.5">{service.number}</span>
+                            {service.title}
                           </Link>
                         ))}
-                        <div className="pt-2 mt-1 border-t border-slate-100">
+                      </div>
+                    </div>
+
+                    <div>
+                      <div className="text-[11px] font-bold uppercase tracking-wider text-iq-red px-2 pb-2 mb-2 border-b border-slate-100 flex items-center justify-between">
+                        <span>Visa Consultancy</span>
+                        <span className="text-iq-navy font-mono">07–10</span>
+                      </div>
+                      <div className="space-y-1">
+                        {visaServices.map((service) => (
                           <Link
-                            to="/visa"
-                            className="flex items-center justify-between text-xs font-semibold text-iq-navy hover:text-iq-red px-2 py-1"
+                            key={service.id}
+                            to={`/services/${service.slug}`}
+                            className="block px-2.5 py-1.5 rounded-lg text-xs font-medium text-slate-700 hover:bg-iq-red/5 hover:text-iq-red transition-colors"
                           >
-                            <span>Explore Visa Hub</span>
-                            <ArrowRight className="w-3.5 h-3.5" />
+                            <span className="text-iq-navy font-semibold mr-1.5">{service.number}</span>
+                            {service.title}
                           </Link>
-                        </div>
+                        ))}
+                      </div>
+                      <div className="pt-3 mt-3 border-t border-slate-100">
+                        <Link
+                          to="/services"
+                          className="inline-flex items-center gap-1.5 text-xs font-bold text-iq-navy hover:text-iq-red px-2 transition-colors"
+                        >
+                          <span>Explore All 10 Services</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
                       </div>
                     </div>
                   </div>
-                );
-              }
+                </div>
+              )}
+            </div>
 
-              return (
-                <Link
-                  key={link.name}
-                  to={link.path}
-                  className={`px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-md relative whitespace-nowrap ${
-                    active
-                      ? 'text-iq-navy font-semibold'
-                      : 'text-slate-700 hover:text-iq-navy hover:bg-slate-50'
-                  }`}
-                >
-                  {link.name}
-                  {active && (
-                    <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-iq-red rounded-full" />
-                  )}
-                </Link>
-              );
-            })}
+            {/* 4. Visa Dropdown */}
+            <div
+              className="relative group"
+              onMouseEnter={() => setActiveDropdown('visa')}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              <Link
+                to="/visa"
+                className={`inline-flex items-center gap-1 px-3 py-2 text-xs lg:text-sm font-semibold transition-colors duration-200 rounded-lg relative ${
+                  isActive('/visa')
+                    ? 'text-iq-navy font-bold'
+                    : 'text-slate-700 hover:text-iq-navy hover:bg-slate-50'
+                }`}
+              >
+                <span>Visa</span>
+                <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:rotate-180 group-hover:text-iq-red transition-transform duration-200" />
+                {isActive('/visa') && (
+                  <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-iq-red rounded-full" />
+                )}
+              </Link>
+
+              {activeDropdown === 'visa' && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 w-72 bg-white rounded-2xl shadow-2xl border border-slate-100 p-4 animate-in fade-in slide-in-from-top-2 duration-200">
+                  <div className="text-[11px] font-bold uppercase tracking-wider text-iq-red pb-2 mb-2 border-b border-slate-100">
+                    Visa Consultation Hub
+                  </div>
+                  <div className="space-y-1">
+                    {visaServices.map((v) => (
+                      <Link
+                        key={v.id}
+                        to={`/services/${v.slug}`}
+                        className="block px-3 py-2 rounded-xl text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-iq-navy transition-colors"
+                      >
+                        <div className="font-bold flex items-center justify-between">
+                          <span>{v.title}</span>
+                          <span className="text-[10px] text-iq-red font-mono">{v.number}</span>
+                        </div>
+                        <p className="text-[11px] text-slate-400 line-clamp-1 mt-0.5">{v.shortDescription}</p>
+                      </Link>
+                    ))}
+                    <div className="pt-2 mt-2 border-t border-slate-100">
+                      <Link
+                        to="/visa"
+                        className="flex items-center justify-between text-xs font-bold text-iq-navy hover:text-iq-red px-2 py-1 transition-colors"
+                      >
+                        <span>View Visa Page</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* 5. Masters Dropdown (Ivy Overseas Style Country Options) */}
+            <div
+              className="relative group"
+              onMouseEnter={() => setActiveDropdown('masters')}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              <Link
+                to="/masters"
+                className={`inline-flex items-center gap-1 px-3 py-2 text-xs lg:text-sm font-semibold transition-colors duration-200 rounded-lg relative ${
+                  isActive('/masters')
+                    ? 'text-iq-navy font-bold'
+                    : 'text-slate-700 hover:text-iq-navy hover:bg-slate-50'
+                }`}
+              >
+                <span>Masters</span>
+                <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:rotate-180 group-hover:text-iq-red transition-transform duration-200" />
+                {isActive('/masters') && (
+                  <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-iq-red rounded-full" />
+                )}
+              </Link>
+
+              {activeDropdown === 'masters' && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 w-[520px] bg-white rounded-2xl shadow-2xl border border-slate-100 p-5 animate-in fade-in slide-in-from-top-2 duration-200">
+                  <div className="flex items-center justify-between pb-2 mb-3 border-b border-slate-100">
+                    <span className="text-xs font-bold uppercase tracking-wider text-iq-navy">
+                      Study Masters by Destination
+                    </span>
+                    <span className="text-[11px] font-semibold text-iq-red">
+                      Postgraduate Programs
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2">
+                    {MASTERS_DROPDOWN.map((item) => (
+                      <Link
+                        key={item.title}
+                        to="/masters"
+                        className="p-2.5 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-100 transition-all flex items-start gap-2.5 group/item"
+                      >
+                        <span className="text-lg leading-none mt-0.5">{item.flag}</span>
+                        <div>
+                          <div className="text-xs font-bold text-slate-800 group-hover/item:text-iq-red transition-colors">
+                            {item.title}
+                          </div>
+                          <p className="text-[10px] text-slate-400 leading-tight mt-0.5">{item.highlight}</p>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+
+                  <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between">
+                    <span className="text-[11px] text-slate-500">STEM Extensions • 1-Year & 2-Year MS</span>
+                    <Link
+                      to="/masters"
+                      className="text-xs font-bold text-iq-navy hover:text-iq-red inline-flex items-center gap-1"
+                    >
+                      <span>Explore Masters Hub</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* 6. Bachelors Dropdown (Ivy Overseas Style UG Options) */}
+            <div
+              className="relative group"
+              onMouseEnter={() => setActiveDropdown('bachelors')}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              <Link
+                to="/bachelors"
+                className={`inline-flex items-center gap-1 px-3 py-2 text-xs lg:text-sm font-semibold transition-colors duration-200 rounded-lg relative ${
+                  isActive('/bachelors')
+                    ? 'text-iq-navy font-bold'
+                    : 'text-slate-700 hover:text-iq-navy hover:bg-slate-50'
+                }`}
+              >
+                <span>Bachelors</span>
+                <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:rotate-180 group-hover:text-iq-red transition-transform duration-200" />
+                {isActive('/bachelors') && (
+                  <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-iq-red rounded-full" />
+                )}
+              </Link>
+
+              {activeDropdown === 'bachelors' && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 w-[480px] bg-white rounded-2xl shadow-2xl border border-slate-100 p-5 animate-in fade-in slide-in-from-top-2 duration-200">
+                  <div className="flex items-center justify-between pb-2 mb-3 border-b border-slate-100">
+                    <span className="text-xs font-bold uppercase tracking-wider text-iq-navy">
+                      Undergraduate Degrees Abroad
+                    </span>
+                    <span className="text-[11px] font-semibold text-iq-red">
+                      Direct High-School Admissions
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2">
+                    {BACHELORS_DROPDOWN.map((item) => (
+                      <Link
+                        key={item.title}
+                        to="/bachelors"
+                        className="p-2.5 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-100 transition-all flex items-start gap-2 group/item"
+                      >
+                        {item.flag && <span className="text-base leading-none mt-0.5">{item.flag}</span>}
+                        <div>
+                          <div className="text-xs font-bold text-slate-800 group-hover/item:text-iq-red transition-colors">
+                            {item.title}
+                          </div>
+                          <p className="text-[10px] text-slate-400 leading-tight mt-0.5">{item.desc}</p>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+
+                  <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between">
+                    <span className="text-[11px] text-slate-500">Common App & UCAS Specialists</span>
+                    <Link
+                      to="/bachelors"
+                      className="text-xs font-bold text-iq-navy hover:text-iq-red inline-flex items-center gap-1"
+                    >
+                      <span>Explore Bachelors Page</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* 7. Training Dropdown (Ivy Overseas Style Coaching) */}
+            <div
+              className="relative group"
+              onMouseEnter={() => setActiveDropdown('training')}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              <Link
+                to="/training"
+                className={`inline-flex items-center gap-1 px-3 py-2 text-xs lg:text-sm font-semibold transition-colors duration-200 rounded-lg relative ${
+                  isActive('/training')
+                    ? 'text-iq-navy font-bold'
+                    : 'text-slate-700 hover:text-iq-navy hover:bg-slate-50'
+                }`}
+              >
+                <span>Training</span>
+                <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:rotate-180 group-hover:text-iq-red transition-transform duration-200" />
+                {isActive('/training') && (
+                  <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-iq-red rounded-full" />
+                )}
+              </Link>
+
+              {activeDropdown === 'training' && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 w-[520px] bg-white rounded-2xl shadow-2xl border border-slate-100 p-5 animate-in fade-in slide-in-from-top-2 duration-200">
+                  <div className="flex items-center justify-between pb-2 mb-3 border-b border-slate-100">
+                    <span className="text-xs font-bold uppercase tracking-wider text-iq-navy">
+                      Test Prep & Language Training
+                    </span>
+                    <span className="text-[11px] font-semibold text-emerald-600 font-mono">
+                      Lab & Interactive Batches
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2">
+                    {TRAINING_DROPDOWN.map((t) => (
+                      <Link
+                        key={t.title}
+                        to="/training"
+                        className="p-2.5 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-100 transition-all group/item"
+                      >
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs font-bold text-slate-800 group-hover/item:text-iq-red transition-colors truncate">
+                            {t.title}
+                          </span>
+                          <span className="text-[10px] font-bold text-iq-red bg-red-50 px-1.5 py-0.5 rounded shrink-0 ml-1">
+                            {t.target}
+                          </span>
+                        </div>
+                        <p className="text-[10px] text-slate-400 leading-tight mt-0.5">{t.desc}</p>
+                      </Link>
+                    ))}
+                  </div>
+
+                  <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between">
+                    <span className="text-[11px] text-slate-500">Certified Trainers • Authentic Material</span>
+                    <Link
+                      to="/training"
+                      className="text-xs font-bold text-iq-navy hover:text-iq-red inline-flex items-center gap-1"
+                    >
+                      <span>View Training Modules</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* 8. Success Stories */}
+            <Link
+              to="/success-stories"
+              className={`px-3 py-2 text-xs lg:text-sm font-semibold transition-colors duration-200 rounded-lg relative ${
+                isActive('/success-stories')
+                  ? 'text-iq-navy font-bold'
+                  : 'text-slate-700 hover:text-iq-navy hover:bg-slate-50'
+              }`}
+            >
+              Success Stories
+              {isActive('/success-stories') && (
+                <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-iq-red rounded-full" />
+              )}
+            </Link>
+
+            {/* 9. Contact Us */}
+            <Link
+              to="/contact"
+              className={`px-3 py-2 text-xs lg:text-sm font-semibold transition-colors duration-200 rounded-lg relative ${
+                isActive('/contact')
+                  ? 'text-iq-navy font-bold'
+                  : 'text-slate-700 hover:text-iq-navy hover:bg-slate-50'
+              }`}
+            >
+              Contact Us
+              {isActive('/contact') && (
+                <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-iq-red rounded-full" />
+              )}
+            </Link>
           </nav>
 
-          {/* Right Action Icons & CTA */}
+          {/* Right Action: Search Icon + Apply Now CTA (Phone removed as requested in image copy 6.png) */}
           <div className="flex items-center gap-2 sm:gap-3">
             {/* Quick Search Button */}
             <button
@@ -262,20 +476,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
               <Search className="w-5 h-5" />
             </button>
 
-            {/* Quick Call Icon (Desktop) */}
-            <a
-              href={`tel:${BRAND_INFO.primaryPhoneRaw}`}
-              className="hidden lg:flex items-center gap-2 px-3 py-2 text-xs font-semibold text-iq-navy bg-iq-navy/5 hover:bg-iq-navy/10 rounded-full transition-colors"
-              title="Call IQ Overseas Counselor"
-            >
-              <Phone className="w-3.5 h-3.5 text-iq-red" />
-              <span>{BRAND_INFO.primaryPhone}</span>
-            </a>
-
             {/* Red Apply Now CTA */}
             <button
               onClick={onOpenConsultation}
-              className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-xs sm:text-sm font-bold text-white bg-iq-red hover:bg-iq-red-hover rounded-full shadow-[0_4px_14px_rgba(227,6,19,0.35)] hover:shadow-[0_6px_20px_rgba(227,6,19,0.45)] transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer whitespace-nowrap"
+              className="inline-flex items-center gap-2 px-5 py-2.5 text-xs sm:text-sm font-bold text-white bg-iq-red hover:bg-iq-red-hover rounded-full shadow-[0_4px_14px_rgba(227,6,19,0.35)] hover:shadow-[0_6px_20px_rgba(227,6,19,0.45)] transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer whitespace-nowrap"
             >
               <span>Apply Now</span>
               <ArrowRight className="w-4 h-4" />
@@ -293,89 +497,182 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
         </div>
       </div>
 
-      {/* Mobile Drawer Navigation */}
+      {/* Mobile Drawer Navigation with Full Dropdown Accordions */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 top-[65px] sm:top-[75px] z-50 bg-slate-900/60 backdrop-blur-sm xl:hidden">
-          <div className="bg-white h-[calc(100vh-65px)] sm:h-[calc(100vh-75px)] overflow-y-auto max-w-sm w-full ml-auto shadow-2xl p-5 flex flex-col justify-between animate-in slide-in-from-right duration-300">
+        <div className="fixed inset-0 top-[60px] sm:top-[70px] z-50 bg-slate-900/60 backdrop-blur-sm xl:hidden">
+          <div className="bg-white h-[calc(100vh-60px)] sm:h-[calc(100vh-70px)] overflow-y-auto max-w-sm w-full ml-auto shadow-2xl p-5 flex flex-col justify-between animate-in slide-in-from-right duration-300">
             <div>
-              {/* Mobile Quick Action Buttons */}
-              <div className="grid grid-cols-2 gap-2 mb-4 pb-4 border-b border-slate-100">
-                <a
-                  href={`tel:${BRAND_INFO.primaryPhoneRaw}`}
-                  className="flex items-center justify-center gap-1.5 py-2.5 px-3 bg-iq-navy/5 text-iq-navy rounded-lg text-xs font-semibold"
+              <div className="space-y-1">
+                <Link
+                  to="/"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block px-3.5 py-2.5 rounded-xl text-sm font-bold text-slate-800 hover:bg-slate-50"
                 >
-                  <Phone className="w-3.5 h-3.5 text-iq-red" />
-                  <span>Call Now</span>
-                </a>
-                <a
-                  href={`https://wa.me/${BRAND_INFO.whatsappNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(BRAND_INFO.defaultWhatsappMessage)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-1.5 py-2.5 px-3 bg-emerald-50 text-emerald-700 rounded-lg text-xs font-semibold"
-                >
-                  <MessageSquare className="w-3.5 h-3.5 text-emerald-600" />
-                  <span>WhatsApp</span>
-                </a>
-              </div>
+                  Home
+                </Link>
 
-              {/* Mobile Navigation List */}
-              <nav className="space-y-1">
-                {navLinks.map((link) => {
-                  const active = isActive(link.path);
-                  return (
-                    <div key={link.name}>
+                <Link
+                  to="/about"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block px-3.5 py-2.5 rounded-xl text-sm font-bold text-slate-800 hover:bg-slate-50"
+                >
+                  About Company
+                </Link>
+
+                {/* Mobile Services Accordion */}
+                <div>
+                  <button
+                    onClick={() => setMobileAccordion(mobileAccordion === 'services' ? null : 'services')}
+                    className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-bold text-slate-800 hover:bg-slate-50"
+                  >
+                    <span>Services (10 Categories)</span>
+                    <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform ${mobileAccordion === 'services' ? 'rotate-180 text-iq-red' : ''}`} />
+                  </button>
+                  {mobileAccordion === 'services' && (
+                    <div className="pl-4 pr-2 py-1 space-y-1 bg-slate-50/80 rounded-xl mb-1">
+                      {SERVICES_DATA.map((s) => (
+                        <Link
+                          key={s.id}
+                          to={`/services/${s.slug}`}
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="block py-1.5 text-xs font-medium text-slate-600 hover:text-iq-navy"
+                        >
+                          <span className="text-iq-red font-mono mr-1">{s.number}</span>
+                          {s.title}
+                        </Link>
+                      ))}
                       <Link
-                        to={link.path}
+                        to="/services"
                         onClick={() => setMobileMenuOpen(false)}
-                        className={`flex items-center justify-between px-3.5 py-2.5 rounded-lg text-sm font-semibold transition-colors ${
-                          active
-                            ? 'bg-iq-navy text-white'
-                            : 'text-slate-800 hover:bg-slate-50'
-                        }`}
+                        className="block py-2 text-xs font-bold text-iq-navy hover:underline"
                       >
-                        <span>{link.name}</span>
-                        <ChevronRight className={`w-4 h-4 ${active ? 'text-white' : 'text-slate-400'}`} />
+                        View All Services →
                       </Link>
                     </div>
-                  );
-                })}
-              </nav>
-
-              {/* Quick Services Links inside Mobile Drawer */}
-              <div className="mt-5 pt-4 border-t border-slate-100">
-                <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
-                  Popular Services
-                </p>
-                <div className="grid grid-cols-2 gap-2">
-                  <Link
-                    to="/services/career-counselling"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="text-xs text-slate-600 hover:text-iq-navy p-2 bg-slate-50 rounded-md"
-                  >
-                    Career Counselling
-                  </Link>
-                  <Link
-                    to="/services/study-visa-assistance"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="text-xs text-slate-600 hover:text-iq-navy p-2 bg-slate-50 rounded-md"
-                  >
-                    Study Visa Assist
-                  </Link>
-                  <Link
-                    to="/services/application-processing"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="text-xs text-slate-600 hover:text-iq-navy p-2 bg-slate-50 rounded-md"
-                  >
-                    App Processing
-                  </Link>
-                  <Link
-                    to="/services/student-visa"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="text-xs text-slate-600 hover:text-iq-navy p-2 bg-slate-50 rounded-md"
-                  >
-                    Student Visa
-                  </Link>
+                  )}
                 </div>
+
+                {/* Mobile Masters Accordion */}
+                <div>
+                  <button
+                    onClick={() => setMobileAccordion(mobileAccordion === 'masters' ? null : 'masters')}
+                    className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-bold text-slate-800 hover:bg-slate-50"
+                  >
+                    <span>Masters by Country</span>
+                    <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform ${mobileAccordion === 'masters' ? 'rotate-180 text-iq-red' : ''}`} />
+                  </button>
+                  {mobileAccordion === 'masters' && (
+                    <div className="pl-4 pr-2 py-1 space-y-1 bg-slate-50/80 rounded-xl mb-1">
+                      {MASTERS_DROPDOWN.map((m) => (
+                        <Link
+                          key={m.title}
+                          to="/masters"
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="flex items-center justify-between py-1.5 text-xs font-medium text-slate-600 hover:text-iq-navy"
+                        >
+                          <span>{m.flag} {m.title}</span>
+                          <span className="text-[10px] text-slate-400">{m.highlight.split('•')[0]}</span>
+                        </Link>
+                      ))}
+                      <Link
+                        to="/masters"
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="block py-2 text-xs font-bold text-iq-navy hover:underline"
+                      >
+                        Explore Masters Hub →
+                      </Link>
+                    </div>
+                  )}
+                </div>
+
+                {/* Mobile Bachelors Accordion */}
+                <div>
+                  <button
+                    onClick={() => setMobileAccordion(mobileAccordion === 'bachelors' ? null : 'bachelors')}
+                    className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-bold text-slate-800 hover:bg-slate-50"
+                  >
+                    <span>Bachelors Abroad</span>
+                    <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform ${mobileAccordion === 'bachelors' ? 'rotate-180 text-iq-red' : ''}`} />
+                  </button>
+                  {mobileAccordion === 'bachelors' && (
+                    <div className="pl-4 pr-2 py-1 space-y-1 bg-slate-50/80 rounded-xl mb-1">
+                      {BACHELORS_DROPDOWN.map((b) => (
+                        <Link
+                          key={b.title}
+                          to="/bachelors"
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="block py-1.5 text-xs font-medium text-slate-600 hover:text-iq-navy"
+                        >
+                          {b.flag ? `${b.flag} ` : ''}{b.title}
+                        </Link>
+                      ))}
+                      <Link
+                        to="/bachelors"
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="block py-2 text-xs font-bold text-iq-navy hover:underline"
+                      >
+                        Explore Bachelors Hub →
+                      </Link>
+                    </div>
+                  )}
+                </div>
+
+                {/* Mobile Training Accordion */}
+                <div>
+                  <button
+                    onClick={() => setMobileAccordion(mobileAccordion === 'training' ? null : 'training')}
+                    className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-bold text-slate-800 hover:bg-slate-50"
+                  >
+                    <span>Training & Test Prep</span>
+                    <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform ${mobileAccordion === 'training' ? 'rotate-180 text-iq-red' : ''}`} />
+                  </button>
+                  {mobileAccordion === 'training' && (
+                    <div className="pl-4 pr-2 py-1 space-y-1 bg-slate-50/80 rounded-xl mb-1">
+                      {TRAINING_DROPDOWN.map((t) => (
+                        <Link
+                          key={t.title}
+                          to="/training"
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="flex items-center justify-between py-1.5 text-xs font-medium text-slate-600 hover:text-iq-navy"
+                        >
+                          <span>{t.title}</span>
+                          <span className="text-[10px] text-iq-red font-bold">{t.target}</span>
+                        </Link>
+                      ))}
+                      <Link
+                        to="/training"
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="block py-2 text-xs font-bold text-iq-navy hover:underline"
+                      >
+                        Explore Training Programs →
+                      </Link>
+                    </div>
+                  )}
+                </div>
+
+                <Link
+                  to="/visa"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block px-3.5 py-2.5 rounded-xl text-sm font-bold text-slate-800 hover:bg-slate-50"
+                >
+                  Visa Consultancy
+                </Link>
+
+                <Link
+                  to="/success-stories"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block px-3.5 py-2.5 rounded-xl text-sm font-bold text-slate-800 hover:bg-slate-50"
+                >
+                  Success Stories
+                </Link>
+
+                <Link
+                  to="/contact"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block px-3.5 py-2.5 rounded-xl text-sm font-bold text-slate-800 hover:bg-slate-50"
+                >
+                  Contact Us
+                </Link>
               </div>
             </div>
 
@@ -386,7 +683,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
                   setMobileMenuOpen(false);
                   onOpenConsultation();
                 }}
-                className="w-full py-3 px-4 bg-iq-red hover:bg-iq-red-hover text-white text-sm font-bold rounded-xl shadow-lg shadow-iq-red/20 flex items-center justify-center gap-2"
+                className="w-full py-3 px-4 bg-iq-red hover:bg-iq-red-hover text-white text-sm font-bold rounded-xl shadow-lg flex items-center justify-center gap-2"
               >
                 <span>Request Free Guidance</span>
                 <ArrowRight className="w-4 h-4" />

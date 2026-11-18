@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { Search, Filter, ArrowRight, GraduationCap, Plane, BookOpen, Compass, Award } from 'lucide-react';
+import { Search, ArrowRight, Sparkles } from 'lucide-react';
 import { SERVICES_DATA, DESTINATIONS_DATA, TRAINING_PROGRAMS } from '../data/siteContent';
 
 export const QuickSearchAction: React.FC = () => {
@@ -9,7 +9,6 @@ export const QuickSearchAction: React.FC = () => {
   const [studyLevel, setStudyLevel] = useState('All');
   const [serviceFilter, setServiceFilter] = useState('All');
   const [destinationFilter, setDestinationFilter] = useState('All');
-  const [isFocused, setIsFocused] = useState(false);
 
   // Quick Action pills
   const quickActions = [
@@ -33,10 +32,8 @@ export const QuickSearchAction: React.FC = () => {
       category: string;
       description: string;
       link: string;
-      type: 'service' | 'destination' | 'training' | 'program';
     }> = [];
 
-    // Filter services
     SERVICES_DATA.forEach((s) => {
       const matchesQuery = !q || s.title.toLowerCase().includes(q) || s.shortDescription.toLowerCase().includes(q);
       const matchesService = serviceFilter === 'All' || s.title.toLowerCase().includes(serviceFilter.toLowerCase());
@@ -45,28 +42,24 @@ export const QuickSearchAction: React.FC = () => {
           title: s.title,
           category: s.category,
           description: s.shortDescription,
-          link: `/services/${s.slug}`,
-          type: 'service'
+          link: `/services/${s.slug}`
         });
       }
     });
 
-    // Filter destinations
     DESTINATIONS_DATA.forEach((d) => {
       const matchesQuery = !q || d.country.toLowerCase().includes(q) || d.popularCourses.some(c => c.toLowerCase().includes(q));
       const matchesDest = destinationFilter === 'All' || d.country.toLowerCase().includes(destinationFilter.toLowerCase());
       if (matchesQuery && matchesDest) {
         results.push({
           title: `Study in ${d.country}`,
-          category: `Popular Courses: ${d.popularCourses.slice(0, 2).join(', ')}`,
+          category: `Popular: ${d.popularCourses.slice(0, 2).join(', ')}`,
           description: d.description,
-          link: '/services',
-          type: 'destination'
+          link: '/services'
         });
       }
     });
 
-    // Filter training
     TRAINING_PROGRAMS.forEach((t) => {
       const matchesQuery = !q || t.title.toLowerCase().includes(q) || t.description.toLowerCase().includes(q);
       if (matchesQuery) {
@@ -74,20 +67,17 @@ export const QuickSearchAction: React.FC = () => {
           title: t.title,
           category: t.category,
           description: t.description,
-          link: '/training',
-          type: 'training'
+          link: '/training'
         });
       }
     });
 
-    // Check study level matches
     if (studyLevel === 'Masters' || (q && 'masters'.includes(q))) {
       results.unshift({
         title: 'Master\'s Degree Abroad',
         category: 'Postgraduate Programs',
         description: 'Explore world-class Master’s degrees across USA, UK, Canada, Australia and Europe.',
-        link: '/masters',
-        type: 'program'
+        link: '/masters'
       });
     }
 
@@ -96,8 +86,7 @@ export const QuickSearchAction: React.FC = () => {
         title: 'Bachelor\'s Degree Abroad',
         category: 'Undergraduate Programs',
         description: 'Start your undergraduate journey with comprehensive admission & visa guidance.',
-        link: '/bachelors',
-        type: 'program'
+        link: '/bachelors'
       });
     }
 
@@ -122,28 +111,29 @@ export const QuickSearchAction: React.FC = () => {
   };
 
   return (
-    <div className="w-full bg-white relative z-20 -mt-6 sm:-mt-8 mb-4 max-w-6xl mx-auto px-4 sm:px-6">
-      <div className="bg-white rounded-2xl shadow-[0_10px_35px_rgba(7,27,104,0.12)] border border-slate-100 p-5 sm:p-6 lg:p-7">
+    <div className="w-full relative z-20 py-5 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Seamless container blended directly with section background as requested */}
+      <div className="bg-gradient-to-r from-slate-100/70 via-blue-50/50 to-slate-100/70 backdrop-blur-md rounded-3xl p-5 sm:p-6 border border-slate-200/70 shadow-xs">
         
-        {/* Quick Action Heading & Pills */}
+        {/* Quick Action Heading & Navigation Pills */}
         <div className="mb-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
             <h3 className="text-base sm:text-lg font-bold text-iq-navy flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-iq-red" />
+              <span className="w-2.5 h-2.5 rounded-full bg-iq-red animate-pulse" />
               What are you looking for?
             </h3>
-            <span className="text-xs text-slate-400 font-medium hidden sm:inline">
+            <span className="text-xs text-slate-500 font-medium hidden sm:inline">
               Instant site-wide search & filter
             </span>
           </div>
 
-          {/* Quick pills */}
+          {/* Quick Filter Pills */}
           <div className="flex flex-wrap items-center gap-2">
             {quickActions.map((action) => (
               <Link
                 key={action.label}
                 to={action.path}
-                className="px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100/80 hover:bg-iq-navy hover:text-white text-slate-700 transition-all duration-200 border border-slate-200/60"
+                className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white/90 hover:bg-iq-navy hover:text-white text-slate-700 transition-all duration-200 border border-slate-200/80 shadow-2xs hover:shadow-xs"
               >
                 {action.label}
               </Link>
@@ -151,9 +141,9 @@ export const QuickSearchAction: React.FC = () => {
           </div>
         </div>
 
-        {/* Real Search Form & Filters */}
+        {/* Live Search Form & Dropdowns */}
         <form onSubmit={handleSearchSubmit} className="space-y-3">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-2.5 items-center">
             
             {/* Search Input */}
             <div className="md:col-span-5 relative">
@@ -162,9 +152,8 @@ export const QuickSearchAction: React.FC = () => {
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                onFocus={() => setIsFocused(true)}
                 placeholder="Search courses, services or destinations..."
-                className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-iq-navy/20 focus:border-iq-navy transition-all"
+                className="w-full pl-10 pr-4 py-2.5 bg-white/95 border border-slate-200/90 rounded-2xl text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-iq-navy/20 focus:border-iq-navy transition-all shadow-2xs"
               />
               {query && (
                 <button
@@ -182,7 +171,7 @@ export const QuickSearchAction: React.FC = () => {
               <select
                 value={studyLevel}
                 onChange={(e) => setStudyLevel(e.target.value)}
-                className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-iq-navy/20 focus:border-iq-navy transition-all font-medium"
+                className="w-full px-3 py-2.5 bg-white/95 border border-slate-200/90 rounded-2xl text-xs sm:text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-iq-navy/20 focus:border-iq-navy transition-all font-medium shadow-2xs"
               >
                 <option value="All">Study Level</option>
                 <option value="Masters">Masters</option>
@@ -196,7 +185,7 @@ export const QuickSearchAction: React.FC = () => {
               <select
                 value={serviceFilter}
                 onChange={(e) => setServiceFilter(e.target.value)}
-                className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-iq-navy/20 focus:border-iq-navy transition-all font-medium"
+                className="w-full px-3 py-2.5 bg-white/95 border border-slate-200/90 rounded-2xl text-xs sm:text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-iq-navy/20 focus:border-iq-navy transition-all font-medium shadow-2xs"
               >
                 <option value="All">All Services</option>
                 <option value="Career Counselling">Career Counselling</option>
@@ -213,7 +202,7 @@ export const QuickSearchAction: React.FC = () => {
               <select
                 value={destinationFilter}
                 onChange={(e) => setDestinationFilter(e.target.value)}
-                className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-iq-navy/20 focus:border-iq-navy transition-all font-medium"
+                className="w-full px-3 py-2.5 bg-white/95 border border-slate-200/90 rounded-2xl text-xs sm:text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-iq-navy/20 focus:border-iq-navy transition-all font-medium shadow-2xs"
               >
                 <option value="All">Destination</option>
                 <option value="United States">USA</option>
@@ -229,7 +218,7 @@ export const QuickSearchAction: React.FC = () => {
             <div className="md:col-span-1">
               <button
                 type="submit"
-                className="w-full py-2.5 px-4 bg-iq-red hover:bg-iq-red-hover text-white rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center transition-colors shadow-sm"
+                className="w-full py-2.5 px-4 bg-iq-red hover:bg-iq-red-hover text-white rounded-2xl text-xs sm:text-sm font-bold flex items-center justify-center transition-colors shadow-sm"
                 title="Search"
               >
                 <Search className="w-4 h-4" />
@@ -238,19 +227,19 @@ export const QuickSearchAction: React.FC = () => {
 
           </div>
 
-          {/* Active search dropdown results */}
+          {/* Active Search Dropdown Results */}
           {searchResults.length > 0 && (
-            <div className="mt-3 p-3 bg-slate-50 rounded-xl border border-slate-200/80 animate-in fade-in duration-200">
+            <div className="mt-3 p-3.5 bg-white/95 backdrop-blur-md rounded-2xl border border-slate-200 shadow-lg animate-in fade-in duration-200">
               <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center justify-between">
                 <span>Matching Results ({searchResults.length})</span>
-                <span className="text-[10px] text-iq-navy font-normal">Click any result to open page</span>
+                <span className="text-[10px] text-iq-navy font-semibold">Click to open</span>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
                 {searchResults.map((res, i) => (
                   <Link
                     key={i}
                     to={res.link}
-                    className="p-2.5 bg-white rounded-lg border border-slate-200 hover:border-iq-navy hover:shadow-sm transition-all group flex flex-col justify-between"
+                    className="p-3 bg-slate-50/70 hover:bg-white rounded-xl border border-slate-200/70 hover:border-iq-navy hover:shadow-xs transition-all group flex flex-col justify-between"
                   >
                     <div>
                       <div className="text-xs font-bold text-iq-navy group-hover:text-iq-red transition-colors flex items-center justify-between">

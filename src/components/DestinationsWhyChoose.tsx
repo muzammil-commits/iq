@@ -1,58 +1,59 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle2, Globe2, ShieldCheck, HeartHandshake } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Globe2, ShieldCheck, HeartHandshake, Sparkles } from 'lucide-react';
 import { DESTINATIONS_DATA } from '../data/siteContent';
 
 export const DestinationsWhyChoose: React.FC = () => {
   return (
-    <section className="py-14 sm:py-20 bg-white border-b border-slate-100">
+    <section className="py-16 sm:py-24 bg-white border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
           
-          {/* Left Block: Global Destinations (6 Cols) */}
-          <div className="lg:col-span-6 bg-gradient-to-br from-[#F5F8FF] to-white rounded-2xl p-6 sm:p-8 border border-slate-200/80 shadow-md flex flex-col justify-between">
+          {/* Left Block: Global Destinations with image copy 18.png (6 Cols) */}
+          <div className="lg:col-span-6 bg-gradient-to-br from-[#F5F8FF] via-white to-[#F0F4FF] rounded-3xl p-6 sm:p-9 border border-slate-200/80 shadow-lg flex flex-col justify-between">
             <div>
               <div className="inline-flex items-center gap-2 text-xs font-bold text-iq-red uppercase tracking-wider mb-2">
-                <span className="w-5 h-0.5 bg-iq-red" />
+                <span className="w-6 h-0.5 bg-iq-red" />
                 <span>Global Destinations</span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-iq-navy tracking-tight">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-iq-navy tracking-tight leading-tight">
                 Explore the World with Confidence
               </h3>
 
               <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Discover top study destinations, renowned global academic systems, and thriving international career ecosystems.
+                Discover top study destinations, renowned global academic systems, and thriving international career ecosystems across North America, Europe & Australasia.
               </p>
 
-              {/* Landmark collage photo from design reference */}
-              <div className="mt-5 rounded-xl overflow-hidden shadow-sm border border-slate-200/60 bg-white aspect-[21/9]">
+              {/* Grand Panoramic Landmarks Image (image copy 18.png) */}
+              <div className="mt-6 rounded-2xl overflow-hidden shadow-md border-2 border-white bg-slate-100 aspect-[16/9] group">
                 <img
-                  src="/images/destinations-landmarks.png"
-                  alt="World landmarks including Big Ben, Eiffel Tower, Statue of Liberty and Sydney Opera House"
-                  className="w-full h-full object-cover object-center"
+                  src="/images/destinations-landmarks-grand.png"
+                  alt="World landmarks including Big Ben, Eiffel Tower, Statue of Liberty, and Sydney Opera House"
+                  className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
               </div>
 
-              {/* Destination tags */}
-              <div className="mt-4 flex flex-wrap gap-1.5">
+              {/* Destination Badges */}
+              <div className="mt-5 flex flex-wrap gap-2">
                 {DESTINATIONS_DATA.map((d) => (
                   <span
                     key={d.id}
-                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-semibold bg-white border border-slate-200 text-slate-700 shadow-2xs"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-white border border-slate-200 text-slate-700 shadow-2xs hover:border-iq-navy transition-colors cursor-default"
                   >
-                    <span>{d.flag}</span>
+                    <span className="text-sm">{d.flag}</span>
                     <span>{d.country}</span>
                   </span>
                 ))}
               </div>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-slate-200/60">
+            <div className="mt-8 pt-5 border-t border-slate-200/80 flex items-center justify-between">
+              <span className="text-xs text-slate-500 font-medium">Over 500+ University Programs</span>
               <Link
                 to="/services"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-iq-red hover:bg-iq-red-hover text-white text-xs sm:text-sm font-bold rounded-lg shadow transition-all"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-iq-red hover:bg-iq-red-hover text-white text-xs sm:text-sm font-bold rounded-xl shadow transition-all"
               >
                 <span>Explore Destinations</span>
                 <ArrowRight className="w-4 h-4" />
@@ -61,17 +62,17 @@ export const DestinationsWhyChoose: React.FC = () => {
           </div>
 
           {/* Right Block: Why Students Choose IQ Overseas (6 Cols) */}
-          <div className="lg:col-span-6 bg-gradient-to-br from-[#071B68] to-[#040F38] text-white rounded-2xl p-6 sm:p-8 shadow-xl flex flex-col justify-between relative overflow-hidden">
-            {/* Ambient globe background glow */}
-            <div className="absolute -right-12 -bottom-12 w-64 h-64 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
+          <div className="lg:col-span-6 bg-gradient-to-br from-[#071B68] via-[#051554] to-[#030D36] text-white rounded-3xl p-6 sm:p-9 shadow-2xl flex flex-col justify-between relative overflow-hidden">
+            {/* Ambient globe glow background */}
+            <div className="absolute -right-16 -bottom-16 w-80 h-80 bg-blue-500/15 rounded-full blur-3xl pointer-events-none" />
 
             <div>
               <div className="inline-flex items-center gap-2 text-xs font-bold text-blue-300 uppercase tracking-wider mb-2">
-                <span className="w-5 h-0.5 bg-iq-red" />
+                <span className="w-6 h-0.5 bg-iq-red" />
                 <span>Why Students Choose IQ Overseas</span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-tight">
                 Guidance that goes beyond admission.
               </h3>
 
@@ -79,45 +80,45 @@ export const DestinationsWhyChoose: React.FC = () => {
                 We believe overseas education is a life-altering investment. Our mission is to walk beside you from initial course discovery until you settle in your international classroom.
               </p>
 
-              {/* Benefit checklist with icons */}
-              <div className="mt-6 space-y-3.5">
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-iq-red/20 text-iq-red flex items-center justify-center shrink-0 mt-0.5">
+              {/* Benefit checklist with grand styling */}
+              <div className="mt-8 space-y-4">
+                <div className="flex items-start gap-3.5 bg-white/5 p-3.5 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors">
+                  <div className="w-8 h-8 rounded-xl bg-iq-red/20 text-iq-red flex items-center justify-center shrink-0 shadow-xs">
                     <CheckCircle2 className="w-4 h-4 text-iq-red" />
                   </div>
                   <div>
-                    <h5 className="text-xs sm:text-sm font-bold text-white">Trusted & Transparent Guidance</h5>
-                    <p className="text-[11px] text-blue-200/80">Ethical advice, realistic eligibility evaluations, and zero misleading promises.</p>
+                    <h5 className="text-sm font-bold text-white">Trusted & Transparent Guidance</h5>
+                    <p className="text-xs text-blue-200/80 mt-0.5">Ethical advice, realistic eligibility evaluations, and zero misleading promises.</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-iq-red/20 text-iq-red flex items-center justify-center shrink-0 mt-0.5">
+                <div className="flex items-start gap-3.5 bg-white/5 p-3.5 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors">
+                  <div className="w-8 h-8 rounded-xl bg-iq-red/20 text-iq-red flex items-center justify-center shrink-0 shadow-xs">
                     <CheckCircle2 className="w-4 h-4 text-iq-red" />
                   </div>
                   <div>
-                    <h5 className="text-xs sm:text-sm font-bold text-white">Personalized Support</h5>
-                    <p className="text-[11px] text-blue-200/80">Tailored university lists matching your specific budget, academics, and career targets.</p>
+                    <h5 className="text-sm font-bold text-white">Personalized Support</h5>
+                    <p className="text-xs text-blue-200/80 mt-0.5">Tailored university lists matching your specific budget, academics, and career targets.</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-iq-red/20 text-iq-red flex items-center justify-center shrink-0 mt-0.5">
+                <div className="flex items-start gap-3.5 bg-white/5 p-3.5 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors">
+                  <div className="w-8 h-8 rounded-xl bg-iq-red/20 text-iq-red flex items-center justify-center shrink-0 shadow-xs">
                     <CheckCircle2 className="w-4 h-4 text-iq-red" />
                   </div>
                   <div>
-                    <h5 className="text-xs sm:text-sm font-bold text-white">Global Opportunities</h5>
-                    <p className="text-[11px] text-blue-200/80">Broad portfolio of leading academic destinations across North America, Europe & Australasia.</p>
+                    <h5 className="text-sm font-bold text-white">Global Opportunities</h5>
+                    <p className="text-xs text-blue-200/80 mt-0.5">Broad portfolio of leading academic destinations across North America, Europe & Australasia.</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+            <div className="mt-8 pt-5 border-t border-white/10 flex items-center justify-between">
               <span className="text-xs text-blue-200 font-medium">Headquartered in Guntur, AP</span>
               <Link
                 to="/about"
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-iq-red hover:text-white transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-300 hover:text-white transition-colors"
               >
                 <span>Our Heritage & Values</span>
                 <ArrowRight className="w-3.5 h-3.5" />

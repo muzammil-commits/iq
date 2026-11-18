@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Star, ChevronLeft, ChevronRight, Quote, ArrowRight } from 'lucide-react';
+import { Star, ChevronLeft, ChevronRight, Quote, ArrowRight, CheckCircle2, Sparkles } from 'lucide-react';
 import { TESTIMONIALS_DATA } from '../data/siteContent';
 
 export const SuccessStoriesSection: React.FC = () => {
@@ -17,15 +17,16 @@ export const SuccessStoriesSection: React.FC = () => {
   const current = TESTIMONIALS_DATA[currentIndex];
 
   return (
-    <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/80 shadow-md h-full flex flex-col justify-between">
+    <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-xl h-full flex flex-col justify-between overflow-hidden">
       <div>
+        {/* Header */}
         <div className="flex items-center justify-between mb-4">
           <div>
             <div className="inline-flex items-center gap-2 text-xs font-bold text-iq-red uppercase tracking-wider mb-1">
-              <span className="w-4 h-0.5 bg-iq-red" />
+              <span className="w-5 h-0.5 bg-iq-red" />
               <span>Success Stories</span>
             </div>
-            <h3 className="text-xl sm:text-2xl font-extrabold text-iq-navy">
+            <h3 className="text-xl sm:text-2xl font-black text-iq-navy">
               Student Journeys. Global Dreams.
             </h3>
           </div>
@@ -38,26 +39,24 @@ export const SuccessStoriesSection: React.FC = () => {
           </Link>
         </div>
 
-        {/* Testimonial Card */}
-        <div className="p-4 sm:p-5 bg-[#F8FAFD] rounded-xl border border-slate-100 relative mt-4">
-          <Quote className="w-8 h-8 text-iq-navy/10 absolute top-3 right-3 pointer-events-none" />
+        {/* Testimonial Quote Card */}
+        <div className="p-5 bg-gradient-to-br from-blue-50/60 to-white rounded-2xl border border-blue-100/80 relative mt-2 shadow-xs">
+          <Quote className="w-8 h-8 text-iq-navy/10 absolute top-4 right-4 pointer-events-none" />
 
-          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
-            {/* Student Avatar */}
+          <div className="flex items-start gap-4">
             <div className="relative shrink-0">
               <img
                 src={current.image}
                 alt={current.name}
-                className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover border-2 border-iq-red shadow-sm"
+                className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover border-2 border-iq-red shadow-sm"
               />
-              <span className="absolute bottom-0 right-0 w-5 h-5 bg-iq-navy text-white text-[10px] font-bold rounded-full flex items-center justify-center">
+              <span className="absolute -bottom-1 -right-1 w-5 h-5 bg-iq-navy text-white text-[10px] font-bold rounded-full flex items-center justify-center border border-white">
                 ★
               </span>
             </div>
 
-            {/* Quote and Details */}
-            <div className="text-center sm:text-left space-y-1.5 flex-1">
-              <div className="flex items-center justify-center sm:justify-start gap-1 text-amber-400">
+            <div className="space-y-1.5 flex-1 min-w-0">
+              <div className="flex items-center gap-1 text-amber-400">
                 {[...Array(current.rating)].map((_, i) => (
                   <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
                 ))}
@@ -67,9 +66,9 @@ export const SuccessStoriesSection: React.FC = () => {
                 {current.story}
               </p>
 
-              <div className="pt-2">
+              <div className="pt-1">
                 <div className="text-xs font-bold text-iq-navy">{current.name}</div>
-                <div className="text-[11px] text-iq-red font-medium">
+                <div className="text-[11px] text-iq-red font-semibold">
                   {current.course} • {current.destination}
                 </div>
                 {current.university && (
@@ -79,10 +78,27 @@ export const SuccessStoriesSection: React.FC = () => {
             </div>
           </div>
         </div>
+
+        {/* image copy 12.png set in the empty space as requested by user */}
+        <div className="mt-4 rounded-2xl overflow-hidden border border-slate-100 shadow-sm relative group bg-gradient-to-r from-pink-50/30 via-white to-blue-50/30">
+          <img
+            src="/images/student-testimonial-grand.png"
+            alt="Student Success Thumbs Up and 5 Star Rating"
+            className="w-full h-48 sm:h-52 object-cover object-center transform group-hover:scale-[1.02] transition-transform duration-500"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-iq-navy/60 via-transparent to-transparent pointer-events-none" />
+          <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white text-xs">
+            <div className="flex items-center gap-1.5 font-bold">
+              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+              <span>Real Verified Placements</span>
+            </div>
+            <span className="text-[11px] font-mono text-amber-300">100% Genuine Guidance</span>
+          </div>
+        </div>
       </div>
 
-      {/* Pagination & Arrows */}
-      <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+      {/* Pagination & Arrow Controls */}
+      <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between">
         <div className="flex items-center gap-1.5">
           {TESTIMONIALS_DATA.map((_, i) => (
             <button
@@ -99,14 +115,14 @@ export const SuccessStoriesSection: React.FC = () => {
         <div className="flex items-center gap-2">
           <button
             onClick={prev}
-            className="w-8 h-8 rounded-full border border-slate-200 hover:bg-iq-navy hover:text-white flex items-center justify-center transition-colors text-slate-600"
+            className="w-8 h-8 rounded-full border border-slate-200 hover:bg-iq-navy hover:text-white flex items-center justify-center transition-colors text-slate-600 shadow-2xs"
             aria-label="Previous story"
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
           <button
             onClick={next}
-            className="w-8 h-8 rounded-full border border-slate-200 hover:bg-iq-navy hover:text-white flex items-center justify-center transition-colors text-slate-600"
+            className="w-8 h-8 rounded-full border border-slate-200 hover:bg-iq-navy hover:text-white flex items-center justify-center transition-colors text-slate-600 shadow-2xs"
             aria-label="Next story"
           >
             <ChevronRight className="w-4 h-4" />

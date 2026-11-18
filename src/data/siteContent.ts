@@ -93,10 +93,38 @@ export const HERO_SLIDES: HeroSlide[] = [
 ];
 
 export const TRUST_STRIP_ITEMS = [
-  { id: '1', title: 'Global Education', desc: 'World-class universities & programs', icon: 'Globe' },
-  { id: '2', title: 'Expert Guidance', desc: 'Personalized 1-on-1 counseling', icon: 'Users' },
-  { id: '3', title: 'Visa Support', desc: 'End-to-end documentation guidance', icon: 'ShieldCheck' },
-  { id: '4', title: 'Student Success', desc: 'Dedicated pre & post departure aid', icon: 'Trophy' }
+  {
+    id: '1',
+    title: 'Global Education',
+    desc: 'World-class universities & programs',
+    icon: 'Globe',
+    metric: '500+ Universities',
+    badge: 'Tier-1 Partners'
+  },
+  {
+    id: '2',
+    title: 'Expert Guidance',
+    desc: 'Personalized 1-on-1 counseling',
+    icon: 'Users',
+    metric: '100% Student-First',
+    badge: 'Certified Mentors'
+  },
+  {
+    id: '3',
+    title: 'Visa Support',
+    desc: 'End-to-end documentation guidance',
+    icon: 'ShieldCheck',
+    metric: 'High Precision Filing',
+    badge: 'Strict Compliance'
+  },
+  {
+    id: '4',
+    title: 'Student Success',
+    desc: 'Dedicated pre & post departure aid',
+    icon: 'Trophy',
+    metric: 'Full Transit Care',
+    badge: 'Port-of-Entry Ready'
+  }
 ];
 
 export const CORE_VALUES: ValueItem[] = [
@@ -144,6 +172,38 @@ export const CORE_VALUES: ValueItem[] = [
   }
 ];
 
+// Rich Dropdown Structure matching top global consultancies like Ivy Overseas
+export const MASTERS_DROPDOWN = [
+  { title: 'Study in USA', slug: 'usa', flag: '🇺🇸', highlight: 'STEM OPT 3 Years • High Starting Salaries' },
+  { title: 'Study in UK', slug: 'uk', flag: '🇬🇧', highlight: '1-Year Fast-track Masters • 2-Year PSW' },
+  { title: 'Study in Canada', slug: 'canada', flag: '🇨🇦', highlight: 'Up to 3-Year PGWP • Research Hubs' },
+  { title: 'Study in Australia', slug: 'australia', flag: '🇦🇺', highlight: 'Group of Eight • Post-Study Work Visas' },
+  { title: 'Study in Ireland', slug: 'ireland', flag: '🇮🇪', highlight: 'European Silicon Valley • 2-Year Stay Back' },
+  { title: 'Study in Germany', slug: 'germany', flag: '🇩🇪', highlight: 'Low/Free Tuition • 18-Mo Job Seeker' },
+  { title: 'Study in New Zealand', slug: 'new-zealand', flag: '🇳🇿', highlight: 'Safe Lifestyle • Post-Study Work' },
+  { title: 'Study in France & Europe', slug: 'europe', flag: '🇪🇺', highlight: 'Top Business Schools • Global Exposure' }
+];
+
+export const BACHELORS_DROPDOWN = [
+  { title: 'Undergraduate Overview', slug: 'overview', desc: '4-Year Degree Roadmap & Global Intakes' },
+  { title: 'Bachelors in USA', slug: 'bachelors-usa', flag: '🇺🇸', desc: 'Common App • Double Majors • Campus Life' },
+  { title: 'Bachelors in UK', slug: 'bachelors-uk', flag: '🇬🇧', desc: 'UCAS Admission • 3-Year Focused Degrees' },
+  { title: 'Bachelors in Canada', slug: 'bachelors-canada', flag: '🇨🇦', desc: 'Co-op Work Internships • Safe Cities' },
+  { title: 'Bachelors in Australia', slug: 'bachelors-australia', flag: '🇦🇺', desc: 'World Top 100 Universities • 3-Year UG' },
+  { title: 'Bachelors in Ireland & Europe', slug: 'bachelors-europe', flag: '🇪🇺', desc: 'English-taught UG Degrees • Low Tuition' },
+  { title: 'UG Scholarships & Aid', slug: 'scholarships', desc: 'Merit-based & Need-based High School Grants' }
+];
+
+export const TRAINING_DROPDOWN = [
+  { title: 'IELTS Academic & General', slug: 'ielts', target: 'Band 7.5+', desc: 'Cambridge Material & Daily Speaking Drills' },
+  { title: 'PTE Academic Masterclass', slug: 'pte', target: 'Score 79+', desc: 'AI Scoring Simulator & Proven Templates' },
+  { title: 'TOEFL iBT Comprehensive', slug: 'toefl', target: 'Score 100+', desc: 'North America Focus & Integrated Tasks' },
+  { title: 'GRE General Preparation', slug: 'gre', target: 'Score 320+', desc: 'Quant Shortcuts & Vocab Mnemonics' },
+  { title: 'Digital SAT Coaching', slug: 'sat', target: 'Score 1450+', desc: 'Adaptive Modules & High School Focus' },
+  { title: 'German Language (A1/A2/B1)', slug: 'german', target: 'Goethe Exam', desc: 'Mandatory German Proficiency for Tech & Engg' },
+  { title: 'Visa Mock Interview Drills', slug: 'interview', target: '100% Confidence', desc: 'Consular Simulations for US F-1 & Global Visas' }
+];
+
 export const SERVICES_DATA: ServiceItem[] = [
   // Category 1: Overseas Education & Student Support
   {
@@ -155,7 +215,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription: 'In-depth profile assessment, psychometric mapping, and career roadmapping aligned with your global ambition.',
     fullDescription: 'Our Career Counselling service is designed to understand your unique strengths, academic foundation, financial considerations, and long-term career aspirations. We guide you toward the right specialization and study destination to ensure high return on education.',
     iconName: 'Compass',
-    image: '/images/about-students.png',
+    image: '/images/about-students-grand.png',
     keyHighlights: [
       'Comprehensive academic and profile evaluation',
       'Course & country mapping based on industry demand',
@@ -198,7 +258,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription: 'Meticulous university application drafting, SOP/LOR review, and deadline tracking for top global institutions.',
     fullDescription: 'University admissions are highly competitive and detail-oriented. IQ Overseas handles end-to-end application processing, verifying each dossier, reviewing your Statement of Purpose (SOP) and Letters of Recommendation (LORs), and liaising directly with university admissions offices.',
     iconName: 'FileCheck',
-    image: '/images/service-education.png',
+    image: '/images/program-masters-grand.png',
     keyHighlights: [
       'Zero-error application filing across multiple institutions',
       'Constructive editing of SOPs, Essays, and Personal Statements',
@@ -285,7 +345,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription: 'Comprehensive briefings on accommodation, airport transit, student health insurance, and cultural orientation.',
     fullDescription: 'Moving to a foreign country involves exciting transitions. Our Pre-Departure Guidance ensures you land with complete confidence, prepared with all necessary paperwork, campus contacts, student health insurance, and cultural insights.',
     iconName: 'Luggage',
-    image: '/images/program-masters.png',
+    image: '/images/program-bachelors-grand.png',
     keyHighlights: [
       'On-campus and off-campus accommodation assistance',
       'Mandatory student health insurance (OSHC, NHS, private plans)',
@@ -328,7 +388,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription: 'High-precision visa filing, genuine temporary entrant (GTE/GS) documentation, and mock interview coaching.',
     fullDescription: 'The student visa is the defining gateway to your international education. Our seasoned counselors understand the specific visa mandates of the USA, UK, Canada, Australia, Ireland, and Schengen countries, ensuring meticulous paperwork and mock interview readiness.',
     iconName: 'GraduationCap',
-    image: '/images/service-visa.png',
+    image: '/images/hero-desktop.png',
     badge: 'Popular',
     keyHighlights: [
       'Strict adherence to the latest immigration regulations',
@@ -418,7 +478,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription: 'Professional visa consultancy for trade conferences, corporate meetings, and global business expansions.',
     fullDescription: 'Facilitating seamless international business mobility. Whether attending commercial negotiations, international conferences, vendor meetings, or exploring foreign market expansion, we structure compliant business visa filings.',
     iconName: 'Briefcase',
-    image: '/images/service-visa.png',
+    image: '/images/program-training-grand.png',
     keyHighlights: [
       'Corporate invitation letter vetting and formal cover letters',
       'Demonstration of company credentials and business ties',
@@ -461,7 +521,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription: 'Dedicated immigration consultation for undergraduate, postgraduate, and vocational study permits.',
     fullDescription: 'A dedicated visa service specifically engineered for overseas degree seekers. We ensure all academic, financial, language, and character requirements are presented impeccably to visa officers.',
     iconName: 'BookOpen',
-    image: '/images/hero-desktop.png',
+    image: '/images/hero-mobile.png',
     badge: 'Core Service',
     keyHighlights: [
       'Accurate filling of DS-160, IMM 1294, PRISMS, and national visa portals',
@@ -505,7 +565,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription: 'Hassle-free tourist and leisure visa consultancy with customized day-wise itineraries and flight bookings.',
     fullDescription: 'Planning a vacation abroad with family or friends? We ensure your tourist visa application is backed by logical travel itineraries, hotel vouchers, strong ties to your home country, and authentic financial credentials.',
     iconName: 'Camera',
-    image: '/images/destinations-landmarks.png',
+    image: '/images/destinations-landmarks-grand.png',
     keyHighlights: [
       'Customized day-to-day tourist itinerary planning',
       'Dummy flight tickets and hotel confirmation assistance',
@@ -548,7 +608,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription: 'Family and friend visits, university graduation attendance, and personal invitations handled with care.',
     fullDescription: 'Whether attending your child\'s university graduation, visiting relatives settled abroad, or participating in family events, our Visitor Visa service handles sponsorship letters, relationship proofs, and genuine visitor justifications.',
     iconName: 'UserPlus',
-    image: '/images/program-training.png',
+    image: '/images/student-testimonial-grand.png',
     keyHighlights: [
       'Guidance on host invitation letters and statutory declarations',
       'Proof of relationship documentation (birth certificates, family registers)',
@@ -594,7 +654,7 @@ export const DESTINATIONS_DATA: DestinationItem[] = [
     workRights: 'Up to 3 years STEM OPT post-graduation',
     avgTuition: '$22,000 – $48,000 / year',
     description: 'Home to the world\'s leading research institutions, dynamic campus cultures, and unmatched tech innovation hubs.',
-    image: '/images/destinations-landmarks.png'
+    image: '/images/destinations-landmarks-grand.png'
   },
   {
     id: 'uk',
@@ -605,7 +665,7 @@ export const DESTINATIONS_DATA: DestinationItem[] = [
     workRights: '2 years Graduate Route post-study work',
     avgTuition: '£13,000 – £26,000 / year',
     description: '1-year Master\'s degrees, historic university traditions, and direct exposure to global financial and corporate headquarters.',
-    image: '/images/destinations-landmarks.png'
+    image: '/images/destinations-landmarks-grand.png'
   },
   {
     id: 'canada',
@@ -616,7 +676,7 @@ export const DESTINATIONS_DATA: DestinationItem[] = [
     workRights: 'Up to 3 years Post-Graduation Work Permit (PGWP)',
     avgTuition: 'CAD 18,000 – 35,000 / year',
     description: 'High standard of living, welcoming multicultural cities, and structured post-study immigration pathways.',
-    image: '/images/destinations-landmarks.png'
+    image: '/images/destinations-landmarks-grand.png'
   },
   {
     id: 'australia',
@@ -627,7 +687,7 @@ export const DESTINATIONS_DATA: DestinationItem[] = [
     workRights: '2 to 4 years Temporary Graduate Visa (subclass 485)',
     avgTuition: 'AUD 24,000 – 42,000 / year',
     description: 'World-renowned Group of Eight universities, exceptional lifestyle, and high-demand skilled occupation lists.',
-    image: '/images/destinations-landmarks.png'
+    image: '/images/destinations-landmarks-grand.png'
   },
   {
     id: 'ireland',
@@ -638,7 +698,7 @@ export const DESTINATIONS_DATA: DestinationItem[] = [
     workRights: '2 years Third Level Graduate Scheme for Master\'s',
     avgTuition: '€12,000 – €22,000 / year',
     description: 'European headquarters of global tech giants (Google, Meta, Apple) with 1-year Master\'s courses.',
-    image: '/images/destinations-landmarks.png'
+    image: '/images/destinations-landmarks-grand.png'
   },
   {
     id: 'germany',
@@ -649,7 +709,7 @@ export const DESTINATIONS_DATA: DestinationItem[] = [
     workRights: '18 months post-study job seeker visa',
     avgTuition: 'Low to zero tuition at public universities (semester fee €250–€350)',
     description: 'Powerhouse of European engineering, tuition-free public education options, and strong industrial integration.',
-    image: '/images/destinations-landmarks.png'
+    image: '/images/destinations-landmarks-grand.png'
   }
 ];
 
@@ -668,7 +728,7 @@ export const TRAINING_PROGRAMS: TrainingItem[] = [
       'Weekly full-length mock examinations under exam conditions',
       'Extensive library of high-band vocabulary and sentence structures'
     ],
-    scoreTarget: 'Target Band 7.0 – 8.5+'
+    scoreTarget: 'Target Band 7.5 – 8.5+'
   },
   {
     id: 'pte',
@@ -684,11 +744,11 @@ export const TRAINING_PROGRAMS: TrainingItem[] = [
       'Pronunciation and oral fluency corrective sessions',
       'Instant AI diagnostic scorecards for targeted improvements'
     ],
-    scoreTarget: 'Target Score 65 – 79+'
+    scoreTarget: 'Target Score 79+ / 90'
   },
   {
     id: 'toefl',
-    title: 'TOEFL iBT Prep',
+    title: 'TOEFL iBT Comprehensive',
     category: 'US & Global Standard',
     duration: '4 to 6 Weeks',
     eligibility: 'North American University Aspirants',
@@ -699,11 +759,11 @@ export const TRAINING_PROGRAMS: TrainingItem[] = [
       'Integrated speaking & writing note-taking strategies',
       'Vocabulary enrichment tailored for American academic contexts'
     ],
-    scoreTarget: 'Target Score 100+ / 120'
+    scoreTarget: 'Target Score 105+ / 120'
   },
   {
     id: 'gre',
-    title: 'GRE General Training',
+    title: 'GRE General Preparation',
     category: 'Graduate Admissions',
     duration: '8 to 12 Weeks',
     eligibility: 'Graduates & Final Year Engineering/Math Students',
@@ -714,26 +774,41 @@ export const TRAINING_PROGRAMS: TrainingItem[] = [
       'Text completion and sentence equivalence strategies',
       'Adaptive sectional mock tests mirroring the ETS GRE format'
     ],
-    scoreTarget: 'Target Score 320+ / 340'
+    scoreTarget: 'Target Score 325+ / 340'
   },
   {
-    id: 'spoken-english',
-    title: 'Spoken English & Personality Prep',
-    category: 'Communication Skill',
-    duration: '4 Weeks',
-    eligibility: 'Open to All Students',
-    mode: 'Group Interactive & Role Play',
-    description: 'Overcome hesitation, refine grammatical structure, polish accent clarity, and build conversational fluency for life abroad.',
+    id: 'sat',
+    title: 'Digital SAT Coaching',
+    category: 'Undergraduate Test Prep',
+    duration: '6 to 10 Weeks',
+    eligibility: 'Grade 10, 11 & 12 High School Students',
+    mode: 'Interactive Lab',
+    description: 'Adaptive digital test practice covering Reading & Writing modules, Desmos calculator speed tricks, and Math problem solving.',
     highlights: [
-      'Public speaking drills and impromptu group discussions',
-      'Everyday conversational scenarios (airport, classroom, shopping)',
-      'Body language, professional etiquette, and presentation skills'
+      'Official Bluebook exam drills & adaptive pacing',
+      'Grammar convention blueprints & vocabulary in context',
+      'Advanced algebra, geometry & trigonometry problem sets'
     ],
-    scoreTarget: 'Fluency & Confidence Guarantee'
+    scoreTarget: 'Target Score 1450+ / 1600'
+  },
+  {
+    id: 'german',
+    title: 'German Language (A1 / A2 / B1)',
+    category: 'European Language Training',
+    duration: '8 to 16 Weeks',
+    eligibility: 'Germany Public University Aspirants',
+    mode: 'Classroom & Native Speaking Labs',
+    description: 'Intensive CEFR-aligned training for Goethe-Zertifikat examinations required for tuition-free public university degrees and part-time jobs in Germany.',
+    highlights: [
+      'Goethe-Zertifikat certified curriculum and examination patterns',
+      'Conversational German speaking drills with native accent coaching',
+      'Technical vocabulary preparation for engineering and STEM degrees'
+    ],
+    scoreTarget: 'Certified CEFR B1 Fluency'
   },
   {
     id: 'interview-prep',
-    title: 'Visa & University Interview Prep',
+    title: 'Visa & Consular Mock Interview Drills',
     category: 'Interview Coaching',
     duration: '1 to 2 Weeks (Intensive)',
     eligibility: 'Students with Scheduled Visa/University Interviews',
@@ -785,7 +860,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     name: 'Priya Sharma',
     course: 'M.S. in Computer Science',
     destination: 'United States',
-    university: 'University of Texas',
+    university: 'University of Texas at Arlington',
     story: '“IQ Overseas helped me turn my dream of studying abroad into reality. Their guidance on university shortlisting and visa interview preparation was exceptional!”',
     rating: 5,
     image: '/images/testimonial-priya.png'
@@ -798,7 +873,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     university: 'University of Leeds',
     story: '“The entire application and CAS process was completely transparent. The team in Guntur made sure every document was verified before submission. Highly recommended!”',
     rating: 5,
-    image: '/images/about-students.png'
+    image: '/images/about-students-grand.png'
   },
   {
     id: 'kavya-reddy',
@@ -808,7 +883,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     university: 'Monash University',
     story: '“From IELTS coaching to GTE statement guidance and education loan assistance, IQ Overseas was with me every step of the way. I received my visa in record time!”',
     rating: 5,
-    image: '/images/testimonial-priya.png'
+    image: '/images/student-testimonial-grand.png'
   },
   {
     id: 'suresh-kumar',
@@ -818,7 +893,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     university: 'Concordia University',
     story: '“The counselors at IQ Overseas provided genuine advice without false promises. They helped me secure a partial tuition scholarship and guided my parents with the financials.”',
     rating: 5,
-    image: '/images/about-students.png'
+    image: '/images/program-bachelors-grand.png'
   }
 ];
 
