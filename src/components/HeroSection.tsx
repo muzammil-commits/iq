@@ -85,72 +85,22 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
         <div className="absolute top-0 right-0 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl pointer-events-none" />
       </div>
 
+      {/* 
+        MOBILE HERO FULL BACKGROUND (image copy 4.png)
+        Set in the hero section in the mobile view in the background with bright look as requested!
+      */}
+      <div className="lg:hidden absolute inset-0 z-0 overflow-hidden">
+        <img
+          src="/images/hero-mobile.png"
+          alt="IQ Overseas Mobile Hero Background"
+          className="w-full h-full object-cover object-top filter brightness-[1.08] contrast-[1.02]"
+        />
+        {/* Crisp, translucent bright gradient so the background picture is clear and vivid while text is crisp */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/75 via-white/55 to-white/90 pointer-events-none" />
+      </div>
+
       {/* Main Content Container Layer */}
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-10 w-full relative z-10 flex-1 flex flex-col justify-center">
-        
-        {/* 
-          MOBILE HERO TOP VISUAL STAGE (media_1795003369186_3fb77c26.png)
-          Shows the bright lady student on left + the 4 stacked cards on right
-          Placed directly below the header in mobile view as requested!
-        */}
-        <div className="lg:hidden w-full relative rounded-3xl overflow-hidden shadow-xl mb-6 border border-slate-200/80 bg-gradient-to-r from-[#071B68] to-blue-900">
-          <div className="relative h-[290px] sm:h-[350px] w-full">
-            {/* The bright mobile hero photo */}
-            <img
-              src="/images/hero-mobile.png"
-              alt="IQ Overseas Student"
-              className="w-full h-full object-cover object-left filter brightness-105 contrast-[1.03]"
-            />
-            {/* Soft gradient to cleanly blend the 4 cards on the right */}
-            <div className="absolute inset-y-0 right-0 w-[64%] sm:w-[55%] bg-gradient-to-l from-white/95 via-white/85 to-transparent flex flex-col justify-center gap-2 p-2 sm:p-3.5 z-10">
-              
-              {/* Card 1: Student Support (Green Icon) */}
-              <div className="bg-white/95 backdrop-blur-md rounded-xl p-2 sm:p-2.5 shadow-sm border border-slate-100 flex items-center gap-2.5 transform transition-transform hover:scale-102">
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-2xs">
-                  <Users className="w-4 h-4 text-white" />
-                </div>
-                <div className="min-w-0">
-                  <div className="text-[11px] sm:text-xs font-black text-iq-navy leading-tight truncate">Student Support</div>
-                  <div className="text-[9px] sm:text-[10px] text-slate-500 font-medium truncate">Pre & post departure</div>
-                </div>
-              </div>
-
-              {/* Card 2: Global Universities (Navy Icon) */}
-              <div className="bg-white/95 backdrop-blur-md rounded-xl p-2 sm:p-2.5 shadow-sm border border-slate-100 flex items-center gap-2.5 transform transition-transform hover:scale-102">
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-iq-navy text-white flex items-center justify-center shrink-0 shadow-2xs">
-                  <GraduationCap className="w-4 h-4 text-white" />
-                </div>
-                <div className="min-w-0">
-                  <div className="text-[11px] sm:text-xs font-black text-iq-navy leading-tight truncate">Global Universities</div>
-                  <div className="text-[9px] sm:text-[10px] text-slate-500 font-medium truncate">World-ranked programs</div>
-                </div>
-              </div>
-
-              {/* Card 3: Career Guidance (Red Icon) */}
-              <div className="bg-white/95 backdrop-blur-md rounded-xl p-2 sm:p-2.5 shadow-sm border border-slate-100 flex items-center gap-2.5 transform transition-transform hover:scale-102">
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-iq-red text-white flex items-center justify-center shrink-0 shadow-2xs">
-                  <Briefcase className="w-4 h-4 text-white" />
-                </div>
-                <div className="min-w-0">
-                  <div className="text-[11px] sm:text-xs font-black text-iq-navy leading-tight truncate">Career Guidance</div>
-                  <div className="text-[9px] sm:text-[10px] text-slate-500 font-medium truncate">Profile & ROI roadmap</div>
-                </div>
-              </div>
-
-              {/* Card 4: Visa Assistance (Navy Icon with Shield) */}
-              <div className="bg-white/95 backdrop-blur-md rounded-xl p-2 sm:p-2.5 shadow-sm border border-slate-100 flex items-center gap-2.5 transform transition-transform hover:scale-102">
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-iq-navy text-white flex items-center justify-center shrink-0 shadow-2xs">
-                  <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                </div>
-                <div className="min-w-0">
-                  <div className="text-[11px] sm:text-xs font-black text-iq-navy leading-tight truncate">Visa Assistance</div>
-                  <div className="text-[9px] sm:text-[10px] text-slate-500 font-medium truncate">Filing & mock interviews</div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 w-full relative z-10 flex-1 flex flex-col justify-center">
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
