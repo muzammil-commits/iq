@@ -87,16 +87,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
 
       {/* 
         MOBILE HERO FULL BACKGROUND (image copy 4.png)
-        Set in the hero section in the mobile view in the background with bright look as requested!
+        Ultra-bright, vivid background for mobile view
       */}
       <div className="lg:hidden absolute inset-0 z-0 overflow-hidden">
         <img
           src="/images/hero-mobile.png"
           alt="IQ Overseas Mobile Hero Background"
-          className="w-full h-full object-cover object-top filter brightness-[1.08] contrast-[1.02]"
+          className="w-full h-full object-cover object-top filter brightness-[1.14] contrast-[1.08] saturate-[1.10]"
         />
-        {/* Crisp, translucent bright gradient so the background picture is clear and vivid while text is crisp */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/75 via-white/55 to-white/90 pointer-events-none" />
+        {/* Crystal clear gradient preserving ultra-bright photo visibility */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/15 via-transparent to-white/75 pointer-events-none" />
       </div>
 
       {/* Main Content Container Layer */}
@@ -104,8 +104,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
-          {/* Left Column: Heading, Subtitle & CTAs directly on top of the background */}
-          <div className="lg:col-span-7 xl:col-span-6 space-y-4 sm:space-y-6 text-center lg:text-left">
+          {/* Left Column: Heading, Subtitle & CTAs directly on top of the bright background */}
+          <div className="lg:col-span-7 xl:col-span-6 space-y-4 sm:space-y-6 text-center lg:text-left bg-white/70 lg:bg-transparent backdrop-blur-[2px] lg:backdrop-blur-none p-4 sm:p-6 lg:p-0 rounded-3xl border border-white/60 lg:border-transparent shadow-xs lg:shadow-none">
             
             {/* Category Pill */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-xs text-iq-navy text-xs sm:text-sm font-bold tracking-wide">
