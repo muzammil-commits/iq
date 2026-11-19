@@ -27,8 +27,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenConsultation }) => {
       {/* 3. Navy Trust Strip */}
       <TrustStrip />
 
-      {/* 4. About Company & Core Values */}
-      <AboutSection />
+      {/* 4. About Company & Core Values with Vision & Mission Popups */}
+      <AboutSection onOpenConsultation={onOpenConsultation} />
 
       {/* 5. Complete Services Explorer (10 Services) */}
       <ServicesSection />

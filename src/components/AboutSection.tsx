@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import {
   ArrowRight,
   Eye,
@@ -16,9 +17,15 @@ import {
   Award
 } from 'lucide-react';
 import { COMPANY_STATEMENTS, CORE_VALUES } from '../data/siteContent';
+import { VisionMissionModal } from './VisionMissionModal';
 
-export const AboutSection: React.FC = () => {
+interface AboutSectionProps {
+  onOpenConsultation?: () => void;
+}
+
+export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }) => {
   const [activeValue, setActiveValue] = useState<string | null>(CORE_VALUES[0].id);
+  const [modalType, setModalType] = useState<'vision' | 'mission' | null>(null);
 
   const getValueIcon = (name: string, active: boolean) => {
     const iconClass = `w-4 h-4 transition-colors duration-200 ${
@@ -86,42 +93,88 @@ export const AboutSection: React.FC = () => {
               </Link>
             </div>
 
-            {/* Vision & Mission Grand Blocks */}
+            {/* Vision & Mission Popup Modal */}
+            <VisionMissionModal
+              type={modalType}
+              isOpen={modalType !== null}
+              onClose={() => setModalType(null)}
+              onOpenConsultation={onOpenConsultation || (() => {})}
+            />
+
+            {/* Vision & Mission Grand Blocks with Scroll Animation & Interactive Popups */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               
               {/* Vision Block */}
-              <div className="p-6 rounded-2xl bg-gradient-to-br from-blue-50/80 via-white to-blue-50/40 border border-blue-100 shadow-sm relative overflow-hidden group hover:shadow-md transition-all">
-                <div className="w-11 h-11 rounded-xl bg-iq-navy text-white flex items-center justify-center mb-3 group-hover:scale-110 transition-transform shadow-xs">
-                  <Eye className="w-5 h-5 text-sky-300" />
+              <motion.div
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                onClick={() => setModalType('vision')}
+                className="p-6 rounded-2xl bg-gradient-to-br from-blue-50/80 via-white to-blue-50/40 border border-blue-100 shadow-sm hover:shadow-xl hover:border-iq-navy relative overflow-hidden group transition-all cursor-pointer"
+              >
+                <div className="flex items-center justify-between mb-3">
+                  <div className="w-11 h-11 rounded-xl bg-iq-navy text-white flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs">
+                    <Eye className="w-5 h-5 text-sky-300" />
+                  </div>
+                  <span className="text-[10px] font-bold text-iq-navy bg-blue-100/60 px-2 py-0.5 rounded-full flex items-center gap-1 group-hover:bg-iq-navy group-hover:text-white transition-colors">
+                    <span>View Roadmap</span>
+                    <ArrowRight className="w-2.5 h-2.5" />
+                  </span>
                 </div>
-                <h3 className="text-base font-extrabold text-iq-navy mb-1.5">
+                <h3 className="text-base font-extrabold text-iq-navy mb-1.5 group-hover:text-blue-900 transition-colors">
                   {COMPANY_STATEMENTS.vision.title}
                 </h3>
-                <p className="text-xs text-slate-600 leading-relaxed italic">
+                <p className="text-xs text-slate-600 leading-relaxed italic line-clamp-3">
                   "{COMPANY_STATEMENTS.vision.quote}"
                 </p>
-                <div className="mt-4 pt-3 border-t border-blue-100 text-xs font-bold text-iq-navy flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-iq-red shrink-0" />
-                  <span>{COMPANY_STATEMENTS.vision.summary}</span>
+                <div className="mt-4 pt-3 border-t border-blue-100 text-xs font-bold text-iq-navy flex items-center justify-between gap-1.5">
+                  <div className="flex items-center gap-1.5 min-w-0 truncate">
+                    <CheckCircle2 className="w-4 h-4 text-iq-red shrink-0" />
+                    <span className="truncate">{COMPANY_STATEMENTS.vision.summary}</span>
+                  </div>
+                  <span className="text-[11px] font-extrabold text-iq-navy shrink-0 underline">
+                    Read More
+                  </span>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Mission Block */}
-              <div className="p-6 rounded-2xl bg-gradient-to-br from-red-50/70 via-white to-red-50/40 border border-red-100 shadow-sm relative overflow-hidden group hover:shadow-md transition-all">
-                <div className="w-11 h-11 rounded-xl bg-iq-red text-white flex items-center justify-center mb-3 group-hover:scale-110 transition-transform shadow-xs">
-                  <Target className="w-5 h-5" />
+              <motion.div
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                onClick={() => setModalType('mission')}
+                className="p-6 rounded-2xl bg-gradient-to-br from-red-50/70 via-white to-red-50/40 border border-red-100 shadow-sm hover:shadow-xl hover:border-iq-red relative overflow-hidden group transition-all cursor-pointer"
+              >
+                <div className="flex items-center justify-between mb-3">
+                  <div className="w-11 h-11 rounded-xl bg-iq-red text-white flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs">
+                    <Target className="w-5 h-5" />
+                  </div>
+                  <span className="text-[10px] font-bold text-iq-red bg-red-100/60 px-2 py-0.5 rounded-full flex items-center gap-1 group-hover:bg-iq-red group-hover:text-white transition-colors">
+                    <span>View Pillars</span>
+                    <ArrowRight className="w-2.5 h-2.5" />
+                  </span>
                 </div>
-                <h3 className="text-base font-extrabold text-iq-navy mb-1.5">
+                <h3 className="text-base font-extrabold text-iq-navy mb-1.5 group-hover:text-iq-red transition-colors">
                   {COMPANY_STATEMENTS.mission.title}
                 </h3>
-                <p className="text-xs text-slate-600 leading-relaxed italic">
+                <p className="text-xs text-slate-600 leading-relaxed italic line-clamp-3">
                   "{COMPANY_STATEMENTS.mission.quote}"
                 </p>
-                <div className="mt-4 pt-3 border-t border-red-100 text-xs font-bold text-iq-red flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-iq-navy shrink-0" />
-                  <span>{COMPANY_STATEMENTS.mission.summary}</span>
+                <div className="mt-4 pt-3 border-t border-red-100 text-xs font-bold text-iq-red flex items-center justify-between gap-1.5">
+                  <div className="flex items-center gap-1.5 min-w-0 truncate">
+                    <CheckCircle2 className="w-4 h-4 text-iq-navy shrink-0" />
+                    <span className="truncate">{COMPANY_STATEMENTS.mission.summary}</span>
+                  </div>
+                  <span className="text-[11px] font-extrabold text-iq-red shrink-0 underline">
+                    Read More
+                  </span>
                 </div>
-              </div>
+              </motion.div>
 
             </div>
 
