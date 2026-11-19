@@ -60,34 +60,30 @@ export const AboutSection: React.FC = () => {
           {/* Left Column: Ultra HD Image (image copy 10.png) & Vision/Mission (7 Cols) */}
           <div className="lg:col-span-7 space-y-6">
             
-            {/* Main Student Photo (image copy 10.png) with Grand Badge */}
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-100 group">
+            {/* Main Student Photo (image copy 25.png) with Grand Look */}
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-100 group transition-all duration-500 hover:shadow-[0_25px_60px_rgba(7,27,104,0.22)]">
               <img
-                src="/images/about-students-grand.png"
-                alt="IQ Overseas Happy Students at International University Campus"
-                className="w-full h-[320px] sm:h-[380px] object-cover object-center transform group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                src="/images/about-students-headquarters-grand.png"
+                alt="IQ Overseas Happy Students at International University Campus - Headquartered in Lakshmipuram, Guntur"
+                className="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-700 ease-out"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-iq-navy/80 via-transparent to-transparent pointer-events-none" />
-
-              {/* Floating Overlay Card */}
-              <div className="absolute bottom-5 left-5 right-5 bg-white/95 backdrop-blur-md p-4 rounded-2xl border border-white/60 shadow-xl flex items-center justify-between">
-                <div>
-                  <div className="text-sm font-bold text-iq-navy flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-iq-red animate-pulse" />
-                    <span>Empowering Dreams in Guntur & Beyond</span>
-                  </div>
-                  <div className="text-xs text-slate-500 mt-0.5">
-                    Student-first counselling • Ethical admissions • Visa guidance
-                  </div>
-                </div>
-                <Link
-                  to="/about"
-                  className="px-4 py-2 bg-iq-red hover:bg-iq-red-hover text-white text-xs font-bold rounded-xl shadow transition-colors inline-flex items-center gap-1.5 shrink-0"
-                >
-                  <span>Know More</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
+              
+              {/* Sleek Top Badge */}
+              <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-lg border border-slate-200/80 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-iq-red animate-pulse" />
+                <span className="text-xs font-black text-iq-navy tracking-wide">Trusted Global Guidance</span>
+                <span className="text-slate-300">|</span>
+                <span className="text-xs font-semibold text-slate-600">Guntur HQ</span>
               </div>
+
+              {/* Top Right "Know More" CTA Button */}
+              <Link
+                to="/about"
+                className="absolute top-4 right-4 px-4 py-2 bg-iq-navy/95 hover:bg-iq-red text-white text-xs font-bold rounded-full shadow-lg backdrop-blur-md transition-all duration-300 inline-flex items-center gap-1.5 hover:scale-105"
+              >
+                <span>Know More</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
             </div>
 
             {/* Vision & Mission Grand Blocks */}

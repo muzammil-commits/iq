@@ -70,16 +70,17 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenConsultation }) => {
             </div>
 
             <div className="lg:col-span-6">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-100 group transition-all duration-500 hover:shadow-[0_25px_60px_rgba(7,27,104,0.22)]">
                 <img
-                  src="/images/about-students.png"
-                  alt="Students at International University"
-                  className="w-full h-full object-cover"
+                  src="/images/about-students-headquarters-grand.png"
+                  alt="Students at International University - Headquartered in Lakshmipuram, Guntur"
+                  className="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-700 ease-out"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-iq-navy/70 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-4 rounded-xl border border-white/50 shadow">
-                  <div className="text-xs font-bold text-iq-navy">{BRAND_INFO.address}</div>
-                  <div className="text-[11px] text-slate-500 mt-0.5">Headquartered in Lakshmipuram, Guntur</div>
+                
+                {/* Sleek Top Badge */}
+                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-lg border border-slate-200/80 flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-iq-red animate-pulse" />
+                  <span className="text-xs font-black text-iq-navy tracking-wide">Global Campus Pathways</span>
                 </div>
               </div>
             </div>
