@@ -14,9 +14,10 @@ import {
   Globe,
   Sparkles,
   CheckCircle2,
-  Award
+  Award,
+  Plane
 } from 'lucide-react';
-import { COMPANY_STATEMENTS, CORE_VALUES } from '../data/siteContent';
+import { COMPANY_STATEMENTS } from '../data/siteContent';
 import { VisionMissionModal } from './VisionMissionModal';
 
 interface AboutSectionProps {
@@ -24,24 +25,7 @@ interface AboutSectionProps {
 }
 
 export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }) => {
-  const [activeValue, setActiveValue] = useState<string | null>(CORE_VALUES[0].id);
   const [modalType, setModalType] = useState<'vision' | 'mission' | null>(null);
-
-  const getValueIcon = (name: string, active: boolean) => {
-    const iconClass = `w-4 h-4 transition-colors duration-200 ${
-      active ? 'text-white' : 'text-iq-navy group-hover:text-iq-red'
-    }`;
-    switch (name) {
-      case 'Shield': return <Shield className={iconClass} />;
-      case 'Users': return <Users className={iconClass} />;
-      case 'Star': return <Star className={iconClass} />;
-      case 'Handshake': return <Handshake className={iconClass} />;
-      case 'UserCheck': return <UserCheck className={iconClass} />;
-      case 'Trophy': return <Trophy className={iconClass} />;
-      case 'Globe': return <Globe className={iconClass} />;
-      default: return <Sparkles className={iconClass} />;
-    }
-  };
 
   return (
     <section className="py-16 sm:py-24 bg-white relative overflow-hidden" id="about">
@@ -180,72 +164,91 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenConsultation }
 
           </div>
 
-          {/* Right Column: 7 Core Values Grand Layout (5 Cols) */}
-          <div className="lg:col-span-5 bg-gradient-to-b from-[#F8FAFD] to-slate-50 rounded-3xl p-6 sm:p-7 border border-slate-200/80 shadow-md">
-            <div className="mb-4">
-              <span className="text-[11px] font-bold text-iq-red uppercase tracking-wider">
-                Principles That Guide Us
-              </span>
-              <h3 className="text-xl font-black text-iq-navy mt-0.5">
-                Our 7 Core Values
-              </h3>
-              <p className="text-xs text-slate-500 mt-1">
-                Hover or click to explore our foundation of student trust
-              </p>
-            </div>
+          {/* Right Column: Why Choose Us Grand Layout matching image copy 40 (5 Cols) */}
+          <div className="lg:col-span-5 bg-gradient-to-b from-[#F8FAFD] to-slate-50 rounded-3xl p-6 sm:p-7 border border-slate-200/80 shadow-md flex flex-col justify-between">
+            <div>
+              <div className="mb-4">
+                <span className="text-[11px] font-black text-iq-red uppercase tracking-wider inline-flex items-center gap-1.5">
+                  <Plane className="w-3.5 h-3.5" />
+                  <span>Why Choose Us</span>
+                </span>
+                <h3 className="text-xl sm:text-2xl font-black text-iq-navy mt-1">
+                  Your Journey Abroad Begins With The Right Guidance
+                </h3>
+                <p className="text-xs text-slate-500 mt-1 font-medium">
+                  Proven student outcomes backed by transparent international advisory
+                </p>
+              </div>
 
-            <div className="space-y-2">
-              {CORE_VALUES.map((val) => {
-                const isActive = activeValue === val.id;
-                return (
+              <div className="space-y-2.5">
+                {[
+                  {
+                    num: '01',
+                    title: 'Visa guidance',
+                    desc: 'End-to-end embassy filing, financial audits & 1-on-1 consular mock interviews.',
+                    icon: <Shield className="w-4 h-4 text-iq-red" />
+                  },
+                  {
+                    num: '02',
+                    title: 'Forex assistance',
+                    desc: 'Multi-currency student Forex cards with zero hidden markup & quick wire transfers.',
+                    icon: <Sparkles className="w-4 h-4 text-blue-600" />
+                  },
+                  {
+                    num: '03',
+                    title: 'Flight ticket',
+                    desc: 'Discounted student airfares with exclusive 40-45 kg luggage allowances.',
+                    icon: <Plane className="w-4 h-4 text-emerald-600" />
+                  },
+                  {
+                    num: '04',
+                    title: 'Application processing',
+                    desc: 'Zero-error institutional dossiers, SOP editing, and direct admission liaison.',
+                    icon: <CheckCircle2 className="w-4 h-4 text-iq-navy" />
+                  },
+                  {
+                    num: '05',
+                    title: 'Educational loan support',
+                    desc: 'Fast-track collateral & non-collateral overseas loans through partner banks.',
+                    icon: <Award className="w-4 h-4 text-amber-600" />
+                  },
+                  {
+                    num: '06',
+                    title: 'Accommodation & pre-departure',
+                    desc: 'Verified student housing near campus & comprehensive transit briefings.',
+                    icon: <Users className="w-4 h-4 text-indigo-600" />
+                  }
+                ].map((item, idx) => (
                   <div
-                    key={val.id}
-                    onMouseEnter={() => setActiveValue(val.id)}
-                    onClick={() => setActiveValue(val.id)}
-                    className={`p-3.5 rounded-2xl transition-all duration-300 cursor-pointer border ${
-                      isActive
-                        ? 'bg-white shadow-md border-iq-navy/20 translate-x-1'
-                        : 'bg-white/70 hover:bg-white border-slate-200/60 hover:border-slate-300'
-                    }`}
+                    key={idx}
+                    className="p-3 rounded-2xl bg-white border border-slate-200/70 shadow-2xs hover:shadow-sm hover:border-iq-navy transition-all duration-200 flex items-start gap-3"
                   >
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <div
-                          className={`w-8 h-8 rounded-xl flex items-center justify-center transition-colors shadow-2xs ${
-                            isActive ? 'bg-iq-red text-white' : 'bg-slate-100 text-iq-navy'
-                          }`}
-                        >
-                          {getValueIcon(val.iconName, isActive)}
-                        </div>
-                        <span className={`text-xs sm:text-sm font-bold transition-colors ${
-                          isActive ? 'text-iq-navy' : 'text-slate-800'
-                        }`}>
-                          {val.title}
+                    <div className="w-8 h-8 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center shrink-0 mt-0.5">
+                      {item.icon}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs sm:text-sm font-black text-iq-navy">
+                          {item.title}
+                        </span>
+                        <span className="text-[10px] font-mono font-bold text-slate-400">
+                          {item.num}
                         </span>
                       </div>
-                      <span className={`text-xs font-mono font-bold ${
-                        isActive ? 'text-iq-red' : 'text-slate-300'
-                      }`}>
-                        0{val.id}
-                      </span>
-                    </div>
-
-                    {/* Expandable description */}
-                    {isActive && (
-                      <p className="mt-2.5 pl-11 text-xs text-slate-600 leading-relaxed animate-in fade-in duration-200 font-normal">
-                        {val.description}
+                      <p className="text-[11px] text-slate-600 leading-snug mt-0.5 font-medium">
+                        {item.desc}
                       </p>
-                    )}
+                    </div>
                   </div>
-                );
-              })}
+                ))}
+              </div>
             </div>
 
             <div className="mt-6 pt-4 border-t border-slate-200/80 flex items-center justify-between">
-              <span className="text-xs text-slate-500 font-medium">Headquartered in Guntur, AP</span>
+              <span className="text-xs text-slate-500 font-semibold">Lakshmipuram, Guntur</span>
               <Link
                 to="/about"
-                className="text-xs font-bold text-iq-red hover:underline inline-flex items-center gap-1"
+                className="text-xs font-black text-iq-red hover:underline inline-flex items-center gap-1"
               >
                 <span>Read Full Story</span>
                 <ArrowRight className="w-3.5 h-3.5" />

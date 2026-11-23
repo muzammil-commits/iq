@@ -1,6 +1,6 @@
 import React from 'react';
 import { HeroSection } from '../components/HeroSection';
-import { QuickSearchAction } from '../components/QuickSearchAction';
+import { ExploreStudyDestinations } from '../components/ExploreStudyDestinations';
 import { TrustStrip } from '../components/TrustStrip';
 import { AboutSection } from '../components/AboutSection';
 import { ServicesSection } from '../components/ServicesSection';
@@ -21,8 +21,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenConsultation }) => {
       {/* 1. Hero Section */}
       <HeroSection onOpenConsultation={onOpenConsultation} />
 
-      {/* 2. Quick Search & Filter Action Bar */}
-      <QuickSearchAction />
+      {/* 2. Explore Study Destinations Grid (matching image copy 41 & 42) */}
+      <ExploreStudyDestinations />
 
       {/* 3. Navy Trust Strip */}
       <TrustStrip />

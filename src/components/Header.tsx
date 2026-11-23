@@ -50,7 +50,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
     setMobileAccordion(null);
   }, [location.pathname]);
 
-  const educationServices = SERVICES_DATA.filter(s => s.category === 'Overseas Education & Student Support');
+  const educationServices = SERVICES_DATA.filter(s => s.category === 'Core Overseas Services');
   const visaServices = SERVICES_DATA.filter(s => s.category === 'Visa Consultancy Services');
 
   const isActive = (path: string) => {
@@ -136,8 +136,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
                   <div className="grid grid-cols-2 gap-5">
                     <div>
                       <div className="text-[11px] font-bold uppercase tracking-wider text-iq-navy px-2 pb-2 mb-2 border-b border-slate-100 flex items-center justify-between">
-                        <span>Student Support</span>
-                        <span className="text-iq-red font-mono">01–06</span>
+                        <span>Core Overseas Services</span>
+                        <span className="text-iq-red font-mono">01–09</span>
                       </div>
                       <div className="space-y-1">
                         {educationServices.map((service) => (
@@ -157,7 +157,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
                     <div>
                       <div className="text-[11px] font-bold uppercase tracking-wider text-iq-red px-2 pb-2 mb-2 border-b border-slate-100 flex items-center justify-between">
                         <span>Visa Consultancy</span>
-                        <span className="text-iq-navy font-mono">07–10</span>
+                        <span className="text-iq-navy font-mono">3 Types</span>
                       </div>
                       <div className="space-y-1">
                         {visaServices.map((service) => (
@@ -178,7 +178,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
                           onClick={() => setActiveDropdown(null)}
                           className="inline-flex items-center gap-1.5 text-xs font-bold text-iq-navy hover:text-iq-red px-2 transition-colors"
                         >
-                          <span>Explore All 10 Services</span>
+                          <span>Explore All 9 Services</span>
                           <ArrowRight className="w-3.5 h-3.5" />
                         </Link>
                       </div>
@@ -568,7 +568,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
                     onClick={() => setMobileAccordion(mobileAccordion === 'services' ? null : 'services')}
                     className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-bold text-slate-800 hover:bg-slate-50"
                   >
-                    <span>Services (10 Categories)</span>
+                    <span>Services (9 Categories)</span>
                     <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform ${mobileAccordion === 'services' ? 'rotate-180 text-iq-red' : ''}`} />
                   </button>
                   {mobileAccordion === 'services' && (

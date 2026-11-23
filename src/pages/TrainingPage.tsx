@@ -46,9 +46,9 @@ export const TrainingPage: React.FC<TrainingPageProps> = ({ onOpenConsultation }
     if (!key) return 'ielts';
     const low = key.toLowerCase();
     if (low === 'digital-sat' || low === 'sat') return 'sat';
-    if (low === 'toefl') return 'ielts';
-    if (low === 'german') return 'pte';
-    if (['ielts', 'pte', 'gre', 'sat'].includes(low)) return low;
+    if (low === 'toefl' || low === 'toefl-ibt') return 'toefl';
+    if (low === 'duolingo' || low === 'det') return 'duolingo';
+    if (['ielts', 'pte', 'gre', 'toefl', 'duolingo', 'sat'].includes(low)) return low;
     return 'ielts';
   };
 
@@ -64,7 +64,7 @@ export const TrainingPage: React.FC<TrainingPageProps> = ({ onOpenConsultation }
       tagline: 'Accepted in 140+ countries for admissions & PR visas',
       description: 'Comprehensive 4-module training covering Listening, Reading, Writing, and 1-on-1 Speaking mock drills with certified British Council & IDP trainers.',
       image: '/images/program-training-grand.png',
-      badge: 'Most Popular Exam',
+      badge: 'Gold Standard Test',
       modules: ['Listening (40 mins)', 'Reading (60 mins)', 'Writing (60 mins)', 'Speaking (11-14 mins)']
     },
     {
@@ -88,13 +88,33 @@ export const TrainingPage: React.FC<TrainingPageProps> = ({ onOpenConsultation }
       modules: ['Analytical Writing (30 mins)', 'Verbal Reasoning (41 mins)', 'Quantitative Reasoning (47 mins)']
     },
     {
+      key: 'toefl',
+      title: 'TOEFL iBT Comprehensive',
+      target: 'Score 100+',
+      tagline: 'Preferred by premier US & Canadian universities',
+      description: 'ETS-certified coaching for the streamlined 2-hour format covering Reading, Listening, Speaking, and the new Academic Discussion writing task.',
+      image: '/images/about-students-grand.png',
+      badge: 'Premier Academic Test',
+      modules: ['Reading (35 mins)', 'Listening (36 mins)', 'Speaking (16 mins)', 'Writing (29 mins)']
+    },
+    {
+      key: 'duolingo',
+      title: 'Duolingo English Test (DET)',
+      target: 'Score 125+',
+      tagline: 'Fast, affordable & accepted by 5,000+ global universities',
+      description: 'Modern AI-adaptive test taken from home. Receive certified results in 48 hours with unlimited free official score reports to universities worldwide.',
+      image: '/images/service-education.png',
+      badge: 'Online AI-Adaptive',
+      modules: ['Adaptive Test (45 mins)', 'Video Interview (10 mins)', 'Writing Sample']
+    },
+    {
       key: 'sat',
       title: 'Digital SAT Preparation',
       target: 'Score 1450+',
       tagline: 'College Board adaptive format for US undergraduate scholarships',
       description: 'Master Reading & Writing passages and advanced Math with the built-in Desmos graphing calculator to secure prestigious undergraduate merit awards.',
       image: '/images/program-bachelors-grand.png',
-      badge: 'Undergraduate Scholarships',
+      badge: 'UG Scholarships',
       modules: ['Reading and Writing (64 mins)', 'Math with Desmos (70 mins)']
     }
   ];
@@ -130,7 +150,7 @@ export const TrainingPage: React.FC<TrainingPageProps> = ({ onOpenConsultation }
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
               {allProgramsList.map((prog, idx) => (
                 <motion.div
                   key={prog.key}
@@ -272,6 +292,26 @@ export const TrainingPage: React.FC<TrainingPageProps> = ({ onOpenConsultation }
       <section className="relative bg-gradient-to-br from-slate-50 via-blue-50/40 to-white py-12 sm:py-16 lg:py-20 border-b border-slate-200/80 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
+          {/* 6 Programs Quick Switcher Bar */}
+          <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-4 scrollbar-none">
+            {allProgramsList.map((p) => {
+              const active = p.key === selectedKey;
+              return (
+                <Link
+                  key={p.key}
+                  to={`/training/${p.key}`}
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-black whitespace-nowrap transition-all ${
+                    active
+                      ? 'bg-iq-red text-white shadow-md'
+                      : 'bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 shadow-2xs'
+                  }`}
+                >
+                  {p.title.split(' ')[0]}
+                </Link>
+              );
+            })}
+          </div>
+
           {/* Breadcrumb */}
           <nav className="flex items-center gap-1.5 text-xs text-slate-500 mb-6" aria-label="Breadcrumb">
             <Link to="/" className="hover:text-iq-navy transition-colors">Home</Link>

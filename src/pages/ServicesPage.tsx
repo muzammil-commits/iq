@@ -12,14 +12,11 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
   const [activeTab, setActiveTab] = useState<'all' | 'education' | 'visa'>('all');
   const [searchTerm, setSearchTerm] = useState('');
 
-  const educationServices = SERVICES_DATA.filter(s => s.category === 'Overseas Education & Student Support');
-  const visaServices = SERVICES_DATA.filter(s => s.category === 'Visa Consultancy Services');
-
   const displayedServices = SERVICES_DATA.filter(s => {
     const matchesTab = activeTab === 'all'
       ? true
       : activeTab === 'education'
-      ? s.category === 'Overseas Education & Student Support'
+      ? s.category === 'Core Overseas Services'
       : s.category === 'Visa Consultancy Services';
 
     const matchesSearch = !searchTerm.trim() ||
@@ -34,7 +31,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
       <PageHero
         title="Complete Services for Your"
         highlightedWord="Global Journey"
-        subtitle="10 dedicated pathways spanning Career Counselling, University Applications, Financial Guidance, Study Visas, and Comprehensive Travel Assistance."
+        subtitle="Comprehensive overseas services spanning Career Counselling, Application Process, University Shortlisting, Financial Assistance, Forex, Flight Booking, and Accommodations."
         breadcrumbs={[{ label: 'Services' }]}
         onOpenConsultation={onOpenConsultation}
       />
@@ -54,7 +51,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
                     : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
                 }`}
               >
-                All 10 Services
+                All Services
               </button>
               <button
                 onClick={() => setActiveTab('education')}
@@ -64,7 +61,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
                     : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
                 }`}
               >
-                Overseas Education (01–06)
+                Overseas Education (01–09)
               </button>
               <button
                 onClick={() => setActiveTab('visa')}
@@ -74,7 +71,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenConsultation }
                     : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
                 }`}
               >
-                Visa Consultancy (07–10)
+                Visa Solutions
               </button>
             </div>
 

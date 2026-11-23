@@ -3,7 +3,7 @@ export interface ServiceItem {
   slug: string;
   number: string;
   title: string;
-  category: 'Overseas Education & Student Support' | 'Visa Consultancy Services';
+  category: string;
   shortDescription: string;
   fullDescription: string;
   iconName: string;

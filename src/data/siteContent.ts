@@ -257,33 +257,32 @@ export const MASTERS_DROPDOWN = [
 ];
 
 export const BACHELORS_DROPDOWN = [
-  { title: 'Undergraduate Overview', slug: 'overview', desc: '4-Year Degree Roadmap & Global Intakes' },
-  { title: 'Bachelors in USA', slug: 'bachelors-usa', flag: '🇺🇸', desc: 'Common App • Double Majors • Campus Life' },
-  { title: 'Bachelors in UK', slug: 'bachelors-uk', flag: '🇬🇧', desc: 'UCAS Admission • 3-Year Focused Degrees' },
-  { title: 'Bachelors in Canada', slug: 'bachelors-canada', flag: '🇨🇦', desc: 'Co-op Work Internships • Safe Cities' },
-  { title: 'Bachelors in Australia', slug: 'bachelors-australia', flag: '🇦🇺', desc: 'World Top 100 Universities • 3-Year UG' },
-  { title: 'Bachelors in Ireland & Europe', slug: 'bachelors-europe', flag: '🇪🇺', desc: 'English-taught UG Degrees • Low Tuition' },
-  { title: 'UG Scholarships & Aid', slug: 'scholarships', desc: 'Merit-based & Need-based High School Grants' }
+  { title: 'Study in USA', slug: 'usa', flag: '🇺🇸', desc: 'Common App • Double Majors • Campus Life' },
+  { title: 'Study in UK', slug: 'uk', flag: '🇬🇧', desc: 'UCAS Admission • 3-Year Focused Degrees' },
+  { title: 'Study in Canada', slug: 'canada', flag: '🇨🇦', desc: 'Co-op Work Internships • Safe Cities' },
+  { title: 'Study in Ireland', slug: 'ireland', flag: '🇮🇪', desc: 'Silicon Docks • 1-Year Stay Back • High Tech' },
+  { title: 'Study in Australia', slug: 'australia', flag: '🇦🇺', desc: 'World Top 100 Universities • 3-Year UG' },
+  { title: 'Study in New Zealand', slug: 'new-zealand', flag: '🇳🇿', desc: 'Safe Campuses • Post-Study Work • High Quality of Life' },
+  { title: 'Study in Europe', slug: 'europe', flag: '🇪🇺', desc: 'English-taught UG Degrees • Low Tuition' }
 ];
 
 export const TRAINING_DROPDOWN = [
   { title: 'IELTS Academic & General', slug: 'ielts', target: 'Band 7.5+', desc: 'Cambridge Material & Daily Speaking Drills' },
   { title: 'PTE Academic Masterclass', slug: 'pte', target: 'Score 79+', desc: 'AI Scoring Simulator & Proven Templates' },
-  { title: 'TOEFL iBT Comprehensive', slug: 'toefl', target: 'Score 100+', desc: 'North America Focus & Integrated Tasks' },
   { title: 'GRE General Preparation', slug: 'gre', target: 'Score 320+', desc: 'Quant Shortcuts & Vocab Mnemonics' },
-  { title: 'Digital SAT Coaching', slug: 'sat', target: 'Score 1450+', desc: 'Adaptive Modules & High School Focus' },
-  { title: 'German Language (A1/A2/B1)', slug: 'german', target: 'Goethe Exam', desc: 'Mandatory German Proficiency for Tech & Engg' },
-  { title: 'Visa Mock Interview Drills', slug: 'interview', target: '100% Confidence', desc: 'Consular Simulations for US F-1 & Global Visas' }
+  { title: 'TOEFL iBT Comprehensive', slug: 'toefl', target: 'Score 100+', desc: 'North America Focus & Integrated Tasks' },
+  { title: 'Duolingo English Test (DET)', slug: 'duolingo', target: 'Score 125+', desc: 'Computer Adaptive Format & 48-Hour Results' },
+  { title: 'Digital SAT Coaching', slug: 'sat', target: 'Score 1450+', desc: 'Adaptive Modules & High School Focus' }
 ];
 
 export const SERVICES_DATA: ServiceItem[] = [
-  // Category 1: Overseas Education & Student Support
+  // 9 Core Overseas Services
   {
     id: 'service-01',
     slug: 'career-counselling',
     number: '01',
     title: 'Career Counselling',
-    category: 'Overseas Education & Student Support',
+    category: 'Core Overseas Services',
     shortDescription: 'In-depth profile assessment, psychometric mapping, and career roadmapping aligned with your global ambition.',
     fullDescription: 'Our Career Counselling service is designed to understand your unique strengths, academic foundation, financial considerations, and long-term career aspirations. We guide you toward the right specialization and study destination to ensure high return on education.',
     iconName: 'Compass',
@@ -323,10 +322,10 @@ export const SERVICES_DATA: ServiceItem[] = [
   },
   {
     id: 'service-02',
-    slug: 'application-processing',
+    slug: 'application-process',
     number: '02',
-    title: 'Application Processing',
-    category: 'Overseas Education & Student Support',
+    title: 'Application Process',
+    category: 'Core Overseas Services',
     shortDescription: 'Meticulous university application drafting, SOP/LOR review, and deadline tracking for top global institutions.',
     fullDescription: 'University admissions are highly competitive and detail-oriented. IQ Overseas handles end-to-end application processing, verifying each dossier, reviewing your Statement of Purpose (SOP) and Letters of Recommendation (LORs), and liaising directly with university admissions offices.',
     iconName: 'FileCheck',
@@ -345,7 +344,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     documentsRequired: [
       'Official Academic Transcripts (School/College)',
       'Valid Passport Copy',
-      'Standardized Test Scores (IELTS, PTE, TOEFL, GRE, GMAT)',
+      'Standardized Test Scores (IELTS, PTE, TOEFL, GRE, SAT)',
       'Letters of Recommendation (LORs)',
       'Statement of Purpose (SOP)'
     ],
@@ -367,111 +366,328 @@ export const SERVICES_DATA: ServiceItem[] = [
   },
   {
     id: 'service-03',
-    slug: 'financial-assistance',
+    slug: 'shortlisting-universities-mock-interviews',
     number: '03',
-    title: 'Financial Assistance',
-    category: 'Overseas Education & Student Support',
-    shortDescription: 'Guidance on education loans, international scholarships, fee transfer protocols, and financial documentation.',
-    fullDescription: 'Financing your overseas education is one of the most vital stages. We assist students with scholarship applications, connect you with authorized education loan providers, and prepare rock-solid financial affidavits required by immigration authorities.',
-    iconName: 'Banknote',
-    image: '/images/service-education.png',
+    title: 'Shortlisting Universities and Mock Interviews',
+    category: 'Core Overseas Services',
+    shortDescription: 'Targeted institutional matching into Dream, Reach, and Safe categories plus rigorous 1-on-1 consular and university interview rehearsals.',
+    fullDescription: 'Selecting the right university and excelling in admission interviews requires strategic planning. We shortlist universities aligned with your GPA, budget, and test scores, while providing realistic mock interview coaching with former visa officers and academic mentors.',
+    iconName: 'GraduationCap',
+    image: '/images/about-students-headquarters-grand.png',
     keyHighlights: [
-      'Guidance on merit-based and need-based university scholarships',
-      'Assistance with collateral and non-collateral education loan procedures',
-      'Solvency certificates, bank balance certification, and CA affidavits',
-      'Forex, tuition wire transfer, and GIC / Blocked Account advice'
+      'Curated university matrices categorized into Dream, Reach, and Safe tiers',
+      'In-depth review of university employment statistics and campus recruitment',
+      '1-on-1 mock interviews simulating US F-1, UK CAS, and German university queries',
+      'Personalized confidence building and voice modulation training'
     ],
     processSteps: [
-      { step: '01', title: 'Cost of Education Estimation', description: 'Calculate total cost including tuition, health cover, accommodation, and living expenses.' },
-      { step: '02', title: 'Scholarship & Loan Mapping', description: 'Identify qualifying university bursaries and appropriate banking channels.' },
-      { step: '03', title: 'Proof of Funds Preparation', description: 'Assemble compliant financial proof matching specific embassy mandates.' }
+      { step: '01', title: 'Profile-Driven Shortlisting', description: 'Evaluate your academic grades, GRE/IELTS scores, and research interests to pick optimal universities.' },
+      { step: '02', title: 'Question Bank Preparation', description: 'Formulate bespoke answers for intent of study, career goals, and university choice.' },
+      { step: '03', title: 'Simulated Mock Interviews', description: 'Conduct timed video interviews with critical feedback on body language, delivery, and answers.' }
     ],
     documentsRequired: [
-      'Sponsor income proof (ITR / Form 16 / Salary Slips)',
-      'Bank account statements (last 6 months)',
-      'Property evaluation documents (for secured loans, if applicable)',
-      'University offer letter stating estimated tuition'
+      'Academic Mark Sheets & Degree Certificates',
+      'University Offer Letters or Shortlist drafts',
+      'Resume / Curriculum Vitae',
+      'Standardized Test Scorecards'
     ],
     benefits: [
-      'Clear roadmap to minimize personal financial burden',
-      'Avoid visa delays caused by improper financial documentation',
-      'Access competitive education loan interest rates'
+      'Maximizes admission chances to top-tier international universities',
+      'Overcomes interview anxiety with real-world consular interview simulations',
+      'Helps you articulate your academic purpose convincingly'
     ],
     faqs: [
       {
-        question: 'Can I get an education loan without collateral?',
-        answer: 'Yes, several non-banking financial companies (NBFCs) and banks offer non-collateral loans depending on your GRE/test scores and university ranking.'
+        question: 'How do you choose universities for my profile?',
+        answer: 'We balance your CGPA, standardized test scores, budget, location preferences, and post-study employment prospects.'
       },
       {
-        question: 'What is a Blocked Account or GIC?',
-        answer: 'Certain countries like Germany (Blocked Account) and Canada (GIC) require prospective students to deposit living expenses into a dedicated account prior to visa filing.'
+        question: 'How many mock interview sessions are included?',
+        answer: 'Students receive 3 to 5 comprehensive mock interview sessions until they achieve total fluency and confidence.'
       }
     ]
   },
   {
     id: 'service-04',
-    slug: 'pre-departure-guidance',
+    slug: 'financial-assistance',
     number: '04',
-    title: 'Pre-Departure Guidance',
-    category: 'Overseas Education & Student Support',
-    shortDescription: 'Comprehensive briefings on accommodation, airport transit, student health insurance, and cultural orientation.',
-    fullDescription: 'Moving to a foreign country involves exciting transitions. Our Pre-Departure Guidance ensures you land with complete confidence, prepared with all necessary paperwork, campus contacts, student health insurance, and cultural insights.',
-    iconName: 'Luggage',
-    image: '/images/program-bachelors-grand.png',
+    title: 'Financial Assistance',
+    category: 'Core Overseas Services',
+    shortDescription: 'Comprehensive guidance on international scholarships, financial affidavits, solvency certificates, and proof of funds.',
+    fullDescription: 'Financing your overseas education is one of the most vital stages. We assist students with scholarship applications, assembling verified financial dossiers, and preparing rock-solid financial affidavits required by immigration authorities.',
+    iconName: 'Banknote',
+    image: '/images/service-education.png',
     keyHighlights: [
-      'On-campus and off-campus accommodation assistance',
-      'Mandatory student health insurance (OSHC, NHS, private plans)',
-      'Baggage allowance rules and essential packing checklists',
-      'Foreign currency exchange (Forex) cards and student SIM cards'
+      'Guidance on merit-based and need-based university scholarships',
+      'Solvency certificates, bank balance certification, and CA affidavits',
+      'Sponsor income verification and relationship affidavits',
+      'Blocked Account (Germany) and GIC (Canada) step-by-step setup'
     ],
     processSteps: [
-      { step: '01', title: 'Pre-Departure Briefing', description: 'Attend dedicated orientation covering transit, port of entry, and customs.' },
-      { step: '02', title: 'Logistics Finalization', description: 'Secure student accommodation, medical cover, and airport pickups.' },
-      { step: '03', title: 'Departure Checklist Verification', description: 'Final inspection of original documents, medical reports, and travel insurance.' }
+      { step: '01', title: 'Cost Estimation', description: 'Calculate total cost including tuition, health cover, and living expenses.' },
+      { step: '02', title: 'Scholarship Application', description: 'Identify qualifying university bursaries and submit early applications.' },
+      { step: '03', title: 'Proof of Funds Assemble', description: 'Assemble compliant financial proof matching specific embassy mandates.' }
     ],
     documentsRequired: [
-      'Valid student visa & passport',
-      'University Confirmation of Enrollment (CoE / I-20 / CAS)',
-      'Tuition fee receipts and proof of accommodation',
-      'Immunization & vaccination records'
+      'Sponsor income proof (ITR / Form 16 / Salary Slips)',
+      'Bank account statements (last 6 months)',
+      'Property evaluation documents (if applicable)',
+      'University offer letter stating estimated tuition'
     ],
     benefits: [
-      'Zero stress upon arrival at international airports',
-      'Pre-booked student housing ready before departure',
-      'Peer networks connecting you with senior students in your city'
+      'Clear roadmap to minimize personal financial burden',
+      'Avoid visa delays caused by improper financial documentation',
+      'Access university tuition waivers and early-bird fee discounts'
     ],
     faqs: [
       {
-        question: 'Do you help with finding accommodation near the university?',
-        answer: 'Yes, we guide students through verified student housing providers, university dormitories, and shared apartment portals.'
+        question: 'How much funds do I need to show for my visa?',
+        answer: 'Most embassies require evidence of 1 full year tuition plus 1 full year estimated living expenses in liquid funds.'
       },
       {
-        question: 'What happens at the port of entry immigration?',
-        answer: 'We prepare you for the immigration interview questions asked by border control officers, providing an organized document dossier.'
+        question: 'Can multiple family members sponsor my education?',
+        answer: 'Yes, immediate family members (parents, siblings, grandparents) can act as co-sponsors with proper relationship affidavits.'
       }
     ]
   },
   {
     id: 'service-05',
-    slug: 'study-visa-assistance',
+    slug: 'forex-assistance',
     number: '05',
-    title: 'Study Visa Assistance',
-    category: 'Overseas Education & Student Support',
-    shortDescription: 'High-precision visa filing, genuine temporary entrant (GTE/GS) documentation, and mock interview coaching.',
-    fullDescription: 'The student visa is the defining gateway to your international education. Our seasoned counselors understand the specific visa mandates of the USA, UK, Canada, Australia, Ireland, and Schengen countries, ensuring meticulous paperwork and mock interview readiness.',
-    iconName: 'GraduationCap',
-    image: '/images/hero-desktop.png',
-    badge: 'Popular',
+    title: 'Forex Assistance',
+    category: 'Core Overseas Services',
+    shortDescription: 'Competitive foreign exchange rates, student Forex travel cards, international wire transfers, and currency guidance.',
+    fullDescription: 'International transactions and currency conversions can carry hefty bank markups. IQ Overseas partners with authorized RBI-licensed Forex providers to ensure students secure the best exchange rates with zero hidden charges for university tuition wire transfers and living expense cards.',
+    iconName: 'Sparkles',
+    image: '/images/program-training-grand.png',
     keyHighlights: [
-      'Strict adherence to the latest immigration regulations',
-      'GTE / Genuine Student (GS) statement drafting assistance',
-      'Complete biometric & medical examination scheduling',
-      'One-on-one mock visa interview simulations with feedback'
+      'Discounted currency exchange rates beating standard retail banks',
+      'Pre-loaded multi-currency international student Forex cards',
+      'Fast, direct wire transfers to university accounts (Flywire, Convera, Swift)',
+      'Zero-charge card reloads managed directly from India by parents'
     ],
     processSteps: [
-      { step: '01', title: 'Checklist Customization', description: 'Prepare country-specific document dossier tailored to your case.' },
+      { step: '01', title: 'Rate Locking', description: 'Monitor daily forex trends and lock the most favorable exchange rate.' },
+      { step: '02', title: 'KYC & A2 Form Lodgement', description: 'Complete simplified RBI Liberalised Remittance Scheme (LRS) paperwork.' },
+      { step: '03', title: 'Card Delivery & Transfer', description: 'Deliver active Forex card and execute SWIFT transfer directly to university.' }
+    ],
+    documentsRequired: [
+      'Student Passport & Student Visa Copy',
+      'University Offer Letter & Fee Invoice',
+      'PAN Card of Student and Sponsor',
+      'A2 Form under RBI LRS Guidelines'
+    ],
+    benefits: [
+      'Save thousands of rupees per semester on foreign currency transfers',
+      'Safety and convenience with chip-and-pin multi-currency cards',
+      'Instant emergency reload capability for overseas living expenses'
+    ],
+    faqs: [
+      {
+        question: 'How long does a university tuition wire transfer take?',
+        answer: 'Authorized student wire transfers typically credit into the university account within 24 to 48 business hours.'
+      },
+      {
+        question: 'Is a Forex card better than an Indian credit or debit card?',
+        answer: 'Yes! Forex cards carry fixed exchange rates with zero foreign transaction markup fees (which can reach 3.5% on regular cards).'
+      }
+    ]
+  },
+  {
+    id: 'service-06',
+    slug: 'flight-ticket',
+    number: '06',
+    title: 'Flight Ticket',
+    category: 'Core Overseas Services',
+    shortDescription: 'Exclusive student airfares, extra baggage allowances up to 45kg, convenient itineraries, and date change flexibility.',
+    fullDescription: 'Flying abroad for the first time should be seamless and affordable. Our dedicated travel desk books discounted student tickets across premier international carriers with special student luggage allowances and flexible rescheduling options.',
+    iconName: 'Plane',
+    image: '/images/airplane-contact.png',
+    badge: 'Popular',
+    keyHighlights: [
+      'Exclusive student fares with 40kg to 45kg baggage allowances',
+      'Optimal flight connections with comfortable layover durations',
+      'Flexible ticket dates and minimal cancellation penalties',
+      'Pre-booked seats, vegetarian/special meal preferences, and transit advisory'
+    ],
+    processSteps: [
+      { step: '01', title: 'Route Optimization', description: 'Find flights aligning with your university orientation and dorm check-in dates.' },
+      { step: '02', title: 'Student Concession Verification', description: 'Submit student visa or admission letter to claim extra piece baggage allowance.' },
+      { step: '03', title: 'Ticketing & Transit Pack', description: 'Issue confirmed e-ticket with airport transit checklist and terminal guidelines.' }
+    ],
+    documentsRequired: [
+      'Valid Passport with minimum 6 months validity',
+      'Approved Student Visa copy',
+      'University Admission Letter (for student fare eligibility)'
+    ],
+    benefits: [
+      'Carry essential books, utensils, and seasonal clothing without heavy excess fees',
+      'Smooth transit through hub airports with clear terminal change instructions',
+      'Dedicated helpline support until you reach your campus destination'
+    ],
+    faqs: [
+      {
+        question: 'How much extra baggage do students get on international flights?',
+        answer: 'Most airlines like Emirates, Qatar Airways, Singapore Airlines, and Air India offer an extra 23kg bag (total 46kg) for student ticket holders.'
+      },
+      {
+        question: 'When should I book my flight tickets?',
+        answer: 'As soon as your student visa is stamped to avoid peak seasonal surge fares before August and January intakes.'
+      }
+    ]
+  },
+  {
+    id: 'service-07',
+    slug: 'educational-loan',
+    number: '07',
+    title: 'Educational Loan',
+    category: 'Core Overseas Services',
+    shortDescription: 'Collateral and non-collateral overseas education loans with fast-track approvals and competitive interest rates.',
+    fullDescription: 'Do not let financial constraints hold back your global dreams. IQ Overseas partners with leading nationalized banks, private financial institutions, and specialized NBFCs (including HDFC Credila, Avanse, InCred, and SBI) to secure quick education loan sanctions with minimal hassle.',
+    iconName: 'Banknote',
+    image: '/images/destinations-landmarks-grand.png',
+    keyHighlights: [
+      'Secured (collateral) loans up to ₹1.5 Crores with nationalized banks',
+      'Unsecured (non-collateral) loans up to ₹60 Lakhs based on academic merit',
+      'Quick in-principle sanction letters within 3 to 5 working days',
+      'Cover 100% of expenses: Tuition fees, living costs, travel, and laptop allowance'
+    ],
+    processSteps: [
+      { step: '01', title: 'Eligibility Check', description: 'Assess academic scores, university ranking, and co-applicant income profile.' },
+      { step: '02', title: 'Lender Selection', description: 'Compare interest rates, processing fees, and moratorium terms across top lenders.' },
+      { step: '03', title: 'Sanction & Disbursement', description: 'Expedite document collection, property evaluation, and loan sanction letter issuance.' }
+    ],
+    documentsRequired: [
+      'KYC documents of student and co-applicant (Aadhaar & PAN)',
+      'Academic records (10th, 12th, Degree, GRE/IELTS scorecards)',
+      'Proof of admission / conditional offer letter',
+      'Co-applicant income proof (Salary slips / ITR / Form 16 / Bank statements)',
+      'Property title deeds (for collateral loans)'
+    ],
+    benefits: [
+      'Hassle-free doorstep document pickup and processing in Guntur',
+      'Sanction letters accepted by US, UK, Canadian, and Australian embassies',
+      'Tax deduction benefits under Section 80E on loan interest repayment'
+    ],
+    faqs: [
+      {
+        question: 'Can I get an education loan before receiving the final visa?',
+        answer: 'Yes! Banks issue official loan sanction letters before visa lodgement, which serves as authentic financial proof for embassy visa officers.'
+      },
+      {
+        question: 'What is the repayment moratorium period?',
+        answer: 'Repayment generally begins 6 to 12 months after course completion, giving students ample time to secure international employment.'
+      }
+    ]
+  },
+  {
+    id: 'service-08',
+    slug: 'accommodation-assistance',
+    number: '08',
+    title: 'Accommodation Assistance',
+    category: 'Core Overseas Services',
+    shortDescription: 'Safe, verified on-campus dormitories, student apartments, and homestays within walking distance of universities.',
+    fullDescription: 'Finding safe, budget-friendly accommodation in a new country is crucial. We connect students with verified university dormitories, purpose-built student accommodation (PBSA) providers, and trusted shared apartments across the USA, UK, Canada, Australia, and Europe.',
+    iconName: 'Luggage',
+    image: '/images/hero-mobile.png',
+    keyHighlights: [
+      'Verified accommodation options close to university campuses and transit lines',
+      'All-inclusive utility options covering Wi-Fi, electricity, heating, and water',
+      'Assistance with tenancy agreements, lease terms, and security deposit transfers',
+      'Roommate matching with fellow Indian students from Andhra Pradesh'
+    ],
+    processSteps: [
+      { step: '01', title: 'Preference Mapping', description: 'Determine budget, proximity to university, room type (private/shared), and dietary needs.' },
+      { step: '02', title: 'Virtual Tours & Booking', description: 'Review property photos, 3D walkthroughs, amenities, and neighborhood safety.' },
+      { step: '03', title: 'Contract Finalization', description: 'Review lease agreements, ensure zero scam risk, and confirm check-in dates.' }
+    ],
+    documentsRequired: [
+      'University Offer Letter / Confirmation of Enrollment',
+      'Student Passport & Student Visa Copy',
+      'Proof of Identity and Emergency Contact Details'
+    ],
+    benefits: [
+      'Land with confidence knowing your room keys are ready on arrival day',
+      'Avoid rental scams, unregulated landlords, and misleading online listings',
+      'Live with vetted students in vibrant, secure student communities'
+    ],
+    faqs: [
+      {
+        question: 'Is on-campus or off-campus housing better for international students?',
+        answer: 'On-campus dorms are great for first-year undergraduates. Off-campus private student apartments are popular among postgraduates for greater flexibility and cost savings.'
+      },
+      {
+        question: 'Do student apartments include basic furniture and kitchen facilities?',
+        answer: 'Yes, PBSA accommodations typically come fully furnished with bed, study desk, wardrobe, shared/private kitchen, and high-speed internet.'
+      }
+    ]
+  },
+  {
+    id: 'service-09',
+    slug: 'travel-assistance',
+    number: '09',
+    title: 'Travel Assistance',
+    category: 'Core Overseas Services',
+    shortDescription: 'Comprehensive travel insurance, airport transfers, port-of-entry immigration orientation, and international SIM cards.',
+    fullDescription: 'Complete your journey smoothly with our end-to-end travel assistance. We equip students with international travel health insurance, organize airport pickup shuttles, provide foreign SIM cards, and conduct port-of-entry immigration briefings so you transition effortlessly into campus life.',
+    iconName: 'Plane',
+    image: '/images/program-bachelors-grand.png',
+    keyHighlights: [
+      'Comprehensive overseas travel and transit medical insurance cover',
+      'Pre-activated international student SIM cards with local phone numbers',
+      'Airport pickup arrangements from international terminal to your doorstep',
+      'Exhaustive packing lists covering academic papers, medicines, and clothing'
+    ],
+    processSteps: [
+      { step: '01', title: 'Pre-Departure Briefing', description: 'Attend dedicated session on customs regulations, immigration checks, and transit rules.' },
+      { step: '02', title: 'Insurance & SIM Setup', description: 'Issue comprehensive student travel insurance and dispatch activated SIM card.' },
+      { step: '03', title: 'Airport Transit Care', description: 'Coordinate airport arrival assistance, university welcome desk, and transit shuttle.' }
+    ],
+    documentsRequired: [
+      'Approved Student Visa stamped passport',
+      'Confirmed Flight Tickets',
+      'Travel Insurance Policy Certificate',
+      'Emergency Contact Card & University Arrival Letter'
+    ],
+    benefits: [
+      'Immediate phone and data connectivity upon landing abroad to call parents',
+      'Protection against transit delays, lost luggage, and medical emergencies',
+      'Complete peace of mind for parents back home in India'
+    ],
+    faqs: [
+      {
+        question: 'Why do I need travel insurance if I have university health insurance?',
+        answer: 'University health cover usually begins on course start day; travel insurance covers you during international flights, layovers, and transit emergencies.'
+      },
+      {
+        question: 'Can I get an international SIM card before leaving India?',
+        answer: 'Yes! We provide pre-activated SIM cards with local data packages for USA, UK, Canada, and Australia so you are connected immediately upon touchdown.'
+      }
+    ]
+  },
+
+  // 3 Visa Consultancy Services
+  {
+    id: 'visa-01',
+    slug: 'study-visa',
+    number: '10',
+    title: 'Study Visa',
+    category: 'Visa Consultancy Services',
+    shortDescription: 'High-precision student visa filing, Genuine Student (GS/GTE) documentation, and consular mock interview coaching.',
+    fullDescription: 'The student visa is the defining gateway to your international education. Our seasoned counselors understand the specific visa mandates of the USA (F-1), UK (Student Route), Canada (Study Permit), Australia (Subclass 500), Ireland, and Schengen countries, ensuring meticulous paperwork and mock interview readiness.',
+    iconName: 'GraduationCap',
+    image: '/images/hero-desktop.png',
+    badge: 'Core Specialty',
+    keyHighlights: [
+      'Strict adherence to latest embassy regulations and immigration laws',
+      'Genuine Student (GS/GTE) statement drafting and academic intent articulation',
+      'Complete biometric, SEVIS/IHS fee payment, and consular appointment scheduling',
+      'One-on-one mock consular interview simulations with expert feedback'
+    ],
+    processSteps: [
+      { step: '01', title: 'Checklist Customization', description: 'Prepare country-specific document dossier tailored to your academic background.' },
       { step: '02', title: 'Visa Application Lodgement', description: 'Accurate online portal filing, payment of visa fees, and SEVIS/IHS charges.' },
-      { step: '03', title: 'Interview Preparation', description: 'Intensive mock interviews addressing intent of study, financials, and ties to home country.' }
+      { step: '03', title: 'Consular Interview Coaching', description: 'Intensive mock interviews addressing study intent, financials, and ties to home country.' }
     ],
     documentsRequired: [
       'I-20 (USA) / CAS (UK) / LOA (Canada) / CoE (Australia)',
@@ -483,7 +699,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     benefits: [
       'Maximize likelihood of visa approval through compliant filing',
       'Eliminate discrepancies between university application and visa files',
-      'Confidence and clarity during the consular interview'
+      'Total confidence during the consular interview'
     ],
     faqs: [
       {
@@ -497,163 +713,32 @@ export const SERVICES_DATA: ServiceItem[] = [
     ]
   },
   {
-    id: 'service-06',
-    slug: 'travel-assistance',
-    number: '06',
-    title: 'Travel Assistance',
-    category: 'Overseas Education & Student Support',
-    shortDescription: 'Student flight discounts, extra baggage allowances, travel insurance, and port of entry support.',
-    fullDescription: 'Complete your journey smoothly with our dedicated travel assistance. We help students book convenient flight routes with student baggage concessions, comprehensive travel insurance, and foreign exchange assistance.',
-    iconName: 'Plane',
-    image: '/images/airplane-contact.png',
-    keyHighlights: [
-      'Exclusive student flight fares with 40-45 kg luggage allowances',
-      'Comprehensive overseas travel and baggage insurance policies',
-      'International Forex card loading with zero hidden markup',
-      'Transit visa advice for connecting flight hubs'
-    ],
-    processSteps: [
-      { step: '01', title: 'Itinerary Planning', description: 'Select optimal flight connections with adequate layover time.' },
-      { step: '02', title: 'Student Fare Booking', description: 'Leverage student ID cards to unlock extra baggage and discounted tickets.' },
-      { step: '03', title: 'Transit Advisory', description: 'Review airport transfer regulations and transit visa requirements.' }
-    ],
-    documentsRequired: [
-      'Approved student visa stamped passport',
-      'Confirmed flight tickets',
-      'Travel insurance policy document',
-      'Forex card and emergency cash'
-    ],
-    benefits: [
-      'Significant savings on airfare and additional luggage charges',
-      'Peace of mind with full medical emergency travel insurance',
-      'Seamless multi-leg international flight connections'
-    ],
-    faqs: [
-      {
-        question: 'Can I get extra baggage allowance as an international student?',
-        answer: 'Yes, most major airlines offer 1 extra 23kg piece for student ticket holders with valid visas.'
-      },
-      {
-        question: 'Is travel insurance compulsory before flying?',
-        answer: 'While some countries require health coverage before arrival, travel insurance protects against transit medical emergencies, lost baggage, and flight cancellations.'
-      }
-    ]
-  },
-
-  // Category 2: Visa Consultancy Services
-  {
-    id: 'service-07',
-    slug: 'business-visa',
-    number: '07',
-    title: 'Business Visa',
+    id: 'visa-02',
+    slug: 'visiting-visa',
+    number: '11',
+    title: 'Visiting Visa',
     category: 'Visa Consultancy Services',
-    shortDescription: 'Professional visa consultancy for trade conferences, corporate meetings, and global business expansions.',
-    fullDescription: 'Facilitating seamless international business mobility. Whether attending commercial negotiations, international conferences, vendor meetings, or exploring foreign market expansion, we structure compliant business visa filings.',
-    iconName: 'Briefcase',
-    image: '/images/program-training-grand.png',
-    keyHighlights: [
-      'Corporate invitation letter vetting and formal cover letters',
-      'Demonstration of company credentials and business ties',
-      'Expedited visa slot booking where applicable',
-      'Multi-entry business visa filing support'
-    ],
-    processSteps: [
-      { step: '01', title: 'Corporate Dossier Review', description: 'Review invitation letter from overseas entity and employer sponsorship letter.' },
-      { step: '02', title: 'Application Preparation', description: 'Complete consular forms and verify corporate financial standing.' },
-      { step: '03', title: 'Consular Submission', description: 'Schedule biometrics and consular appointments with full interview prep.' }
-    ],
-    documentsRequired: [
-      'Official Invitation Letter from host company abroad',
-      'Company deputation letter stating purpose and duration',
-      'Company registration (GST/Incorporation) & financial records',
-      'Personal bank statements and tax returns (last 3 years)'
-    ],
-    benefits: [
-      'Prevents business schedule disruptions due to visa delays',
-      'High standard of corporate documentation conforming to embassy rules',
-      'Guidance on multi-destination business itineraries'
-    ],
-    faqs: [
-      {
-        question: 'Can I conduct commercial sales on a business visa?',
-        answer: 'Business visas generally permit meetings, contracts, conferences, and seminars, but strictly prohibit local employment or direct retail sales.'
-      },
-      {
-        question: 'What is the standard processing time for a Business Visa?',
-        answer: 'Processing times vary from 10 to 25 business days depending on the country and consular workload.'
-      }
-    ]
-  },
-  {
-    id: 'service-08',
-    slug: 'student-visa',
-    number: '08',
-    title: 'Student Visa',
-    category: 'Visa Consultancy Services',
-    shortDescription: 'Dedicated immigration consultation for undergraduate, postgraduate, and vocational study permits.',
-    fullDescription: 'A dedicated visa service specifically engineered for overseas degree seekers. We ensure all academic, financial, language, and character requirements are presented impeccably to visa officers.',
-    iconName: 'BookOpen',
-    image: '/images/hero-mobile.png',
-    badge: 'Core Service',
-    keyHighlights: [
-      'Accurate filling of DS-160, IMM 1294, PRISMS, and national visa portals',
-      'Genuine student intent documentation and study plan formulation',
-      'Comprehensive review of sponsor relationship affidavits',
-      'Complete biometric, medical, and police clearance certificate (PCC) assistance'
-    ],
-    processSteps: [
-      { step: '01', title: 'File Assessment', description: 'Evaluate institutional acceptance documentation and financial viability.' },
-      { step: '02', title: 'Visa Filing', description: 'Portal submission, fee payment, and biometric appointment scheduling.' },
-      { step: '03', title: 'Consular Verification', description: 'Preparation for interview or administrative processing follow-ups.' }
-    ],
-    documentsRequired: [
-      'Official letter of admission / Confirmation of acceptance',
-      'Original educational certificates and mark sheets',
-      'Language proficiency scorecards',
-      'Proof of sufficient funds (bank deposits, loan sanction letters)'
-    ],
-    benefits: [
-      'Comprehensive protection against common refusal triggers',
-      'Transparent advisory on immigration laws and post-study work rights',
-      'End-to-end counselor accompaniment throughout the process'
-    ],
-    faqs: [
-      {
-        question: 'What happens if a student visa was previously refused?',
-        answer: 'We conduct a thorough case analysis, obtain CAIPS/GCMS notes where applicable, address the specific reasons for refusal, and file a strengthened reapplication.'
-      },
-      {
-        question: 'Can my spouse accompany me on a student visa?',
-        answer: 'Depending on the country and degree level (e.g., Master\'s/PhD programs in certain nations), spousal open work permits or dependent visas may be permitted.'
-      }
-    ]
-  },
-  {
-    id: 'service-09',
-    slug: 'tourist-visa',
-    number: '09',
-    title: 'Tourist Visa',
-    category: 'Visa Consultancy Services',
-    shortDescription: 'Hassle-free tourist and leisure visa consultancy with customized day-wise itineraries and flight bookings.',
-    fullDescription: 'Planning a vacation abroad with family or friends? We ensure your tourist visa application is backed by logical travel itineraries, hotel vouchers, strong ties to your home country, and authentic financial credentials.',
+    shortDescription: 'Family and friend visits, tourist leisure itineraries, and university graduation attendance handled with care.',
+    fullDescription: 'Whether planning a memorable holiday abroad, attending your child\'s university graduation ceremony, or visiting family members settled overseas, our Visiting Visa service handles invitation letters, relationship proofs, day-wise itineraries, and financial justifications.',
     iconName: 'Camera',
     image: '/images/destinations-landmarks-grand.png',
+    badge: 'Popular',
     keyHighlights: [
-      'Customized day-to-day tourist itinerary planning',
-      'Dummy flight tickets and hotel confirmation assistance',
-      'Strong proof of financial sufficiency and employment leave approval',
-      'Schengen, UK Standard Visitor, US B1/B2, and Australian eVisitor processing'
+      'Customized day-to-day tourist itinerary planning and hotel booking verification',
+      'Host invitation letter vetting and family relationship proof documentation',
+      'US B1/B2, UK Standard Visitor, Schengen Tourist, and Australian Visitor visas',
+      'Special guidance tailored for senior citizen parents traveling abroad'
     ],
     processSteps: [
-      { step: '01', title: 'Itinerary Structuring', description: 'Map out travel dates, destinations, and planned activities.' },
+      { step: '01', title: 'Itinerary Structuring', description: 'Map out travel dates, destinations, and planned leisure/family activities.' },
       { step: '02', title: 'Financial & Employment Proof', description: 'Organize leave sanction letters, bank statements, and tax filings.' },
       { step: '03', title: 'Appointment & Submission', description: 'Book VAC / VFS appointment slots and submit biometric data.' }
     ],
     documentsRequired: [
       'Valid passport with at least 2 blank pages',
-      'Bank statements of the last 6 months with sufficient balance',
+      'Bank statements of the last 6 months with sufficient funds',
       'Income Tax Returns (ITR) of last 2-3 years',
-      'Leave sanction letter from employer or business registration'
+      'Host invitation letter or hotel confirmation vouchers'
     ],
     benefits: [
       'Structured presentation that establishes genuine temporary visitor intent',
@@ -662,55 +747,56 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     faqs: [
       {
-        question: 'How much bank balance is required for a tourist visa?',
-        answer: 'It depends on your travel duration and destination; generally enough to comfortably cover flights, lodging, daily expenses plus emergency reserves without exhausting your savings.'
+        question: 'How much bank balance is required for a visiting visa?',
+        answer: 'It depends on travel duration and destination; generally enough to comfortably cover flights, lodging, and daily expenses without exhausting savings.'
       },
       {
-        question: 'How long can I stay on a tourist visa?',
-        answer: 'Typically between 30 days and 90 days per visit depending on the country and visa category issued.'
+        question: 'Can parents travel to attend their child\'s convocation ceremony?',
+        answer: 'Yes! We help students obtain official graduation invitation letters from universities to support their parents\' visitor visa applications.'
       }
     ]
   },
   {
-    id: 'service-10',
-    slug: 'visitor-visa',
-    number: '10',
-    title: 'Visitor Visa',
+    id: 'visa-03',
+    slug: 'pr-work-permit',
+    number: '12',
+    title: 'PR and Work Permit',
     category: 'Visa Consultancy Services',
-    shortDescription: 'Family and friend visits, university graduation attendance, and personal invitations handled with care.',
-    fullDescription: 'Whether attending your child\'s university graduation, visiting relatives settled abroad, or participating in family events, our Visitor Visa service handles sponsorship letters, relationship proofs, and genuine visitor justifications.',
-    iconName: 'UserPlus',
+    shortDescription: 'Strategic post-study work permit extensions, points-based permanent residency pathways, and skilled migration advisory.',
+    fullDescription: 'Transitioning from student to permanent global resident requires long-term planning. We advise graduates and skilled professionals on Post-Graduation Work Permits (PGWP/PSW), employer-sponsored work visas, and points-based Permanent Residency (PR) systems in Canada, Australia, the UK, and New Zealand.',
+    iconName: 'Briefcase',
     image: '/images/student-testimonial-grand.png',
+    badge: 'Career Pathway',
     keyHighlights: [
-      'Guidance on host invitation letters and statutory declarations',
-      'Proof of relationship documentation (birth certificates, family registers)',
-      'Host financial solvency and legal immigration status verification',
-      'Interview tips for parents and senior citizens visiting children abroad'
+      'Post-Study Work Visa filing (Canada PGWP, UK Graduate Route, Australia 485, US OPT/STEM OPT)',
+      'Canada Express Entry (CRS points evaluation, PNP state nomination programs)',
+      'Australia General Skilled Migration (Subclass 189, 190, 491 points calculators)',
+      'Educational Credential Assessments (ECA) through WES, ACS, Engineers Australia'
     ],
     processSteps: [
-      { step: '01', title: 'Invitation Verification', description: 'Examine host status, tenancy agreements, and formal invitation text.' },
-      { step: '02', title: 'Ties to Home Country', description: 'Highlight family ties, property assets, and return commitments in India.' },
-      { step: '03', title: 'File Lodgement', description: 'Submit visa applications online and assist with biometrics booking.' }
+      { step: '01', title: 'Points & Eligibility Assessment', description: 'Evaluate age, qualifications, language scores, and overseas work experience against national points tables.' },
+      { step: '02', title: 'Skill Assessment & ECA Filing', description: 'Submit degree credentials to authorized assessment bodies (WES, ACS, VETASSESS).' },
+      { step: '03', title: 'Expression of Interest (EOI)', description: 'Submit profile into national immigration pools and guide through Invitation to Apply (ITA).' }
     ],
     documentsRequired: [
-      'Host Invitation Letter and passport/visa/citizenship copy',
-      'Host accommodation and employment evidence abroad',
-      'Proof of relation with the invitee',
-      'Applicant\'s financial stability and ties to India'
+      'All Academic Degree Certificates and ECA Evaluation Report',
+      'Official Language Test Results (IELTS General / PTE Core)',
+      'Work Experience Reference Letters, Salary Slips, and Tax Records',
+      'Police Clearance Certificates (PCC) and Medical Examination'
     ],
     benefits: [
-      'Clear documentation showcasing legitimate familial reasons to visit',
-      'Special assistance tailored for elderly parents traveling internationally',
-      'Avoidance of costly documentation mistakes'
+      'Clear, legal roadmap for long-term career settlement abroad',
+      'Accurate points optimization to maximize invitation chances',
+      'Transparent advisory backed by up-to-date immigration policies'
     ],
     faqs: [
       {
-        question: 'Can parents travel to attend their child\'s convocation ceremony?',
-        answer: 'Yes! We help students obtain official graduation invitation letters from universities to support their parents\' visitor visa applications.'
+        question: 'When can international graduates apply for post-study work permits?',
+        answer: 'Graduates typically have 90 to 180 days after official degree completion to apply for work permits like PGWP in Canada or Subclass 485 in Australia.'
       },
       {
-        question: 'Does the host need to sponsor all expenses?',
-        answer: 'Not necessarily. Either the host can sponsor, or the visitor can self-sponsor with personal financial records, or a combination of both.'
+        question: 'Does studying in a regional area give extra points for PR in Australia?',
+        answer: 'Yes! Studying at a regional university campus in Australia grants an extra 5 PR points plus an additional 1 to 2 years of post-study work visa rights.'
       }
     ]
   }

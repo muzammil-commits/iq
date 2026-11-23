@@ -240,7 +240,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ onOpenCons
                   className="text-xs font-bold text-iq-navy hover:text-iq-red flex items-center gap-1"
                 >
                   <ArrowLeft className="w-3 h-3" />
-                  <span>Back to All 10 Services</span>
+                  <span>Back to All Services</span>
                 </Link>
               </div>
             </div>

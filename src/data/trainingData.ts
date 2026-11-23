@@ -438,5 +438,204 @@ export const TRAINING_PROGRAMS_DATA: Record<string, TrainingProgramDetail> = {
       { q: 'Is a calculator allowed on all math questions?', a: 'Yes! Unlike the old paper SAT, a calculator is permitted on the entire math section, and the powerful Desmos graphing calculator is built directly into the testing interface.' },
       { q: 'How many times can I take the Digital SAT?', a: 'You can take the Digital SAT as many times as you like. Most universities participate in "Score Choice" or "Superscoring," which combines your highest Math and highest Reading & Writing scores across different test dates.' }
     ]
+  },
+
+  // E. TOEFL Training
+  toefl: {
+    id: 'toefl',
+    slug: 'toefl',
+    title: 'TOEFL iBT Comprehensive Coaching',
+    shortName: 'TOEFL iBT',
+    tagline: 'Score 100+ with ETS-Certified Master Trainers in Guntur',
+    badge: 'Premier Academic English Test',
+    scoreTarget: 'Score 100+ / 120',
+    officialScale: '0 to 120 (30 Points per Section)',
+    testDuration: 'Under 2 Hours (New Streamlined Format)',
+    testMode: 'Computer-delivered at Certified Test Centers & Home Edition',
+    globalAcceptance: '12,500+ Universities across USA, Canada, UK, Australia, New Zealand & Europe',
+    introduction: 'The Test of English as a Foreign Language (TOEFL iBT) measures the English language proficiency of non-native speakers for university admission. Recognized by 100% of US universities and major institutions worldwide, the new shortened TOEFL iBT delivers an efficient, stress-free testing experience under two hours.',
+    whyImportant: [
+      'Gold standard requirement for admission to premier US universities, MIT, Stanford, Harvard, and Canadian top institutions.',
+      'Mandatory threshold for securing Graduate Teaching Assistantships (GTA) and Research Assistantships (GRA) in North America.',
+      'Preferred by scholarship boards and international academic fellowship programs globally.',
+      'Evaluates authentic academic English communication needed in international university lecture halls and seminar discussions.'
+    ],
+    modules: [
+      {
+        name: 'Reading Section',
+        duration: '35 Minutes',
+        format: '2 Reading Passages with 10 Questions each (20 Questions Total)',
+        questionTypes: [
+          'Factual Information & Negative Factual Information',
+          'Inference and Rhetorical Purpose',
+          'Vocabulary in Context',
+          'Reference and Sentence Simplification',
+          'Insert Text & Reading to Learn (Prose Summary)'
+        ],
+        keyStrategies: [
+          'Direct passage navigation by reading paragraph-by-paragraph corresponding to question sequences.',
+          'Synthesizing main ideas quickly without getting bogged down by technical vocabulary.',
+          'Eliminating trap options with extreme wording (always, never, exclusively).'
+        ],
+        scoringCriteria: 'Scored on a scale of 0 to 30 with automated ETS AI and statistical equating.'
+      },
+      {
+        name: 'Listening Section',
+        duration: '36 Minutes',
+        format: '3 Academic Lectures (6 questions each) and 2 Campus Conversations (5 questions each)',
+        questionTypes: [
+          'Gist-Content & Gist-Purpose Questions',
+          'Detail & Understanding Function Questions',
+          'Attitude, Organization & Connecting Content Questions',
+          'Inference & Implication Questions'
+        ],
+        keyStrategies: [
+          'Active Cornell note-taking capturing speaker attitude, transitions, and cause-and-effect relationships.',
+          'Identifying conversational discourse markers (e.g., however, on the other hand, essentially).',
+          'Practicing with North American and international university classroom lecture recordings.'
+        ],
+        scoringCriteria: 'Scored on a scale of 0 to 30 based on raw score conversion.'
+      },
+      {
+        name: 'Speaking Section',
+        duration: '16 Minutes',
+        format: '4 Spoken Tasks (1 Independent Task & 3 Integrated Tasks)',
+        questionTypes: [
+          'Task 1: Independent Speaking (Personal opinion on campus/general life choice)',
+          'Task 2: Integrated Speaking (Campus announcement read + conversation listen)',
+          'Task 3: Integrated Speaking (Academic textbook excerpt read + lecture listen)',
+          'Task 4: Integrated Speaking (Academic lecture summary)'
+        ],
+        keyStrategies: [
+          'Structuring responses using ETS rubrics: Topic statement, supporting details, and natural transitions within 45-60 seconds.',
+          'Maintaining continuous delivery with clear pronunciation, proper syllable stress, and steady pacing.',
+          'Using high-level academic reporting verbs (illustrates, asserts, demonstrates).'
+        ],
+        scoringCriteria: 'Scored on a scale of 0 to 30 using ETS SpeechRater AI combined with certified human raters.'
+      },
+      {
+        name: 'Writing Section',
+        duration: '29 Minutes',
+        format: '2 Tasks: Integrated Writing & Writing for an Academic Discussion',
+        questionTypes: [
+          'Task 1: Integrated Writing (Read academic passage, listen to counter-lecture, write comparative response in 20 mins)',
+          'Task 2: Writing for an Academic Discussion (State and support an opinion in an online class forum in 10 mins)'
+        ],
+        keyStrategies: [
+          'Highlighting points of contrast between the reading passage and lecture points systematically.',
+          'Delivering concise, articulate, and well-reasoned contributions in Academic Discussion within the 100-word recommendation.',
+          'Ensuring grammatical precision, syntactic variety, and appropriate formal register.'
+        ],
+        scoringCriteria: 'Scored on a scale of 0 to 30 evaluating development, organization, and language facility.'
+      }
+    ],
+    examPattern: [
+      { section: 'Reading', items: '20 Questions (2 Passages)', timeLimit: '35 mins', scoreWeight: '0 - 30 Points' },
+      { section: 'Listening', items: '28 Questions (3 Lectures, 2 Convs)', timeLimit: '36 mins', scoreWeight: '0 - 30 Points' },
+      { section: 'Speaking', items: '4 Tasks (1 Indep, 3 Integ)', timeLimit: '16 mins', scoreWeight: '0 - 30 Points' },
+      { section: 'Writing', items: '2 Tasks (Integ + Acad Discussion)', timeLimit: '29 mins', scoreWeight: '0 - 30 Points' }
+    ],
+    prepTips: [
+      { title: 'Master Note-Taking for Integrated Tasks', tip: 'Develop shorthand symbols to capture contrasting lecture points against reading passages effortlessly.' },
+      { title: 'Practice with Official ETS Software', tip: 'Use authentic ETS TOEFL Practice Online (TPO) mock tests to adapt to the official speech recording and timer interfaces.' },
+      { title: 'Focus on Academic Discussion Speed', tip: 'Train to outline and compose a 120-word response for the new Academic Discussion task in under 8 minutes.' },
+      { title: 'Pronunciation and Intonation Drills', tip: 'Record and play back your speaking responses to identify hesitation pauses, pitch variation, and clarity.' }
+    ],
+    trainingBenefits: [
+      { title: 'Official ETS Licensed Mock Tests', description: 'Weekly computer-delivered simulations with authentic ETS scoring rubrics and SpeechRater AI feedback.' },
+      { title: '1-on-1 Speaking Feedback Clinics', description: 'Personalized evaluation of pronunciation, fluency, and content delivery from senior English mentors in Guntur.' },
+      { title: 'Intensive Writing Evaluation', description: 'Detailed line-by-line grammar, vocabulary, and cohesion critique for Integrated and Discussion essays.' },
+      { title: 'High-Scoring Batch Mentorship', description: 'Small classroom batches ensuring every aspirant receives individualized attention and score-tracking.' }
+    ],
+    faqs: [
+      { q: 'What is a competitive TOEFL iBT score for top universities?', a: 'A total score of 100+ with 25+ in each section is considered highly competitive for top-ranked US and Canadian universities.' },
+      { q: 'How long are TOEFL scores valid?', a: 'TOEFL iBT scores are valid for 2 years from the date of the examination.' },
+      { q: 'Can I take the TOEFL Home Edition from India?', a: 'Yes! The TOEFL iBT Home Edition is identical in content, format, and scoring to the test center version and is widely accepted by universities.' },
+      { q: 'What is MyBest Scores in TOEFL?', a: 'MyBest Scores (superscores) combines your highest section scores from all valid test dates in the previous two years on your official score report.' }
+    ]
+  },
+
+  // F. Duolingo English Test (DET)
+  duolingo: {
+    id: 'duolingo',
+    slug: 'duolingo',
+    title: 'Duolingo English Test (DET) Masterclass',
+    shortName: 'Duolingo English Test',
+    tagline: 'Fast, Affordable & Accepted by 5,000+ Global Universities',
+    badge: 'Modern AI-Adaptive Test',
+    scoreTarget: 'Score 125+ / 160',
+    officialScale: '10 to 160 (5-point increments)',
+    testDuration: '1 Hour Total (Results in 48 Hours)',
+    testMode: '100% Online Computer Adaptive Test with AI Proctoring',
+    globalAcceptance: '5,000+ Higher Education Institutions Worldwide including USA, UK, Canada & Ireland',
+    introduction: 'The Duolingo English Test (DET) is a state-of-the-art computer adaptive language proficiency tool designed for international students. Taken from home at less than half the cost of traditional tests, DET provides accredited results within 48 hours and is accepted by thousands of top universities worldwide.',
+    whyImportant: [
+      'Accepted by 5,000+ universities worldwide including Columbia, Yale, NYU, Duke, and premier UK and Irish institutions.',
+      'Significantly lower examination fee compared to IELTS and TOEFL with unlimited free official score sends to universities.',
+      'Complete flexibility: Take the test anytime, anywhere from home with no appointment scheduling required.',
+      'Rapid turnaround: Certified results delivered directly to your inbox and designated universities in just 48 hours.'
+    ],
+    modules: [
+      {
+        name: 'Adaptive Testing (Computer Adaptive Section)',
+        duration: '45 Minutes',
+        format: 'Dynamic questions that adapt in real-time to candidate ability level',
+        questionTypes: [
+          'Read and Complete (Fill in missing letters in passage context)',
+          'Read and Select (Identify real English words from pseudo-words)',
+          'Listen and Select (Identify real spoken English words)',
+          'Listen and Type (Dictation - type sentences heard)',
+          'Read Aloud (Record speaking written sentences)',
+          'Write About the Photo & Speak About the Photo',
+          'Read, Then Write & Read, Then Speak',
+          'Listen, Then Speak & Interactive Reading passages'
+        ],
+        keyStrategies: [
+          'Mastering context clues for missing letter puzzles in "Read and Complete".',
+          'Building rapid vocabulary recognition to avoid selecting made-up words in "Read and Select".',
+          'Writing with diverse syntactic structures and high-tier academic vocabulary for image descriptions.'
+        ],
+        scoringCriteria: 'Computer adaptive algorithm evaluating Literacy, Comprehension, Conversation, and Production.'
+      },
+      {
+        name: 'Video Interview & Writing Sample',
+        duration: '10 Minutes',
+        format: 'Open-ended speaking and writing prompts shared directly with admissions committees',
+        questionTypes: [
+          'Writing Sample: 3 to 5 minutes response to an academic or personal prompt',
+          'Speaking Sample: 1 to 3 minutes video response discussing an ethical or decision-making scenario'
+        ],
+        keyStrategies: [
+          'Speaking with sustained eye contact with the camera and steady posture.',
+          'Composing well-structured 3-paragraph responses with clear introductory statements and conclusions.',
+          'Demonstrating critical thinking and authentic enthusiasm for higher education.'
+        ],
+        scoringCriteria: 'Shared directly with admissions officers alongside subscores to assess campus readiness.'
+      }
+    ],
+    examPattern: [
+      { section: 'Setup & Rules Onboarding', items: 'Camera & Mic Checks', timeLimit: '5 mins', scoreWeight: 'Ungraded Setup' },
+      { section: 'Adaptive Test', items: 'Varied Dynamic Tasks', timeLimit: '45 mins', scoreWeight: 'Score 10 - 160' },
+      { section: 'Writing Sample', items: '1 Essay Prompt', timeLimit: '5 mins', scoreWeight: 'Admissions Portfolio' },
+      { section: 'Speaking Sample', items: '1 Video Prompt', timeLimit: '3 mins', scoreWeight: 'Admissions Portfolio' }
+    ],
+    prepTips: [
+      { title: 'Strict Proctoring Protocol Readiness', tip: 'Ensure your room is well lit, completely quiet, with no earphones or second monitors to avoid proctor flags.' },
+      { title: 'Practice "Read and Complete" Drills', tip: 'Train daily on passage cloze exercises to rapidly deduce prefix, suffix, and root word letters.' },
+      { title: 'Expand Lexical Diversity', tip: 'Use sophisticated synonyms instead of repeating basic words (e.g., utilize "imperative" instead of "important").' },
+      { title: 'Timed Typing Proficiency', tip: 'Practice typing at 40+ WPM on your desktop keyboard to comfortably exceed word count expectations in writing tasks.' }
+    ],
+    trainingBenefits: [
+      { title: 'Duolingo Test Simulator Software', description: 'Practice with exact question interfaces, timers, and AI adaptive algorithms on modern desktop terminals.' },
+      { title: 'Subscore Optimization Drills', description: 'Targeted coaching to elevate Production (Writing/Speaking) and Literacy subscores above 125.' },
+      { title: 'Proctoring & Hardware Compliance Audit', description: 'Pre-exam testing room check to ensure lighting, microphone, and webcam settings pass AI scrutiny.' },
+      { title: '48-Hour Rapid Score Prep', description: 'Express weekend bootcamps for candidates facing imminent university application deadlines.' }
+    ],
+    faqs: [
+      { q: 'Is Duolingo accepted for student visas?', a: 'Duolingo is widely accepted by US and Irish universities for issuing I-20s and offer letters. For certain countries, check specific university-level acceptance lists.' },
+      { q: 'How many times can I take the Duolingo English Test?', a: 'You may purchase up to 3 tests in any 30-day period. Tests are credited to your account and valid for 21 days.' },
+      { q: 'What score is required for top universities?', a: 'A score of 120-130 is equivalent to IELTS 7.0 / TOEFL 95-100 and meets the requirements of most competitive global programs.' },
+      { q: 'How is the Duolingo test proctored?', a: 'The test is secured through multi-layered AI proctoring and human proctors reviewing webcam video, screen recording, and keystrokes.' }
+    ]
   }
 };
