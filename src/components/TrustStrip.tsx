@@ -21,7 +21,7 @@ export const TrustStrip: React.FC = () => {
   };
 
   return (
-    <div className="w-full bg-gradient-to-r from-[#030E38] via-[#071B68] to-[#040F3D] text-white pt-16 sm:pt-20 lg:pt-24 pb-8 sm:pb-10 border-b-2 border-amber-400/20 relative z-10 shadow-2xl overflow-hidden">
+    <div className="w-full bg-gradient-to-r from-[#030E38] via-[#071B68] to-[#040F3D] text-white py-10 sm:py-14 border-b-2 border-amber-400/20 relative z-10 shadow-2xl overflow-hidden">
       {/* Background ambient lighting for grand look */}
       <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:20px_20px] opacity-[0.04] pointer-events-none" />
       <div className="absolute -left-20 top-0 w-60 h-60 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />

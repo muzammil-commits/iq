@@ -111,9 +111,9 @@ export const QuickSearchAction: React.FC = () => {
   };
 
   return (
-    <div className="w-full relative z-30 -mt-14 sm:-mt-16 lg:-mt-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      {/* 50% Overlap Card: 100% Solid Pure White, No Background Bleed Through */}
-      <div className="bg-white rounded-3xl p-5 sm:p-6 lg:p-7 border border-slate-200 shadow-[0_25px_60px_rgba(7,27,104,0.18)] transition-all duration-300 hover:shadow-[0_30px_70px_rgba(7,27,104,0.24)]">
+    <section className="w-full relative z-20 py-6 sm:py-8 lg:py-10 bg-slate-50/70 border-t border-slate-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-white rounded-3xl p-5 sm:p-6 lg:p-8 border border-slate-200/90 shadow-xl shadow-slate-900/5 transition-all duration-300 hover:shadow-2xl">
         
         {/* Quick Action Heading & Navigation Pills with Interactive Tooltip Popups */}
         <div className="mb-4">
@@ -270,7 +270,8 @@ export const QuickSearchAction: React.FC = () => {
           )}
         </form>
 
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
