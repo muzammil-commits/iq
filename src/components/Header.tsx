@@ -266,37 +266,67 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
               </Link>
 
               {activeDropdown === 'masters' && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 w-[520px] bg-white rounded-2xl shadow-2xl border border-slate-100 p-5 animate-in fade-in slide-in-from-top-2 duration-200">
-                  <div className="flex items-center justify-between pb-2 mb-3 border-b border-slate-100">
-                    <span className="text-xs font-bold uppercase tracking-wider text-iq-navy">
-                      Study Masters by Destination
-                    </span>
-                    <span className="text-[11px] font-semibold text-iq-red">
-                      Postgraduate Programs
+                <div className="absolute top-full left-1/2 -translate-x-1/2 w-[740px] 2xl:w-[780px] bg-white rounded-3xl shadow-2xl border border-slate-100 p-5 animate-in fade-in slide-in-from-top-2 duration-200 z-50">
+                  <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-100">
+                    <div className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-iq-red animate-pulse" />
+                      <span className="text-xs font-black uppercase tracking-wider text-iq-navy">
+                        Study Destinations & Master's Programs
+                      </span>
+                    </div>
+                    <span className="text-[11px] font-bold text-iq-red bg-red-50 px-2.5 py-0.5 rounded-full border border-red-100">
+                      Postgraduate Excellence
                     </span>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-2 gap-2.5">
                     {MASTERS_DROPDOWN.map((item) => (
                       <Link
                         key={item.title}
                         to={`/masters/${item.slug}`}
                         onClick={() => setActiveDropdown(null)}
-                        className="p-2.5 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-100 transition-all flex items-start gap-2.5 group/item"
+                        className="p-2.5 rounded-2xl hover:bg-slate-50 border border-slate-100/90 hover:border-slate-200 hover:shadow-md transition-all duration-300 flex items-center gap-3.5 group/item bg-white"
                       >
-                        <span className="text-lg leading-none mt-0.5">{item.flag}</span>
-                        <div>
-                          <div className="text-xs font-bold text-slate-800 group-hover/item:text-iq-red transition-colors">
-                            {item.title}
+                        {/* Destination Photo Thumbnail */}
+                        <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden shrink-0 border border-slate-200/80 shadow-xs bg-slate-100 group-hover/item:scale-105 transition-transform duration-300">
+                          <img
+                            src={item.image}
+                            alt={item.title}
+                            className="w-full h-full object-cover object-top"
+                            loading="lazy"
+                          />
+                          <div className="absolute top-1 left-1 px-1.5 py-0.5 bg-black/75 backdrop-blur-xs rounded text-[9px] font-mono font-bold text-white leading-none">
+                            {item.code}
                           </div>
-                          <p className="text-[10px] text-slate-400 leading-tight mt-0.5">{item.highlight}</p>
                         </div>
+
+                        {/* Destination Info */}
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center justify-between">
+                            <span className="text-xs font-black text-iq-navy group-hover/item:text-iq-red transition-colors truncate">
+                              {item.title}
+                            </span>
+                            <span className="text-sm shrink-0 ml-1">{item.flag}</span>
+                          </div>
+                          <div className="mt-1 space-y-0.5">
+                            <div className="flex items-center gap-1.5 text-[10px] font-bold text-iq-navy/90 truncate">
+                              <span className="w-1.5 h-1.5 rounded-full bg-iq-red shrink-0" />
+                              <span className="truncate">{item.highlight1}</span>
+                            </div>
+                            <div className="flex items-center gap-1.5 text-[10px] text-slate-500 font-medium truncate">
+                              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                              <span className="truncate">{item.highlight2}</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <ArrowRight className="w-4 h-4 text-slate-300 group-hover/item:text-iq-red group-hover/item:translate-x-0.5 transition-all shrink-0" />
                       </Link>
                     ))}
                   </div>
 
                   <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between">
-                    <span className="text-[11px] text-slate-500">STEM Extensions • 1-Year & 2-Year MS</span>
+                    <span className="text-[11px] text-slate-500 font-medium">STEM Extensions • 1-Year & 2-Year MS • Post-Study Work Visas</span>
                     <Link
                       to="/masters"
                       onClick={() => setActiveDropdown(null)}
@@ -575,22 +605,41 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
                     <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform ${mobileAccordion === 'masters' ? 'rotate-180 text-iq-red' : ''}`} />
                   </button>
                   {mobileAccordion === 'masters' && (
-                    <div className="pl-4 pr-2 py-1 space-y-1 bg-slate-50/80 rounded-xl mb-1">
-                      {MASTERS_DROPDOWN.map((m) => (
-                        <Link
-                          key={m.title}
-                          to={`/masters/${m.slug}`}
-                          onClick={() => setMobileMenuOpen(false)}
-                          className="flex items-center justify-between py-1.5 text-xs font-medium text-slate-600 hover:text-iq-navy"
-                        >
-                          <span>{m.flag} {m.title}</span>
-                          <span className="text-[10px] text-slate-400">{m.highlight.split('•')[0]}</span>
-                        </Link>
-                      ))}
+                    <div className="py-2 px-1 space-y-2 bg-slate-50/90 rounded-2xl mb-2">
+                      <div className="space-y-2">
+                        {MASTERS_DROPDOWN.map((m) => (
+                          <Link
+                            key={m.title}
+                            to={`/masters/${m.slug}`}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="flex items-center gap-3 p-2 bg-white rounded-xl border border-slate-200/90 shadow-2xs hover:border-iq-navy transition-all"
+                          >
+                            <div className="relative w-14 h-14 rounded-lg overflow-hidden shrink-0 border border-slate-200 shadow-2xs bg-slate-100">
+                              <img
+                                src={m.image}
+                                alt={m.title}
+                                className="w-full h-full object-cover object-top"
+                                loading="lazy"
+                              />
+                              <span className="absolute top-0.5 left-0.5 px-1 py-0.5 bg-black/75 rounded text-[8px] font-mono font-bold text-white leading-none">
+                                {m.code}
+                              </span>
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center justify-between">
+                                <span className="text-xs font-bold text-iq-navy truncate">{m.title}</span>
+                                <span className="text-xs shrink-0 ml-1">{m.flag}</span>
+                              </div>
+                              <p className="text-[10px] text-iq-red font-semibold truncate mt-0.5">{m.highlight1}</p>
+                              <p className="text-[10px] text-slate-500 truncate">{m.highlight2}</p>
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
                       <Link
                         to="/masters"
                         onClick={() => setMobileMenuOpen(false)}
-                        className="block py-2 text-xs font-bold text-iq-navy hover:underline"
+                        className="block text-center py-2.5 text-xs font-bold text-iq-navy bg-white rounded-xl border border-slate-200 hover:bg-slate-100 shadow-2xs transition-colors"
                       >
                         Explore Masters Hub →
                       </Link>

@@ -38,13 +38,14 @@ export const DestinationsWhyChoose: React.FC = () => {
               {/* Destination Badges */}
               <div className="mt-5 flex flex-wrap gap-2">
                 {DESTINATIONS_DATA.map((d) => (
-                  <span
+                  <Link
                     key={d.id}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-white border border-slate-200 text-slate-700 shadow-2xs hover:border-iq-navy transition-colors cursor-default"
+                    to={`/masters/${d.id}`}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-white border border-slate-200 text-slate-700 shadow-2xs hover:border-iq-navy hover:text-iq-red hover:shadow-xs transition-all cursor-pointer"
                   >
                     <span className="text-sm">{d.flag}</span>
                     <span>{d.country}</span>
-                  </span>
+                  </Link>
                 ))}
               </div>
             </div>

@@ -80,7 +80,7 @@ export const COUNTRY_PAGES_DATA: Record<string, CountryDegreeContent> = {
     heroSubtitle: "Start your UG journey in the USA with 4-year world-recognized degrees, STEM OPT extensions, and presidential scholarships.",
     heroTagline: "Start your UG journey in the USA",
     badge: "Undergraduate Admissions 2025 - 2026",
-    heroImage: "/images/program-bachelors-grand.png",
+    heroImage: "/images/destinations/usa-dest.png",
     quickFacts: {
       duration: "4 Years (120 - 130 Semester Credits)",
       intakes: "Fall (August/September) & Spring (January)",
@@ -248,7 +248,7 @@ export const COUNTRY_PAGES_DATA: Record<string, CountryDegreeContent> = {
     heroSubtitle: "Earn high ROI postgraduate degrees with 3-Year STEM OPT, graduate assistantships, and direct recruitment by Fortune 500 tech leaders.",
     heroTagline: "Start your Master's journey in the USA",
     badge: "Master's & STEM OPT Hub 2025 - 2026",
-    heroImage: "/images/program-masters-grand.png",
+    heroImage: "/images/destinations/usa-dest.png",
     quickFacts: {
       duration: "1.5 to 2 Years (30 - 36 Graduate Credits)",
       intakes: "Fall (August/September), Spring (January) & Summer",
@@ -412,7 +412,7 @@ export const COUNTRY_PAGES_DATA: Record<string, CountryDegreeContent> = {
     heroSubtitle: "Graduate faster, save an entire year of living expenses, and enjoy a guaranteed 2-Year Graduate Route post-study work visa in London and top student cities.",
     heroTagline: "Start your UG journey in the UK",
     badge: "UCAS Undergraduate Admissions 2025 - 2026",
-    heroImage: "/images/program-bachelors-grand.png",
+    heroImage: "/images/destinations/uk-dest.png",
     quickFacts: {
       duration: "3 Years (England & Wales) / 4 Years (Scotland)",
       intakes: "September/October (Major) & January/February",
@@ -551,7 +551,7 @@ export const COUNTRY_PAGES_DATA: Record<string, CountryDegreeContent> = {
     heroSubtitle: "Save a full year of tuition and living expenses with intensive 1-year Master's programs, followed by a guaranteed 2-Year post-study work visa.",
     heroTagline: "Start your Master's journey in the UK",
     badge: "1-Year Fast-Track Master's Hub",
-    heroImage: "/images/destinations-landmarks-grand.png",
+    heroImage: "/images/destinations/uk-dest.png",
     quickFacts: {
       duration: "1 Year (12 Months Intensive)",
       intakes: "September/October & January/February",
@@ -690,7 +690,7 @@ export const COUNTRY_PAGES_DATA: Record<string, CountryDegreeContent> = {
     heroSubtitle: "Experience world-leading universities, safe multi-cultural cities, paid Co-Op work semesters, and direct post-study work permits.",
     heroTagline: "Start your UG journey in Canada",
     badge: "Undergraduate Admissions 2025 - 2026",
-    heroImage: "/images/destinations-landmarks-grand.png",
+    heroImage: "/images/destinations/canada-dest.png",
     quickFacts: {
       duration: "4 Years (Bachelor's Degree) / 3 Years (Advanced Diploma)",
       intakes: "Fall (September), Winter (January) & Summer (May)",
@@ -804,7 +804,7 @@ export const COUNTRY_PAGES_DATA: Record<string, CountryDegreeContent> = {
     heroSubtitle: "Explore specialized Master of Science (MSc) and Master of Engineering (MEng) degrees with strong research funding and immigration pathways.",
     heroTagline: "Start your Master's journey in Canada",
     badge: "Postgraduate & PGWP Hub",
-    heroImage: "/images/destinations-landmarks-grand.png",
+    heroImage: "/images/destinations/canada-dest.png",
     quickFacts: {
       duration: "1.5 to 2 Years",
       intakes: "Fall (September) & Winter (January)",
@@ -914,7 +914,7 @@ export const COUNTRY_PAGES_DATA: Record<string, CountryDegreeContent> = {
     heroSubtitle: "Experience modern campuses, sunny coastal cities, 3-year focused degrees, and extensive post-study work rights in Sydney, Melbourne, Brisbane and Perth.",
     heroTagline: "Start your UG journey in Australia",
     badge: "Undergraduate Admissions 2025 - 2026",
-    heroImage: "/images/program-bachelors-grand.png",
+    heroImage: "/images/destinations/australia-dest.png",
     quickFacts: {
       duration: "3 Years (General) / 4 Years (Honours / Engineering)",
       intakes: "Semester 1 (February) & Semester 2 (July)",
@@ -1024,7 +1024,7 @@ export const COUNTRY_PAGES_DATA: Record<string, CountryDegreeContent> = {
     heroSubtitle: "Experience world-ranked universities, generous 2-4 year post-study work visas, and seamless point-tested permanent residency pathways.",
     heroTagline: "Start your Master's journey in Australia",
     badge: "Master's & Post-Study Work Hub",
-    heroImage: "/images/program-masters-grand.png",
+    heroImage: "/images/destinations/australia-dest.png",
     quickFacts: {
       duration: "1.5 to 2 Years",
       intakes: "February / March & July / August",
@@ -1134,7 +1134,7 @@ export const COUNTRY_PAGES_DATA: Record<string, CountryDegreeContent> = {
     heroSubtitle: "Launch your career with European HQs of Google, Apple, Microsoft, Meta, and Pfizer right in your backyard, with a 2-Year graduate stay-back option.",
     heroTagline: "Start your UG journey in Ireland",
     badge: "Undergraduate Admissions 2025 - 2026",
-    heroImage: "/images/destinations-landmarks-grand.png",
+    heroImage: "/images/destinations/ireland-dest.png",
     quickFacts: {
       duration: "3 to 4 Years (Honours Bachelor's Level 8)",
       intakes: "September (Major) & January",
@@ -1236,7 +1236,7 @@ export const COUNTRY_PAGES_DATA: Record<string, CountryDegreeContent> = {
     heroSubtitle: "Access direct employment with Fortune 500 leaders in Dublin, 2-Year stay-back work rights, and fast-track Critical Skills permits.",
     heroTagline: "Start your Master's journey in Ireland",
     badge: "Tech & Critical Skills Hub",
-    heroImage: "/images/destinations-landmarks-grand.png",
+    heroImage: "/images/destinations/ireland-dest.png",
     quickFacts: {
       duration: "1 Year (Full-time Intensive)",
       intakes: "September (Major) & January",
@@ -1346,7 +1346,7 @@ export const COUNTRY_PAGES_DATA: Record<string, CountryDegreeContent> = {
     heroSubtitle: "Benefit from Europe's economic powerhouse with virtually zero tuition fees at public universities, world-class research laboratories, and 18-month stay-back visas.",
     heroTagline: "Start your UG journey in Germany",
     badge: "Zero/Low Tuition Universities",
-    heroImage: "/images/hero-desktop.png",
+    heroImage: "/images/destinations/germany-dest.png",
     quickFacts: {
       duration: "3 to 3.5 Years",
       intakes: "Winter (October - Major) & Summer (April)",
@@ -1448,7 +1448,7 @@ export const COUNTRY_PAGES_DATA: Record<string, CountryDegreeContent> = {
     heroSubtitle: "Study in Europe's technological leader with English-taught Master's degrees, 18-month job seeker visas, and rapid EU Blue Card permanent residency.",
     heroTagline: "Start your Master's journey in Germany",
     badge: "Low/Zero Tuition Master's Hub",
-    heroImage: "/images/hero-desktop.png",
+    heroImage: "/images/destinations/germany-dest.png",
     quickFacts: {
       duration: "1.5 to 2 Years",
       intakes: "Winter (October - Major) & Summer (April)",
@@ -1558,7 +1558,7 @@ export const COUNTRY_PAGES_DATA: Record<string, CountryDegreeContent> = {
     heroSubtitle: "Experience world-leading universities across Auckland, Wellington, and Christchurch with vibrant campus cultures and up to 3 years of post-study work rights.",
     heroTagline: "Start your UG journey in New Zealand",
     badge: "Undergraduate Admissions 2025 - 2026",
-    heroImage: "/images/destinations-landmarks-grand.png",
+    heroImage: "/images/destinations/new-zealand-dest.png",
     quickFacts: {
       duration: "3 Years (General) / 4 Years (Engineering/Honours)",
       intakes: "Semester 1 (February) & Semester 2 (July)",
@@ -1672,7 +1672,7 @@ export const COUNTRY_PAGES_DATA: Record<string, CountryDegreeContent> = {
     heroSubtitle: "Earn high-ranking postgraduate qualifications in 1 to 1.5 years, accompanied by a 3-year post-study work visa and spouse open work rights.",
     heroTagline: "Start your Master's journey in New Zealand",
     badge: "Master's & Post-Study Work Hub",
-    heroImage: "/images/program-masters-grand.png",
+    heroImage: "/images/destinations/new-zealand-dest.png",
     quickFacts: {
       duration: "1 to 1.5 Years (180 NZQA Credits)",
       intakes: "February & July",
@@ -1781,7 +1781,7 @@ export const COUNTRY_PAGES_DATA: Record<string, CountryDegreeContent> = {
     heroSubtitle: "Study in world-capital Paris, Lyon, or Nice at prestigious Grandes Écoles with subsidized European living and 2-year post-study work authorization.",
     heroTagline: "Start your UG journey in France",
     badge: "Undergraduate Admissions 2025 - 2026",
-    heroImage: "/images/destinations-landmarks-grand.png",
+    heroImage: "/images/destinations/europe-france-dest.png",
     quickFacts: {
       duration: "3 Years (Bachelor / Licence)",
       intakes: "September/October (Major) & January",
@@ -1883,7 +1883,7 @@ export const COUNTRY_PAGES_DATA: Record<string, CountryDegreeContent> = {
     heroSubtitle: "Study in Paris at world top-ranked business schools (HEC, ESSEC, EDHEC) and elite engineering Grandes Écoles with 2-year post-study work permits.",
     heroTagline: "Start your Master's journey in France",
     badge: "European Elite Business & Tech Hub",
-    heroImage: "/images/destinations-landmarks-grand.png",
+    heroImage: "/images/destinations/europe-france-dest.png",
     quickFacts: {
       duration: "1 to 2 Years (MSc & MiM Degrees)",
       intakes: "September/October & January/February",
@@ -1996,7 +1996,7 @@ export const COUNTRY_PAGES_DATA: Record<string, CountryDegreeContent> = {
     heroSubtitle: "Explore top universities across France, Germany, Ireland, and the Netherlands with affordable tuition and 27-country Schengen mobility.",
     heroTagline: "Start your UG journey in Europe",
     badge: "European Union Admissions 2025 - 2026",
-    heroImage: "/images/destinations-landmarks-grand.png",
+    heroImage: "/images/destinations/europe-france-dest.png",
     quickFacts: {
       duration: "3 to 4 Years",
       intakes: "September/October & January",
@@ -2079,7 +2079,7 @@ export const COUNTRY_PAGES_DATA: Record<string, CountryDegreeContent> = {
     heroSubtitle: "Earn prestigious European Master of Science & Management degrees with 1.5 to 2 years post-study work authorization and EU Blue Card pathways.",
     heroTagline: "Start your Master's journey in Europe",
     badge: "European Postgraduate Hub",
-    heroImage: "/images/destinations-landmarks-grand.png",
+    heroImage: "/images/destinations/europe-france-dest.png",
     quickFacts: {
       duration: "1 to 2 Years",
       intakes: "September & January",

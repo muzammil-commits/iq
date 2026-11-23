@@ -22,6 +22,7 @@ export interface MasterCountry {
   topUniversities: string[];
   highlights: string[];
   visaType: string;
+  image?: string;
 }
 
 export interface UniversityItem {
@@ -316,7 +317,8 @@ export const MASTER_COUNTRIES: MasterCountry[] = [
       'Silicon Valley, Wall Street, and Austin tech hub employment',
       'GRE waivers available for qualified applicants'
     ],
-    visaType: 'F-1 Student Visa'
+    visaType: 'F-1 Student Visa',
+    image: '/images/destinations/usa-dest.png'
   },
   {
     country: 'United Kingdom',
@@ -333,7 +335,8 @@ export const MASTER_COUNTRIES: MasterCountry[] = [
       'No GRE required for majority of postgraduate programs',
       'World-famous Russell Group research institutions'
     ],
-    visaType: 'UK Student Route Visa'
+    visaType: 'UK Student Route Visa',
+    image: '/images/destinations/uk-dest.png'
   },
   {
     country: 'Australia',
@@ -350,7 +353,8 @@ export const MASTER_COUNTRIES: MasterCountry[] = [
       'Extended stay in regional growth cities (Adelaide, Perth)',
       'Clear, points-based Permanent Residency pathways'
     ],
-    visaType: 'Subclass 500 Student Visa'
+    visaType: 'Subclass 500 Student Visa',
+    image: '/images/destinations/australia-dest.png'
   },
   {
     country: 'Canada',
@@ -367,7 +371,8 @@ export const MASTER_COUNTRIES: MasterCountry[] = [
       'Express Entry & Provincial Nominee Program (PNP) advantages',
       'Co-op integrated terms with leading tech employers'
     ],
-    visaType: 'Study Permit & TRV'
+    visaType: 'Study Permit & TRV',
+    image: '/images/destinations/canada-dest.png'
   },
   {
     country: 'Ireland',
@@ -384,7 +389,8 @@ export const MASTER_COUNTRIES: MasterCountry[] = [
       '100% English-speaking nation in the European Union',
       'Generous merit scholarships up to €5,000 for Indian students'
     ],
-    visaType: 'Stamp 2 Student Visa'
+    visaType: 'Stamp 2 Student Visa',
+    image: '/images/destinations/ireland-dest.png'
   },
   {
     country: 'Germany',
@@ -401,7 +407,8 @@ export const MASTER_COUNTRIES: MasterCountry[] = [
       '18-month stay-back permit leading directly to EU Blue Card',
       'English-taught postgraduate degrees in engineering & CS'
     ],
-    visaType: 'National Visa (D-Visa)'
+    visaType: 'National Visa (D-Visa)',
+    image: '/images/destinations/germany-dest.png'
   },
   {
     country: 'New Zealand',
@@ -418,7 +425,8 @@ export const MASTER_COUNTRIES: MasterCountry[] = [
       'Green List occupations with direct residency pathways',
       'Spouse work visa rights for eligible postgraduate degrees'
     ],
-    visaType: 'Fee Paying Student Visa'
+    visaType: 'Fee Paying Student Visa',
+    image: '/images/destinations/new-zealand-dest.png'
   },
   {
     country: 'France',
@@ -435,7 +443,8 @@ export const MASTER_COUNTRIES: MasterCountry[] = [
       '2-Year post-study work visa for Master’s degree holders',
       'English-medium instruction with free French language workshops'
     ],
-    visaType: 'VLS-TS Long Stay Visa'
+    visaType: 'VLS-TS Long Stay Visa',
+    image: '/images/destinations/europe-france-dest.png'
   },
   {
     country: 'Singapore',

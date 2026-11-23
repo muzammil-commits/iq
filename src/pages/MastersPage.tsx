@@ -456,18 +456,47 @@ export const MastersPage: React.FC<MastersPageProps> = ({ onOpenConsultation }) 
                 </div>
               </div>
 
-              <div className="lg:col-span-5 bg-gradient-to-br from-iq-navy to-slate-900 text-white p-6 sm:p-8 rounded-2xl space-y-4">
+              <div className="lg:col-span-5 bg-gradient-to-br from-iq-navy via-slate-900 to-black text-white p-6 sm:p-7 rounded-3xl space-y-4 shadow-xl border border-slate-800 relative overflow-hidden">
+                {/* Grand Destination Photo */}
+                {activeCountry.image && (
+                  <div className="relative rounded-2xl overflow-hidden aspect-[16/10] border border-white/20 shadow-md group">
+                    <img
+                      src={activeCountry.image}
+                      alt={`Study in ${activeCountry.country}`}
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                    <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
+                      <div>
+                        <span className="text-xs font-mono font-bold px-2 py-0.5 bg-iq-red rounded-md">
+                          {activeCountry.country}
+                        </span>
+                        <div className="text-[11px] text-slate-200 font-semibold mt-1">
+                          Intakes: {activeCountry.intakes}
+                        </div>
+                      </div>
+                      <Link
+                        to={`/masters/${activeCountry.slug}`}
+                        className="px-3 py-1.5 bg-white text-iq-navy rounded-xl text-xs font-bold hover:bg-iq-red hover:text-white transition-all shadow-md flex items-center gap-1"
+                      >
+                        <span>Full Guide</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
+                    </div>
+                  </div>
+                )}
+
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-xs font-bold uppercase text-red-300">
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>Free Profile Evaluation</span>
                 </div>
-                <h4 className="text-xl font-bold">
+                <h4 className="text-lg sm:text-xl font-bold">
                   Targeting {activeCountry.country} for {activeCountry.intakes}?
                 </h4>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <p className="text-xs text-slate-300 leading-relaxed">
                   Our certified consultants in Guntur evaluate your CGPA, backlogs, and GRE/English scores to secure university admits and maximum scholarships.
                 </p>
-                <div className="space-y-2 pt-2 text-xs">
+                <div className="space-y-2 pt-1 text-xs">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                     <span>Free application fee waivers at select universities</span>
@@ -483,7 +512,7 @@ export const MastersPage: React.FC<MastersPageProps> = ({ onOpenConsultation }) 
                 </div>
                 <button
                   onClick={onOpenConsultation}
-                  className="w-full mt-4 py-3 bg-iq-red hover:bg-iq-red-hover text-white rounded-xl text-sm font-bold shadow-lg transition-all cursor-pointer"
+                  className="w-full mt-3 py-3 bg-iq-red hover:bg-iq-red-hover text-white rounded-xl text-sm font-bold shadow-lg transition-all cursor-pointer"
                 >
                   Apply to {activeCountry.country} Universities
                 </button>

@@ -174,14 +174,86 @@ export const CORE_VALUES: ValueItem[] = [
 
 // Rich Dropdown Structure matching top global consultancies like Ivy Overseas
 export const MASTERS_DROPDOWN = [
-  { title: 'Study in USA', slug: 'usa', flag: '🇺🇸', highlight: 'STEM OPT 3 Years • High Starting Salaries' },
-  { title: 'Study in UK', slug: 'uk', flag: '🇬🇧', highlight: '1-Year Fast-track Masters • 2-Year PSW' },
-  { title: 'Study in Canada', slug: 'canada', flag: '🇨🇦', highlight: 'Up to 3-Year PGWP • Research Hubs' },
-  { title: 'Study in Australia', slug: 'australia', flag: '🇦🇺', highlight: 'Group of Eight • Post-Study Work Visas' },
-  { title: 'Study in Ireland', slug: 'ireland', flag: '🇮🇪', highlight: 'European Silicon Valley • 2-Year Stay Back' },
-  { title: 'Study in Germany', slug: 'germany', flag: '🇩🇪', highlight: 'Low/Free Tuition • 18-Mo Job Seeker' },
-  { title: 'Study in New Zealand', slug: 'new-zealand', flag: '🇳🇿', highlight: 'Safe Lifestyle • Post-Study Work' },
-  { title: 'Study in France & Europe', slug: 'europe', flag: '🇪🇺', highlight: 'Top Business Schools • Global Exposure' }
+  {
+    code: 'US',
+    title: 'Study in USA',
+    slug: 'usa',
+    flag: '🇺🇸',
+    highlight1: 'STEM OPT 3 Years',
+    highlight2: 'High Starting Salaries',
+    highlight: 'STEM OPT 3 Years • High Starting Salaries',
+    image: '/images/destinations/usa-dest.png'
+  },
+  {
+    code: 'GB',
+    title: 'Study in UK',
+    slug: 'uk',
+    flag: '🇬🇧',
+    highlight1: '1-Year Fast-track Masters',
+    highlight2: '2-Year PSW',
+    highlight: '1-Year Fast-track Masters • 2-Year PSW',
+    image: '/images/destinations/uk-dest.png'
+  },
+  {
+    code: 'CA',
+    title: 'Study in Canada',
+    slug: 'canada',
+    flag: '🇨🇦',
+    highlight1: 'Up to 3-Year PGWP',
+    highlight2: 'Research Hubs',
+    highlight: 'Up to 3-Year PGWP • Research Hubs',
+    image: '/images/destinations/canada-dest.png'
+  },
+  {
+    code: 'AU',
+    title: 'Study in Australia',
+    slug: 'australia',
+    flag: '🇦🇺',
+    highlight1: 'Group of Eight',
+    highlight2: 'Post-Study Work Visas',
+    highlight: 'Group of Eight • Post-Study Work Visas',
+    image: '/images/destinations/australia-dest.png'
+  },
+  {
+    code: 'IE',
+    title: 'Study in Ireland',
+    slug: 'ireland',
+    flag: '🇮🇪',
+    highlight1: 'European Silicon Valley',
+    highlight2: '2-Year Stay Back',
+    highlight: 'European Silicon Valley • 2-Year Stay Back',
+    image: '/images/destinations/ireland-dest.png'
+  },
+  {
+    code: 'DE',
+    title: 'Study in Germany',
+    slug: 'germany',
+    flag: '🇩🇪',
+    highlight1: 'Low/Free Tuition',
+    highlight2: '18-Month Job Seeker',
+    highlight: 'Low/Free Tuition • 18-Mo Job Seeker',
+    image: '/images/destinations/germany-dest.png'
+  },
+  {
+    code: 'NZ',
+    title: 'Study in New Zealand',
+    slug: 'new-zealand',
+    flag: '🇳🇿',
+    highlight1: 'Safe Lifestyle',
+    highlight2: 'Post-Study Work',
+    highlight: 'Safe Lifestyle • Post-Study Work',
+    image: '/images/destinations/new-zealand-dest.png'
+  },
+  {
+    code: 'EU',
+    title: 'Study in France & Europe',
+    slug: 'europe',
+    flag: '🇪🇺',
+    highlight1: 'Top Business Schools',
+    highlight2: 'Global Exposure',
+    highlight: 'Top Business Schools • Global Exposure',
+    image: '/images/destinations/europe-france-dest.png'
+  }
 ];
 
 export const BACHELORS_DROPDOWN = [
@@ -654,7 +726,7 @@ export const DESTINATIONS_DATA: DestinationItem[] = [
     workRights: 'Up to 3 years STEM OPT post-graduation',
     avgTuition: '$22,000 – $48,000 / year',
     description: 'Home to the world\'s leading research institutions, dynamic campus cultures, and unmatched tech innovation hubs.',
-    image: '/images/destinations-landmarks-grand.png'
+    image: '/images/destinations/usa-dest.png'
   },
   {
     id: 'uk',
@@ -665,7 +737,7 @@ export const DESTINATIONS_DATA: DestinationItem[] = [
     workRights: '2 years Graduate Route post-study work',
     avgTuition: '£13,000 – £26,000 / year',
     description: '1-year Master\'s degrees, historic university traditions, and direct exposure to global financial and corporate headquarters.',
-    image: '/images/destinations-landmarks-grand.png'
+    image: '/images/destinations/uk-dest.png'
   },
   {
     id: 'canada',
@@ -676,7 +748,7 @@ export const DESTINATIONS_DATA: DestinationItem[] = [
     workRights: 'Up to 3 years Post-Graduation Work Permit (PGWP)',
     avgTuition: 'CAD 18,000 – 35,000 / year',
     description: 'High standard of living, welcoming multicultural cities, and structured post-study immigration pathways.',
-    image: '/images/destinations-landmarks-grand.png'
+    image: '/images/destinations/canada-dest.png'
   },
   {
     id: 'australia',
@@ -687,7 +759,7 @@ export const DESTINATIONS_DATA: DestinationItem[] = [
     workRights: '2 to 4 years Temporary Graduate Visa (subclass 485)',
     avgTuition: 'AUD 24,000 – 42,000 / year',
     description: 'World-renowned Group of Eight universities, exceptional lifestyle, and high-demand skilled occupation lists.',
-    image: '/images/destinations-landmarks-grand.png'
+    image: '/images/destinations/australia-dest.png'
   },
   {
     id: 'ireland',
@@ -698,7 +770,7 @@ export const DESTINATIONS_DATA: DestinationItem[] = [
     workRights: '2 years Third Level Graduate Scheme for Master\'s',
     avgTuition: '€12,000 – €22,000 / year',
     description: 'European headquarters of global tech giants (Google, Meta, Apple) with 1-year Master\'s courses.',
-    image: '/images/destinations-landmarks-grand.png'
+    image: '/images/destinations/ireland-dest.png'
   },
   {
     id: 'germany',
@@ -709,7 +781,29 @@ export const DESTINATIONS_DATA: DestinationItem[] = [
     workRights: '18 months post-study job seeker visa',
     avgTuition: 'Low to zero tuition at public universities (semester fee €250–€350)',
     description: 'Powerhouse of European engineering, tuition-free public education options, and strong industrial integration.',
-    image: '/images/destinations-landmarks-grand.png'
+    image: '/images/destinations/germany-dest.png'
+  },
+  {
+    id: 'new-zealand',
+    country: 'New Zealand',
+    flag: '🇳🇿',
+    popularCourses: ['AgriTech & Environmental', 'Data Analytics', 'Civil Engineering', 'Tourism & Hospitality'],
+    intakes: ['Semester 1 (Feb)', 'Semester 2 (July)'],
+    workRights: 'Up to 3 years Post-Study Work Visa',
+    avgTuition: 'NZD 26,000 – 40,000 / year',
+    description: 'Safe lifestyle, pristine living standards, top 3% global universities, and straightforward residency pathways.',
+    image: '/images/destinations/new-zealand-dest.png'
+  },
+  {
+    id: 'europe',
+    country: 'France & Europe',
+    flag: '🇪🇺',
+    popularCourses: ['Luxury & Brand Mgmt', 'International Business / MBA', 'Fashion & Design', 'Applied Artificial Intelligence'],
+    intakes: ['Fall (Sept)', 'Spring (Feb)'],
+    workRights: '2 years stay-back visa + EU mobility rights',
+    avgTuition: '€8,000 – €22,000 / year',
+    description: 'Triple-crown accredited business schools, government subsidized housing (CAF), and multinational corporate exposure.',
+    image: '/images/destinations/europe-france-dest.png'
   }
 ];
 
