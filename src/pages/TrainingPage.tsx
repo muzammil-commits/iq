@@ -33,20 +33,23 @@ export const TrainingPage: React.FC<TrainingPageProps> = ({ onOpenConsultation }
   const navigate = useNavigate();
 
   // Normalize program key
-  const activeKey = (program && ['ielts', 'pte', 'gre', 'sat', 'digital-sat'].includes(program.toLowerCase()))
-    ? (program.toLowerCase() === 'digital-sat' ? 'sat' : program.toLowerCase())
-    : 'ielts';
+  const normalizeKey = (key?: string) => {
+    if (!key) return 'ielts';
+    const low = key.toLowerCase();
+    if (low === 'digital-sat' || low === 'sat') return 'sat';
+    if (low === 'toefl') return 'ielts';
+    if (low === 'german') return 'pte';
+    if (['ielts', 'pte', 'gre', 'sat'].includes(low)) return low;
+    return 'ielts';
+  };
 
-  const [selectedKey, setSelectedKey] = useState<string>(activeKey);
+  const [selectedKey, setSelectedKey] = useState<string>(normalizeKey(program));
   const [expandedFaq, setExpandedFaq] = useState<number | null>(0);
 
   // Sync state if URL changes
   useEffect(() => {
     if (program) {
-      const normalized = program.toLowerCase() === 'digital-sat' ? 'sat' : program.toLowerCase();
-      if (['ielts', 'pte', 'gre', 'sat'].includes(normalized)) {
-        setSelectedKey(normalized);
-      }
+      setSelectedKey(normalizeKey(program));
     }
   }, [program]);
 

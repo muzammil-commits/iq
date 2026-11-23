@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
 import {
   GraduationCap,
   ArrowRight,
@@ -39,9 +39,28 @@ interface MastersPageProps {
 }
 
 export const MastersPage: React.FC<MastersPageProps> = ({ onOpenConsultation }) => {
+  const { country } = useParams<{ country?: string }>();
+  const [searchParams] = useSearchParams();
+  const countryParam = country || searchParams.get('country');
+
   const [selectedCategory, setSelectedCategory] = useState('All Courses');
   const [selectedCountrySlug, setSelectedCountrySlug] = useState('usa');
   const [expandedFaq, setExpandedFaq] = useState<number | null>(0);
+
+  useEffect(() => {
+    if (countryParam) {
+      let slug = countryParam.toLowerCase().trim();
+      if (slug === 'europe') slug = 'france';
+      const exists = MASTER_COUNTRIES.some(c => c.slug === slug);
+      if (exists) {
+        setSelectedCountrySlug(slug);
+        const el = document.getElementById('country-opportunities');
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }
+  }, [countryParam]);
 
   // Filter courses row-wise by selected category
   const filteredCourses = selectedCategory === 'All Courses'
@@ -335,7 +354,7 @@ export const MastersPage: React.FC<MastersPageProps> = ({ onOpenConsultation }) 
       </section>
 
       {/* 5. COUNTRY-WISE MASTER'S OPPORTUNITIES */}
-      <section className="py-14 sm:py-20 bg-slate-50 border-t border-slate-200/80">
+      <section id="country-opportunities" className="py-14 sm:py-20 bg-slate-50 border-t border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-10">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-iq-navy font-bold text-xs uppercase tracking-wider mb-2">

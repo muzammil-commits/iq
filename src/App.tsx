@@ -53,7 +53,9 @@ export const App: React.FC = () => {
             <Route path="/services/:slug" element={<ServiceDetailPage onOpenConsultation={() => handleOpenConsultation()} />} />
             <Route path="/visa" element={<VisaPage onOpenConsultation={() => handleOpenConsultation('Visa Assistance')} />} />
             <Route path="/masters" element={<MastersPage onOpenConsultation={() => handleOpenConsultation('Masters Guidance')} />} />
+            <Route path="/masters/:country" element={<MastersPage onOpenConsultation={() => handleOpenConsultation('Masters Guidance')} />} />
             <Route path="/bachelors" element={<BachelorsPage onOpenConsultation={() => handleOpenConsultation('Bachelors Guidance')} />} />
+            <Route path="/bachelors/:country" element={<BachelorsPage onOpenConsultation={() => handleOpenConsultation('Bachelors Guidance')} />} />
             <Route path="/training" element={<TrainingPage onOpenConsultation={() => handleOpenConsultation('Training & Test Prep')} />} />
             <Route path="/training/:program" element={<TrainingPage onOpenConsultation={() => handleOpenConsultation('Training & Test Prep')} />} />
             <Route path="/success-stories" element={<SuccessStoriesPage onOpenConsultation={() => handleOpenConsultation()} />} />

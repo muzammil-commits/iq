@@ -144,6 +144,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
                           <Link
                             key={service.id}
                             to={`/services/${service.slug}`}
+                            onClick={() => setActiveDropdown(null)}
                             className="block px-2.5 py-1.5 rounded-lg text-xs font-medium text-slate-700 hover:bg-iq-navy/5 hover:text-iq-navy transition-colors"
                           >
                             <span className="text-iq-red font-semibold mr-1.5">{service.number}</span>
@@ -163,6 +164,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
                           <Link
                             key={service.id}
                             to={`/services/${service.slug}`}
+                            onClick={() => setActiveDropdown(null)}
                             className="block px-2.5 py-1.5 rounded-lg text-xs font-medium text-slate-700 hover:bg-iq-red/5 hover:text-iq-red transition-colors"
                           >
                             <span className="text-iq-navy font-semibold mr-1.5">{service.number}</span>
@@ -173,6 +175,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
                       <div className="pt-3 mt-3 border-t border-slate-100">
                         <Link
                           to="/services"
+                          onClick={() => setActiveDropdown(null)}
                           className="inline-flex items-center gap-1.5 text-xs font-bold text-iq-navy hover:text-iq-red px-2 transition-colors"
                         >
                           <span>Explore All 10 Services</span>
@@ -216,6 +219,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
                       <Link
                         key={v.id}
                         to={`/services/${v.slug}`}
+                        onClick={() => setActiveDropdown(null)}
                         className="block px-3 py-2 rounded-xl text-xs font-medium text-slate-700 hover:bg-slate-50 hover:text-iq-navy transition-colors"
                       >
                         <div className="font-bold flex items-center justify-between">
@@ -228,6 +232,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
                     <div className="pt-2 mt-2 border-t border-slate-100">
                       <Link
                         to="/visa"
+                        onClick={() => setActiveDropdown(null)}
                         className="flex items-center justify-between text-xs font-bold text-iq-navy hover:text-iq-red px-2 py-1 transition-colors"
                       >
                         <span>View Visa Page</span>
@@ -275,7 +280,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
                     {MASTERS_DROPDOWN.map((item) => (
                       <Link
                         key={item.title}
-                        to="/masters"
+                        to={`/masters/${item.slug}`}
+                        onClick={() => setActiveDropdown(null)}
                         className="p-2.5 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-100 transition-all flex items-start gap-2.5 group/item"
                       >
                         <span className="text-lg leading-none mt-0.5">{item.flag}</span>
@@ -293,6 +299,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
                     <span className="text-[11px] text-slate-500">STEM Extensions • 1-Year & 2-Year MS</span>
                     <Link
                       to="/masters"
+                      onClick={() => setActiveDropdown(null)}
                       className="text-xs font-bold text-iq-navy hover:text-iq-red inline-flex items-center gap-1"
                     >
                       <span>Explore Masters Hub</span>
@@ -336,27 +343,36 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
                   </div>
 
                   <div className="grid grid-cols-2 gap-2">
-                    {BACHELORS_DROPDOWN.map((item) => (
-                      <Link
-                        key={item.title}
-                        to="/bachelors"
-                        className="p-2.5 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-100 transition-all flex items-start gap-2 group/item"
-                      >
-                        {item.flag && <span className="text-base leading-none mt-0.5">{item.flag}</span>}
-                        <div>
-                          <div className="text-xs font-bold text-slate-800 group-hover/item:text-iq-red transition-colors">
-                            {item.title}
+                    {BACHELORS_DROPDOWN.map((item) => {
+                      const dest = item.slug === 'overview'
+                        ? '/bachelors'
+                        : item.slug === 'scholarships'
+                        ? '/bachelors#scholarships'
+                        : `/bachelors/${item.slug.replace('bachelors-', '')}`;
+                      return (
+                        <Link
+                          key={item.title}
+                          to={dest}
+                          onClick={() => setActiveDropdown(null)}
+                          className="p-2.5 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-100 transition-all flex items-start gap-2 group/item"
+                        >
+                          {item.flag && <span className="text-base leading-none mt-0.5">{item.flag}</span>}
+                          <div>
+                            <div className="text-xs font-bold text-slate-800 group-hover/item:text-iq-red transition-colors">
+                              {item.title}
+                            </div>
+                            <p className="text-[10px] text-slate-400 leading-tight mt-0.5">{item.desc}</p>
                           </div>
-                          <p className="text-[10px] text-slate-400 leading-tight mt-0.5">{item.desc}</p>
-                        </div>
-                      </Link>
-                    ))}
+                        </Link>
+                      );
+                    })}
                   </div>
 
                   <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between">
                     <span className="text-[11px] text-slate-500">Common App & UCAS Specialists</span>
                     <Link
                       to="/bachelors"
+                      onClick={() => setActiveDropdown(null)}
                       className="text-xs font-bold text-iq-navy hover:text-iq-red inline-flex items-center gap-1"
                     >
                       <span>Explore Bachelors Page</span>
@@ -400,29 +416,36 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
                   </div>
 
                   <div className="grid grid-cols-2 gap-2">
-                    {TRAINING_DROPDOWN.map((t) => (
-                      <Link
-                        key={t.title}
-                        to="/training"
-                        className="p-2.5 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-100 transition-all group/item"
-                      >
-                        <div className="flex items-center justify-between">
-                          <span className="text-xs font-bold text-slate-800 group-hover/item:text-iq-red transition-colors truncate">
-                            {t.title}
-                          </span>
-                          <span className="text-[10px] font-bold text-iq-red bg-red-50 px-1.5 py-0.5 rounded shrink-0 ml-1">
-                            {t.target}
-                          </span>
-                        </div>
-                        <p className="text-[10px] text-slate-400 leading-tight mt-0.5">{t.desc}</p>
-                      </Link>
-                    ))}
+                    {TRAINING_DROPDOWN.map((t) => {
+                      const dest = t.slug === 'interview'
+                        ? '/visa'
+                        : `/training/${t.slug}`;
+                      return (
+                        <Link
+                          key={t.title}
+                          to={dest}
+                          onClick={() => setActiveDropdown(null)}
+                          className="p-2.5 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-100 transition-all group/item"
+                        >
+                          <div className="flex items-center justify-between">
+                            <span className="text-xs font-bold text-slate-800 group-hover/item:text-iq-red transition-colors truncate">
+                              {t.title}
+                            </span>
+                            <span className="text-[10px] font-bold text-iq-red bg-red-50 px-1.5 py-0.5 rounded shrink-0 ml-1">
+                              {t.target}
+                            </span>
+                          </div>
+                          <p className="text-[10px] text-slate-400 leading-tight mt-0.5">{t.desc}</p>
+                        </Link>
+                      );
+                    })}
                   </div>
 
                   <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between">
                     <span className="text-[11px] text-slate-500">Certified Trainers • Authentic Material</span>
                     <Link
                       to="/training"
+                      onClick={() => setActiveDropdown(null)}
                       className="text-xs font-bold text-iq-navy hover:text-iq-red inline-flex items-center gap-1"
                     >
                       <span>View Training Modules</span>
@@ -566,7 +589,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
                       {MASTERS_DROPDOWN.map((m) => (
                         <Link
                           key={m.title}
-                          to="/masters"
+                          to={`/masters/${m.slug}`}
                           onClick={() => setMobileMenuOpen(false)}
                           className="flex items-center justify-between py-1.5 text-xs font-medium text-slate-600 hover:text-iq-navy"
                         >
@@ -596,16 +619,23 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
                   </button>
                   {mobileAccordion === 'bachelors' && (
                     <div className="pl-4 pr-2 py-1 space-y-1 bg-slate-50/80 rounded-xl mb-1">
-                      {BACHELORS_DROPDOWN.map((b) => (
-                        <Link
-                          key={b.title}
-                          to="/bachelors"
-                          onClick={() => setMobileMenuOpen(false)}
-                          className="block py-1.5 text-xs font-medium text-slate-600 hover:text-iq-navy"
-                        >
-                          {b.flag ? `${b.flag} ` : ''}{b.title}
-                        </Link>
-                      ))}
+                      {BACHELORS_DROPDOWN.map((b) => {
+                        const dest = b.slug === 'overview'
+                          ? '/bachelors'
+                          : b.slug === 'scholarships'
+                          ? '/bachelors#scholarships'
+                          : `/bachelors/${b.slug.replace('bachelors-', '')}`;
+                        return (
+                          <Link
+                            key={b.title}
+                            to={dest}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="block py-1.5 text-xs font-medium text-slate-600 hover:text-iq-navy"
+                          >
+                            {b.flag ? `${b.flag} ` : ''}{b.title}
+                          </Link>
+                        );
+                      })}
                       <Link
                         to="/bachelors"
                         onClick={() => setMobileMenuOpen(false)}
@@ -628,17 +658,22 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
                   </button>
                   {mobileAccordion === 'training' && (
                     <div className="pl-4 pr-2 py-1 space-y-1 bg-slate-50/80 rounded-xl mb-1">
-                      {TRAINING_DROPDOWN.map((t) => (
-                        <Link
-                          key={t.title}
-                          to="/training"
-                          onClick={() => setMobileMenuOpen(false)}
-                          className="flex items-center justify-between py-1.5 text-xs font-medium text-slate-600 hover:text-iq-navy"
-                        >
-                          <span>{t.title}</span>
-                          <span className="text-[10px] text-iq-red font-bold">{t.target}</span>
-                        </Link>
-                      ))}
+                      {TRAINING_DROPDOWN.map((t) => {
+                        const dest = t.slug === 'interview'
+                          ? '/visa'
+                          : `/training/${t.slug}`;
+                        return (
+                          <Link
+                            key={t.title}
+                            to={dest}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="flex items-center justify-between py-1.5 text-xs font-medium text-slate-600 hover:text-iq-navy"
+                          >
+                            <span>{t.title}</span>
+                            <span className="text-[10px] text-iq-red font-bold">{t.target}</span>
+                          </Link>
+                        );
+                      })}
                       <Link
                         to="/training"
                         onClick={() => setMobileMenuOpen(false)}
