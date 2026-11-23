@@ -209,7 +209,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
         </div>
 
         {/* Carousel Slide Indicators */}
-        <div className="mt-8 pt-2 pb-6 sm:pb-8 flex items-center justify-between">
+        <div className="mt-8 pt-2 pb-16 sm:pb-20 lg:pb-24 flex items-center justify-between">
           <div className="flex items-center gap-2">
             {HERO_SLIDES.map((s, idx) => (
               <button
