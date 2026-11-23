@@ -14,6 +14,7 @@ import { ServiceDetailPage } from './pages/ServiceDetailPage';
 import { VisaPage } from './pages/VisaPage';
 import { MastersPage } from './pages/MastersPage';
 import { BachelorsPage } from './pages/BachelorsPage';
+import { CountryStudyPage } from './pages/CountryStudyPage';
 import { TrainingPage } from './pages/TrainingPage';
 import { SuccessStoriesPage } from './pages/SuccessStoriesPage';
 import { ContactPage } from './pages/ContactPage';
@@ -53,9 +54,11 @@ export const App: React.FC = () => {
             <Route path="/services/:slug" element={<ServiceDetailPage onOpenConsultation={() => handleOpenConsultation()} />} />
             <Route path="/visa" element={<VisaPage onOpenConsultation={() => handleOpenConsultation('Visa Assistance')} />} />
             <Route path="/masters" element={<MastersPage onOpenConsultation={() => handleOpenConsultation('Masters Guidance')} />} />
-            <Route path="/masters/:country" element={<MastersPage onOpenConsultation={() => handleOpenConsultation('Masters Guidance')} />} />
+            <Route path="/masters/:country" element={<CountryStudyPage degreeLevel="masters" onOpenConsultation={() => handleOpenConsultation('Masters Guidance')} />} />
+            <Route path="/study-masters/:country" element={<CountryStudyPage degreeLevel="masters" onOpenConsultation={() => handleOpenConsultation('Masters Guidance')} />} />
             <Route path="/bachelors" element={<BachelorsPage onOpenConsultation={() => handleOpenConsultation('Bachelors Guidance')} />} />
-            <Route path="/bachelors/:country" element={<BachelorsPage onOpenConsultation={() => handleOpenConsultation('Bachelors Guidance')} />} />
+            <Route path="/bachelors/:country" element={<CountryStudyPage degreeLevel="bachelors" onOpenConsultation={() => handleOpenConsultation('Bachelors Guidance')} />} />
+            <Route path="/study-bachelors/:country" element={<CountryStudyPage degreeLevel="bachelors" onOpenConsultation={() => handleOpenConsultation('Bachelors Guidance')} />} />
             <Route path="/training" element={<TrainingPage onOpenConsultation={() => handleOpenConsultation('Training & Test Prep')} />} />
             <Route path="/training/:program" element={<TrainingPage onOpenConsultation={() => handleOpenConsultation('Training & Test Prep')} />} />
             <Route path="/success-stories" element={<SuccessStoriesPage onOpenConsultation={() => handleOpenConsultation()} />} />
