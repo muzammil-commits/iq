@@ -55,6 +55,7 @@ export const App: React.FC = () => {
             <Route path="/masters" element={<MastersPage onOpenConsultation={() => handleOpenConsultation('Masters Guidance')} />} />
             <Route path="/bachelors" element={<BachelorsPage onOpenConsultation={() => handleOpenConsultation('Bachelors Guidance')} />} />
             <Route path="/training" element={<TrainingPage onOpenConsultation={() => handleOpenConsultation('Training & Test Prep')} />} />
+            <Route path="/training/:program" element={<TrainingPage onOpenConsultation={() => handleOpenConsultation('Training & Test Prep')} />} />
             <Route path="/success-stories" element={<SuccessStoriesPage onOpenConsultation={() => handleOpenConsultation()} />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="*" element={<NotFoundPage />} />
