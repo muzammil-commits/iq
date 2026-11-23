@@ -25,7 +25,7 @@ import {
 
 interface HeaderProps {
   onOpenConsultation: () => void;
-  onOpenSearch: () => void;
+  onOpenSearch?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch }) => {
@@ -487,18 +487,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
             </Link>
           </nav>
 
-          {/* Right Action: Search Icon + Apply Now CTA (Phone removed as requested in image copy 6.png) */}
+          {/* Right Action: Apply Now CTA (Search button removed per request) */}
           <div className="flex items-center gap-2 sm:gap-3">
-            {/* Quick Search Button */}
-            <button
-              onClick={onOpenSearch}
-              className="p-2 sm:p-2.5 text-slate-600 hover:text-iq-navy hover:bg-slate-100 rounded-full transition-colors flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-iq-navy/20"
-              aria-label="Search courses, services, and destinations"
-              title="Search (Ctrl + K)"
-            >
-              <Search className="w-5 h-5" />
-            </button>
-
             {/* Red Apply Now CTA */}
             <button
               onClick={onOpenConsultation}

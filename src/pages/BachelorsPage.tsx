@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import {
   GraduationCap,
   ArrowRight,
@@ -26,6 +27,7 @@ import {
   Users
 } from 'lucide-react';
 import { PageHero } from '../components/PageHero';
+import { AnimatedCounter } from '../components/AnimatedCounter';
 import {
   BACHELOR_CATEGORIES,
   BACHELOR_COURSES,
@@ -85,24 +87,38 @@ export const BachelorsPage: React.FC<BachelorsPageProps> = ({ onOpenConsultation
       {/* QUICK METRICS BAR */}
       <section className="bg-slate-50 border-y border-slate-200/80 py-6 sm:py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center"
+          >
             <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
-              <div className="text-2xl sm:text-3xl font-black text-iq-navy">10+2 Direct</div>
+              <div className="text-2xl sm:text-3xl font-black text-iq-navy">
+                <AnimatedCounter value="10+2" /> Direct
+              </div>
               <div className="text-xs sm:text-sm text-slate-600 font-medium mt-1">Direct Entry for CBSE / ICSE / State Board</div>
             </div>
             <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
-              <div className="text-2xl sm:text-3xl font-black text-iq-red">Paid Co-Op</div>
+              <div className="text-2xl sm:text-3xl font-black text-iq-red">
+                Paid Co-Op
+              </div>
               <div className="text-xs sm:text-sm text-slate-600 font-medium mt-1">Earn While You Learn in Canada & USA</div>
             </div>
             <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
-              <div className="text-2xl sm:text-3xl font-black text-iq-navy">3 to 4 Years</div>
+              <div className="text-2xl sm:text-3xl font-black text-iq-navy">
+                <AnimatedCounter value="3" /> to <AnimatedCounter value="4" /> Years
+              </div>
               <div className="text-xs sm:text-sm text-slate-600 font-medium mt-1">Flexible Degree Durations</div>
             </div>
             <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
-              <div className="text-2xl sm:text-3xl font-black text-iq-red">Up to 100%</div>
+              <div className="text-2xl sm:text-3xl font-black text-iq-red">
+                Up to <AnimatedCounter value="100%" />
+              </div>
               <div className="text-xs sm:text-sm text-slate-600 font-medium mt-1">Merit & Presidential Scholarships</div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 

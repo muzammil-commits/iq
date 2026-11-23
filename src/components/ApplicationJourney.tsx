@@ -1,6 +1,8 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Search, Calendar, FileText, PlaneTakeoff, ArrowRight } from 'lucide-react';
 import { APPLICATION_STEPS } from '../data/siteContent';
+import { AnimatedCounter } from './AnimatedCounter';
 
 export const ApplicationJourney: React.FC = () => {
   const getStepIcon = (iconName: string) => {
@@ -40,8 +42,12 @@ export const ApplicationJourney: React.FC = () => {
           {APPLICATION_STEPS.map((step, idx) => {
             const isLast = idx === APPLICATION_STEPS.length - 1;
             return (
-              <div
+              <motion.div
                 key={step.step}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.12 }}
                 className="relative z-10 flex flex-col items-center text-center group"
               >
                 {/* Step Circle */}
@@ -53,7 +59,7 @@ export const ApplicationJourney: React.FC = () => {
                   }`}
                 >
                   <span className={`text-[11px] font-mono font-bold ${isLast ? 'text-red-100' : 'text-iq-red'}`}>
-                    {step.step}
+                    <AnimatedCounter value={step.step} />
                   </span>
                   <div className="mt-1">
                     {getStepIcon(step.icon)}
@@ -74,7 +80,7 @@ export const ApplicationJourney: React.FC = () => {
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
@@ -84,14 +90,21 @@ export const ApplicationJourney: React.FC = () => {
           {APPLICATION_STEPS.map((step, idx) => {
             const isLast = idx === APPLICATION_STEPS.length - 1;
             return (
-              <div key={step.step} className="relative group">
+              <motion.div
+                key={step.step}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
+                className="relative group"
+              >
                 {/* Node pin */}
                 <div
                   className={`absolute -left-[35px] top-1.5 w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-mono font-bold ${
                     isLast ? 'bg-iq-red text-white' : 'bg-iq-navy text-white'
                   }`}
                 >
-                  {step.step}
+                  <AnimatedCounter value={step.step} />
                 </div>
 
                 {/* Card */}
@@ -104,7 +117,7 @@ export const ApplicationJourney: React.FC = () => {
                     {step.description}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

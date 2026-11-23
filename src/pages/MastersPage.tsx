@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import {
   GraduationCap,
   ArrowRight,
@@ -26,6 +27,7 @@ import {
   ExternalLink
 } from 'lucide-react';
 import { PageHero } from '../components/PageHero';
+import { AnimatedCounter } from '../components/AnimatedCounter';
 import {
   MASTER_CATEGORIES,
   MASTER_COURSES,
@@ -85,24 +87,38 @@ export const MastersPage: React.FC<MastersPageProps> = ({ onOpenConsultation }) 
       {/* QUICK HIGHLIGHTS METRICS STRIP */}
       <section className="bg-slate-50 border-y border-slate-200/80 py-6 sm:py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center"
+          >
             <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
-              <div className="text-2xl sm:text-3xl font-black text-iq-navy">1000+</div>
+              <div className="text-2xl sm:text-3xl font-black text-iq-navy">
+                <AnimatedCounter value="1000+" />
+              </div>
               <div className="text-xs sm:text-sm text-slate-600 font-medium mt-1">Partner Universities Worldwide</div>
             </div>
             <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
-              <div className="text-2xl sm:text-3xl font-black text-iq-red">Up to 3 Yrs</div>
+              <div className="text-2xl sm:text-3xl font-black text-iq-red">
+                Up to <AnimatedCounter value="3" /> Yrs
+              </div>
               <div className="text-xs sm:text-sm text-slate-600 font-medium mt-1">Post-Study Work Permit</div>
             </div>
             <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
-              <div className="text-2xl sm:text-3xl font-black text-iq-navy">99.2%</div>
+              <div className="text-2xl sm:text-3xl font-black text-iq-navy">
+                <AnimatedCounter value="99.2%" />
+              </div>
               <div className="text-xs sm:text-sm text-slate-600 font-medium mt-1">Master's Visa Success Rate</div>
             </div>
             <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
-              <div className="text-2xl sm:text-3xl font-black text-iq-red">$10M+</div>
+              <div className="text-2xl sm:text-3xl font-black text-iq-red">
+                <AnimatedCounter value="$10M+" />
+              </div>
               <div className="text-xs sm:text-sm text-slate-600 font-medium mt-1">Scholarships Secured for Students</div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 

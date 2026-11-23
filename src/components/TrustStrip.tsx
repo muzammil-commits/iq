@@ -1,6 +1,8 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Globe, Users, ShieldCheck, Trophy, Sparkles, Award } from 'lucide-react';
 import { TRUST_STRIP_ITEMS } from '../data/siteContent';
+import { AnimatedCounter } from './AnimatedCounter';
 
 export const TrustStrip: React.FC = () => {
   const getIcon = (iconName: string) => {
@@ -28,8 +30,12 @@ export const TrustStrip: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
           {TRUST_STRIP_ITEMS.map((item, idx) => (
-            <div
+            <motion.div
               key={item.id}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: idx * 0.1 }}
               className="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 backdrop-blur-md rounded-2xl p-4 sm:p-5 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-900/30 group flex items-start gap-4"
             >
               {/* Icon Container */}
@@ -49,14 +55,14 @@ export const TrustStrip: React.FC = () => {
                 </div>
 
                 <div className="text-xs sm:text-sm font-bold text-blue-200 mt-1">
-                  {item.metric}
+                  <AnimatedCounter value={item.metric} />
                 </div>
 
                 <p className="text-[11px] sm:text-xs text-blue-100/80 leading-relaxed mt-1">
                   {item.desc}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

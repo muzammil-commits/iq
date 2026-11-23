@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import {
   ArrowRight,
   Headphones,
@@ -14,6 +15,7 @@ import {
   Award
 } from 'lucide-react';
 import { HERO_SLIDES } from '../data/siteContent';
+import { AnimatedCounter } from './AnimatedCounter';
 
 interface HeroSectionProps {
   onOpenConsultation: () => void;
@@ -72,28 +74,52 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
     >
       {/* 
         DESKTOP HERO FULL BACKGROUND (image copy 3.png)
-        Rich international background with world map, airplane & student
+        Bright vivid animated background with world map, airplane & student
       */}
-      <div className="hidden lg:block absolute inset-0 z-0">
-        <img
+      <div className="hidden lg:block absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <motion.img
+          initial={{ scale: 1.02 }}
+          animate={{
+            scale: [1.02, 1.07, 1.02],
+            x: [0, -10, 0]
+          }}
+          transition={{
+            duration: 22,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
           src="/images/hero-desktop.png"
           alt="IQ Overseas Hero Background Banner"
-          className="w-full h-full object-cover object-right 2xl:object-center filter brightness-[1.02]"
+          className="w-full h-full object-cover object-right 2xl:object-center filter brightness-[1.12] contrast-[1.08] saturate-[1.08]"
         />
         {/* Soft elegant gradient on the left so the text sits on top while keeping background scenery visible */}
         <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-transparent w-full lg:w-[62%] 2xl:w-[55%] pointer-events-none" />
-        <div className="absolute top-0 right-0 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl pointer-events-none" />
+        <motion.div
+          animate={{ opacity: [0.25, 0.55, 0.25], scale: [1, 1.15, 1] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-0 right-0 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl pointer-events-none"
+        />
       </div>
 
       {/* 
         MOBILE HERO FULL BACKGROUND (image copy 4.png)
-        Bright, high-clarity background without heavy opaque filters
+        Ultra-bright, vivid animated background without heavy opaque filters
       */}
-      <div className="lg:hidden absolute inset-0 z-0 overflow-hidden">
-        <img
+      <div className="lg:hidden absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <motion.img
+          initial={{ scale: 1.03 }}
+          animate={{
+            scale: [1.03, 1.08, 1.03],
+            y: [0, -8, 0]
+          }}
+          transition={{
+            duration: 18,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
           src="/images/hero-mobile.png"
           alt="IQ Overseas Mobile Hero Background"
-          className="w-full h-full object-cover object-top filter brightness-[1.10] contrast-[1.05]"
+          className="w-full h-full object-cover object-top filter brightness-[1.18] contrast-[1.08] saturate-[1.06]"
         />
         {/* Soft natural gradient ensuring background photo clarity and bright visibility */}
         <div className="absolute inset-0 bg-gradient-to-b from-white/25 via-white/10 to-white/70 pointer-events-none" />
@@ -157,7 +183,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
             {/* Trust Highlights below CTAs */}
             <div className="pt-3 sm:pt-4 grid grid-cols-3 gap-2.5 sm:gap-3 border-t border-slate-300/60 text-left max-w-md mx-auto lg:mx-0">
               <div className="bg-white/90 backdrop-blur-md p-2 sm:p-2.5 rounded-2xl border border-slate-200/80 shadow-2xs">
-                <div className="text-[11px] sm:text-xs font-bold text-iq-navy">100% Focused</div>
+                <div className="text-[11px] sm:text-xs font-bold text-iq-navy flex items-center gap-1">
+                  <AnimatedCounter value="100%" /> <span>Focused</span>
+                </div>
                 <div className="text-[10px] sm:text-[11px] text-slate-500">Student First</div>
               </div>
               <div className="bg-white/90 backdrop-blur-md p-2 sm:p-2.5 rounded-2xl border border-slate-200/80 shadow-2xs">
@@ -196,7 +224,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
               />
             ))}
             <span className="text-xs text-slate-600 ml-2 font-mono font-bold">
-              0{currentSlide + 1} / 0{HERO_SLIDES.length}
+              <AnimatedCounter value={`0${currentSlide + 1}`} /> / 0{HERO_SLIDES.length}
             </span>
           </div>
 
