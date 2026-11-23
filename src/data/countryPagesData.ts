@@ -1544,5 +1544,612 @@ export const COUNTRY_PAGES_DATA: Record<string, CountryDegreeContent> = {
         a: "Yes! Thousands of specialized Master of Science programs at public German universities are taught 100% in the English language."
       }
     ]
+  },
+
+  // ==========================================
+  // BACHELORS IN NEW ZEALAND
+  // ==========================================
+  'bachelors-new-zealand': {
+    slug: 'new-zealand',
+    degreeLevel: 'bachelors',
+    countryName: 'New Zealand',
+    flag: '🇳🇿',
+    heroHeadline: "Peaceful, pristine, and world-ranked: Study Bachelor's in New Zealand.",
+    heroSubtitle: "Experience world-leading universities across Auckland, Wellington, and Christchurch with vibrant campus cultures and up to 3 years of post-study work rights.",
+    heroTagline: "Start your UG journey in New Zealand",
+    badge: "Undergraduate Admissions 2025 - 2026",
+    heroImage: "/images/destinations-landmarks-grand.png",
+    quickFacts: {
+      duration: "3 Years (General) / 4 Years (Engineering/Honours)",
+      intakes: "Semester 1 (February) & Semester 2 (July)",
+      postStudyWork: "Up to 3 Years (Post Study Work Visa)",
+      avgTuition: "NZD 26,000 - NZD 38,000 / Year",
+      workRights: "20 hrs/week during study, full-time during vacations",
+      prPathway: "Skilled Migrant Category (Points-based Resident Visa)"
+    },
+    whyStudy: [
+      {
+        title: "All 8 Universities in the World Top 3%",
+        desc: "New Zealand is the only country where 100% of its state universities are ranked in the top 3% globally by QS World University Rankings."
+      },
+      {
+        title: "Generous 3-Year Post-Study Work Visa",
+        desc: "International bachelor's graduates in degree-level qualifications are granted up to 3 years to live and work with any employer across New Zealand."
+      },
+      {
+        title: "Safest & Most Welcoming Student Nation",
+        desc: "Consistently ranked among the top 3 most peaceful countries in the Global Peace Index, ensuring unmatched student security and wellbeing."
+      },
+      {
+        title: "Hands-On Practical Applied Learning",
+        desc: "Close industry linkages, real-world case projects, and collaborative research with environmental and tech laboratories."
+      }
+    ],
+    popularPrograms: [
+      {
+        title: "Bachelor of Science in Information Technology",
+        category: "Computer Science",
+        duration: "3 Years",
+        avgSalary: "NZD 65,000 - NZD 92,000",
+        topRoles: ["Cloud Specialist", "Software Developer", "IT Analyst"],
+        description: "Accredited curriculum with hands-on software design and direct connections to Auckland tech incubators."
+      },
+      {
+        title: "Bachelor of Commerce & International Business",
+        category: "Business",
+        duration: "3 Years",
+        avgSalary: "NZD 60,000 - NZD 85,000",
+        topRoles: ["Financial Analyst", "Operations Coordinator", "Supply Chain Lead"],
+        description: "Focusing on Pacific-rim trade, digital enterprise, and corporate financial planning."
+      }
+    ],
+    topUniversities: [
+      {
+        name: "University of Auckland",
+        ranking: "QS World Top 68",
+        tuition: "NZD 36,000 / Year",
+        acceptanceRate: "73%",
+        location: "Auckland, New Zealand",
+        image: "/images/program-bachelors-grand.png"
+      },
+      {
+        name: "University of Otago",
+        ranking: "NZ's First University • Top Health & Science",
+        tuition: "NZD 31,000 / Year",
+        acceptanceRate: "65%",
+        location: "Dunedin, New Zealand",
+        image: "/images/about-students-grand.png"
+      }
+    ],
+    costBreakdown: {
+      tuition: "NZD 26,000 - NZD 38,000 / Year",
+      living: "NZD 20,000 / Year (Official Immigration requirement)",
+      insurance: "NZD 700 / Year",
+      misc: "NZD 1,200 / Year",
+      total: "NZD 47,900 - NZD 59,900 / Year"
+    },
+    scholarships: [
+      {
+        name: "New Zealand International Student Grant",
+        award: "NZD 5,000 to NZD 10,000",
+        coverage: "Awarded automatically to high-achieving 12th board applicants."
+      }
+    ],
+    eligibility: {
+      academicRequirements: "Recognized 10+2 / Intermediate Certificate with minimum 65% - 75%+ overall aggregate.",
+      standardizedTests: "None required. No SAT or ACT needed.",
+      englishRequirements: "IELTS Academic 6.0 (min 5.5 each band) or PTE Academic 50+.",
+      financialSolvency: "Show NZD 20,000 per year for living expenses + Year 1 paid tuition fee receipt."
+    },
+    visaGuide: {
+      visaName: "New Zealand Fee Paying Student Visa",
+      processingTime: "4 - 8 weeks",
+      proofOfFunds: "Funds in bank account for 3-6 months or Education Loan Sanction Letter",
+      interviewRequired: false,
+      keyPoints: [
+        "Offer of place from an NZQA-accredited university",
+        "Medical chest X-ray and police clearance certificate",
+        "Electronic visa approval with working rights endorsement"
+      ]
+    },
+    faqs: [
+      {
+        q: "What is the post-study work visa duration for New Zealand Bachelor's graduates?",
+        a: "Graduates who complete a degree-level undergraduate qualification (NZQA Level 7) in New Zealand receive up to 3 years of unrestricted post-study work rights."
+      }
+    ]
+  },
+
+  // ==========================================
+  // MASTERS IN NEW ZEALAND
+  // ==========================================
+  'masters-new-zealand': {
+    slug: 'new-zealand',
+    degreeLevel: 'masters',
+    countryName: 'New Zealand',
+    flag: '🇳🇿',
+    heroHeadline: "Specialized Research & High Earning Careers: Study Master's in New Zealand.",
+    heroSubtitle: "Earn high-ranking postgraduate qualifications in 1 to 1.5 years, accompanied by a 3-year post-study work visa and spouse open work rights.",
+    heroTagline: "Start your Master's journey in New Zealand",
+    badge: "Master's & Post-Study Work Hub",
+    heroImage: "/images/program-masters-grand.png",
+    quickFacts: {
+      duration: "1 to 1.5 Years (180 NZQA Credits)",
+      intakes: "February & July",
+      postStudyWork: "3 Full Years (Unrestricted Open Work Visa)",
+      avgTuition: "NZD 30,000 - NZD 44,000 / Year",
+      workRights: "Full-time work rights for spouse + 20 hrs/week for student",
+      prPathway: "Green List Fast-Track & Skilled Migrant Resident Visa"
+    },
+    whyStudy: [
+      {
+        title: "3-Year Open Work Visa Post Graduation",
+        desc: "All master's graduates (Level 9) qualify for a full 3-year Post-Study Work Visa, allowing ample time to secure roles on the NZ Green List."
+      },
+      {
+        title: "Full Spouse Open Work Rights",
+        desc: "Spouses of students enrolled in Level 9 Master's degrees in New Zealand can work full-time, and accompanying children can attend state schools as domestic students."
+      },
+      {
+        title: "Fast-Track Green List PR Occupations",
+        desc: "Roles in Software Engineering, ICT, Civil Engineering, and Construction benefit from immediate or 2-year work-to-residence Green List pathways."
+      }
+    ],
+    popularPrograms: [
+      {
+        title: "Master of Information Technology (MInfoTech)",
+        category: "Computer Science",
+        duration: "1.5 Years",
+        avgSalary: "NZD 75,000 - NZD 110,000",
+        topRoles: ["Cloud Engineer", "Software Lead", "Cyber Security Analyst"],
+        description: "Joint program with commercial internship placements in New Zealand's thriving tech sector."
+      },
+      {
+        title: "Master of Business Management (MBM)",
+        category: "Management",
+        duration: "1 Year",
+        avgSalary: "NZD 70,000 - NZD 98,000",
+        topRoles: ["Business Operations Lead", "Strategy Consultant", "Project Manager"],
+        description: "Intensive 12-month program for career switchers without requiring prior management experience."
+      }
+    ],
+    topUniversities: [
+      {
+        name: "University of Auckland",
+        ranking: "QS World Top 68",
+        tuition: "NZD 38,000 / Year",
+        acceptanceRate: "73%",
+        location: "Auckland, New Zealand",
+        image: "/images/hero-desktop.png"
+      },
+      {
+        name: "University of Canterbury",
+        ranking: "World-Renowned Engineering Faculty",
+        tuition: "NZD 34,000 / Year",
+        acceptanceRate: "68%",
+        location: "Christchurch, New Zealand",
+        image: "/images/about-students-headquarters-grand.png"
+      }
+    ],
+    costBreakdown: {
+      tuition: "NZD 30,000 - NZD 42,000 / Year",
+      living: "NZD 20,000 / Year",
+      insurance: "NZD 750 / Year",
+      misc: "NZD 1,500 / Year",
+      total: "NZD 52,250 - NZD 64,250 / Year"
+    },
+    scholarships: [
+      {
+        name: "Auckland International Master's Scholarship",
+        award: "Up to NZD 10,000",
+        coverage: "Competitive merit award for outstanding postgraduate applicants."
+      }
+    ],
+    eligibility: {
+      academicRequirements: "Recognized Bachelor's degree (3-year or 4-year) with minimum 60% aggregate.",
+      standardizedTests: "No GRE / GMAT required.",
+      englishRequirements: "IELTS 6.5 (min 6.0 in each band) or PTE Academic 58+.",
+      financialSolvency: "NZD 20,000 living costs + first year tuition proof."
+    },
+    visaGuide: {
+      visaName: "New Zealand Student Visa",
+      processingTime: "4 - 8 weeks",
+      proofOfFunds: "Funds in approved bank account",
+      interviewRequired: false,
+      keyPoints: [
+        "Unconditional offer of place + tuition payment receipt",
+        "Spouse and dependent child visa applications supported simultaneously"
+      ]
+    },
+    faqs: [
+      {
+        q: "Can my spouse work full-time in New Zealand while I study a Master's?",
+        a: "Yes! If you are enrolled in a Level 9 Master's program, your partner can apply for a Partner of a Student Work Visa allowing unrestricted full-time employment."
+      }
+    ]
+  },
+
+  // ==========================================
+  // BACHELORS IN FRANCE & EUROPE
+  // ==========================================
+  'bachelors-france': {
+    slug: 'france',
+    degreeLevel: 'bachelors',
+    countryName: 'France',
+    flag: '🇫🇷',
+    heroHeadline: "Elite Business & Engineering in English: Study Bachelor's in France.",
+    heroSubtitle: "Study in world-capital Paris, Lyon, or Nice at prestigious Grandes Écoles with subsidized European living and 2-year post-study work authorization.",
+    heroTagline: "Start your UG journey in France",
+    badge: "Undergraduate Admissions 2025 - 2026",
+    heroImage: "/images/destinations-landmarks-grand.png",
+    quickFacts: {
+      duration: "3 Years (Bachelor / Licence)",
+      intakes: "September/October (Major) & January",
+      postStudyWork: "Up to 2 Years (APS / Post-Study Work Residence Permit)",
+      avgTuition: "€7,500 - €14,000 / Year",
+      workRights: "964 hours per year (approx 20 hrs/week)",
+      prPathway: "Passeport Talent & EU Blue Card"
+    },
+    whyStudy: [
+      {
+        title: "100% English-Taught Undergraduate Programs",
+        desc: "Over 1,500 degree programs in France are taught entirely in English, allowing international students to earn European degrees without initial French proficiency."
+      },
+      {
+        title: "CAF Housing Subsidies for Students",
+        desc: "The French government (CAF) provides monthly housing subsidies covering 20% to 40% of student accommodation rent for all international students."
+      },
+      {
+        title: "Gateway to the 29 Schengen Countries",
+        desc: "A French student visa grants unrestricted travel and internship access across all 29 European Schengen member states."
+      }
+    ],
+    popularPrograms: [
+      {
+        title: "BBA in International Management & Digital Strategy",
+        category: "Business",
+        duration: "3 Years",
+        avgSalary: "€38,000 - €55,000",
+        topRoles: ["Brand Specialist", "Digital Operations Analyst", "Global Trade Associate"],
+        description: "AACSB and EQUIS accredited business curriculum with European corporate internships."
+      }
+    ],
+    topUniversities: [
+      {
+        name: "SKEMA Business School",
+        ranking: "Top European Business School",
+        tuition: "€11,000 / Year",
+        acceptanceRate: "55%",
+        location: "Paris & Sophia Antipolis, France",
+        image: "/images/about-students-grand.png"
+      },
+      {
+        name: "Emlyon Business School",
+        ranking: "Triple Crown Accredited (AACSB, EQUIS, AMBA)",
+        tuition: "€13,500 / Year",
+        acceptanceRate: "45%",
+        location: "Lyon, France",
+        image: "/images/program-bachelors-grand.png"
+      }
+    ],
+    costBreakdown: {
+      tuition: "€7,500 - €14,000 / Year",
+      living: "€7,380 / Year (Official Campus France minimum €615/mo)",
+      insurance: "€0 (Free French National Social Security for students)",
+      misc: "€800 / Year",
+      total: "€15,680 - €22,180 / Year (Offset by CAF housing subsidy)"
+    },
+    scholarships: [
+      {
+        name: "Charpak Scholarship of Excellence (French Embassy)",
+        award: "Full Tuition Waiver + €860/Month Living Allowance",
+        coverage: "Competitive Indian student grant awarded by the French Embassy in India."
+      }
+    ],
+    eligibility: {
+      academicRequirements: "Recognized 10+2 / Intermediate certificate with minimum 60% - 70%+ overall marks.",
+      standardizedTests: "None required.",
+      englishRequirements: "IELTS 6.0 or PTE 50+ or English medium certificate.",
+      financialSolvency: "Show €7,380 in bank balance (€615/month for 12 months) + paid tuition deposit."
+    },
+    visaGuide: {
+      visaName: "France Long Stay Student Visa (VLS-TS)",
+      processingTime: "Etudes en France (Campus France) interview + Visa in 3-5 weeks",
+      proofOfFunds: "Show €615/month maintenance",
+      interviewRequired: true,
+      keyPoints: [
+        "Campus France academic interview (Hyderabad, Chennai, Bangalore, Delhi)",
+        "VFS biometrics submission",
+        "Free healthcare enrollment via French social security system upon arrival"
+      ]
+    },
+    faqs: [
+      {
+        q: "What is the CAF housing subsidy in France?",
+        a: "CAF (Caisse d'Allocations Familiales) is a French government program that refunds international students approximately €100 to €220 every month toward their student accommodation costs."
+      }
+    ]
+  },
+
+  // ==========================================
+  // MASTERS IN FRANCE & EUROPE
+  // ==========================================
+  'masters-france': {
+    slug: 'france',
+    degreeLevel: 'masters',
+    countryName: 'France',
+    flag: '🇫🇷',
+    heroHeadline: "Triple Crown Management & Technology: Study Master's in France.",
+    heroSubtitle: "Study in Paris at world top-ranked business schools (HEC, ESSEC, EDHEC) and elite engineering Grandes Écoles with 2-year post-study work permits.",
+    heroTagline: "Start your Master's journey in France",
+    badge: "European Elite Business & Tech Hub",
+    heroImage: "/images/destinations-landmarks-grand.png",
+    quickFacts: {
+      duration: "1 to 2 Years (MSc & MiM Degrees)",
+      intakes: "September/October & January/February",
+      postStudyWork: "Up to 2 Years (APS Residence Permit)",
+      avgTuition: "€9,000 - €18,000 / Year",
+      workRights: "964 hours per year (approx 20 hrs/week)",
+      prPathway: "Passeport Talent & EU Blue Card"
+    },
+    whyStudy: [
+      {
+        title: "Ranked #1 for Masters in Management (FT Rankings)",
+        desc: "France dominates the Financial Times global rankings for Master in Management (MiM) and Finance degrees with unmatched corporate recruitment across Europe."
+      },
+      {
+        title: "2-Year Post-Study Stay Back (APS)",
+        desc: "Indian students holding a master's degree from France are granted a 2-year post-study work visa (APS), and are eligible for a 5-year short-stay Schengen visa."
+      },
+      {
+        title: "Subsidized Living & Health Insurance",
+        desc: "Free national healthcare, CAF housing subsidies of up to 40%, and European discounts for students under 26 years of age."
+      }
+    ],
+    popularPrograms: [
+      {
+        title: "Master in Management (MiM) & International Business",
+        category: "Management",
+        duration: "2 Years",
+        avgSalary: "€45,000 - €70,000",
+        topRoles: ["Management Consultant", "Product Lead", "Investment Analyst"],
+        description: "Ranked globally for rapid executive placement in London, Paris, Frankfurt, and Zurich."
+      },
+      {
+        title: "MSc in Artificial Intelligence & Data Management",
+        category: "Computer Science",
+        duration: "1.5 - 2 Years",
+        avgSalary: "€46,000 - €72,000",
+        topRoles: ["AI Specialist", "Data Architect", "Algorithm Engineer"],
+        description: "Specialized in deep learning, neural networks, and industrial robotics in Europe's AI research centers."
+      }
+    ],
+    topUniversities: [
+      {
+        name: "SKEMA Business School",
+        ranking: "FT World Top 25 Master's in Finance",
+        tuition: "€14,000 / Year",
+        acceptanceRate: "50%",
+        location: "Paris, France",
+        image: "/images/about-students-grand.png"
+      },
+      {
+        name: "Grenoble Ecole de Management (GEM)",
+        ranking: "Triple Crown Accredited • Tech & Innovation",
+        tuition: "€13,500 / Year",
+        acceptanceRate: "52%",
+        location: "Grenoble & Paris, France",
+        image: "/images/program-masters-grand.png"
+      }
+    ],
+    costBreakdown: {
+      tuition: "€9,000 - €18,000 / Year",
+      living: "€7,380 / Year (€615/month official minimum)",
+      insurance: "€0 (Free National Health Insurance)",
+      misc: "€800 / Year",
+      total: "€17,180 - €26,180 / Year"
+    },
+    scholarships: [
+      {
+        name: "Charpak Master's Scholarship",
+        award: "Full Tuition + €860/Month Stipend",
+        coverage: "Official flagship scholarship from the Embassy of France in India."
+      },
+      {
+        name: "Early Bird & Dean's Merit Award",
+        award: "€2,000 to €5,000",
+        coverage: "Awarded automatically upon early application and deposit payment."
+      }
+    ],
+    eligibility: {
+      academicRequirements: "Recognized 3-year or 4-year Bachelor's degree with minimum 55% - 65% aggregate.",
+      standardizedTests: "GMAT / GRE optional; waived at most partner business schools.",
+      englishRequirements: "IELTS 6.5 (min 6.0 each) or PTE 58-65.",
+      financialSolvency: "Show €7,380 living expense maintenance in bank balance + tuition deposit."
+    },
+    visaGuide: {
+      visaName: "France Long Stay Student Visa (VLS-TS)",
+      processingTime: "Campus France interview + Visa in 3-4 weeks",
+      proofOfFunds: "Show €615/month living funds",
+      interviewRequired: true,
+      keyPoints: [
+        "Campus France interview evaluating academic motivation",
+        "VFS biometrics submission",
+        "5-year Schengen visa privilege awarded to Indian alumni"
+      ]
+    },
+    faqs: [
+      {
+        q: "Do I need to know French to study a Master's in France?",
+        a: "No! All programs guided by IQ Overseas in France are taught 100% in English. You can learn basic French during your studies for day-to-day social interactions."
+      }
+    ]
+  },
+
+  // Europe Fallback alias
+  'bachelors-europe': {
+    slug: 'europe',
+    degreeLevel: 'bachelors',
+    countryName: 'France & Europe',
+    flag: '🇪🇺',
+    heroHeadline: "Elite European Education in English: Study Bachelor's in Europe.",
+    heroSubtitle: "Explore top universities across France, Germany, Ireland, and the Netherlands with affordable tuition and 27-country Schengen mobility.",
+    heroTagline: "Start your UG journey in Europe",
+    badge: "European Union Admissions 2025 - 2026",
+    heroImage: "/images/destinations-landmarks-grand.png",
+    quickFacts: {
+      duration: "3 to 4 Years",
+      intakes: "September/October & January",
+      postStudyWork: "1.5 to 2 Years (EU Country Specific)",
+      avgTuition: "€3,000 - €14,000 / Year",
+      workRights: "20 hrs/week across EU countries",
+      prPathway: "EU Blue Card & National Work Permits"
+    },
+    whyStudy: [
+      {
+        title: "Affordable European Tuition & Zero Fees",
+        desc: "European universities offer world-leading quality at a fraction of US/UK costs, with countries like Germany offering virtually tuition-free education."
+      },
+      {
+        title: "29 Schengen Countries Travel & Work Mobility",
+        desc: "Your student visa provides borderless access across France, Germany, Italy, Spain, Sweden, and Switzerland."
+      }
+    ],
+    popularPrograms: [
+      {
+        title: "Bachelor in International Business & Technology",
+        category: "Business",
+        duration: "3 Years",
+        avgSalary: "€40,000 - €58,000",
+        topRoles: ["International Operations", "Product Specialist", "Business Analyst"],
+        description: "Multi-campus European business degree with pan-European corporate internships."
+      }
+    ],
+    topUniversities: [
+      {
+        name: "SKEMA Business School",
+        ranking: "Top European Business School",
+        tuition: "€11,000 / Year",
+        acceptanceRate: "55%",
+        location: "Paris, France",
+        image: "/images/about-students-grand.png"
+      }
+    ],
+    costBreakdown: {
+      tuition: "€3,000 - €12,000 / Year",
+      living: "€8,000 - €12,000 / Year",
+      insurance: "€500 / Year",
+      misc: "€800 / Year",
+      total: "€12,300 - €25,300 / Year"
+    },
+    scholarships: [
+      {
+        name: "Erasmus+ & National European Grants",
+        award: "€2,000 to €8,000",
+        coverage: "Available for outstanding international scholars."
+      }
+    ],
+    eligibility: {
+      academicRequirements: "Recognized 10+2 with minimum 65%+ aggregate.",
+      standardizedTests: "None required.",
+      englishRequirements: "IELTS 6.0 - 6.5 or PTE 58+.",
+      financialSolvency: "Country-specific maintenance fund proof."
+    },
+    visaGuide: {
+      visaName: "European National Student Visa (Schengen)",
+      processingTime: "4 - 8 weeks",
+      proofOfFunds: "Show living expenses + tuition deposit",
+      interviewRequired: true,
+      keyPoints: ["Campus France / APS / VFS submission based on chosen destination"]
+    },
+    faqs: [
+      {
+        q: "Can I travel to other European countries on a French or German student visa?",
+        a: "Yes! A student visa from any Schengen member state allows visa-free travel across all 29 Schengen member countries during your studies."
+      }
+    ]
+  },
+
+  'masters-europe': {
+    slug: 'europe',
+    degreeLevel: 'masters',
+    countryName: 'France & Europe',
+    flag: '🇪🇺',
+    heroHeadline: "Lead European Business & Technology: Study Master's in Europe.",
+    heroSubtitle: "Earn prestigious European Master of Science & Management degrees with 1.5 to 2 years post-study work authorization and EU Blue Card pathways.",
+    heroTagline: "Start your Master's journey in Europe",
+    badge: "European Postgraduate Hub",
+    heroImage: "/images/destinations-landmarks-grand.png",
+    quickFacts: {
+      duration: "1 to 2 Years",
+      intakes: "September & January",
+      postStudyWork: "18 Months to 2 Years",
+      avgTuition: "€3,000 - €18,000 / Year",
+      workRights: "20 hrs/week during terms",
+      prPathway: "EU Blue Card (PR in 21 - 27 months)"
+    },
+    whyStudy: [
+      {
+        title: "World Leading Return on Investment",
+        desc: "European master's programs combine low tuition with high multinational salaries (€45,000–€75,000) across automotive, tech, and financial hubs."
+      },
+      {
+        title: "Fast-Track EU Blue Card Residency",
+        desc: "EU Blue Card regulations allow qualified master's graduates to achieve permanent European residency in just 21-27 months."
+      }
+    ],
+    popularPrograms: [
+      {
+        title: "Master in Management (MiM) & Global Strategy",
+        category: "Management",
+        duration: "2 Years",
+        avgSalary: "€48,000 - €72,000",
+        topRoles: ["Management Consultant", "Supply Chain Lead", "Strategic Planner"],
+        description: "Equipping graduates for leadership roles in Paris, Munich, Amsterdam, and London."
+      }
+    ],
+    topUniversities: [
+      {
+        name: "SKEMA Business School",
+        ranking: "FT World Top 25",
+        tuition: "€14,000 / Year",
+        acceptanceRate: "50%",
+        location: "Paris, France",
+        image: "/images/about-students-grand.png"
+      }
+    ],
+    costBreakdown: {
+      tuition: "€3,000 - €16,000 / Year",
+      living: "€8,000 - €12,000 / Year",
+      insurance: "€600 / Year",
+      misc: "€1,000 / Year",
+      total: "€12,600 - €29,600 / Year"
+    },
+    scholarships: [
+      {
+        name: "European International Merit Award",
+        award: "€3,000 to €8,000",
+        coverage: "Awarded automatically based on undergraduate GPA."
+      }
+    ],
+    eligibility: {
+      academicRequirements: "Recognized Bachelor's degree (3-year or 4-year) with minimum 60% aggregate.",
+      standardizedTests: "GMAT / GRE waived at most European partner institutions.",
+      englishRequirements: "IELTS 6.5 or PTE 60+.",
+      financialSolvency: "Proof of country-specific maintenance in personal account."
+    },
+    visaGuide: {
+      visaName: "European Student Visa",
+      processingTime: "4 - 6 weeks",
+      proofOfFunds: "Show living funds + tuition receipt",
+      interviewRequired: true,
+      keyPoints: ["Full documentation and visa interview preparation provided by IQ Overseas"]
+    },
+    faqs: [
+      {
+        q: "What is the EU Blue Card?",
+        a: "The EU Blue Card is a work and residence permit for non-EU highly qualified workers that grants generous family reunification rights and permanent residency in as little as 21 months."
+      }
+    ]
   }
 };
