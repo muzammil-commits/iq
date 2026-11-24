@@ -186,9 +186,14 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2.5 text-xs text-slate-300">
               <li className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-iq-red shrink-0 mt-0.5" />
-                <span className="leading-relaxed">
+                <a
+                  href={BRAND_INFO.googleMapsDirectionsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="leading-relaxed hover:text-white transition-colors"
+                >
                   28-2-58, Pandaripuram, 4th Line, Lakshmipuram, Guntur – 522006, Andhra Pradesh, India
-                </span>
+                </a>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-iq-red shrink-0" />

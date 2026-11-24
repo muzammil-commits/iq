@@ -24,7 +24,8 @@ export const BRAND_INFO = {
   whatsappNumber: '+916302449859',
   defaultWhatsappMessage: 'Hello IQ Overseas Edu Consultants, I would like to know more about your overseas education and visa services.',
   googleMapsEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3829.418296307137!2d80.42878931486167!3d16.29955898873722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4a7536643b0d2d%3A0x6b30f2c42ab07f89!2sLakshmipuram%2C%20Guntur%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin',
-  googleMapsDirectionsUrl: 'https://maps.google.com/?q=28-2-58,+Pandaripuram,+4th+Line,+Lakshmipuram,+Guntur,+Andhra+Pradesh+522006',
+  googleMapsDirectionsUrl: 'https://share.google/LgwDAi1RFYIdej1Yz',
+  googleMapsShareUrl: 'https://share.google/LgwDAi1RFYIdej1Yz',
   workingHours: 'Monday – Saturday: 9:30 AM – 6:30 PM (IST)',
   socialLinks: {
     facebook: 'https://facebook.com',

@@ -327,10 +327,18 @@ export const ContactPage: React.FC = () => {
                     <div className="flex items-start gap-3">
                       <MapPin className="w-5 h-5 text-iq-red shrink-0 mt-0.5" />
                       <div>
-                        <div className="font-bold text-white">Full Address</div>
-                        <p className="text-blue-100/80 leading-relaxed mt-0.5">
+                        <div className="font-bold text-white flex items-center gap-2">
+                          <span>Full Address</span>
+                          <span className="text-[10px] bg-white/20 text-white px-2 py-0.5 rounded-full font-mono">Guntur Head Office</span>
+                        </div>
+                        <a
+                          href={BRAND_INFO.googleMapsDirectionsUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-100/80 hover:text-white leading-relaxed mt-0.5 block transition-colors hover:underline"
+                        >
                           {BRAND_INFO.address}
-                        </p>
+                        </a>
                       </div>
                     </div>
 

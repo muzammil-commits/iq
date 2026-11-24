@@ -1141,9 +1141,20 @@ export const StudyAbroadCountryPage: React.FC<StudyAbroadCountryPageProps> = ({ 
           </div>
 
           <div className="pt-6 flex flex-wrap items-center justify-center gap-6 text-xs text-blue-200 font-semibold">
-            <span>📍 28-2-58, Pandaripuram, 4th Line, Lakshmipuram, Guntur</span>
-            <span>📞 +91 6302449859</span>
-            <span>✉️ iqoverseasguntur@gmail.com</span>
+            <a
+              href={BRAND_INFO.googleMapsDirectionsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+            >
+              📍 28-2-58, Pandaripuram, 4th Line, Lakshmipuram, Guntur
+            </a>
+            <a href={`tel:${BRAND_INFO.primaryPhoneRaw}`} className="hover:text-white transition-colors">
+              📞 +91 6302449859
+            </a>
+            <a href={`mailto:${BRAND_INFO.primaryEmail}`} className="hover:text-white transition-colors">
+              ✉️ iqoverseasguntur@gmail.com
+            </a>
           </div>
         </div>
       </section>

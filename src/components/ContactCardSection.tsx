@@ -7,7 +7,8 @@ import {
   MessageSquare,
   CheckCircle2,
   Clock,
-  Sparkles
+  Sparkles,
+  ExternalLink
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { BRAND_INFO, SERVICES_DATA } from '../data/siteContent';
@@ -93,10 +94,26 @@ export const ContactCardSection: React.FC = () => {
                       <MapPin className="w-4 h-4" />
                     </div>
                     <div>
-                      <div className="text-xs font-bold text-white">Office Address</div>
-                      <p className="text-xs text-blue-100/80 leading-relaxed mt-0.5">
+                      <div className="text-xs font-bold text-white flex items-center gap-2">
+                        <span>Office Address</span>
+                        <a
+                          href={BRAND_INFO.googleMapsDirectionsUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-[10px] text-iq-red bg-white/10 hover:bg-white/20 px-2 py-0.5 rounded-full transition-colors font-bold"
+                        >
+                          <span>Open Location</span>
+                          <ExternalLink className="w-2.5 h-2.5" />
+                        </a>
+                      </div>
+                      <a
+                        href={BRAND_INFO.googleMapsDirectionsUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs text-blue-100/80 hover:text-white leading-relaxed mt-0.5 block transition-colors hover:underline"
+                      >
                         {BRAND_INFO.address}
-                      </p>
+                      </a>
                     </div>
                   </div>
 
