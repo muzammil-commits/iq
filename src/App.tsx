@@ -15,6 +15,8 @@ import { VisaPage } from './pages/VisaPage';
 import { MastersPage } from './pages/MastersPage';
 import { BachelorsPage } from './pages/BachelorsPage';
 import { CountryStudyPage } from './pages/CountryStudyPage';
+import { StudyAbroadCountryPage } from './pages/StudyAbroadCountryPage';
+import { StudyAbroadAdminPage } from './pages/admin/StudyAbroadAdminPage';
 import { TrainingPage } from './pages/TrainingPage';
 import { SuccessStoriesPage } from './pages/SuccessStoriesPage';
 import { ContactPage } from './pages/ContactPage';
@@ -59,6 +61,16 @@ export const App: React.FC = () => {
             <Route path="/bachelors" element={<BachelorsPage onOpenConsultation={() => handleOpenConsultation('Bachelors Guidance')} />} />
             <Route path="/bachelors/:country" element={<CountryStudyPage degreeLevel="bachelors" onOpenConsultation={() => handleOpenConsultation('Bachelors Guidance')} />} />
             <Route path="/study-bachelors/:country" element={<CountryStudyPage degreeLevel="bachelors" onOpenConsultation={() => handleOpenConsultation('Bachelors Guidance')} />} />
+            
+            {/* Dedicated 10-Country Study Abroad System (Australia, UK, Europe, USA, Canada, Ireland, NZ, Malaysia, Singapore, Dubai) */}
+            <Route path="/study-in-:country" element={<StudyAbroadCountryPage onOpenConsultation={() => handleOpenConsultation('Study Abroad Guidance')} />} />
+            <Route path="/study-:country" element={<StudyAbroadCountryPage onOpenConsultation={() => handleOpenConsultation('Study Abroad Guidance')} />} />
+            <Route path="/destinations/:country" element={<StudyAbroadCountryPage onOpenConsultation={() => handleOpenConsultation('Study Abroad Guidance')} />} />
+
+            {/* Admin CMS Portal for Study Abroad Management */}
+            <Route path="/admin" element={<StudyAbroadAdminPage />} />
+            <Route path="/admin/study-abroad" element={<StudyAbroadAdminPage />} />
+
             <Route path="/training" element={<TrainingPage onOpenConsultation={() => handleOpenConsultation('Training & Test Prep')} />} />
             <Route path="/training/:program" element={<TrainingPage onOpenConsultation={() => handleOpenConsultation('Training & Test Prep')} />} />
             <Route path="/success-stories" element={<SuccessStoriesPage onOpenConsultation={() => handleOpenConsultation()} />} />
