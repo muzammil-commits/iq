@@ -339,6 +339,24 @@ export const MASTER_COUNTRIES: MasterCountry[] = [
     image: '/images/destinations/uk-dest.png'
   },
   {
+    country: 'Ireland',
+    slug: 'ireland',
+    flag: '🇮🇪',
+    pswDuration: '2 Years (Third Level Scheme)',
+    avgCostPerYear: '€12,000 - €24,000',
+    avgSalary: '€42,000 - €70,000',
+    intakes: 'September & January',
+    topUniversities: ['Trinity College Dublin', 'Univ College Dublin', 'Dublin City Univ', 'Univ of Galway', 'NCI'],
+    highlights: [
+      'European headquarters for Google, Apple, Meta, Pfizer & Stripe',
+      '1-Year Master’s with 2-year post-study work permit',
+      '100% English-speaking nation in the European Union',
+      'Generous merit scholarships up to €5,000 for Indian students'
+    ],
+    visaType: 'Stamp 2 Student Visa',
+    image: '/images/destinations/ireland-dest.png'
+  },
+  {
     country: 'Australia',
     slug: 'australia',
     flag: '🇦🇺',
@@ -373,42 +391,6 @@ export const MASTER_COUNTRIES: MasterCountry[] = [
     ],
     visaType: 'Study Permit & TRV',
     image: '/images/destinations/canada-dest.png'
-  },
-  {
-    country: 'Ireland',
-    slug: 'ireland',
-    flag: '🇮🇪',
-    pswDuration: '2 Years (Third Level Scheme)',
-    avgCostPerYear: '€12,000 - €24,000',
-    avgSalary: '€42,000 - €70,000',
-    intakes: 'September & January',
-    topUniversities: ['Trinity College Dublin', 'Univ College Dublin', 'Dublin City Univ', 'Univ of Galway', 'NCI'],
-    highlights: [
-      'European headquarters for Google, Apple, Meta, Pfizer & Stripe',
-      '1-Year Master’s with 2-year post-study work permit',
-      '100% English-speaking nation in the European Union',
-      'Generous merit scholarships up to €5,000 for Indian students'
-    ],
-    visaType: 'Stamp 2 Student Visa',
-    image: '/images/destinations/ireland-dest.png'
-  },
-  {
-    country: 'Germany',
-    slug: 'germany',
-    flag: '🇩🇪',
-    pswDuration: '18 Months Job Seeker Visa',
-    avgCostPerYear: '€0 - €3,000 (Public Unis)',
-    avgSalary: '€50,000 - €75,000',
-    intakes: 'Winter (October) & Summer (April)',
-    topUniversities: ['TU Munich', 'RWTH Aachen', 'TU Berlin', 'Univ of Stuttgart', 'FAU Erlangen'],
-    highlights: [
-      'Tuition-free or low-cost higher education at world-class public universities',
-      'Europe’s largest economy with severe engineering shortages',
-      '18-month stay-back permit leading directly to EU Blue Card',
-      'English-taught postgraduate degrees in engineering & CS'
-    ],
-    visaType: 'National Visa (D-Visa)',
-    image: '/images/destinations/germany-dest.png'
   },
   {
     country: 'New Zealand',
@@ -559,17 +541,6 @@ export const POPULAR_UNIVERSITIES: UniversityItem[] = [
     tuitionFee: '€22,500 / Year',
     acceptanceRate: '50%',
     image: '/images/about-students-grand.png'
-  },
-  {
-    id: 'tum',
-    name: 'Technical University of Munich (TUM)',
-    country: 'Germany',
-    flag: '🇩🇪',
-    ranking: 'TU9 • QS Top 30 World',
-    popularCourses: ['MSc Informatics', 'MSc Robotics', 'MSc Power Engg'],
-    tuitionFee: '€3,000 / Year (Nominal)',
-    acceptanceRate: '25%',
-    image: '/images/hero-desktop.png'
   }
 ];
 
@@ -596,6 +567,6 @@ export const MASTER_FAQS = [
   },
   {
     q: 'Can I work part-time while studying Master’s abroad?',
-    a: 'Yes. Most major destinations (USA, UK, Australia, Canada, Ireland, Germany) permit international students to work up to 20 hours per week during academic semesters and full-time (40 hours) during vacation periods.'
+    a: 'Yes. Most major destinations (USA, UK, Ireland, Australia, Canada, New Zealand) permit international students to work up to 20 to 24 hours per week during academic semesters and full-time (40 hours) during vacation periods.'
   }
 ];

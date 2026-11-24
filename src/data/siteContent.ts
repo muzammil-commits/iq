@@ -195,14 +195,14 @@ export const MASTERS_DROPDOWN = [
     image: '/images/destinations/uk-dest.png'
   },
   {
-    code: 'CA',
-    title: 'Study in Canada',
-    slug: 'canada',
-    flag: '🇨🇦',
-    highlight1: 'Up to 3-Year PGWP',
-    highlight2: 'Research Hubs',
-    highlight: 'Up to 3-Year PGWP • Research Hubs',
-    image: '/images/destinations/canada-dest.png'
+    code: 'IE',
+    title: 'Study in Ireland',
+    slug: 'ireland',
+    flag: '🇮🇪',
+    highlight1: 'European Silicon Valley',
+    highlight2: '2-Year Stay Back',
+    highlight: 'European Silicon Valley • 2-Year Stay Back',
+    image: '/images/destinations/ireland-dest.png'
   },
   {
     code: 'AU',
@@ -215,24 +215,14 @@ export const MASTERS_DROPDOWN = [
     image: '/images/destinations/australia-dest.png'
   },
   {
-    code: 'IE',
-    title: 'Study in Ireland',
-    slug: 'ireland',
-    flag: '🇮🇪',
-    highlight1: 'European Silicon Valley',
-    highlight2: '2-Year Stay Back',
-    highlight: 'European Silicon Valley • 2-Year Stay Back',
-    image: '/images/destinations/ireland-dest.png'
-  },
-  {
-    code: 'DE',
-    title: 'Study in Germany',
-    slug: 'germany',
-    flag: '🇩🇪',
-    highlight1: 'Low/Free Tuition',
-    highlight2: '18-Month Job Seeker',
-    highlight: 'Low/Free Tuition • 18-Mo Job Seeker',
-    image: '/images/destinations/germany-dest.png'
+    code: 'CA',
+    title: 'Study in Canada',
+    slug: 'canada',
+    flag: '🇨🇦',
+    highlight1: 'Up to 3-Year PGWP',
+    highlight2: 'Research Hubs',
+    highlight: 'Up to 3-Year PGWP • Research Hubs',
+    image: '/images/destinations/canada-dest.png'
   },
   {
     code: 'NZ',
@@ -259,9 +249,9 @@ export const MASTERS_DROPDOWN = [
 export const BACHELORS_DROPDOWN = [
   { title: 'Study in USA', slug: 'usa', flag: '🇺🇸', desc: 'Common App • Double Majors • Campus Life' },
   { title: 'Study in UK', slug: 'uk', flag: '🇬🇧', desc: 'UCAS Admission • 3-Year Focused Degrees' },
-  { title: 'Study in Canada', slug: 'canada', flag: '🇨🇦', desc: 'Co-op Work Internships • Safe Cities' },
   { title: 'Study in Ireland', slug: 'ireland', flag: '🇮🇪', desc: 'Silicon Docks • 1-Year Stay Back • High Tech' },
   { title: 'Study in Australia', slug: 'australia', flag: '🇦🇺', desc: 'World Top 100 Universities • 3-Year UG' },
+  { title: 'Study in Canada', slug: 'canada', flag: '🇨🇦', desc: 'Co-op Work Internships • Safe Cities' },
   { title: 'Study in New Zealand', slug: 'new-zealand', flag: '🇳🇿', desc: 'Safe Campuses • Post-Study Work • High Quality of Life' },
   { title: 'Study in Europe', slug: 'europe', flag: '🇪🇺', desc: 'English-taught UG Degrees • Low Tuition' }
 ];
@@ -421,7 +411,7 @@ export const SERVICES_DATA: ServiceItem[] = [
       'Guidance on merit-based and need-based university scholarships',
       'Solvency certificates, bank balance certification, and CA affidavits',
       'Sponsor income verification and relationship affidavits',
-      'Blocked Account (Germany) and GIC (Canada) step-by-step setup'
+      'GIC (Canada) and Financial Solvency step-by-step setup'
     ],
     processSteps: [
       { step: '01', title: 'Cost Estimation', description: 'Calculate total cost including tuition, health cover, and living expenses.' },
@@ -826,15 +816,15 @@ export const DESTINATIONS_DATA: DestinationItem[] = [
     image: '/images/destinations/uk-dest.png'
   },
   {
-    id: 'canada',
-    country: 'Canada',
-    flag: '🇨🇦',
-    popularCourses: ['Information Technology', 'Supply Chain', 'Project Management', 'Healthcare'],
-    intakes: ['Fall (Sept)', 'Winter (Jan)', 'Summer (May)'],
-    workRights: 'Up to 3 years Post-Graduation Work Permit (PGWP)',
-    avgTuition: 'CAD 18,000 – 35,000 / year',
-    description: 'High standard of living, welcoming multicultural cities, and structured post-study immigration pathways.',
-    image: '/images/destinations/canada-dest.png'
+    id: 'ireland',
+    country: 'Ireland',
+    flag: '🇮🇪',
+    popularCourses: ['Cloud Computing', 'Pharmaceutical Science', 'Data Science', 'Digital Marketing'],
+    intakes: ['Autumn (Sept)', 'Spring (Jan)'],
+    workRights: '2 years Third Level Graduate Scheme for Master\'s',
+    avgTuition: '€12,000 – €22,000 / year',
+    description: 'European headquarters of global tech giants (Google, Meta, Apple) with 1-year Master\'s courses.',
+    image: '/images/destinations/ireland-dest.png'
   },
   {
     id: 'australia',
@@ -848,26 +838,15 @@ export const DESTINATIONS_DATA: DestinationItem[] = [
     image: '/images/destinations/australia-dest.png'
   },
   {
-    id: 'ireland',
-    country: 'Ireland',
-    flag: '🇮🇪',
-    popularCourses: ['Cloud Computing', 'Pharmaceutical Science', 'Data Science', 'Digital Marketing'],
-    intakes: ['Autumn (Sept)', 'Spring (Jan)'],
-    workRights: '2 years Third Level Graduate Scheme for Master\'s',
-    avgTuition: '€12,000 – €22,000 / year',
-    description: 'European headquarters of global tech giants (Google, Meta, Apple) with 1-year Master\'s courses.',
-    image: '/images/destinations/ireland-dest.png'
-  },
-  {
-    id: 'germany',
-    country: 'Germany',
-    flag: '🇩🇪',
-    popularCourses: ['Automotive Engineering', 'Mechanical & Robotics', 'Renewable Energy', 'Informatics'],
-    intakes: ['Winter (Oct)', 'Summer (April)'],
-    workRights: '18 months post-study job seeker visa',
-    avgTuition: 'Low to zero tuition at public universities (semester fee €250–€350)',
-    description: 'Powerhouse of European engineering, tuition-free public education options, and strong industrial integration.',
-    image: '/images/destinations/germany-dest.png'
+    id: 'canada',
+    country: 'Canada',
+    flag: '🇨🇦',
+    popularCourses: ['Information Technology', 'Supply Chain', 'Project Management', 'Healthcare'],
+    intakes: ['Fall (Sept)', 'Winter (Jan)', 'Summer (May)'],
+    workRights: 'Up to 3 years Post-Graduation Work Permit (PGWP)',
+    avgTuition: 'CAD 18,000 – 35,000 / year',
+    description: 'High standard of living, welcoming multicultural cities, and structured post-study immigration pathways.',
+    image: '/images/destinations/canada-dest.png'
   },
   {
     id: 'new-zealand',
@@ -970,21 +949,6 @@ export const TRAINING_PROGRAMS: TrainingItem[] = [
       'Advanced algebra, geometry & trigonometry problem sets'
     ],
     scoreTarget: 'Target Score 1450+ / 1600'
-  },
-  {
-    id: 'german',
-    title: 'German Language (A1 / A2 / B1)',
-    category: 'European Language Training',
-    duration: '8 to 16 Weeks',
-    eligibility: 'Germany Public University Aspirants',
-    mode: 'Classroom & Native Speaking Labs',
-    description: 'Intensive CEFR-aligned training for Goethe-Zertifikat examinations required for tuition-free public university degrees and part-time jobs in Germany.',
-    highlights: [
-      'Goethe-Zertifikat certified curriculum and examination patterns',
-      'Conversational German speaking drills with native accent coaching',
-      'Technical vocabulary preparation for engineering and STEM degrees'
-    ],
-    scoreTarget: 'Certified CEFR B1 Fluency'
   },
   {
     id: 'interview-prep',

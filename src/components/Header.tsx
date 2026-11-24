@@ -515,13 +515,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
                   </div>
                   <div className="space-y-0.5">
                     {[
-                      { name: 'Australia', slug: 'australia', flag: '🇦🇺' },
-                      { name: 'United Kingdom', slug: 'uk', flag: '🇬🇧' },
-                      { name: 'Europe', slug: 'europe', flag: '🇪🇺' },
-                      { name: 'Ireland', slug: 'ireland', flag: '🇮🇪' },
-                      { name: 'New Zealand', slug: 'new-zealand', flag: '🇳🇿' },
                       { name: 'United States', slug: 'usa', flag: '🇺🇸' },
+                      { name: 'United Kingdom', slug: 'uk', flag: '🇬🇧' },
+                      { name: 'Ireland', slug: 'ireland', flag: '🇮🇪' },
+                      { name: 'Australia', slug: 'australia', flag: '🇦🇺' },
                       { name: 'Canada', slug: 'canada', flag: '🇨🇦' },
+                      { name: 'New Zealand', slug: 'new-zealand', flag: '🇳🇿' },
+                      { name: 'Europe', slug: 'europe', flag: '🇪🇺' },
                       { name: 'Malaysia', slug: 'malaysia', flag: '🇲🇾' },
                       { name: 'Singapore', slug: 'singapore', flag: '🇸🇬' },
                       { name: 'Dubai', slug: 'dubai', flag: '🇦🇪' },
@@ -794,13 +794,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
                   {mobileAccordion === 'countries' && (
                     <div className="pl-4 pr-2 py-1 space-y-1 bg-slate-50/80 rounded-xl mb-1">
                       {[
-                        { name: 'Australia', slug: 'australia', flag: '🇦🇺' },
-                        { name: 'United Kingdom', slug: 'uk', flag: '🇬🇧' },
-                        { name: 'Europe', slug: 'europe', flag: '🇪🇺' },
-                        { name: 'Ireland', slug: 'ireland', flag: '🇮🇪' },
-                        { name: 'New Zealand', slug: 'new-zealand', flag: '🇳🇿' },
                         { name: 'United States', slug: 'usa', flag: '🇺🇸' },
+                        { name: 'United Kingdom', slug: 'uk', flag: '🇬🇧' },
+                        { name: 'Ireland', slug: 'ireland', flag: '🇮🇪' },
+                        { name: 'Australia', slug: 'australia', flag: '🇦🇺' },
                         { name: 'Canada', slug: 'canada', flag: '🇨🇦' },
+                        { name: 'New Zealand', slug: 'new-zealand', flag: '🇳🇿' },
+                        { name: 'Europe', slug: 'europe', flag: '🇪🇺' },
                         { name: 'Malaysia', slug: 'malaysia', flag: '🇲🇾' },
                         { name: 'Singapore', slug: 'singapore', flag: '🇸🇬' },
                         { name: 'Dubai', slug: 'dubai', flag: '🇦🇪' },

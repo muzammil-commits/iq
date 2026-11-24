@@ -138,7 +138,7 @@ export const MastersPage: React.FC<MastersPageProps> = ({ onOpenConsultation }) 
                 Pursuing a Master's degree abroad is more than earning an advanced academic credential—it is a transformational investment in high-impact international career opportunities, specialized research expertise, and permanent residency pathways in world economic hubs.
               </p>
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                Whether you aspire to lead engineering teams in Silicon Valley, manage quantitative investment portfolios in London, or drive renewable energy breakthroughs in Germany, IQ Overseas Edu Consultants provides end-to-end strategic guidance tailored to your academic background, test scores, budget, and long-term career roadmap.
+                Whether you aspire to lead engineering teams in Silicon Valley, manage quantitative investment portfolios in London, or drive renewable energy breakthroughs across France and Europe, IQ Overseas Edu Consultants provides end-to-end strategic guidance tailored to your academic background, test scores, budget, and long-term career roadmap.
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-3">
@@ -856,12 +856,12 @@ export const MastersPage: React.FC<MastersPageProps> = ({ onOpenConsultation }) 
                   </tr>
                   <tr className="hover:bg-slate-50 transition-colors">
                     <td className="py-4 px-6 font-bold text-iq-navy flex items-center gap-2">
-                      <span>🇨🇦</span> Canada
+                      <span>🇮🇪</span> Ireland
                     </td>
-                    <td className="py-4 px-6 font-semibold text-iq-red">Up to 3 Years PGWP</td>
-                    <td className="py-4 px-6 text-slate-600">24 hrs/week</td>
-                    <td className="py-4 px-6 font-bold text-emerald-700">CAD 75,000 - 110,000</td>
-                    <td className="py-4 px-6 text-slate-600">Express Entry (CEC & PNP)</td>
+                    <td className="py-4 px-6 font-semibold text-iq-red">2 Years (Third Level Scheme)</td>
+                    <td className="py-4 px-6 text-slate-600">20 hrs/week (40 in holidays)</td>
+                    <td className="py-4 px-6 font-bold text-emerald-700">€42,000 - €70,000</td>
+                    <td className="py-4 px-6 text-slate-600">Critical Skills Employment Permit</td>
                   </tr>
                   <tr className="hover:bg-slate-50 transition-colors">
                     <td className="py-4 px-6 font-bold text-iq-navy flex items-center gap-2">
@@ -874,21 +874,21 @@ export const MastersPage: React.FC<MastersPageProps> = ({ onOpenConsultation }) 
                   </tr>
                   <tr className="hover:bg-slate-50 transition-colors">
                     <td className="py-4 px-6 font-bold text-iq-navy flex items-center gap-2">
-                      <span>🇮🇪</span> Ireland
+                      <span>🇨🇦</span> Canada
                     </td>
-                    <td className="py-4 px-6 font-semibold text-iq-red">2 Years (Third Level Scheme)</td>
-                    <td className="py-4 px-6 text-slate-600">20 hrs/week (40 in holidays)</td>
-                    <td className="py-4 px-6 font-bold text-emerald-700">€42,000 - €70,000</td>
-                    <td className="py-4 px-6 text-slate-600">Critical Skills Employment Permit</td>
+                    <td className="py-4 px-6 font-semibold text-iq-red">Up to 3 Years PGWP</td>
+                    <td className="py-4 px-6 text-slate-600">24 hrs/week</td>
+                    <td className="py-4 px-6 font-bold text-emerald-700">CAD 75,000 - 110,000</td>
+                    <td className="py-4 px-6 text-slate-600">Express Entry (CEC & PNP)</td>
                   </tr>
                   <tr className="hover:bg-slate-50 transition-colors">
                     <td className="py-4 px-6 font-bold text-iq-navy flex items-center gap-2">
-                      <span>🇩🇪</span> Germany
+                      <span>🇳🇿</span> New Zealand
                     </td>
-                    <td className="py-4 px-6 font-semibold text-iq-red">18 Months Jobseeker Visa</td>
-                    <td className="py-4 px-6 text-slate-600">140 full days / 280 half days</td>
-                    <td className="py-4 px-6 font-bold text-emerald-700">€50,000 - €80,000</td>
-                    <td className="py-4 px-6 text-slate-600">EU Blue Card (PR in 21-27 months)</td>
+                    <td className="py-4 px-6 font-semibold text-iq-red">Up to 3 Years (Post-Study Work)</td>
+                    <td className="py-4 px-6 text-slate-600">Full-time post study</td>
+                    <td className="py-4 px-6 font-bold text-emerald-700">NZD 75,000 - 110,000</td>
+                    <td className="py-4 px-6 text-slate-600">Skilled Migrant Category PR</td>
                   </tr>
                 </tbody>
               </table>

@@ -1993,7 +1993,7 @@ export const COUNTRY_PAGES_DATA: Record<string, CountryDegreeContent> = {
     countryName: 'France & Europe',
     flag: '🇪🇺',
     heroHeadline: "Elite European Education in English: Study Bachelor's in Europe.",
-    heroSubtitle: "Explore top universities across France, Germany, Ireland, and the Netherlands with affordable tuition and 27-country Schengen mobility.",
+    heroSubtitle: "Explore top universities across France, Ireland, and the Netherlands with affordable tuition and 29-country Schengen mobility.",
     heroTagline: "Start your UG journey in Europe",
     badge: "European Union Admissions 2025 - 2026",
     heroImage: "/images/destinations/europe-france-dest.png",
@@ -2007,12 +2007,12 @@ export const COUNTRY_PAGES_DATA: Record<string, CountryDegreeContent> = {
     },
     whyStudy: [
       {
-        title: "Affordable European Tuition & Zero Fees",
-        desc: "European universities offer world-leading quality at a fraction of US/UK costs, with countries like Germany offering virtually tuition-free education."
+        title: "Affordable European Tuition & High ROI",
+        desc: "European universities offer world-leading quality at a fraction of US/UK costs, with countries like France and Netherlands offering high scholarship opportunities."
       },
       {
         title: "29 Schengen Countries Travel & Work Mobility",
-        desc: "Your student visa provides borderless access across France, Germany, Italy, Spain, Sweden, and Switzerland."
+        desc: "Your student visa provides borderless access across France, Netherlands, Italy, Spain, Sweden, and Switzerland."
       }
     ],
     popularPrograms: [

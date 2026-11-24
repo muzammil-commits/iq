@@ -1,5 +1,6 @@
 import React from 'react';
 import { HeroSection } from '../components/HeroSection';
+import { QuickSearchAction } from '../components/QuickSearchAction';
 import { ExploreStudyDestinations } from '../components/ExploreStudyDestinations';
 import { TrustStrip } from '../components/TrustStrip';
 import { AboutSection } from '../components/AboutSection';
@@ -20,6 +21,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenConsultation }) => {
     <main className="w-full">
       {/* 1. Hero Section */}
       <HeroSection onOpenConsultation={onOpenConsultation} />
+
+      {/* 1.5 Quick Search & Filter Action Box (50% overlap into Hero Section & 50% below) */}
+      <QuickSearchAction />
 
       {/* 2. Explore Study Destinations Grid (matching image copy 41 & 42) */}
       <ExploreStudyDestinations />

@@ -306,20 +306,20 @@ export const BACHELOR_COUNTRIES: BachelorCountry[] = [
     topUnis: ['Univ of Manchester', 'Univ of Bristol', 'Univ of Leeds', 'King’s College London', 'Univ of Glasgow']
   },
   {
-    country: 'Canada',
-    slug: 'canada',
-    flag: '🇨🇦',
-    duration: '4 Years',
-    pswRights: 'Up to 3-Year Post-Graduation Work Permit (PGWP)',
-    avgTuition: 'CAD 18,000 - 36,000 / Year',
-    intakes: 'September & January',
+    country: 'Ireland',
+    slug: 'ireland',
+    flag: '🇮🇪',
+    duration: '3 - 4 Years',
+    pswRights: '1-Year Third Level Graduate Scheme (Honours Bachelors)',
+    avgTuition: '€11,000 - €22,000 / Year',
+    intakes: 'September',
     highlights: [
-      'World-famous Co-op work terms providing paid industry internships',
-      'High safety rating, welcoming culture, and diverse campuses',
-      'Favorable post-study immigration point systems for graduates',
-      'High-quality research universities and polytechnic institutes'
+      '100% English-speaking EU nation with booming technology sector',
+      'Proximity to European HQs of Microsoft, Apple, Google, and Pfizer',
+      'Safe, friendly student towns with world-class faculty',
+      'Government of Ireland and institutional undergraduate awards'
     ],
-    topUnis: ['Univ of Waterloo', 'Univ of Toronto', 'Simon Fraser Univ', 'York Univ', 'Univ of Calgary']
+    topUnis: ['Trinity College Dublin', 'Univ College Dublin', 'Univ of Galway', 'Dublin City Univ', 'Univ of Limerick']
   },
   {
     country: 'Australia',
@@ -338,36 +338,52 @@ export const BACHELOR_COUNTRIES: BachelorCountry[] = [
     topUnis: ['Univ of Melbourne', 'UNSW Sydney', 'Univ of Queensland', 'Monash Univ', 'Univ of Western Australia']
   },
   {
-    country: 'Ireland',
-    slug: 'ireland',
-    flag: '🇮🇪',
-    duration: '3 - 4 Years',
-    pswRights: '1-Year Third Level Graduate Scheme (Honours Bachelors)',
-    avgTuition: '€11,000 - €22,000 / Year',
-    intakes: 'September',
+    country: 'Canada',
+    slug: 'canada',
+    flag: '🇨🇦',
+    duration: '4 Years',
+    pswRights: 'Up to 3-Year Post-Graduation Work Permit (PGWP)',
+    avgTuition: 'CAD 18,000 - 36,000 / Year',
+    intakes: 'September & January',
     highlights: [
-      '100% English-speaking EU nation with booming technology sector',
-      'Proximity to European HQs of Microsoft, Apple, Google, and Pfizer',
-      'Safe, friendly student towns with world-class faculty',
-      'Government of Ireland and institutional undergraduate awards'
+      'World-famous Co-op work terms providing paid industry internships',
+      'High safety rating, welcoming culture, and diverse campuses',
+      'Favorable post-study immigration point systems for graduates',
+      'High-quality research universities and polytechnic institutes'
     ],
-    topUnis: ['Trinity College Dublin', 'Univ College Dublin', 'Univ of Galway', 'Dublin City Univ', 'Univ of Limerick']
+    topUnis: ['Univ of Waterloo', 'Univ of Toronto', 'Simon Fraser Univ', 'York Univ', 'Univ of Calgary']
   },
   {
-    country: 'Germany',
-    slug: 'germany',
-    flag: '🇩🇪',
-    duration: '3 - 3.5 Years',
-    pswRights: '18-Month Job Seeker Visa',
-    avgTuition: 'Nominal (€300 - €1,500/semester at Public Unis)',
-    intakes: 'Winter (October) & Summer (April)',
+    country: 'New Zealand',
+    slug: 'new-zealand',
+    flag: '🇳🇿',
+    duration: '3 Years',
+    pswRights: 'Up to 3-Year Post-Study Work Visa',
+    avgTuition: 'NZD 26,000 - 38,000 / Year',
+    intakes: 'February & July',
     highlights: [
-      'Virtually tuition-free higher education at public universities',
-      'Europe’s engineering, automotive, and technological powerhouse',
-      'Fast-track residency and EU Blue Card pathways for graduates',
-      'Growing number of international English-taught bachelor’s programs'
+      'All 8 state universities ranked in global top 3%',
+      'Safe, scenic, welcoming campuses with high quality of life',
+      'Direct pathway to post-study work and skilled employment',
+      'Practical learning with industry internships'
     ],
-    topUnis: ['TU Munich', 'RWTH Aachen', 'Heidelberg Univ', 'Karlsruhe Institute of Tech', 'Univ of Freiburg']
+    topUnis: ['Univ of Auckland', 'Univ of Otago', 'Univ of Canterbury', 'Victoria Univ of Wellington']
+  },
+  {
+    country: 'Europe Countries',
+    slug: 'europe',
+    flag: '🇪🇺',
+    duration: '3 - 4 Years',
+    pswRights: '1 to 2 Years Stay-Back Visa',
+    avgTuition: '€7,000 - €18,000 / Year',
+    intakes: 'September & February',
+    highlights: [
+      'English-taught bachelor’s degrees with affordable tuition',
+      '27-country Schengen visa freedom during study terms',
+      'Leading global business and engineering institutions',
+      'Diverse cultural immersion and international network'
+    ],
+    topUnis: ['SKEMA Business School', 'Sorbonne Univ', 'Trinity College Dublin', 'Grenoble INP']
   }
 ];
 

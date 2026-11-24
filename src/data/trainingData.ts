@@ -273,7 +273,7 @@ export const TRAINING_PROGRAMS_DATA: Record<string, TrainingProgramDetail> = {
     officialScale: 'Score Scale: 260 to 340 (Quant: 130-170, Verbal: 130-170, AWA: 0-6)',
     testDuration: '1 Hour 58 Minutes (Shorter GRE Format)',
     testMode: 'Computer-Delivered via ETS Test Centers or At-Home',
-    globalAcceptance: 'Graduate Schools (MS/PhD/MBA) in USA, Canada, Germany, Singapore & Europe',
+    globalAcceptance: 'Graduate Schools (MS/PhD/MBA) in USA, UK, Canada, Ireland, Singapore & Europe',
     introduction: 'The Graduate Record Examination (GRE General Test) is the benchmark assessment created by ETS for admission into top-tier Master’s, Doctoral (Ph.D.), and MBA programs globally. The redesigned "Shorter GRE" format takes under 2 hours and features section-level adaptivity, evaluating Verbal Reasoning, Quantitative Reasoning, and Analytical Writing.',
     whyImportant: [
       'Crucial differentiator for admission into Top-50 US engineering, computer science, and data analytics faculties.',

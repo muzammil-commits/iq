@@ -22,7 +22,7 @@ export const normalizeCountrySlug = (slug?: string): string => {
   if (s === 'united-states' || s === 'united-states-of-america' || s === 'us') return 'usa';
   if (s === 'nz') return 'new-zealand';
   if (s === 'uae' || s === 'dubai-uae') return 'dubai';
-  if (s === 'germany' || s === 'france') return 'europe';
+  if (s === 'france' || s === 'netherlands') return 'europe';
 
   return s;
 };

@@ -367,7 +367,7 @@ export const INITIAL_COUNTRIES_DATA: Record<string, CountryPageData> = {
     ]
   },
 
-  // 3. Europe (with Destination Cards for Germany, France, Sweden, Finland, Denmark, Switzerland)
+  // 3. Europe (with Destination Cards for France, Netherlands, Sweden, Finland, Denmark, Switzerland)
   europe: {
     id: 'country-03',
     slug: 'europe',
@@ -375,134 +375,132 @@ export const INITIAL_COUNTRIES_DATA: Record<string, CountryPageData> = {
     flag: '🇪🇺',
     isPublished: true,
     order: 3,
-    seoTitle: 'Study in Europe – Germany, France, Sweden, Finland, Denmark & Switzerland | IQ Overseas',
-    seoDescription: 'Explore studying in Europe for Indian students. Low or tuition-free universities, top business schools, 29 Schengen countries, and post-study work rights with IQ Overseas.',
+    seoTitle: 'Study in Europe – France, Netherlands, Sweden, Finland, Denmark & Switzerland | IQ Overseas',
+    seoDescription: 'Explore studying in Europe for Indian students. High-tech universities, top business schools, 29 Schengen countries, and post-study work rights with IQ Overseas.',
     heroBanner: {
       imageUrl: '/images/destinations/europe-france-dest.png',
       headline: 'Study in Europe – World-Class Education with Minimal Tuition',
-      subtitle: 'Experience Europe’s top tech and business universities, tuition-free public education in Germany, and unrestricted travel across 29 Schengen nations.',
-      badge: 'Zero/Low Tuition & 29 Schengen Countries',
+      subtitle: 'Experience Europe’s top tech and business universities, high quality of life, and unrestricted travel across 29 Schengen nations.',
+      badge: 'Affordable Tuition & 29 Schengen Countries',
       stats: [
         { label: 'Countries', value: '29 Schengen' },
-        { label: 'Tuition in Germany', value: '€0 at Public' },
+        { label: 'Top Business Schools', value: 'Triple Crown' },
         { label: 'Programs in English', value: '10,000+' },
-        { label: 'Post-Study Work', value: '18 - 24 Months' }
+        { label: 'Post-Study Work', value: '12 - 24 Months' }
       ]
     },
     introduction: {
       heading: 'Study in Europe – Premier European Study Abroad Consultants in Guntur',
-      subheading: 'Access Europe’s innovation capitals, engineering hubs, and triple-accredited business schools.',
+      subheading: 'Access Europe’s innovation capitals, tech hubs, and triple-accredited business schools.',
       paragraphs: [
         'Europe represents one of the most culturally diverse and academically rewarding continents for international students. With thousands of fully English-taught Bachelor’s and Master’s programs, European universities combine historic intellectual prestige with cutting-edge scientific innovation.',
-        'Nations like Germany offer tuition-free higher education at public universities, charging only a nominal semester contribution. France is home to the world’s top-ranked business schools (INSEAD, HEC Paris, ESSEC), while Nordic nations like Sweden, Finland, and Denmark lead the world in sustainability, digital tech, and quality of life. Furthermore, Switzerland offers premier hospitality and technology management institutions.',
-        'With a single Schengen student visa, you enjoy freedom of movement across 29 European countries, expanding your cultural exposure and internships with global multinationals like Siemens, BMW, SAP, L’Oréal, and Airbus. IQ Overseas guides you step-by-step through APS certification (for Germany), Campus France, blocked accounts, and university portals.'
+        'France is home to the world’s top-ranked business schools (INSEAD, HEC Paris, ESSEC) and aerospace institutes. The Netherlands offers over 2,100 English-taught programs in technology, business, and logistics. Nordic nations like Sweden, Finland, and Denmark lead the world in sustainability, digital tech, clean energy, and quality of life. Furthermore, Switzerland offers premier hospitality and technology management institutions.',
+        'With a single Schengen student visa, you enjoy freedom of movement across 29 European countries, expanding your cultural exposure and internships with global multinationals like ASML, Philips, L’Oréal, Airbus, Spotify, and Volvo. IQ Overseas guides you step-by-step through Campus France, Studielink, university portals, and embassy visas.'
       ],
       highlights: [
-        'Tuition-free or low-cost higher education at top-ranked German public universities',
+        'Affordable, world-class higher education at globally ranked European universities',
         'Triple-accredited (AACSB, AMBA, EQUIS) business and management schools in France',
         'Freedom of movement and internship opportunities across 29 Schengen countries',
-        '18 to 24 months post-study stay-back visas to secure European corporate employment'
+        '12 to 24 months post-study stay-back visas to secure European corporate employment'
       ]
     },
     quickFacts: {
       country: 'European Union (Schengen Area)',
-      capital: 'Multiple European Capitals (Berlin, Paris, Stockholm, Helsinki, Bern)',
-      popularCities: 'Munich, Berlin, Paris, Lyon, Stockholm, Helsinki, Zurich, Copenhagen',
+      capital: 'Multiple European Capitals (Paris, Amsterdam, Stockholm, Helsinki, Bern)',
+      popularCities: 'Paris, Lyon, Amsterdam, Rotterdam, Stockholm, Helsinki, Zurich, Copenhagen',
       currency: 'Euro (EUR / €) & National Currencies (CHF, SEK, DKK)',
       language: 'English (Programs fully taught in English) + Local Languages',
-      popularIntakes: 'Winter Intake (September/October) & Summer Intake (March/April)',
-      topCourses: 'Mechanical & Automotive Engineering, Computer Science, MBA, Luxury Brand Management, Renewable Energy',
-      avgTuitionFee: '€0 to €3,000/yr (Germany Public) | €8,000 to €22,000/yr (Private/Other EU)',
-      postStudyWork: '18 Months (Germany), 24 Months (France Masters), 12-24 Months (Nordics)',
-      workRights: '120 full days or 240 half days per year in Germany; 20 hrs/week across EU'
+      popularIntakes: 'Autumn Intake (September/October) & Spring Intake (January/February)',
+      topCourses: 'Computer Science, Data Analytics, MBA, Luxury Brand Management, Renewable Energy, Logistics',
+      avgTuitionFee: '€6,000 to €18,000 / year (Varies by country & public/private status)',
+      postStudyWork: '24 Months (France Masters), 12 Months (Netherlands Zoekjaar), 12-24 Months (Nordics)',
+      workRights: '20 hrs/week during study semesters across EU; full-time during vacations'
     },
     educationLandscape: {
       intro: 'Europe’s education system is unified under the Bologna Process (ECTS credit system), ensuring high international academic parity across all European countries.',
       bulletPoints: [
-        'TU9 & Public Universities (Germany): Globally revered research universities offering zero tuition for technical and engineering degrees.',
+        'Research Universities (Netherlands & Sweden): Globally revered technical and research universities in computer science, clean energy, and robotics.',
         'Grandes Écoles (France): Elite professional institutes with rigorous selection, offering world top-10 Master in Management (MiM) programs.',
         'Nordic Universities (Sweden & Finland): Pioneer institutions in AI, clean technology, design, and biotechnology.',
         'Swiss Applied Universities: World-renowned centers for hospitality, banking, and precision engineering.'
       ],
       comparisonTable: [
-        { aspect: 'Tuition Model', undergraduate: 'Zero/Nominal in Germany; €8k - €16k in France/Nordics', postgraduate: 'Zero/Nominal in Germany Public; €10k - €24k in France/Nordics' },
-        { aspect: 'Duration', undergraduate: '3 to 3.5 Years (180 - 210 ECTS)', postgraduate: '1.5 to 2 Years (90 - 120 ECTS)' },
-        { aspect: 'Language of Study', undergraduate: 'English (Select programs) or German/French', postgraduate: '100% English taught programs widely available' },
-        { aspect: 'Internship Integration', undergraduate: 'Mandatory practical semesters (Praxissemester)', postgraduate: 'Paid corporate master’s thesis and industry internships' },
-        { aspect: 'Post-Study Stay Back', undergraduate: '18 Months (Germany) / 1 Year (EU average)', postgraduate: '18 Months (Germany) / 24 Months (France Masters)' }
+        { aspect: 'Tuition Model', undergraduate: '€6k - €14k / year in public; €10k - €18k in private', postgraduate: '€8k - €18k in public; €14k - €28k in private/business schools' },
+        { aspect: 'Duration', undergraduate: '3 to 3.5 Years (180 - 210 ECTS)', postgraduate: '1 to 2 Years (60 - 120 ECTS)' },
+        { aspect: 'Language of Study', undergraduate: 'English (Select programs) or French/Dutch', postgraduate: '100% English taught programs widely available' },
+        { aspect: 'Internship Integration', undergraduate: 'Mandatory practical semesters & thesis internships', postgraduate: 'Paid corporate master’s thesis and industry internships' },
+        { aspect: 'Post-Study Stay Back', undergraduate: '1 Year (Netherlands / EU average)', postgraduate: '24 Months (France Masters) / 1 Year (Netherlands)' }
       ]
     },
     whyStudyBenefits: [
-      { id: '1', title: 'Zero or Low Tuition Fees', description: 'Study at prestigious German public universities with zero tuition fees, paying only a modest €250-€350 semester fee.' },
+      { id: '1', title: 'Affordable World-Class Tuition', description: 'Study at prestigious European universities with tuition significantly lower than US/UK institutions.' },
       { id: '2', title: '29-Country Schengen Travel', description: 'Travel, network, and attend career fairs across 29 European countries with a single resident permit.' },
-      { id: '3', title: 'Europe’s Industrial Powerhouses', description: 'Direct career opportunities with world-leading engineering, automotive, chemical, and luxury brands.' },
-      { id: '4', title: '18 to 24 Months Stay Back', description: 'Generous post-study job seeker permits allowing graduates to find skilled positions and secure European Blue Cards.' },
+      { id: '3', title: 'Europe’s Industrial Powerhouses', description: 'Direct career opportunities with world-leading tech, logistics, chemical, aerospace, and luxury brands.' },
+      { id: '4', title: '12 to 24 Months Stay Back', description: 'Generous post-study job seeker permits allowing graduates to find skilled positions and secure European Blue Cards.' },
       { id: '5', title: 'High Quality of Life', description: 'Unmatched public infrastructure, clean green cities, universal healthcare, and safe student communities.' },
-      { id: '6', title: 'Strong European Blue Card PR', description: 'Fast-track permanent residency pathways in Germany and Europe after 21 to 27 months of skilled employment.' }
+      { id: '6', title: 'Strong European Blue Card PR', description: 'Structured permanent residency pathways across France, Netherlands, and Nordic countries for skilled university graduates.' }
     ],
     topCourses: [
-      { id: 'c1', title: 'Automotive & Mechanical Engineering', category: 'Engineering', duration: '2 Years', description: 'Study in the heart of the automotive industry (Germany) with direct ties to BMW, Porsche, and Mercedes-Benz.', careerRoles: ['Automotive Engineer', 'Design Lead', 'R&D Specialist'] },
+      { id: 'c1', title: 'Automotive & Aerospace Engineering', category: 'Engineering', duration: '2 Years', description: 'Study cutting-edge mobility with aerospace leaders in France and high-tech centers in the Netherlands.', careerRoles: ['Aerospace Engineer', 'Design Lead', 'R&D Specialist'] },
       { id: 'c2', title: 'Master in Management (MiM) & MBA', category: 'Business', duration: '1 - 2 Years', description: 'Financial Times world top-10 ranked business programs in France (HEC, ESSEC, EDHEC).', careerRoles: ['Strategy Consultant', 'Investment Banker', 'Marketing Manager'] },
-      { id: 'c3', title: 'Computer Science & AI', category: 'Technology', duration: '2 Years', description: 'High-performance computing, robotics, and cyber-physical systems across Germany and Sweden.', careerRoles: ['Software Engineer', 'AI Researcher', 'Robotics Specialist'] },
+      { id: 'c3', title: 'Computer Science & AI', category: 'Technology', duration: '2 Years', description: 'High-performance computing, robotics, and cyber-physical systems across the Netherlands and Sweden.', careerRoles: ['Software Engineer', 'AI Researcher', 'Robotics Specialist'] },
       { id: 'c4', title: 'Renewable Energy & Sustainability', category: 'Engineering', duration: '2 Years', description: 'Wind energy, solar engineering, and circular economy leadership in Denmark and Sweden.', careerRoles: ['Energy Consultant', 'Sustainability Engineer', 'Project Lead'] },
       { id: 'c5', title: 'International Hospitality Management', category: 'Hospitality', duration: '1 - 2 Years', description: 'Swiss world-standard hospitality and luxury asset management programs.', careerRoles: ['General Manager', 'Luxury Brand Director', 'Hotel Operations Lead'] },
-      { id: 'c6', title: 'Biotechnology & Life Sciences', category: 'Healthcare', duration: '2 Years', description: 'Pharmaceutical engineering and clinical biotech research in Switzerland, Germany, and France.', careerRoles: ['Biomedical Researcher', 'Clinical Specialist', 'Process Engineer'] }
+      { id: 'c6', title: 'Biotechnology & Life Sciences', category: 'Healthcare', duration: '2 Years', description: 'Pharmaceutical engineering and clinical biotech research in Switzerland, Netherlands, and France.', careerRoles: ['Biomedical Researcher', 'Clinical Specialist', 'Process Engineer'] }
     ],
     scholarships: {
       intro: 'European governments and universities offer substantial funding and scholarships for international master’s students.',
       items: [
-        { id: 's1', name: 'DAAD Scholarships (Germany)', provider: 'German Academic Exchange Service', award: '€934/month Stipend + Health Insurance + Travel', eligibility: 'Graduates with at least 2 years of professional work experience applying for public master’s.' },
+        { id: 's1', name: 'Holland Scholarship (Netherlands)', provider: 'Dutch Ministry of Education', award: '€5,000 one-time grant towards tuition fees', eligibility: 'Non-EEA students applying for full-time Bachelor’s or Master’s in the Netherlands.' },
         { id: 's2', name: 'Eiffel Excellence Scholarship (France)', provider: 'French Ministry for Europe and Foreign Affairs', award: '€1,181/month Allowance + Travel + Health', eligibility: 'High-achieving international students applying for master’s and PhD programs in France.' },
         { id: 's3', name: 'Erasmus Mundus Joint Master Degrees', provider: 'European Commission', award: '100% Tuition Waiver + €1,400/month Stipend', eligibility: 'Top scholars studying across 2 to 3 different European countries during their master’s.' },
         { id: 's4', name: 'Swedish Institute Scholarships for Global Professionals', provider: 'Swedish Government', award: 'Full Tuition + SEK 12,000/month Allowance', eligibility: 'High-achieving applicants with 3,000+ hours of documented leadership and work experience.' }
       ]
     },
     admissionIntakes: {
-      intro: 'European universities operate on Winter and Summer semesters.',
+      intro: 'European universities operate on Autumn and Spring semesters.',
       items: [
-        { name: 'Winter Intake (Primary Intake)', period: 'September / October', deadline: 'May – July 15', remarks: 'Main intake across Germany, France, and Europe with almost all English-taught programs open.' },
-        { name: 'Summer Intake (Secondary Intake)', period: 'March / April', deadline: 'November 15 – January 15', remarks: 'Offered by select German universities and private French/European business schools.' }
+        { name: 'Autumn Intake (Primary Intake)', period: 'September / October', deadline: 'April – July', remarks: 'Main intake across France, Netherlands, and Nordic Europe with almost all English-taught programs open.' },
+        { name: 'Spring Intake (Secondary Intake)', period: 'January / February', deadline: 'September – November', remarks: 'Offered by select Dutch universities, French Grandes Écoles, and private business schools.' }
       ]
     },
     studyPrograms: {
       intro: 'European higher education follows the standardized European Credit Transfer and Accumulation System (ECTS).',
       items: [
         { level: 'Bachelor’s Degree', duration: '3 to 3.5 Years (180 - 210 ECTS)', description: 'Undergraduate foundation combining technical theory with practical internships.', outcomes: 'ECTS Accredited – Recognized worldwide' },
-        { level: 'Master of Science (M.Sc / M.Eng)', duration: '1.5 to 2 Years (90 - 120 ECTS)', description: 'Advanced research and corporate project work culminating in a Master’s thesis.', outcomes: 'Qualifies for 18-month German Job Seeker / 2-year French Stay Back' },
+        { level: 'Master of Science (M.Sc / M.Eng)', duration: '1 to 2 Years (60 - 120 ECTS)', description: 'Advanced research and corporate project work culminating in a Master’s thesis.', outcomes: 'Qualifies for 2-year French Stay Back / 1-year Netherlands Search Year' },
         { level: 'Master in Management (MiM)', duration: '2 Years', description: 'Specialized management curriculum with paid internships in top European conglomerates.', outcomes: 'Direct entry into European corporate leadership' },
-        { level: 'Doctorate / PhD', duration: '3 to 4 Years', description: 'Fully paid research positions at European universities and Max Planck / Fraunhofer institutes.', outcomes: 'High salary employment and immediate Blue Card eligibility' }
+        { level: 'Doctorate / PhD', duration: '3 to 4 Years', description: 'Fully paid research positions at European universities and global institutes.', outcomes: 'High salary employment and immediate Blue Card eligibility' }
       ]
     },
     englishRequirements: {
-      intro: 'English-taught programs require certified language test scores; basic German/French is beneficial for daily life but not mandatory for admission.',
+      intro: 'English-taught programs require certified language test scores; learning basic local language is beneficial for social life but not mandatory for admission.',
       ielts: { ug: 'Overall 6.0', pg: 'Overall 6.5 (minimum 6.0 in all bands)', notes: 'Academic IELTS required. Some public universities require 7.0 for specialized courses.' },
-      pte: { ug: 'Overall 50 to 52', pg: 'Overall 58 to 65', notes: 'Widely accepted across German universities and French Grandes Écoles.' },
+      pte: { ug: 'Overall 50 to 52', pg: 'Overall 58 to 65', notes: 'Widely accepted across French Grandes Écoles, Dutch and Nordic universities.' },
       toefl: { ug: 'Overall 75 to 80', pg: 'Overall 88 to 95', notes: 'TOEFL iBT accepted across all European universities.' },
-      duolingo: { ug: 'Overall 105', pg: 'Overall 115', notes: 'Accepted by selected private European business schools.' }
+      duolingo: { ug: 'Overall 105', pg: 'Overall 115', notes: 'Accepted by selected European business schools and private universities.' }
     },
     entryRequirements: {
-      intro: 'European university admission criteria depend on the country and whether applying to public or private institutions.',
+      intro: 'European university admission criteria depend on the country and whether applying to research universities or applied sciences institutions.',
       criteria: [
-        'Germany: APS Certificate (Akademische Prüfstelle) is mandatory for Indian students before visa application.',
-        'Bachelor’s Admissions: 12th standard + 1 year of Indian Bachelor’s or Studienkolleg (for German public universities).',
-        'Master’s Admissions: 4-Year Bachelor’s degree (or 3-Year with appropriate ECTS credits) with minimum 65% – 70% aggregate.',
+        'Bachelor’s Admissions: 12th standard with qualifying marks (minimum 60%+ in relevant subjects).',
+        'Master’s Admissions: 3-Year or 4-Year Bachelor’s degree with minimum 60% – 65% aggregate.',
         'Course-specific ECTS credit matching in Mathematics, Programming, or Core Engineering modules.',
         'Statement of Purpose, Letters of Recommendation, and Updated Europass format CV.'
       ],
-      academicPercentage: 'Minimum 65% - 70% for German public universities; 55%+ for private universities and business schools.',
-      backlogPolicy: 'Public universities prefer fewer than 5-8 backlogs; private universities evaluate overall profile holistically.'
+      academicPercentage: 'Minimum 60% - 65% for research universities; 55%+ for applied sciences and business schools.',
+      backlogPolicy: 'Research universities prefer fewer than 5 backlogs; applied universities evaluate overall profile holistically.'
     },
     costOfStudying: {
-      bachelorsTuition: '€0 to €3,000/yr (Germany Public) | €8,000 to €16,000/yr (France & Nordics)',
-      mastersTuition: '€0 to €1,500/yr (Germany Public) | €9,000 to €22,000/yr (Private & European Business Schools)',
-      livingExpenses: '€11,904 per year (German Blocked Account requirement: €992/month as of 2024)',
-      healthInsurance: '€120 to €130 per month (Public health insurance in Germany / France)',
-      visaFee: '€75 (National Long-Stay Student Visa)',
-      additionalNotes: 'In Germany public universities, you pay only a semester ticket fee of ~€250-€350 which includes free regional public transit!'
+      bachelorsTuition: '€6,000 to €14,000 / year (Public) | €10,000 to €18,000 / year (Private)',
+      mastersTuition: '€8,000 to €18,000 / year (Public) | €14,000 to €26,000 / year (Private Business Schools)',
+      livingExpenses: '€9,000 to €13,000 per year (depending on city and student housing type)',
+      healthInsurance: '€40 to €120 per month (European student health insurance)',
+      visaFee: '€75 to €99 (National Long-Stay Student Visa)',
+      additionalNotes: 'Most European cities offer student discounts on public transit, meals, and cultural venues.'
     },
     documentsRequired: {
       admissionDocuments: [
-        'APS Certificate (mandatory for Germany applications from India)',
         'Class 10th and 12th Marksheets and Certificates',
         'Bachelor’s Degree Transcripts, Semester Marksheets & Degree Certificate',
         'ECTS Credit Syllabus / Module Description Handbook',
@@ -513,48 +511,45 @@ export const INITIAL_COUNTRIES_DATA: Record<string, CountryPageData> = {
       ],
       visaDocuments: [
         'University Admission Letter / Enrollment Offer',
-        'Proof of Financial Resources: Blocked Account confirmation (€11,904) for Germany or equivalent proof',
-        'APS Certificate copy (for Germany)',
+        'Proof of Financial Solvency / Bank Statements or Sponsorship Confirmation',
+        'Campus France NOC / Studielink registration proof (as per country)',
         'Valid Passport with minimum 12 months validity',
         'Proof of European statutory or travel health insurance',
         'Motivation letter and biometric appointment booking'
       ]
     },
     workOpportunities: {
-      partTimeRules: 'In Germany: 120 full days or 240 half days per calendar year. In France: 60% of annual working time (~964 hours/year).',
+      partTimeRules: 'In France: 60% of annual working time (~964 hours/year). In the Netherlands: up to 16 hours/week. In Nordic countries: 20+ hours/week during semesters.',
       vacationRules: 'Full-time work allowed during official university semester breaks.',
-      minimumWage: 'Germany national minimum wage is €12.41 per hour; France minimum wage (SMIC) is ~€11.65 per hour.',
-      postStudyWorkVisa: 'Germany offers an 18-month Job Seeker Visa; France offers a 2-year post-study work authorization for Master’s graduates.'
+      minimumWage: 'France minimum wage (SMIC) is ~€11.65 per hour; Netherlands minimum wage is ~€13.27 per hour.',
+      postStudyWorkVisa: 'France offers a 2-year post-study work authorization for Master’s graduates; Netherlands offers a 1-year Orientation Year (Zoekjaar).'
     },
     prPathways: {
-      intro: 'Europe offers one of the most direct, structured residency pathways in the developed world for high-tech and skilled university graduates.',
+      intro: 'Europe offers structured residency and Blue Card pathways for skilled university graduates.',
       pathways: [
         'EU Blue Card: Accelerated work and residence permit for university graduates with qualifying employment contracts.',
-        'Germany Permanent Settlement (Niederlassungserlaubnis): Fast-track permanent residency after just 21 months of employment with B1 German (or 27 months with basic A1 German).',
-        'France 5-Year Resident Card: Long-term EU residency accessible for graduates with continuous employment.',
+        'France 5-Year Resident Card: Long-term EU residency accessible for graduates with continuous qualifying employment.',
+        'Netherlands Highly Skilled Migrant: Fast-track permanent residency pathway after 5 years of legal residence and employment.',
         'Nordic Work Permits: Direct pathways to permanent residency in Sweden, Finland, and Denmark for tech and engineering specialists.'
       ],
       disclaimer: 'Settlement pathways require meeting language proficiency thresholds and active social insurance contributions.'
     },
     subDestinations: [
-      { id: 'de', country: 'Germany', flag: '🇩🇪', image: '/images/destinations/germany-dest.png', capital: 'Berlin', description: 'Zero tuition at top public universities, Europe’s strongest industrial economy, and an 18-month post-study work visa.', avgTuition: '€0 - €1,500 / year', psw: '18 Months Stay Back', slug: 'germany' },
       { id: 'fr', country: 'France', flag: '🇫🇷', image: '/images/destinations/europe-france-dest.png', capital: 'Paris', description: 'World top-10 business schools, aerospace engineering, luxury brand management, and 2-year Master’s stay back.', avgTuition: '€8,000 - €18,000 / year', psw: '2 Years Stay Back', slug: 'france' },
+      { id: 'nl', country: 'Netherlands', flag: '🇳🇱', image: 'https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=800&q=80', capital: 'Amsterdam', description: 'Europe’s continental tech powerhouse, 2,100+ English-taught programs, and a 1-year Orientation Year (Zoekjaar).', avgTuition: '€8,000 - €16,000 / year', psw: '1 Year Search Year', slug: 'netherlands' },
       { id: 'se', country: 'Sweden', flag: '🇸🇪', image: 'https://images.unsplash.com/photo-1509356843151-3e7d96241e11?auto=format&fit=crop&w=800&q=80', capital: 'Stockholm', description: 'Global innovation leader in tech, sustainability, and green mobility (Spotify, Ericsson, Volvo, Klarna).', avgTuition: 'SEK 90,000 - 150,000 / year', psw: '12 Months Stay Back', slug: 'sweden' },
       { id: 'fi', country: 'Finland', flag: '🇫🇮', image: 'https://images.unsplash.com/photo-1538332576228-eb5b4c4de6f5?auto=format&fit=crop&w=800&q=80', capital: 'Helsinki', description: 'Ranked world’s happiest country for 7 consecutive years with premier universities in AI and clean technology.', avgTuition: '€8,000 - €14,000 / year', psw: '2 Years Post-Study Work', slug: 'finland' },
       { id: 'dk', country: 'Denmark', flag: '🇩🇰', image: 'https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?auto=format&fit=crop&w=800&q=80', capital: 'Copenhagen', description: 'World-renowned for renewable energy, life sciences, design, and exceptional work-life harmony.', avgTuition: '€6,000 - €16,000 / year', psw: '3 Years Stay Back', slug: 'denmark' },
       { id: 'ch', country: 'Switzerland', flag: '🇨🇭', image: 'https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=800&q=80', capital: 'Bern', description: 'Global benchmark for luxury hospitality management, banking, precision engineering, and high starting salaries.', avgTuition: 'CHF 15,000 - 32,000 / year', psw: '6 Months Job Seeker', slug: 'switzerland' }
     ],
     faqs: [
-      { q: 'Is education really tuition-free in Germany for Indian students?', a: 'Yes! Most public universities in Germany charge zero tuition fees for both domestic and international students. You only pay a semester administrative fee of €250 to €350, which includes a free public transport pass.' },
-      { q: 'What is the APS Certificate for Germany?', a: 'The APS (Akademische Prüfstelle) certificate is a mandatory document issued by the German Embassy in New Delhi that verifies the authenticity of your Indian academic records before you can submit a visa application.' },
-      { q: 'What is a Blocked Account for European study?', a: 'For Germany, you must open a German Blocked Account (Sperrkonto) with €11,904 (as of 2024) to prove you have sufficient funds to cover your living expenses for the first year (€992/month).' },
-      { q: 'Can I study in Europe in English?', a: 'Yes! Germany, France, Sweden, Finland, Denmark, and Switzerland offer thousands of Bachelor’s and Master’s programs taught 100% in English.' },
-      { q: 'What is the post-study work visa in Germany and France?', a: 'Germany offers an 18-month Job Seeker Visa after graduation. France offers a 2-year post-study work permit (APS/RECE) for Indian Master’s graduates.' },
-      { q: 'Can I travel across Europe on a student visa?', a: 'Yes! A student residence permit from any Schengen country allows you to travel freely across all 29 Schengen countries for tourism, networking, and conferences.' },
-      { q: 'How many hours can I work part-time in Europe?', a: 'In Germany, you can work 120 full days or 240 half days per year. In France and most EU nations, you can work up to 20 hours per week during academic terms.' },
-      { q: 'Are 3-year Indian Bachelor’s degrees accepted in Germany?', a: 'Most German public technical universities require 180 to 210 ECTS credits. While some direct programs accept 3-year degrees, others may require an additional bridge semester or 4-year degree.' },
-      { q: 'What are the top courses to study in Europe?', a: 'Mechanical & Automotive Engineering, Data Science, AI, MBA, Luxury Brand Management, Renewable Energy, and Biotechnology.' },
-      { q: 'How does IQ Overseas assist students aspiring to study in Europe?', a: 'IQ Overseas provides complete guidance on APS certification, Uni-Assist portal applications, Campus France, German Blocked Accounts, SOP drafting, and embassy visa filing.' }
+      { q: 'Can I study in Europe in English without learning the local language first?', a: 'Yes! France, the Netherlands, Sweden, Finland, Denmark, and Switzerland offer thousands of Bachelor’s and Master’s degrees taught 100% in English.' },
+      { q: 'What is the post-study work visa in France and the Netherlands?', a: 'France offers a 2-year post-study work authorization (APS/RECE) for Master’s graduates. The Netherlands offers a 1-year Orientation Year (Zoekjaar) permit to seek and begin qualifying employment.' },
+      { q: 'Can I travel across Europe on a Schengen student visa?', a: 'Yes! A student residence permit from any Schengen country allows you to travel freely across all 29 Schengen member states for conferences, tourism, and networking.' },
+      { q: 'How many hours can I work part-time in European countries?', a: 'In France and most EU nations, international students can work up to 20 hours per week (or 60% of annual legal working time) during study semesters, and full-time during holidays.' },
+      { q: 'Are 3-year Indian Bachelor’s degrees accepted for European Master’s?', a: 'Yes! Most universities in France, the Netherlands, and Nordic countries accept 3-year Indian Bachelor’s degrees (B.Sc, B.Com, BBA, BCA) for direct entry into Master’s programs.' },
+      { q: 'What are the top courses to study in Europe?', a: 'Computer Science, Data Science, AI, MBA, Luxury Brand Management, Supply Chain & Logistics, Aerospace Engineering, Renewable Energy, and Biotechnology.' },
+      { q: 'How does IQ Overseas assist students aspiring to study in Europe?', a: 'IQ Overseas provides complete guidance on course selection, Campus France interview prep, Studielink portal applications, financial solvency documentation, SOP drafting, and embassy visa filing.' }
     ]
   },
 

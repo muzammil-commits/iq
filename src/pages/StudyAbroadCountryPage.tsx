@@ -34,10 +34,11 @@ import { useCountry, countryStore } from '../store/countryStore';
 import { BRAND_INFO } from '../data/siteContent';
 
 interface StudyAbroadCountryPageProps {
+  degreeLevel?: 'masters' | 'bachelors';
   onOpenConsultation: () => void;
 }
 
-export const StudyAbroadCountryPage: React.FC<StudyAbroadCountryPageProps> = ({ onOpenConsultation }) => {
+export const StudyAbroadCountryPage: React.FC<StudyAbroadCountryPageProps> = ({ degreeLevel, onOpenConsultation }) => {
   const { country: routeSlug } = useParams<{ country?: string }>();
   const countryData = useCountry(routeSlug);
   const [expandedFaq, setExpandedFaq] = useState<number | null>(0);
@@ -56,6 +57,30 @@ export const StudyAbroadCountryPage: React.FC<StudyAbroadCountryPageProps> = ({ 
   }
 
   const isEurope = data.slug === 'europe';
+
+  // Degree Level Context
+  const isBachelors = degreeLevel === 'bachelors';
+  const isMasters = degreeLevel === 'masters';
+  const parentPath = isBachelors ? '/bachelors' : isMasters ? '/masters' : '/masters';
+  const parentLabel = isBachelors ? 'Bachelors Abroad' : isMasters ? 'Masters Abroad' : 'Study Destinations';
+
+  const heroHeadline = isBachelors
+    ? `Don't just learn, thrive! Choose ${data.name === 'United States' ? 'US' : data.name} education for a transformative academic journey.`
+    : isMasters
+    ? `Accelerate Your Global Career: Study Master's in ${data.name}`
+    : data.heroBanner.headline;
+
+  const heroSubtitle = isBachelors
+    ? `Start your UG journey in ${data.name === 'United States' ? 'the USA' : data.name} with IQ Overseas expert admissions, test prep, and scholarship support.`
+    : isMasters
+    ? `Start your Master's journey in ${data.name} with world-class research institutions, STEM OPT / PSW work visas, and high starting career packages.`
+    : data.heroBanner.subtitle;
+
+  const heroBadge = isBachelors
+    ? 'Undergraduate Excellence • Fall & Spring Intakes'
+    : isMasters
+    ? 'Postgraduate & STEM Excellence • Fall & Spring Intakes'
+    : data.heroBanner.badge;
 
   return (
     <div className="w-full bg-white text-slate-800 overflow-x-hidden">
@@ -82,7 +107,7 @@ export const StudyAbroadCountryPage: React.FC<StudyAbroadCountryPageProps> = ({ 
             <nav className="flex items-center gap-2 text-xs sm:text-sm text-slate-200" aria-label="Breadcrumb">
               <Link to="/" className="hover:text-white transition-colors">Home</Link>
               <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-              <Link to="/masters" className="hover:text-white transition-colors">Study Destinations</Link>
+              <Link to={parentPath} className="hover:text-white transition-colors">{parentLabel}</Link>
               <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
               <span className="font-bold text-white flex items-center gap-1.5">
                 <span>{data.flag}</span>
@@ -94,15 +119,15 @@ export const StudyAbroadCountryPage: React.FC<StudyAbroadCountryPageProps> = ({ 
             <div className="max-w-3xl space-y-4">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-iq-red text-white font-black text-xs uppercase tracking-wider shadow-md">
                 <Sparkles className="w-3.5 h-3.5" />
-                <span>{data.heroBanner.badge}</span>
+                <span>{heroBadge}</span>
               </div>
 
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-[1.15] drop-shadow-md">
-                {data.heroBanner.headline}
+                {heroHeadline}
               </h1>
 
               <p className="text-sm sm:text-base md:text-lg text-slate-100 leading-relaxed font-medium drop-shadow">
-                {data.heroBanner.subtitle}
+                {heroSubtitle}
               </p>
 
               {/* 4 Stat Chips */}
@@ -266,7 +291,7 @@ export const StudyAbroadCountryPage: React.FC<StudyAbroadCountryPageProps> = ({ 
 
       {/* 
         OPTIONAL SUB-SECTION FOR EUROPE:
-        Sub-destination cards for Germany, France, Sweden, Finland, Denmark, Switzerland
+        Sub-destination cards for France, Netherlands, Sweden, Finland, Denmark, Switzerland
       */}
       {isEurope && data.subDestinations && (
         <section className="py-14 bg-slate-50 border-y border-slate-200/80">

@@ -181,12 +181,13 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                     onChange={(e) => setFormData({ ...formData, destination: e.target.value })}
                     className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-iq-navy/20 focus:border-iq-navy font-medium"
                   >
-                    <option value="USA">United States</option>
-                    <option value="UK">United Kingdom</option>
-                    <option value="Canada">Canada</option>
-                    <option value="Australia">Australia</option>
+                    <option value="USA">United States (USA)</option>
+                    <option value="UK">United Kingdom (UK)</option>
                     <option value="Ireland">Ireland</option>
-                    <option value="Germany">Germany</option>
+                    <option value="Australia">Australia</option>
+                    <option value="Canada">Canada</option>
+                    <option value="New Zealand">New Zealand</option>
+                    <option value="Europe">France & Europe</option>
                     <option value="Other">Other / Undecided</option>
                   </select>
                 </div>

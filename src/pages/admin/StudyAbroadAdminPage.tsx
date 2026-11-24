@@ -1422,7 +1422,7 @@ export const StudyAbroadAdminPage: React.FC = () => {
                   {activeTab === 'subdestinations' && editForm.subDestinations && (
                     <div className="space-y-4">
                       <div className="text-xs text-slate-500 mb-2">
-                        Configure European destination cards (Germany, France, Sweden, Finland, Denmark, Switzerland).
+                        Configure European destination cards (France, Netherlands, Sweden, Finland, Denmark, Switzerland).
                       </div>
                       <div className="space-y-4">
                         {editForm.subDestinations.map((sub, idx) => (
