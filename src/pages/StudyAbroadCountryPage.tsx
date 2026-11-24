@@ -102,64 +102,63 @@ export const StudyAbroadCountryPage: React.FC<StudyAbroadCountryPageProps> = ({ 
       
       {/* 
         SECTION 1: COUNTRY HERO BANNER
-        Full-width high-resolution landmark banner with 100% full-frame picture visibility
+        Bright scenic background without any dark patchwork behind text
       */}
-      <section className="relative w-full overflow-hidden bg-slate-950 text-white">
+      <section className="relative w-full overflow-hidden bg-slate-900 text-white">
         {/* Full-Width Background Landmark Image with Full Vertical & Horizontal Visibility */}
-        <div className="relative min-h-[580px] sm:min-h-[660px] md:min-h-[720px] lg:min-h-[780px] xl:min-h-[840px] 2xl:min-h-[880px] w-full overflow-hidden flex flex-col justify-between">
+        <div className="relative min-h-[580px] sm:min-h-[660px] md:min-h-[720px] lg:min-h-[760px] xl:min-h-[800px] w-full overflow-hidden flex flex-col justify-between">
           <img
             src={data.heroBanner.imageUrl}
             alt={`${data.name} landmark banner`}
-            className="absolute inset-0 w-full h-full object-cover object-top filter brightness-[0.96] contrast-[1.04] saturate-[1.04]"
+            className="absolute inset-0 w-full h-full object-cover object-top filter brightness-[1.04] contrast-[1.03] saturate-[1.06]"
           />
           
-          {/* Elegant directional gradient on left side only - leaves right side 100% scenic & crystal clear */}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/50 to-transparent w-full lg:w-[65%] xl:w-[55%] pointer-events-none" />
-          <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-slate-950/70 to-transparent pointer-events-none" />
+          {/* Soft, natural ambient lighting - NO heavy black patchwork or opaque boxes */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/15 to-transparent w-full lg:w-[55%] pointer-events-none" />
           
           {/* Hero Banner Content Container */}
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-10 pb-10 sm:pb-16 flex-1 flex flex-col justify-between w-full">
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-10 pb-12 sm:pb-16 flex-1 flex flex-col justify-between w-full">
             
-            {/* Breadcrumb Navigation */}
-            <nav className="flex items-center gap-2 text-xs sm:text-sm text-slate-200 mb-6 sm:mb-8" aria-label="Breadcrumb">
+            {/* Breadcrumb Navigation on LHS */}
+            <nav className="flex items-center gap-2 text-xs sm:text-sm text-white/90 drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)] mb-6 sm:mb-8" aria-label="Breadcrumb">
               <Link to="/" className="hover:text-white transition-colors">Home</Link>
-              <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+              <ChevronRight className="w-3.5 h-3.5 text-white/70" />
               <Link to={parentPath} className="hover:text-white transition-colors">{parentLabel}</Link>
-              <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+              <ChevronRight className="w-3.5 h-3.5 text-white/70" />
               <span className="font-bold text-white flex items-center gap-1.5">
-                <span className="px-2 py-0.5 rounded-lg bg-white/20 backdrop-blur-xs text-white font-mono font-bold text-xs uppercase shadow-2xs">
+                <span className="px-2 py-0.5 rounded-lg bg-black/30 backdrop-blur-xs text-white font-mono font-bold text-xs uppercase border border-white/20">
                   {data.flag}
                 </span>
                 <span>Study in {data.name}</span>
               </span>
             </nav>
 
-            {/* Hero Main Copy - Protected inside a frosted glassmorphic container to preserve full photo visibility */}
-            <div className="max-w-2xl bg-slate-950/40 backdrop-blur-md p-6 sm:p-8 lg:p-9 rounded-3xl border border-white/15 shadow-2xl space-y-4">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-iq-red text-white font-black text-xs uppercase tracking-wider shadow-md">
+            {/* Hero Main Copy - Clean LHS placement directly on background, NO dark patchwork box */}
+            <div className="max-w-2xl space-y-4 sm:space-y-5 text-left">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-iq-red text-white font-black text-xs uppercase tracking-wider shadow-[0_4px_14px_rgba(227,6,19,0.5)]">
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>{heroBadge}</span>
               </div>
 
-              <h1 className="text-2xl sm:text-4xl lg:text-[42px] font-black text-white tracking-tight leading-[1.18] drop-shadow-md">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[46px] xl:text-[50px] font-black text-white tracking-tight leading-[1.14] drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
                 {heroHeadline}
               </h1>
 
-              <p className="text-xs sm:text-sm md:text-base text-slate-100 leading-relaxed font-medium drop-shadow">
+              <p className="text-sm sm:text-base md:text-lg text-white font-semibold leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] max-w-xl">
                 {heroSubtitle}
               </p>
 
-              {/* 4 Stat Chips */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-2">
+              {/* 4 Stat Chips - Bright clean white cards with navy numbers, NO dark block */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-2">
                 {data.heroBanner.stats.map((stat, sIdx) => (
                   <div
                     key={sIdx}
-                    className="bg-white/20 backdrop-blur-md px-3.5 py-2.5 rounded-2xl border border-white/25 shadow-xs"
+                    className="bg-white/95 backdrop-blur-md px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-2xl border border-white shadow-[0_8px_20px_rgba(0,0,0,0.18)]"
                   >
-                    <div className="text-[10px] sm:text-xs font-bold text-slate-200 uppercase tracking-wider truncate">
+                    <div className="text-[10px] sm:text-[11px] font-bold text-slate-500 uppercase tracking-wider truncate">
                       {stat.label}
                     </div>
-                    <div className="text-base sm:text-lg font-black text-white mt-0.5 truncate">
+                    <div className="text-base sm:text-lg lg:text-xl font-black text-iq-navy mt-0.5 truncate">
                       {stat.value}
                     </div>
                   </div>
