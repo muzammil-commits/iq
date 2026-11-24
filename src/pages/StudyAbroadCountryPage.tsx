@@ -102,60 +102,64 @@ export const StudyAbroadCountryPage: React.FC<StudyAbroadCountryPageProps> = ({ 
       
       {/* 
         SECTION 1: COUNTRY HERO BANNER
-        Full-width high-resolution landmark banner matching image copy 43.png
+        Full-width high-resolution landmark banner with 100% full-frame picture visibility
       */}
-      <section className="relative w-full overflow-hidden bg-slate-900 text-white">
-        {/* Full-Width Background Landmark Image */}
-        <div className="relative h-[420px] sm:h-[480px] lg:h-[560px] w-full overflow-hidden">
+      <section className="relative w-full overflow-hidden bg-slate-950 text-white">
+        {/* Full-Width Background Landmark Image with Full Vertical & Horizontal Visibility */}
+        <div className="relative min-h-[580px] sm:min-h-[660px] md:min-h-[720px] lg:min-h-[780px] xl:min-h-[840px] 2xl:min-h-[880px] w-full overflow-hidden flex flex-col justify-between">
           <img
             src={data.heroBanner.imageUrl}
             alt={`${data.name} landmark banner`}
-            className="w-full h-full object-cover object-center filter brightness-[0.82] contrast-[1.05]"
+            className="absolute inset-0 w-full h-full object-cover object-top filter brightness-[0.96] contrast-[1.04] saturate-[1.04]"
           />
-          {/* Subtle gradient overlay for high contrast and readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-slate-950/30" />
+          
+          {/* Elegant directional gradient on left side only - leaves right side 100% scenic & crystal clear */}
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/50 to-transparent w-full lg:w-[65%] xl:w-[55%] pointer-events-none" />
+          <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-slate-950/70 to-transparent pointer-events-none" />
           
           {/* Hero Banner Content Container */}
-          <div className="absolute inset-0 flex flex-col justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 z-10">
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-10 pb-10 sm:pb-16 flex-1 flex flex-col justify-between w-full">
             
             {/* Breadcrumb Navigation */}
-            <nav className="flex items-center gap-2 text-xs sm:text-sm text-slate-200" aria-label="Breadcrumb">
+            <nav className="flex items-center gap-2 text-xs sm:text-sm text-slate-200 mb-6 sm:mb-8" aria-label="Breadcrumb">
               <Link to="/" className="hover:text-white transition-colors">Home</Link>
               <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
               <Link to={parentPath} className="hover:text-white transition-colors">{parentLabel}</Link>
               <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
               <span className="font-bold text-white flex items-center gap-1.5">
-                <span>{data.flag}</span>
+                <span className="px-2 py-0.5 rounded-lg bg-white/20 backdrop-blur-xs text-white font-mono font-bold text-xs uppercase shadow-2xs">
+                  {data.flag}
+                </span>
                 <span>Study in {data.name}</span>
               </span>
             </nav>
 
-            {/* Hero Main Copy */}
-            <div className="max-w-3xl space-y-4">
+            {/* Hero Main Copy - Protected inside a frosted glassmorphic container to preserve full photo visibility */}
+            <div className="max-w-2xl bg-slate-950/40 backdrop-blur-md p-6 sm:p-8 lg:p-9 rounded-3xl border border-white/15 shadow-2xl space-y-4">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-iq-red text-white font-black text-xs uppercase tracking-wider shadow-md">
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>{heroBadge}</span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-[1.15] drop-shadow-md">
+              <h1 className="text-2xl sm:text-4xl lg:text-[42px] font-black text-white tracking-tight leading-[1.18] drop-shadow-md">
                 {heroHeadline}
               </h1>
 
-              <p className="text-sm sm:text-base md:text-lg text-slate-100 leading-relaxed font-medium drop-shadow">
+              <p className="text-xs sm:text-sm md:text-base text-slate-100 leading-relaxed font-medium drop-shadow">
                 {heroSubtitle}
               </p>
 
               {/* 4 Stat Chips */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-2">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-2">
                 {data.heroBanner.stats.map((stat, sIdx) => (
                   <div
                     key={sIdx}
-                    className="bg-white/15 backdrop-blur-md px-3.5 py-2.5 rounded-2xl border border-white/20 shadow-sm"
+                    className="bg-white/20 backdrop-blur-md px-3.5 py-2.5 rounded-2xl border border-white/25 shadow-xs"
                   >
-                    <div className="text-[10px] sm:text-xs font-bold text-slate-200 uppercase tracking-wider">
+                    <div className="text-[10px] sm:text-xs font-bold text-slate-200 uppercase tracking-wider truncate">
                       {stat.label}
                     </div>
-                    <div className="text-base sm:text-lg font-black text-white mt-0.5">
+                    <div className="text-base sm:text-lg font-black text-white mt-0.5 truncate">
                       {stat.value}
                     </div>
                   </div>

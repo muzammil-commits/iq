@@ -174,7 +174,7 @@ export const ExploreStudyDestinations: React.FC = () => {
                   <img
                     src={dest.image}
                     alt={dest.country}
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
                     loading="lazy"
                   />
                   <div className="absolute top-3 right-3 text-xl bg-white/90 backdrop-blur-xs px-2.5 py-1 rounded-xl shadow-xs">
@@ -256,7 +256,7 @@ export const ExploreStudyDestinations: React.FC = () => {
                 <img
                   src={selectedDest.image}
                   alt={selectedDest.country}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
 
