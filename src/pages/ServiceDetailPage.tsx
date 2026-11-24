@@ -29,13 +29,15 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ onOpenCons
 
   return (
     <div className="w-full">
-      {/* Page Hero */}
+      {/* Page Hero with High-Quality Pictorial Representation */}
       <PageHero
         title={service.title}
         subtitle={service.shortDescription}
         badge={`Service ${service.number} • ${service.category}`}
+        image={service.image}
+        imageAlt={`IQ Overseas ${service.title}`}
         breadcrumbs={[
-          { label: 'Services', path: '/services' },
+          { label: service.category === 'Visa Consultancy Services' ? 'Visa' : 'Services', path: service.category === 'Visa Consultancy Services' ? '/visa' : '/services' },
           { label: service.title }
         ]}
         onOpenConsultation={onOpenConsultation}
@@ -47,8 +49,32 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ onOpenCons
           {/* Main Content (8 cols) */}
           <div className="lg:col-span-8 space-y-10">
             
-            {/* Overview Section */}
-            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/80 shadow-sm space-y-4">
+            {/* Overview Section with Pictorial Showcase Banner */}
+            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/80 shadow-sm space-y-5">
+              {/* Service Feature Banner Image */}
+              {service.image && (
+                <div className="relative w-full h-56 sm:h-72 md:h-80 rounded-2xl overflow-hidden border border-slate-200 shadow-inner group">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-iq-navy/85 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
+                    <div className="flex items-center gap-2">
+                      <span className="w-2.5 h-2.5 rounded-full bg-iq-red animate-pulse" />
+                      <span className="text-xs sm:text-sm font-bold tracking-wide">
+                        {service.title} Specialist Guidance
+                      </span>
+                    </div>
+                    <span className="text-[11px] font-mono bg-white/20 backdrop-blur-md px-2.5 py-1 rounded-full font-bold">
+                      Service {service.number}
+                    </span>
+                  </div>
+                </div>
+              )}
+
               <div className="inline-flex items-center gap-2 text-xs font-bold text-iq-red uppercase tracking-wider">
                 <span className="w-5 h-0.5 bg-iq-red" />
                 <span>Overview & What We Provide</span>

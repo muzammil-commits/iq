@@ -43,6 +43,9 @@ export const VisaPage: React.FC<VisaPageProps> = ({ onOpenConsultation }) => {
         title="Comprehensive Visa Advisory for Your"
         highlightedWord="International Future"
         subtitle="End-to-end guidance for Study Visas, Visiting Visas, and Permanent Residency (PR) & Work Permits. Precise documentation, financial audits, and 1-on-1 consular interview coaching."
+        badge="Visa Advisory Division • IQ Overseas"
+        image="/images/service-visa.png"
+        imageAlt="IQ Overseas Visa Consultancy Advisory"
         breadcrumbs={[{ label: 'Visa Consultancy' }]}
         onOpenConsultation={onOpenConsultation}
       />
@@ -74,7 +77,7 @@ export const VisaPage: React.FC<VisaPageProps> = ({ onOpenConsultation }) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-white rounded-3xl p-7 border border-slate-200/90 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-2 relative overflow-hidden"
+                className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-2 relative overflow-hidden"
               >
                 {/* Top Accent Line */}
                 <div className={`absolute top-0 left-0 right-0 h-1.5 ${
@@ -82,8 +85,33 @@ export const VisaPage: React.FC<VisaPageProps> = ({ onOpenConsultation }) => {
                 }`} />
 
                 <div>
-                  <div className="flex items-center justify-between mb-5">
-                    <div className="w-13 h-13 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xs">
+                  {/* Pictorial Representation Image Banner */}
+                  {visa.image && (
+                    <div className="relative w-full h-48 sm:h-52 rounded-2xl overflow-hidden mb-5 border border-slate-200/90 shadow-xs group/img">
+                      <img
+                        src={visa.image}
+                        alt={visa.title}
+                        className="w-full h-full object-cover object-center group-hover/img:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-iq-navy/75 via-transparent to-black/20" />
+                      <div className="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-mono font-bold text-white">
+                        Category 0{idx + 1}
+                      </div>
+                      <div className="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between text-white text-[11px] font-bold">
+                        <span className="flex items-center gap-1.5">
+                          <Sparkles className="w-3.5 h-3.5 text-iq-red" />
+                          <span>IQ Overseas Division</span>
+                        </span>
+                        <span className="text-[10px] font-mono bg-white/20 px-2 py-0.5 rounded-full">
+                          100% Verified
+                        </span>
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xs">
                       {getVisaIcon(visa.slug)}
                     </div>
 
@@ -95,7 +123,7 @@ export const VisaPage: React.FC<VisaPageProps> = ({ onOpenConsultation }) => {
                   <div className="text-xs font-mono font-bold text-iq-red mb-1">
                     Category 0{idx + 1}
                   </div>
-                  <h3 className="text-2xl font-black text-iq-navy group-hover:text-iq-red transition-colors mb-3">
+                  <h3 className="text-2xl font-black text-iq-navy group-hover:text-iq-red transition-colors mb-2">
                     {visa.title}
                   </h3>
 

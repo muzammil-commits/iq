@@ -486,64 +486,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
               )}
             </div>
 
-            {/* 8. Countries Dropdown - matching image copy 51.png */}
-            <div
-              className="relative group"
-              onMouseEnter={() => setActiveDropdown('countries')}
-              onMouseLeave={() => setActiveDropdown(null)}
-            >
-              <button
-                type="button"
-                className={`inline-flex items-center gap-1 px-2.5 py-2 text-xs 2xl:text-sm font-bold transition-colors duration-200 rounded-lg relative whitespace-nowrap cursor-pointer ${
-                  location.pathname.startsWith('/study-in-') || activeDropdown === 'countries'
-                    ? 'text-iq-navy'
-                    : 'text-slate-700 hover:text-iq-navy hover:bg-slate-50'
-                }`}
-              >
-                <span>Countries</span>
-                <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:rotate-180 group-hover:text-iq-red transition-transform duration-200" />
-                {location.pathname.startsWith('/study-in-') && (
-                  <span className="absolute bottom-0 left-2.5 right-2.5 h-0.5 bg-iq-red rounded-full" />
-                )}
-              </button>
-
-              {activeDropdown === 'countries' && (
-                <div className="absolute top-full left-0 w-64 bg-white rounded-2xl shadow-2xl border border-slate-100 p-3.5 animate-in fade-in slide-in-from-top-2 duration-200 z-50">
-                  <div className="text-[11px] font-bold uppercase tracking-wider text-iq-navy px-3 pb-2 mb-2 border-b border-slate-100 flex items-center justify-between">
-                    <span>Study Destinations</span>
-                    <span className="text-iq-red font-mono">10 Hubs</span>
-                  </div>
-                  <div className="space-y-0.5">
-                    {[
-                      { name: 'United States', slug: 'usa', flag: '🇺🇸' },
-                      { name: 'United Kingdom', slug: 'uk', flag: '🇬🇧' },
-                      { name: 'Ireland', slug: 'ireland', flag: '🇮🇪' },
-                      { name: 'Australia', slug: 'australia', flag: '🇦🇺' },
-                      { name: 'Canada', slug: 'canada', flag: '🇨🇦' },
-                      { name: 'New Zealand', slug: 'new-zealand', flag: '🇳🇿' },
-                      { name: 'Europe', slug: 'europe', flag: '🇪🇺' },
-                      { name: 'Malaysia', slug: 'malaysia', flag: '🇲🇾' },
-                      { name: 'Singapore', slug: 'singapore', flag: '🇸🇬' },
-                      { name: 'Dubai', slug: 'dubai', flag: '🇦🇪' },
-                    ].map((country) => (
-                      <Link
-                        key={country.slug}
-                        to={`/study-in-${country.slug}`}
-                        onClick={() => setActiveDropdown(null)}
-                        className="flex items-center justify-between px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-700 hover:text-iq-navy hover:bg-slate-50 transition-colors group/c"
-                      >
-                        <span className="flex items-center gap-2">
-                          <span className="text-base leading-none">{country.flag}</span>
-                          <span className="group-hover/c:text-iq-navy group-hover/c:font-bold">{country.name}</span>
-                        </span>
-                        <ChevronRight className="w-3.5 h-3.5 text-slate-300 group-hover/c:text-iq-red group-hover/c:translate-x-0.5 transition-all" />
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-
             {/* 8. Success Stories - single line */}
             <Link
               to="/success-stories"
@@ -778,46 +720,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
                       >
                         Explore Training Programs →
                       </Link>
-                    </div>
-                  )}
-                </div>
-
-                {/* Mobile Countries Accordion */}
-                <div>
-                  <button
-                    onClick={() => setMobileAccordion(mobileAccordion === 'countries' ? null : 'countries')}
-                    className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-bold text-slate-800 hover:bg-slate-50"
-                  >
-                    <span>Study Destinations (10 Countries)</span>
-                    <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform ${mobileAccordion === 'countries' ? 'rotate-180 text-iq-red' : ''}`} />
-                  </button>
-                  {mobileAccordion === 'countries' && (
-                    <div className="pl-4 pr-2 py-1 space-y-1 bg-slate-50/80 rounded-xl mb-1">
-                      {[
-                        { name: 'United States', slug: 'usa', flag: '🇺🇸' },
-                        { name: 'United Kingdom', slug: 'uk', flag: '🇬🇧' },
-                        { name: 'Ireland', slug: 'ireland', flag: '🇮🇪' },
-                        { name: 'Australia', slug: 'australia', flag: '🇦🇺' },
-                        { name: 'Canada', slug: 'canada', flag: '🇨🇦' },
-                        { name: 'New Zealand', slug: 'new-zealand', flag: '🇳🇿' },
-                        { name: 'Europe', slug: 'europe', flag: '🇪🇺' },
-                        { name: 'Malaysia', slug: 'malaysia', flag: '🇲🇾' },
-                        { name: 'Singapore', slug: 'singapore', flag: '🇸🇬' },
-                        { name: 'Dubai', slug: 'dubai', flag: '🇦🇪' },
-                      ].map((c) => (
-                        <Link
-                          key={c.slug}
-                          to={`/study-in-${c.slug}`}
-                          onClick={() => setMobileMenuOpen(false)}
-                          className="flex items-center justify-between py-1.5 text-xs font-semibold text-slate-700 hover:text-iq-navy"
-                        >
-                          <span className="flex items-center gap-2">
-                            <span>{c.flag}</span>
-                            <span>{c.name}</span>
-                          </span>
-                          <ChevronRight className="w-3.5 h-3.5 text-slate-300" />
-                        </Link>
-                      ))}
                     </div>
                   )}
                 </div>

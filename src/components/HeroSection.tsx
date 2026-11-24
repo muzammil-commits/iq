@@ -64,7 +64,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
 
   return (
     <section
-      className="relative w-full overflow-hidden bg-white min-h-[580px] lg:min-h-[660px] xl:min-h-[700px] flex flex-col justify-between pb-20 sm:pb-24 lg:pb-28"
+      className="relative w-full overflow-hidden bg-white min-h-[760px] sm:min-h-[820px] lg:min-h-[660px] xl:min-h-[700px] flex flex-col justify-between pb-16 sm:pb-20 lg:pb-28"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onTouchStart={handleTouchStart}
@@ -102,8 +102,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
       </div>
 
       {/* 
-        MOBILE HERO FULL BACKGROUND (image copy 4.png)
-        Ultra-bright, vivid animated background without heavy opaque filters
+        MOBILE HERO FULL BACKGROUND (image copy 4.png & image copy 60.png)
+        Airplane and student girl are at top - kept crystal clear and fully visible
       */}
       <div className="lg:hidden absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <motion.img
@@ -119,21 +119,21 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
           }}
           src="/images/hero-mobile.png"
           alt="IQ Overseas Mobile Hero Background"
-          className="w-full h-full object-cover object-top filter brightness-[1.18] contrast-[1.08] saturate-[1.06]"
+          className="w-full h-full object-cover object-top filter brightness-[1.15] contrast-[1.05] saturate-[1.05]"
         />
-        {/* Soft natural gradient ensuring background photo clarity and bright visibility */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/25 via-white/10 to-white/70 pointer-events-none" />
+        {/* Pure natural gradient keeping top completely transparent for plane & student */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/90 pointer-events-none" />
       </div>
 
-      {/* Main Content Container Layer */}
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 w-full relative z-10 flex-1 flex flex-col justify-center">
+      {/* Main Content Container Layer - Pushed down on mobile so plane & student girl remain fully visible */}
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 pt-64 sm:pt-72 md:pt-80 lg:pt-8 w-full relative z-10 flex-1 flex flex-col justify-end lg:justify-center">
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
-          {/* Left Column: Heading, Subtitle & CTAs directly on top of the bright background - NO background patch work */}
+          {/* Left Column: Heading, Subtitle & CTAs positioned lower down on mobile with NO heavy shadows */}
           <div className="lg:col-span-7 xl:col-span-6 space-y-4 sm:space-y-6 text-center lg:text-left">
             
-            {/* Category Pill */}
+            {/* Category Pill (Rounded Text) - positioned down with content */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-xs text-iq-navy text-xs sm:text-sm font-bold tracking-wide">
               <span className="w-2 h-2 rounded-full bg-iq-red animate-pulse" />
               <span>{slide.category}</span>
@@ -141,8 +141,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
               <span className="text-slate-600 font-semibold">IQ Overseas Guntur</span>
             </div>
 
-            {/* Main Headline with crystal-clear contrast and crisp text clarity on mobile */}
-            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-[46px] xl:text-[54px] font-black text-iq-navy tracking-tight leading-[1.15] [text-shadow:_0_1px_3px_rgba(255,255,255,0.9),_0_2px_8px_rgba(255,255,255,0.7)] lg:[text-shadow:none]">
+            {/* Main Headline - crisp text without dark shadows */}
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-[46px] xl:text-[54px] font-black text-iq-navy tracking-tight leading-[1.15]">
               {slide.title}{' '}
               <span className="text-iq-red relative inline-block">
                 {slide.highlightedText}
@@ -156,8 +156,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenConsultation }) 
               </span>
             </h1>
 
-            {/* Description with high clarity on mobile */}
-            <p className="text-xs sm:text-base md:text-lg text-slate-800 lg:text-slate-700 leading-relaxed max-w-xl mx-auto lg:mx-0 font-semibold lg:font-medium [text-shadow:_0_1px_3px_rgba(255,255,255,0.95)] lg:[text-shadow:none]">
+            {/* Description - crisp and clear without shadows */}
+            <p className="text-xs sm:text-base md:text-lg text-slate-800 lg:text-slate-700 leading-relaxed max-w-xl mx-auto lg:mx-0 font-semibold lg:font-medium">
               {slide.description}
             </p>
 
