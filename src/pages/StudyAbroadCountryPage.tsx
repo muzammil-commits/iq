@@ -28,7 +28,9 @@ import {
   MessageSquare,
   HelpCircle,
   ExternalLink,
-  CheckSquare
+  CheckSquare,
+  Send,
+  User
 } from 'lucide-react';
 import { useCountry, countryStore } from '../store/countryStore';
 import { BRAND_INFO } from '../data/siteContent';
@@ -42,7 +44,20 @@ export const StudyAbroadCountryPage: React.FC<StudyAbroadCountryPageProps> = ({ 
   const { country: routeSlug } = useParams<{ country?: string }>();
   const countryData = useCountry(routeSlug);
   const [expandedFaq, setExpandedFaq] = useState<number | null>(0);
-  const [activeCourseModal, setActiveCourseModal] = useState<any | null>(null);
+  
+  // Interactive Modal & Popup States
+  const [activePopupModal, setActivePopupModal] = useState<'call' | 'whatsapp' | 'shortlist' | null>(null);
+  const [selectedCourse, setSelectedCourse] = useState<any | null>(null);
+  const [selectedScholarship, setSelectedScholarship] = useState<any | null>(null);
+  const [selectedSubDest, setSelectedSubDest] = useState<any | null>(null);
+  const [shortlistSuccess, setShortlistSuccess] = useState(false);
+  const [shortlistForm, setShortlistForm] = useState({
+    name: '',
+    phone: '',
+    degree: degreeLevel === 'bachelors' ? "Bachelor's Degree" : "Master's Degree",
+    field: 'Computer Science & AI',
+    intake: 'Next Upcoming Intake'
+  });
 
   // If country is not found or not published, fall back to Australia
   const data = countryData || countryStore.getBySlug('australia') || Object.values(countryStore.getAll())[0];
@@ -154,53 +169,97 @@ export const StudyAbroadCountryPage: React.FC<StudyAbroadCountryPageProps> = ({ 
         </div>
 
         {/* 
-          Quick Contact & Action Strip (matching image copy 43.png)
-          Call Us, Chat on WhatsApp, Get University Shortlist
+          GRAND HIGH-IMPACT QUICK CONTACT & ACTION STRIP (Enhanced Size & Interactive Popups)
+          Prominent height, grand cards, large icons, bold numbers, and responsive 4-column layout
         */}
-        <div className="bg-white border-b border-slate-200 shadow-md">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
-            <div className="flex flex-wrap items-center justify-between gap-4 text-xs sm:text-sm font-bold text-slate-700">
+        <div className="bg-white border-b-2 border-slate-100 shadow-[0_20px_50px_rgba(7,27,104,0.12)] relative z-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-6 lg:py-7">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 items-center">
               
-              <a
-                href={`tel:${BRAND_INFO.primaryPhoneRaw}`}
-                className="inline-flex items-center gap-2 hover:text-iq-navy transition-colors"
-              >
-                <div className="w-8 h-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center">
-                  <Phone className="w-4 h-4" />
-                </div>
-                <span>Call Us: {BRAND_INFO.primaryPhone}</span>
-              </a>
-
-              <a
-                href={`https://wa.me/${BRAND_INFO.whatsappNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(
-                  `Hello IQ Overseas, I am interested in studying in ${data.name}. Please guide me.`
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-emerald-700 hover:text-emerald-800 transition-colors"
-              >
-                <div className="w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center">
-                  <MessageSquare className="w-4 h-4" />
-                </div>
-                <span>Chat on WhatsApp</span>
-              </a>
-
+              {/* 1. Call Us */}
               <button
-                onClick={onOpenConsultation}
-                className="inline-flex items-center gap-2 text-iq-red hover:text-red-700 transition-colors cursor-pointer"
+                type="button"
+                onClick={() => setActivePopupModal('call')}
+                className="w-full text-left p-3.5 sm:p-4 rounded-2xl bg-slate-50/80 hover:bg-white border border-slate-200/90 hover:border-blue-400 hover:shadow-xl transition-all duration-300 flex items-center gap-3.5 group cursor-pointer"
               >
-                <div className="w-8 h-8 rounded-full bg-red-50 text-iq-red flex items-center justify-center">
-                  <Calendar className="w-4 h-4" />
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-blue-50 text-blue-600 border border-blue-100 group-hover:bg-blue-600 group-hover:text-white flex items-center justify-center shrink-0 shadow-xs transition-all duration-300 group-hover:scale-105">
+                  <Phone className="w-6 h-6 sm:w-7 sm:h-7" />
                 </div>
-                <span>Get University Shortlist</span>
+                <div className="min-w-0">
+                  <div className="text-[11px] font-black uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+                    <span>Instant Call</span>
+                  </div>
+                  <div className="text-sm sm:text-base lg:text-lg font-black text-iq-navy group-hover:text-iq-red transition-colors truncate">
+                    Call: {BRAND_INFO.primaryPhone}
+                  </div>
+                  <div className="text-[11px] text-slate-500 font-semibold truncate hidden sm:block">
+                    Talk with Senior Counselor
+                  </div>
+                </div>
               </button>
 
+              {/* 2. Chat on WhatsApp */}
               <button
-                onClick={onOpenConsultation}
-                className="px-5 py-2 rounded-xl bg-iq-red hover:bg-iq-navy text-white text-xs font-black transition-all shadow-sm cursor-pointer ml-auto sm:ml-0"
+                type="button"
+                onClick={() => setActivePopupModal('whatsapp')}
+                className="w-full text-left p-3.5 sm:p-4 rounded-2xl bg-emerald-50/40 hover:bg-white border border-emerald-200/80 hover:border-emerald-500 hover:shadow-xl transition-all duration-300 flex items-center gap-3.5 group cursor-pointer"
               >
-                Book Free Consultation
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-emerald-100/70 text-emerald-600 border border-emerald-200 group-hover:bg-emerald-600 group-hover:text-white flex items-center justify-center shrink-0 shadow-xs transition-all duration-300 group-hover:scale-105">
+                  <MessageSquare className="w-6 h-6 sm:w-7 sm:h-7" />
+                </div>
+                <div className="min-w-0">
+                  <div className="text-[11px] font-black uppercase tracking-wider text-emerald-600 flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
+                    <span>Online Now</span>
+                  </div>
+                  <div className="text-sm sm:text-base lg:text-lg font-black text-slate-800 group-hover:text-emerald-700 transition-colors truncate">
+                    Chat on WhatsApp
+                  </div>
+                  <div className="text-[11px] text-slate-500 font-semibold truncate hidden sm:block">
+                    Instant 2-Min Reply
+                  </div>
+                </div>
               </button>
+
+              {/* 3. Get University Shortlist */}
+              <button
+                type="button"
+                onClick={() => {
+                  setShortlistSuccess(false);
+                  setActivePopupModal('shortlist');
+                }}
+                className="w-full text-left p-3.5 sm:p-4 rounded-2xl bg-red-50/40 hover:bg-white border border-red-200/80 hover:border-iq-red hover:shadow-xl transition-all duration-300 flex items-center gap-3.5 group cursor-pointer"
+              >
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-red-100/70 text-iq-red border border-red-200 group-hover:bg-iq-red group-hover:text-white flex items-center justify-center shrink-0 shadow-xs transition-all duration-300 group-hover:scale-105">
+                  <Calendar className="w-6 h-6 sm:w-7 sm:h-7" />
+                </div>
+                <div className="min-w-0">
+                  <div className="text-[11px] font-black uppercase tracking-wider text-iq-red flex items-center gap-1.5">
+                    <Sparkles className="w-3 h-3 text-iq-red" />
+                    <span>Free Matching</span>
+                  </div>
+                  <div className="text-sm sm:text-base lg:text-lg font-black text-iq-red group-hover:text-red-700 transition-colors truncate">
+                    Get University Shortlist
+                  </div>
+                  <div className="text-[11px] text-slate-500 font-semibold truncate hidden sm:block">
+                    Filtered for {data.name}
+                  </div>
+                </div>
+              </button>
+
+              {/* 4. Book Free Consultation CTA Button */}
+              <div className="w-full">
+                <button
+                  type="button"
+                  onClick={onOpenConsultation}
+                  className="w-full py-4 sm:py-4.5 px-6 rounded-2xl bg-gradient-to-r from-iq-red via-[#e30613] to-[#be0510] hover:from-iq-navy hover:to-slate-900 text-white text-sm sm:text-base lg:text-lg font-black tracking-wide shadow-[0_12px_30px_rgba(227,6,19,0.38)] hover:shadow-[0_16px_40px_rgba(7,27,104,0.4)] transition-all duration-300 transform hover:-translate-y-0.5 flex items-center justify-center gap-2.5 cursor-pointer text-center"
+                >
+                  <span>Book Free Consultation</span>
+                  <ArrowRight className="w-5 h-5" />
+                </button>
+              </div>
+
             </div>
           </div>
         </div>
@@ -312,29 +371,30 @@ export const StudyAbroadCountryPage: React.FC<StudyAbroadCountryPageProps> = ({ 
               {data.subDestinations.map((sub) => (
                 <div
                   key={sub.id}
-                  className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
+                  onClick={() => setSelectedSubDest(sub)}
+                  className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1.5 cursor-pointer"
                 >
                   <div>
-                    <div className="relative h-44 overflow-hidden bg-slate-100">
+                    <div className="relative h-48 overflow-hidden bg-slate-100">
                       <img
                         src={sub.image}
                         alt={`Study in ${sub.country}`}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                        className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
                       <div className="absolute bottom-3 left-3 right-3 text-white flex items-center justify-between">
-                        <span className="text-lg font-black flex items-center gap-1.5">
+                        <span className="text-xl font-black flex items-center gap-1.5">
                           <span>{sub.flag}</span>
                           <span>{sub.country}</span>
                         </span>
-                        <span className="text-[11px] font-bold bg-white/20 backdrop-blur-md px-2.5 py-0.5 rounded-full">
+                        <span className="text-xs font-bold bg-white/25 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/30">
                           {sub.capital}
                         </span>
                       </div>
                     </div>
 
                     <div className="p-5 space-y-3">
-                      <p className="text-xs text-slate-600 leading-relaxed font-medium">
+                      <p className="text-xs text-slate-600 leading-relaxed font-medium line-clamp-3">
                         {sub.description}
                       </p>
                       <div className="pt-2 border-t border-slate-100 space-y-1 text-xs">
@@ -352,10 +412,14 @@ export const StudyAbroadCountryPage: React.FC<StudyAbroadCountryPageProps> = ({ 
 
                   <div className="p-5 pt-0">
                     <button
-                      onClick={onOpenConsultation}
-                      className="w-full py-2.5 rounded-xl bg-slate-50 hover:bg-iq-navy text-iq-navy hover:text-white border border-slate-200 text-xs font-black transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedSubDest(sub);
+                      }}
+                      className="w-full py-2.5 rounded-xl bg-slate-50 hover:bg-iq-navy text-iq-navy hover:text-white border border-slate-200 text-xs font-black transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-2xs"
                     >
-                      <span>Consult for {sub.country}</span>
+                      <span>View Destination Insights</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </button>
                   </div>
@@ -551,7 +615,8 @@ export const StudyAbroadCountryPage: React.FC<StudyAbroadCountryPageProps> = ({ 
             {data.topCourses.map((course) => (
               <div
                 key={course.id}
-                className="bg-[#F8FAFD] rounded-2xl p-6 border border-slate-200/80 shadow-2xs hover:shadow-lg hover:border-iq-navy transition-all duration-300 flex flex-col justify-between group"
+                onClick={() => setSelectedCourse(course)}
+                className="bg-[#F8FAFD] rounded-2xl p-6 border border-slate-200/80 shadow-2xs hover:shadow-xl hover:border-iq-navy transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 cursor-pointer"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
@@ -569,7 +634,7 @@ export const StudyAbroadCountryPage: React.FC<StudyAbroadCountryPageProps> = ({ 
                     {course.title}
                   </h4>
 
-                  <p className="text-xs text-slate-600 leading-relaxed font-medium mb-4">
+                  <p className="text-xs text-slate-600 leading-relaxed font-medium mb-4 line-clamp-3">
                     {course.description}
                   </p>
 
@@ -579,7 +644,7 @@ export const StudyAbroadCountryPage: React.FC<StudyAbroadCountryPageProps> = ({ 
                         Typical Career Roles:
                       </span>
                       <div className="flex flex-wrap gap-1.5">
-                        {course.careerRoles.map((role, rIdx) => (
+                        {course.careerRoles.slice(0, 3).map((role, rIdx) => (
                           <span
                             key={rIdx}
                             className="text-[11px] font-semibold bg-white text-slate-700 px-2 py-0.5 rounded-md border border-slate-200"
@@ -592,13 +657,22 @@ export const StudyAbroadCountryPage: React.FC<StudyAbroadCountryPageProps> = ({ 
                   )}
                 </div>
 
-                <button
-                  onClick={onOpenConsultation}
-                  className="mt-5 w-full py-2 bg-white hover:bg-iq-navy text-iq-navy hover:text-white rounded-xl text-xs font-black border border-slate-200 transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-2xs"
-                >
-                  <span>Check Eligibility</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </button>
+                <div className="mt-5 pt-3 border-t border-slate-200/60 flex items-center justify-between">
+                  <span className="text-[11px] font-bold text-slate-400 group-hover:text-iq-navy transition-colors">
+                    Click to View Modules & Roles ↗
+                  </span>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedCourse(course);
+                    }}
+                    className="py-1.5 px-3 bg-white hover:bg-iq-navy text-iq-navy hover:text-white rounded-xl text-xs font-black border border-slate-200 transition-colors flex items-center gap-1 shadow-2xs"
+                  >
+                    <span>Details</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
               </div>
             ))}
           </div>
@@ -627,33 +701,41 @@ export const StudyAbroadCountryPage: React.FC<StudyAbroadCountryPageProps> = ({ 
             {data.scholarships.items.map((sch) => (
               <div
                 key={sch.id}
-                className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition-all flex flex-col justify-between"
+                onClick={() => setSelectedScholarship(sch)}
+                className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 cursor-pointer"
               >
                 <div>
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wide">
                       {sch.provider}
                     </span>
-                    <span className="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 font-black text-xs">
+                    <span className="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 font-black text-xs border border-emerald-100 shadow-2xs">
                       {sch.award}
                     </span>
                   </div>
-                  <h4 className="text-lg font-black text-iq-navy mb-2">
+                  <h4 className="text-lg font-black text-iq-navy group-hover:text-iq-red transition-colors mb-2">
                     {sch.name}
                   </h4>
-                  <div className="text-xs text-slate-600 leading-relaxed font-medium">
+                  <div className="text-xs text-slate-600 leading-relaxed font-medium line-clamp-3">
                     <span className="font-bold text-slate-800">Eligibility: </span>
                     {sch.eligibility}
                   </div>
                 </div>
 
                 <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between">
-                  <span className="text-[11px] text-slate-400 font-semibold">Available for Indian Citizens</span>
+                  <span className="text-[11px] text-slate-400 font-semibold flex items-center gap-1">
+                    <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                    <span>Click to Check Eligibility ↗</span>
+                  </span>
                   <button
-                    onClick={onOpenConsultation}
-                    className="text-xs font-black text-iq-red hover:underline inline-flex items-center gap-1 cursor-pointer"
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedScholarship(sch);
+                    }}
+                    className="text-xs font-black text-iq-red hover:text-red-700 inline-flex items-center gap-1 cursor-pointer"
                   >
-                    <span>Apply via IQ Overseas</span>
+                    <span>View Criteria</span>
                     <ArrowRight className="w-3 h-3" />
                   </button>
                 </div>
@@ -1062,6 +1144,512 @@ export const StudyAbroadCountryPage: React.FC<StudyAbroadCountryPageProps> = ({ 
           </div>
         </div>
       </section>
+
+      {/* 
+        ========================================================================
+        INTERACTIVE POPUP MODALS SYSTEM
+        (Call Helpline, WhatsApp Connect, University Shortlist, Course Details, 
+         Scholarship Criteria, Sub-Destination Insights)
+        ========================================================================
+      */}
+      <AnimatePresence>
+        {/* 1. CALL HELPLINE MODAL */}
+        {activePopupModal === 'call' && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm animate-in fade-in duration-200">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative overflow-hidden"
+            >
+              <button
+                type="button"
+                onClick={() => setActivePopupModal(null)}
+                className="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-900 flex items-center justify-center transition-colors cursor-pointer"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 font-bold text-xs uppercase tracking-wider mb-3">
+                <Phone className="w-3.5 h-3.5" />
+                <span>Direct Counselor Hotlines</span>
+              </div>
+
+              <h3 className="text-xl sm:text-2xl font-black text-iq-navy tracking-tight mb-2">
+                Talk to {data.name} Admissions Experts
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 font-medium mb-6 leading-relaxed">
+                Connect directly with certified study abroad counselors at IQ Overseas for instant profile assessment, university shortlists, and visa documentation guidance.
+              </p>
+
+              <div className="space-y-3.5 mb-6">
+                <a
+                  href={`tel:${BRAND_INFO.primaryPhoneRaw}`}
+                  className="p-4 rounded-2xl bg-slate-50 hover:bg-blue-50/70 border border-slate-200 hover:border-blue-400 flex items-center justify-between group transition-all"
+                >
+                  <div className="flex items-center gap-3.5">
+                    <div className="w-11 h-11 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-xs">
+                      <Phone className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">Primary Helpline</div>
+                      <div className="text-base sm:text-lg font-black text-iq-navy group-hover:text-blue-600 transition-colors">
+                        {BRAND_INFO.primaryPhone}
+                      </div>
+                    </div>
+                  </div>
+                  <span className="px-3 py-1.5 rounded-xl bg-blue-600 text-white text-xs font-black shadow-xs group-hover:scale-105 transition-transform">
+                    Tap to Call
+                  </span>
+                </a>
+
+                <a
+                  href="tel:+919390506085"
+                  className="p-4 rounded-2xl bg-slate-50 hover:bg-blue-50/70 border border-slate-200 hover:border-blue-400 flex items-center justify-between group transition-all"
+                >
+                  <div className="flex items-center gap-3.5">
+                    <div className="w-11 h-11 rounded-xl bg-slate-700 group-hover:bg-blue-600 text-white flex items-center justify-center shadow-xs transition-colors">
+                      <Building2 className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">Guntur Head Office</div>
+                      <div className="text-base sm:text-lg font-black text-iq-navy group-hover:text-blue-600 transition-colors">
+                        +91 9390506085
+                      </div>
+                    </div>
+                  </div>
+                  <span className="px-3 py-1.5 rounded-xl bg-slate-800 group-hover:bg-blue-600 text-white text-xs font-black shadow-xs group-hover:scale-105 transition-all">
+                    Tap to Call
+                  </span>
+                </a>
+              </div>
+
+              <div className="p-3.5 rounded-2xl bg-slate-100/70 text-slate-600 text-xs font-medium space-y-1 mb-5">
+                <div className="flex items-center gap-2">
+                  <Clock className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                  <span><strong>Working Hours:</strong> Mon - Sat: 9:30 AM to 7:00 PM IST</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                  <span><strong>Location:</strong> Lakshmipuram 4th Line, Pandaripuram, Guntur</span>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setActivePopupModal(null);
+                    onOpenConsultation();
+                  }}
+                  className="flex-1 py-3.5 rounded-xl bg-iq-red hover:bg-iq-red-hover text-white font-black text-xs uppercase tracking-wider shadow-md transition-all text-center cursor-pointer"
+                >
+                  Book 1-on-1 Profile Strategy
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+
+        {/* 2. WHATSAPP CONNECT MODAL */}
+        {activePopupModal === 'whatsapp' && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm animate-in fade-in duration-200">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative overflow-hidden"
+            >
+              <button
+                type="button"
+                onClick={() => setActivePopupModal(null)}
+                className="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-900 flex items-center justify-center transition-colors cursor-pointer"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 font-bold text-xs uppercase tracking-wider mb-3">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
+                <span>WhatsApp Instant Admissions Desk</span>
+              </div>
+
+              <h3 className="text-xl sm:text-2xl font-black text-iq-navy tracking-tight mb-2">
+                Chat Directly on WhatsApp: {data.name}
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 font-medium mb-5 leading-relaxed">
+                Get real-time answers on university eligibility, required IELTS/PTE scores, scholarship options, and cost estimates directly from our senior counselor.
+              </p>
+
+              <div className="p-4 rounded-2xl bg-emerald-50/70 border border-emerald-200/90 text-xs text-slate-700 space-y-2 mb-6">
+                <div className="text-[11px] font-bold text-emerald-800 uppercase tracking-wider">Pre-filled Chat Inquiry:</div>
+                <div className="italic text-slate-600 bg-white p-3 rounded-xl border border-emerald-100">
+                  "Hello IQ Overseas team, I am interested in studying in {data.name} for {degreeLevel === 'bachelors' ? 'Undergraduate / Bachelors' : 'Postgraduate / Masters'}. Please share the top eligible universities, scholarships, and next intake deadlines."
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <a
+                  href={`https://wa.me/${BRAND_INFO.whatsappNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(
+                    `Hello IQ Overseas, I am interested in studying in ${data.name} for ${degreeLevel === 'bachelors' ? 'Undergraduate / Bachelors' : 'Postgraduate / Masters'}. Please guide me on universities, scholarships, and admissions.`
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-sm shadow-lg shadow-emerald-600/30 transition-all flex items-center justify-center gap-2.5 cursor-pointer"
+                >
+                  <MessageSquare className="w-5 h-5" />
+                  <span>Start WhatsApp Chat Now</span>
+                </a>
+
+                <button
+                  type="button"
+                  onClick={() => setActivePopupModal(null)}
+                  className="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition-colors"
+                >
+                  Close
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+
+        {/* 3. GET UNIVERSITY SHORTLIST MODAL */}
+        {activePopupModal === 'shortlist' && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm animate-in fade-in duration-200">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative overflow-hidden"
+            >
+              <button
+                type="button"
+                onClick={() => setActivePopupModal(null)}
+                className="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-900 flex items-center justify-center transition-colors cursor-pointer"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              {!shortlistSuccess ? (
+                <>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 text-iq-red font-bold text-xs uppercase tracking-wider mb-3">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    <span>Free Profile Matching</span>
+                  </div>
+
+                  <h3 className="text-xl sm:text-2xl font-black text-iq-navy tracking-tight mb-2">
+                    Get Your Custom {data.name} University Shortlist
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 font-medium mb-5 leading-relaxed">
+                    Receive 5–8 top accredited universities tailored to your academic scores, budget, and desired course with fee and scholarship evaluations.
+                  </p>
+
+                  <form
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      setShortlistSuccess(true);
+                    }}
+                    className="space-y-3.5"
+                  >
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-1">Full Name</label>
+                      <input
+                        type="text"
+                        required
+                        value={shortlistForm.name}
+                        onChange={(e) => setShortlistForm({ ...shortlistForm, name: e.target.value })}
+                        placeholder="e.g. Rahul Sharma"
+                        className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-iq-navy/20 focus:border-iq-navy font-medium"
+                      />
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <div>
+                        <label className="block text-xs font-bold text-slate-700 mb-1">Mobile Number</label>
+                        <input
+                          type="tel"
+                          required
+                          value={shortlistForm.phone}
+                          onChange={(e) => setShortlistForm({ ...shortlistForm, phone: e.target.value })}
+                          placeholder="+91 98765 43210"
+                          className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-iq-navy/20 focus:border-iq-navy font-medium"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold text-slate-700 mb-1">Target Degree</label>
+                        <select
+                          value={shortlistForm.degree}
+                          onChange={(e) => setShortlistForm({ ...shortlistForm, degree: e.target.value })}
+                          className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-iq-navy/20 focus:border-iq-navy font-medium"
+                        >
+                          <option value="Master's Degree">Master's Degree (MS / MBA)</option>
+                          <option value="Bachelor's Degree">Bachelor's Degree (UG)</option>
+                          <option value="Doctorate / PhD">Doctorate / PhD</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-1">Field of Study / Specialization</label>
+                      <input
+                        type="text"
+                        value={shortlistForm.field}
+                        onChange={(e) => setShortlistForm({ ...shortlistForm, field: e.target.value })}
+                        placeholder="e.g. Computer Science, Data Analytics, Mechanical, Finance"
+                        className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-iq-navy/20 focus:border-iq-navy font-medium"
+                      />
+                    </div>
+
+                    <div className="pt-2">
+                      <button
+                        type="submit"
+                        className="w-full py-4 rounded-2xl bg-iq-red hover:bg-iq-red-hover text-white font-black text-sm shadow-lg shadow-iq-red/30 transition-all cursor-pointer flex items-center justify-center gap-2"
+                      >
+                        <span>Generate & Send My Shortlist</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </form>
+                </>
+              ) : (
+                <div className="py-6 text-center space-y-4">
+                  <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-md">
+                    <CheckCircle2 className="w-8 h-8" />
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-black text-iq-navy">
+                    Shortlist Request Received!
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 max-w-sm mx-auto leading-relaxed font-medium">
+                    Thank you <strong>{shortlistForm.name || 'Student'}</strong>! Our senior counselor is generating your personalized <strong>{data.name}</strong> university shortlist. We will contact you at <strong>{shortlistForm.phone}</strong> shortly.
+                  </p>
+                  <div className="pt-3 flex flex-col gap-2.5">
+                    <a
+                      href={`https://wa.me/${BRAND_INFO.whatsappNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(
+                        `Hi IQ Overseas, I requested a university shortlist for ${data.name}. My name is ${shortlistForm.name || 'Student'} and phone is ${shortlistForm.phone}. Please send me the details.`
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md"
+                    >
+                      <MessageSquare className="w-4 h-4" />
+                      <span>Get Instant Shortlist on WhatsApp</span>
+                    </a>
+                    <button
+                      type="button"
+                      onClick={() => setActivePopupModal(null)}
+                      className="py-2.5 text-xs font-bold text-slate-500 hover:text-iq-navy"
+                    >
+                      Done
+                    </button>
+                  </div>
+                </div>
+              )}
+            </motion.div>
+          </div>
+        )}
+
+        {/* 4. COURSE CURRICULUM & CAREERS MODAL */}
+        {selectedCourse && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm animate-in fade-in duration-200">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative overflow-hidden"
+            >
+              <button
+                type="button"
+                onClick={() => setSelectedCourse(null)}
+                className="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-900 flex items-center justify-center transition-colors cursor-pointer"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              <div className="flex items-center gap-2 mb-3">
+                <span className="px-3 py-1 rounded-full bg-blue-100 text-iq-navy text-xs font-black uppercase">
+                  {selectedCourse.category}
+                </span>
+                {selectedCourse.duration && (
+                  <span className="text-xs font-mono font-bold text-slate-400">
+                    Duration: {selectedCourse.duration}
+                  </span>
+                )}
+              </div>
+
+              <h3 className="text-xl sm:text-2xl font-black text-iq-navy tracking-tight mb-3">
+                {selectedCourse.title}
+              </h3>
+
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium mb-5">
+                {selectedCourse.description}
+              </p>
+
+              {selectedCourse.careerRoles && selectedCourse.careerRoles.length > 0 && (
+                <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 mb-6">
+                  <div className="text-xs font-black text-iq-navy uppercase tracking-wider mb-2">
+                    Industry Placement & Career Roles:
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedCourse.careerRoles.map((role: string, idx: number) => (
+                      <span
+                        key={idx}
+                        className="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-700 shadow-2xs"
+                      >
+                        {role}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              <div className="flex items-center gap-3">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSelectedCourse(null);
+                    onOpenConsultation();
+                  }}
+                  className="flex-1 py-3.5 rounded-xl bg-iq-red hover:bg-iq-red-hover text-white font-black text-xs uppercase tracking-wider shadow-md transition-all text-center cursor-pointer"
+                >
+                  Apply for {selectedCourse.title}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setSelectedCourse(null)}
+                  className="px-4 py-3.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition-colors"
+                >
+                  Close
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+
+        {/* 5. SCHOLARSHIP ELIGIBILITY MODAL */}
+        {selectedScholarship && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm animate-in fade-in duration-200">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative overflow-hidden"
+            >
+              <button
+                type="button"
+                onClick={() => setSelectedScholarship(null)}
+                className="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-900 flex items-center justify-center transition-colors cursor-pointer"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              <div className="flex items-center justify-between gap-2 mb-3">
+                <span className="text-xs font-black uppercase tracking-wider text-slate-400">
+                  {selectedScholarship.provider}
+                </span>
+                <span className="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 font-black text-xs border border-emerald-100">
+                  {selectedScholarship.award}
+                </span>
+              </div>
+
+              <h3 className="text-xl sm:text-2xl font-black text-iq-navy tracking-tight mb-4">
+                {selectedScholarship.name}
+              </h3>
+
+              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 mb-6 space-y-2">
+                <div className="text-xs font-black text-iq-navy uppercase tracking-wider">
+                  Eligibility Criteria:
+                </div>
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+                  {selectedScholarship.eligibility}
+                </p>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSelectedScholarship(null);
+                    onOpenConsultation();
+                  }}
+                  className="flex-1 py-3.5 rounded-xl bg-iq-red hover:bg-iq-red-hover text-white font-black text-xs uppercase tracking-wider shadow-md transition-all text-center cursor-pointer"
+                >
+                  Check My Eligibility via IQ Overseas
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setSelectedScholarship(null)}
+                  className="px-4 py-3.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition-colors"
+                >
+                  Close
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+
+        {/* 6. SUB-DESTINATION SPOTLIGHT MODAL (Europe) */}
+        {selectedSubDest && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm animate-in fade-in duration-200">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative overflow-hidden"
+            >
+              <button
+                type="button"
+                onClick={() => setSelectedSubDest(null)}
+                className="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-900 flex items-center justify-center transition-colors cursor-pointer"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-2xl">{selectedSubDest.flag}</span>
+                <h3 className="text-2xl font-black text-iq-navy">Study in {selectedSubDest.country}</h3>
+              </div>
+
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium mb-5">
+                {selectedSubDest.description}
+              </p>
+
+              <div className="grid grid-cols-2 gap-3 p-4 rounded-2xl bg-slate-50 border border-slate-200/80 mb-6 text-xs">
+                <div>
+                  <div className="font-bold text-slate-400 uppercase">Capital City</div>
+                  <div className="font-black text-iq-navy mt-0.5">{selectedSubDest.capital}</div>
+                </div>
+                <div>
+                  <div className="font-bold text-slate-400 uppercase">Average Tuition</div>
+                  <div className="font-black text-iq-navy mt-0.5">{selectedSubDest.avgTuition}</div>
+                </div>
+                <div className="col-span-2 pt-2 border-t border-slate-200">
+                  <div className="font-bold text-slate-400 uppercase">Post-Study Stay Back</div>
+                  <div className="font-black text-emerald-600 mt-0.5">{selectedSubDest.psw}</div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSelectedSubDest(null);
+                    onOpenConsultation();
+                  }}
+                  className="flex-1 py-3.5 rounded-xl bg-iq-red hover:bg-iq-red-hover text-white font-black text-xs uppercase tracking-wider shadow-md transition-all text-center cursor-pointer"
+                >
+                  Consult for {selectedSubDest.country}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setSelectedSubDest(null)}
+                  className="px-4 py-3.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition-colors"
+                >
+                  Close
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
 
     </div>
   );
