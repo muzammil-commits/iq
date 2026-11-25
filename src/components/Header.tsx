@@ -132,54 +132,115 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
               </Link>
 
               {activeDropdown === 'services' && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 w-[580px] bg-white rounded-2xl shadow-2xl border border-slate-100 p-5 animate-in fade-in slide-in-from-top-2 duration-200">
-                  <div className="grid grid-cols-2 gap-5">
-                    <div>
-                      <div className="text-[11px] font-bold uppercase tracking-wider text-iq-navy px-2 pb-2 mb-2 border-b border-slate-100 flex items-center justify-between">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 w-[840px] 2xl:w-[900px] bg-white rounded-3xl shadow-2xl border border-slate-100 p-6 animate-in fade-in slide-in-from-top-2 duration-200 z-50">
+                  {/* Grand Mega-Menu Header */}
+                  <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-slate-100">
+                    <div className="flex items-center gap-2.5">
+                      <span className="w-2.5 h-2.5 rounded-full bg-iq-red animate-pulse" />
+                      <span className="text-xs font-black uppercase tracking-wider text-iq-navy">
+                        Complete Global Education &amp; Visa Services
+                      </span>
+                    </div>
+                    <span className="text-[11px] font-bold text-iq-navy bg-slate-100 px-3 py-1 rounded-full border border-slate-200/80">
+                      12 Specialized Solutions
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-12 gap-5">
+                    {/* Left 8 Columns: Core Overseas Services (01-09) */}
+                    <div className="col-span-8">
+                      <div className="text-[11px] font-extrabold uppercase tracking-wider text-iq-navy px-1 pb-2 mb-2.5 border-b border-slate-100 flex items-center justify-between">
                         <span>Core Overseas Services</span>
-                        <span className="text-iq-red font-mono">01–09</span>
+                        <span className="text-iq-red font-mono font-black">01–09</span>
                       </div>
-                      <div className="space-y-1">
+                      <div className="grid grid-cols-2 gap-2">
                         {educationServices.map((service) => (
                           <Link
                             key={service.id}
                             to={`/services/${service.slug}`}
                             onClick={() => setActiveDropdown(null)}
-                            className="block px-2.5 py-1.5 rounded-lg text-xs font-medium text-slate-700 hover:bg-iq-navy/5 hover:text-iq-navy transition-colors"
+                            className="p-2 rounded-2xl bg-white hover:bg-slate-50 border border-slate-100/90 hover:border-slate-200 hover:shadow-md transition-all duration-300 flex items-center gap-3 group/item"
                           >
-                            <span className="text-iq-red font-semibold mr-1.5">{service.number}</span>
-                            {service.title}
+                            <div className="relative w-14 h-11 rounded-xl overflow-hidden shrink-0 border border-slate-200/80 shadow-2xs bg-iq-navy group-hover/item:scale-105 transition-transform duration-300">
+                              <img
+                                src={service.image}
+                                alt={service.title}
+                                className="w-full h-full object-cover"
+                                loading="lazy"
+                              />
+                              <span className="absolute top-0.5 left-0.5 px-1 py-0.5 bg-black/75 backdrop-blur-xs rounded text-[8px] font-mono font-bold text-white leading-none">
+                                {service.number}
+                              </span>
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <div className="text-xs font-extrabold text-iq-navy group-hover/item:text-iq-red transition-colors truncate">
+                                {service.title}
+                              </div>
+                              <p className="text-[10px] text-slate-500 line-clamp-1 mt-0.5">
+                                {service.shortDescription}
+                              </p>
+                            </div>
+                            <ArrowRight className="w-3.5 h-3.5 text-slate-300 group-hover/item:text-iq-red group-hover/item:translate-x-0.5 transition-all shrink-0" />
                           </Link>
                         ))}
                       </div>
                     </div>
 
-                    <div>
-                      <div className="text-[11px] font-bold uppercase tracking-wider text-iq-red px-2 pb-2 mb-2 border-b border-slate-100 flex items-center justify-between">
-                        <span>Visa Consultancy</span>
-                        <span className="text-iq-navy font-mono">3 Types</span>
+                    {/* Right 4 Columns: Visa Consultancy (10-12) */}
+                    <div className="col-span-4 flex flex-col justify-between bg-slate-50/80 rounded-2xl p-3.5 border border-slate-100">
+                      <div>
+                        <div className="text-[11px] font-extrabold uppercase tracking-wider text-iq-red px-1 pb-2 mb-2.5 border-b border-slate-200/80 flex items-center justify-between">
+                          <span>Visa Consultancy</span>
+                          <span className="text-iq-navy font-mono font-black">3 Types</span>
+                        </div>
+                        <div className="space-y-2">
+                          {visaServices.map((service) => (
+                            <Link
+                              key={service.id}
+                              to={`/services/${service.slug}`}
+                              onClick={() => setActiveDropdown(null)}
+                              className="p-2 rounded-2xl bg-white hover:bg-red-50/40 border border-slate-100 hover:border-iq-red/30 hover:shadow-md transition-all duration-300 flex items-center gap-3 group/item"
+                            >
+                              <div className="relative w-14 h-11 rounded-xl overflow-hidden shrink-0 border border-slate-200/80 shadow-2xs bg-iq-navy group-hover/item:scale-105 transition-transform duration-300">
+                                <img
+                                  src={service.image}
+                                  alt={service.title}
+                                  className="w-full h-full object-cover"
+                                  loading="lazy"
+                                />
+                                <span className="absolute top-0.5 left-0.5 px-1 py-0.5 bg-iq-red/90 backdrop-blur-xs rounded text-[8px] font-mono font-bold text-white leading-none">
+                                  {service.number}
+                                </span>
+                              </div>
+                              <div className="flex-1 min-w-0">
+                                <div className="text-xs font-extrabold text-iq-navy group-hover/item:text-iq-red transition-colors truncate">
+                                  {service.title}
+                                </div>
+                                <p className="text-[10px] text-slate-500 line-clamp-1 mt-0.5">
+                                  {service.shortDescription}
+                                </p>
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
                       </div>
-                      <div className="space-y-1">
-                        {visaServices.map((service) => (
-                          <Link
-                            key={service.id}
-                            to={`/services/${service.slug}`}
-                            onClick={() => setActiveDropdown(null)}
-                            className="block px-2.5 py-1.5 rounded-lg text-xs font-medium text-slate-700 hover:bg-iq-red/5 hover:text-iq-red transition-colors"
-                          >
-                            <span className="text-iq-navy font-semibold mr-1.5">{service.number}</span>
-                            {service.title}
-                          </Link>
-                        ))}
-                      </div>
-                      <div className="pt-3 mt-3 border-t border-slate-100">
+
+                      <div className="pt-3 mt-3 border-t border-slate-200/80 space-y-2">
                         <Link
                           to="/services"
                           onClick={() => setActiveDropdown(null)}
-                          className="inline-flex items-center gap-1.5 text-xs font-bold text-iq-navy hover:text-iq-red px-2 transition-colors"
+                          className="w-full py-2.5 px-3.5 bg-gradient-to-r from-iq-navy to-[#0A266E] hover:from-iq-red hover:to-iq-red-hover text-white rounded-xl text-xs font-extrabold shadow-md transition-all flex items-center justify-between"
                         >
-                          <span>Explore All 9 Services</span>
+                          <span>Explore All 12 Services</span>
                           <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
+                        <Link
+                          to="/visa"
+                          onClick={() => setActiveDropdown(null)}
+                          className="w-full py-1.5 px-3 text-[11px] font-bold text-iq-navy hover:text-iq-red flex items-center justify-between transition-colors"
+                        >
+                          <span>Dedicated Visa Hub</span>
+                          <ArrowRight className="w-3 h-3" />
                         </Link>
                       </div>
                     </div>
@@ -572,24 +633,39 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, onOpenSearch
                     <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform ${mobileAccordion === 'services' ? 'rotate-180 text-iq-red' : ''}`} />
                   </button>
                   {mobileAccordion === 'services' && (
-                    <div className="pl-4 pr-2 py-1 space-y-1 bg-slate-50/80 rounded-xl mb-1">
-                      {SERVICES_DATA.map((s) => (
-                        <Link
-                          key={s.id}
-                          to={`/services/${s.slug}`}
-                          onClick={() => setMobileMenuOpen(false)}
-                          className="block py-1.5 text-xs font-medium text-slate-600 hover:text-iq-navy"
-                        >
-                          <span className="text-iq-red font-mono mr-1">{s.number}</span>
-                          {s.title}
-                        </Link>
-                      ))}
+                    <div className="py-2 px-1 space-y-2 bg-slate-50/90 rounded-2xl mb-2">
+                      <div className="space-y-1.5">
+                        {SERVICES_DATA.map((s) => (
+                          <Link
+                            key={s.id}
+                            to={`/services/${s.slug}`}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="flex items-center gap-2.5 p-2 bg-white rounded-xl border border-slate-200/80 shadow-2xs hover:border-iq-navy transition-all"
+                          >
+                            <div className="relative w-12 h-9 rounded-lg overflow-hidden shrink-0 border border-slate-200 bg-iq-navy">
+                              <img
+                                src={s.image}
+                                alt={s.title}
+                                className="w-full h-full object-cover"
+                                loading="lazy"
+                              />
+                              <span className="absolute top-0.5 left-0.5 px-1 py-0.5 bg-black/75 rounded text-[8px] font-mono font-bold text-white leading-none">
+                                {s.number}
+                              </span>
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <div className="text-xs font-bold text-iq-navy truncate">{s.title}</div>
+                              <p className="text-[10px] text-slate-500 truncate">{s.category}</p>
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
                       <Link
                         to="/services"
                         onClick={() => setMobileMenuOpen(false)}
-                        className="block py-2 text-xs font-bold text-iq-navy hover:underline"
+                        className="block text-center py-2.5 text-xs font-bold text-iq-navy bg-white rounded-xl border border-slate-200 hover:bg-slate-100 shadow-2xs transition-colors"
                       >
-                        View All Services →
+                        View All 12 Services →
                       </Link>
                     </div>
                   )}

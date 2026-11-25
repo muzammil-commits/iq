@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+
+  <defs>
+    <linearGradient id="bgNavy" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#05134A"/>
+      <stop offset="55%" stop-color="#0A266E"/>
+      <stop offset="100%" stop-color="#113896"/>
+    </linearGradient>
+    <linearGradient id="bgCrimson" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#071B68"/>
+      <stop offset="60%" stop-color="#1E1B4B"/>
+      <stop offset="100%" stop-color="#7F1D1D"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE68A"/>
+      <stop offset="50%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#B45309"/>
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EF4444"/>
+      <stop offset="100%" stop-color="#B91C1C"/>
+    </linearGradient>
+    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34D399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="glassCard" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.05"/>
+    </linearGradient>
+    <radialGradient id="glowGold" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#F59E0B" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowRed" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#EF4444" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#EF4444" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#020617" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bgCrimson)"/>
+  <rect width="800" height="500" fill="url(#grid)"/>
+  <circle cx="400" cy="240" r="260" fill="url(#glowGold)"/>
+  <circle cx="720" cy="70" r="140" fill="#FFFFFF" fill-opacity="0.03"/>
+  <circle cx="80" cy="440" r="180" fill="#FFFFFF" fill-opacity="0.03"/>
+  
+    <!-- Three University Tier Pillars -->
+    <g transform="translate(115, 130)" filter="url(#shadow)">
+      <rect x="0" y="70" width="120" height="190" rx="16" fill="url(#glassCard)" stroke="#FFFFFF" stroke-opacity="0.28"/>
+      <text x="60" y="108" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="800" fill="#93C5FD">SAFE</text>
+      <rect x="26" y="130" width="16" height="105" rx="4" fill="#FFFFFF" fill-opacity="0.65"/>
+      <rect x="52" y="130" width="16" height="105" rx="4" fill="#FFFFFF" fill-opacity="0.65"/>
+      <rect x="78" y="130" width="16" height="105" rx="4" fill="#FFFFFF" fill-opacity="0.65"/>
+
+      <rect x="145" y="30" width="130" height="230" rx="16" fill="url(#glassCard)" stroke="#F59E0B" stroke-opacity="0.65" stroke-width="2"/>
+      <text x="210" y="68" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="900" fill="#FDE68A">DREAM</text>
+      <polygon points="210,80 165,105 255,105" fill="url(#goldGrad)"/>
+      <rect x="172" y="112" width="18" height="124" rx="4" fill="#FFFFFF" fill-opacity="0.9"/>
+      <rect x="201" y="112" width="18" height="124" rx="4" fill="#FFFFFF" fill-opacity="0.9"/>
+      <rect x="230" y="112" width="18" height="124" rx="4" fill="#FFFFFF" fill-opacity="0.9"/>
+
+      <rect x="300" y="55" width="120" height="205" rx="16" fill="url(#glassCard)" stroke="#FFFFFF" stroke-opacity="0.28"/>
+      <text x="360" y="92" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="800" fill="#FCA5A5">REACH</text>
+      <rect x="326" y="114" width="16" height="120" rx="4" fill="#FFFFFF" fill-opacity="0.75"/>
+      <rect x="352" y="114" width="16" height="120" rx="4" fill="#FFFFFF" fill-opacity="0.75"/>
+      <rect x="378" y="114" width="16" height="120" rx="4" fill="#FFFFFF" fill-opacity="0.75"/>
+    </g>
+    <!-- Mock Interview Video Panel -->
+    <g transform="translate(500, 120)" filter="url(#shadow)">
+      <rect width="230" height="245" rx="22" fill="#FFFFFF"/>
+      <rect x="16" y="16" width="198" height="130" rx="14" fill="#071B68"/>
+      <circle cx="115" cy="68" r="24" fill="#93C5FD"/>
+      <path d="M 75 128 C 75 100 155 100 155 128" fill="#FFFFFF" fill-opacity="0.9"/>
+      <circle cx="188" cy="36" r="7" fill="#EF4444"/>
+      <text x="115" y="176" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="800" fill="#071B68">1-ON-1 MOCK PREP</text>
+      <!-- Audio Waveform -->
+      <rect x="44" y="198" width="8" height="22" rx="4" fill="url(#redGrad)"/>
+      <rect x="64" y="190" width="8" height="38" rx="4" fill="url(#redGrad)"/>
+      <rect x="84" y="195" width="8" height="28" rx="4" fill="#071B68"/>
+      <rect x="104" y="186" width="8" height="46" rx="4" fill="url(#goldGrad)"/>
+      <rect x="124" y="194" width="8" height="30" rx="4" fill="#071B68"/>
+      <rect x="144" y="190" width="8" height="38" rx="4" fill="url(#redGrad)"/>
+      <rect x="164" y="198" width="8" height="22" rx="4" fill="url(#redGrad)"/>
+    </g>
+    
+  <!-- Subtle Corner Crest -->
+  <g transform="translate(36, 32)">
+    <rect width="128" height="32" rx="16" fill="#020617" fill-opacity="0.45" stroke="#FFFFFF" stroke-opacity="0.2"/>
+    <circle cx="18" cy="16" r="6" fill="url(#redGrad)"/>
+    <text x="32" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="800" fill="#FFFFFF" letter-spacing="1.2">SERVICE 03</text>
+  </g>
+  <g transform="translate(36, 444)">
+    <text x="0" y="0" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#93C5FD" fill-opacity="0.75" letter-spacing="2.5">IQ OVERSEAS • SHORTLISTING & MOCK INTERVIEWS</text>
+  </g>
+</svg>

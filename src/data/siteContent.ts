@@ -277,7 +277,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription: 'In-depth profile assessment, psychometric mapping, and career roadmapping aligned with your global ambition.',
     fullDescription: 'Our Career Counselling service is designed to understand your unique strengths, academic foundation, financial considerations, and long-term career aspirations. We guide you toward the right specialization and study destination to ensure high return on education.',
     iconName: 'Compass',
-    image: '/images/about-students-grand.png',
+    image: '/images/services/service-01-career-counselling.svg',
     keyHighlights: [
       'Comprehensive academic and profile evaluation',
       'Course & country mapping based on industry demand',
@@ -320,7 +320,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription: 'Meticulous university application drafting, SOP/LOR review, and deadline tracking for top global institutions.',
     fullDescription: 'University admissions are highly competitive and detail-oriented. IQ Overseas handles end-to-end application processing, verifying each dossier, reviewing your Statement of Purpose (SOP) and Letters of Recommendation (LORs), and liaising directly with university admissions offices.',
     iconName: 'FileCheck',
-    image: '/images/program-masters-grand.png',
+    image: '/images/services/service-02-application-process.svg',
     keyHighlights: [
       'Zero-error application filing across multiple institutions',
       'Constructive editing of SOPs, Essays, and Personal Statements',
@@ -364,7 +364,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription: 'Targeted institutional matching into Dream, Reach, and Safe categories plus rigorous 1-on-1 consular and university interview rehearsals.',
     fullDescription: 'Selecting the right university and excelling in admission interviews requires strategic planning. We shortlist universities aligned with your GPA, budget, and test scores, while providing realistic mock interview coaching with former visa officers and academic mentors.',
     iconName: 'GraduationCap',
-    image: '/images/about-students-headquarters-grand.png',
+    image: '/images/services/service-03-shortlisting-mock-interviews.svg',
     keyHighlights: [
       'Curated university matrices categorized into Dream, Reach, and Safe tiers',
       'In-depth review of university employment statistics and campus recruitment',
@@ -407,7 +407,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription: 'Comprehensive guidance on international scholarships, financial affidavits, solvency certificates, and proof of funds.',
     fullDescription: 'Financing your overseas education is one of the most vital stages. We assist students with scholarship applications, assembling verified financial dossiers, and preparing rock-solid financial affidavits required by immigration authorities.',
     iconName: 'Banknote',
-    image: '/images/service-education.png',
+    image: '/images/services/service-04-financial-assistance.svg',
     keyHighlights: [
       'Guidance on merit-based and need-based university scholarships',
       'Solvency certificates, bank balance certification, and CA affidavits',
@@ -450,7 +450,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription: 'Competitive foreign exchange rates, student Forex travel cards, international wire transfers, and currency guidance.',
     fullDescription: 'International transactions and currency conversions can carry hefty bank markups. IQ Overseas partners with authorized RBI-licensed Forex providers to ensure students secure the best exchange rates with zero hidden charges for university tuition wire transfers and living expense cards.',
     iconName: 'Sparkles',
-    image: '/images/program-training-grand.png',
+    image: '/images/services/service-05-forex-assistance.svg',
     keyHighlights: [
       'Discounted currency exchange rates beating standard retail banks',
       'Pre-loaded multi-currency international student Forex cards',
@@ -493,7 +493,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription: 'Exclusive student airfares, extra baggage allowances up to 45kg, convenient itineraries, and date change flexibility.',
     fullDescription: 'Flying abroad for the first time should be seamless and affordable. Our dedicated travel desk books discounted student tickets across premier international carriers with special student luggage allowances and flexible rescheduling options.',
     iconName: 'Plane',
-    image: '/images/airplane-contact.png',
+    image: '/images/services/service-06-flight-ticket.svg',
     badge: 'Popular',
     keyHighlights: [
       'Exclusive student fares with 40kg to 45kg baggage allowances',
@@ -536,7 +536,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription: 'Collateral and non-collateral overseas education loans with fast-track approvals and competitive interest rates.',
     fullDescription: 'Do not let financial constraints hold back your global dreams. IQ Overseas partners with leading nationalized banks, private financial institutions, and specialized NBFCs (including HDFC Credila, Avanse, InCred, and SBI) to secure quick education loan sanctions with minimal hassle.',
     iconName: 'Banknote',
-    image: '/images/destinations-landmarks-grand.png',
+    image: '/images/services/service-07-educational-loan.svg',
     keyHighlights: [
       'Secured (collateral) loans up to ₹1.5 Crores with nationalized banks',
       'Unsecured (non-collateral) loans up to ₹60 Lakhs based on academic merit',
@@ -580,7 +580,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription: 'Safe, verified on-campus dormitories, student apartments, and homestays within walking distance of universities.',
     fullDescription: 'Finding safe, budget-friendly accommodation in a new country is crucial. We connect students with verified university dormitories, purpose-built student accommodation (PBSA) providers, and trusted shared apartments across the USA, UK, Canada, Australia, and Europe.',
     iconName: 'Luggage',
-    image: '/images/hero-mobile.png',
+    image: '/images/services/service-08-accommodation-assistance.svg',
     keyHighlights: [
       'Verified accommodation options close to university campuses and transit lines',
       'All-inclusive utility options covering Wi-Fi, electricity, heating, and water',
@@ -622,7 +622,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription: 'Comprehensive travel insurance, airport transfers, port-of-entry immigration orientation, and international SIM cards.',
     fullDescription: 'Complete your journey smoothly with our end-to-end travel assistance. We equip students with international travel health insurance, organize airport pickup shuttles, provide foreign SIM cards, and conduct port-of-entry immigration briefings so you transition effortlessly into campus life.',
     iconName: 'Plane',
-    image: '/images/program-bachelors-grand.png',
+    image: '/images/services/service-09-travel-assistance.svg',
     keyHighlights: [
       'Comprehensive overseas travel and transit medical insurance cover',
       'Pre-activated international student SIM cards with local phone numbers',
@@ -667,7 +667,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription: 'High-precision student visa filing, Genuine Student (GS/GTE) documentation, and consular mock interview coaching.',
     fullDescription: 'The student visa is the defining gateway to your international education. Our seasoned counselors understand the specific visa mandates of the USA (F-1), UK (Student Route), Canada (Study Permit), Australia (Subclass 500), Ireland, and Schengen countries, ensuring meticulous paperwork and mock interview readiness.',
     iconName: 'GraduationCap',
-    image: '/images/hero-desktop.png',
+    image: '/images/services/service-10-study-visa.svg',
     badge: 'Core Specialty',
     keyHighlights: [
       'Strict adherence to latest embassy regulations and immigration laws',
@@ -712,7 +712,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription: 'Family and friend visits, tourist leisure itineraries, and university graduation attendance handled with care.',
     fullDescription: 'Whether planning a memorable holiday abroad, attending your child\'s university graduation ceremony, or visiting family members settled overseas, our Visiting Visa service handles invitation letters, relationship proofs, day-wise itineraries, and financial justifications.',
     iconName: 'Camera',
-    image: '/images/destinations-landmarks-grand.png',
+    image: '/images/services/service-11-visiting-visa.svg',
     badge: 'Popular',
     keyHighlights: [
       'Customized day-to-day tourist itinerary planning and hotel booking verification',
@@ -756,7 +756,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription: 'Strategic post-study work permit extensions, points-based permanent residency pathways, and skilled migration advisory.',
     fullDescription: 'Transitioning from student to permanent global resident requires long-term planning. We advise graduates and skilled professionals on Post-Graduation Work Permits (PGWP/PSW), employer-sponsored work visas, and points-based Permanent Residency (PR) systems in Canada, Australia, the UK, and New Zealand.',
     iconName: 'Briefcase',
-    image: '/images/student-testimonial-grand.png',
+    image: '/images/services/service-12-pr-work-permit.svg',
     badge: 'Career Pathway',
     keyHighlights: [
       'Post-Study Work Visa filing (Canada PGWP, UK Graduate Route, Australia 485, US OPT/STEM OPT)',

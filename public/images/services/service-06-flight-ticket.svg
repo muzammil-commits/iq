@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+
+  <defs>
+    <linearGradient id="bgNavy" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#05134A"/>
+      <stop offset="55%" stop-color="#0A266E"/>
+      <stop offset="100%" stop-color="#113896"/>
+    </linearGradient>
+    <linearGradient id="bgCrimson" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#071B68"/>
+      <stop offset="60%" stop-color="#1E1B4B"/>
+      <stop offset="100%" stop-color="#7F1D1D"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE68A"/>
+      <stop offset="50%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#B45309"/>
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EF4444"/>
+      <stop offset="100%" stop-color="#B91C1C"/>
+    </linearGradient>
+    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34D399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="glassCard" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.05"/>
+    </linearGradient>
+    <radialGradient id="glowGold" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#F59E0B" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowRed" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#EF4444" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#EF4444" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#020617" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bgNavy)"/>
+  <rect width="800" height="500" fill="url(#grid)"/>
+  <circle cx="430" cy="210" r="260" fill="url(#glowGold)"/>
+  <circle cx="720" cy="70" r="140" fill="#FFFFFF" fill-opacity="0.03"/>
+  <circle cx="80" cy="440" r="180" fill="#FFFFFF" fill-opacity="0.03"/>
+  
+    <!-- Curved Earth Horizon -->
+    <path d="M -50 470 Q 400 280 850 470 Z" fill="#0F172A" fill-opacity="0.65" stroke="#60A5FA" stroke-opacity="0.4" stroke-width="2"/>
+    <!-- Flight Path Arc -->
+    <path d="M 110 350 Q 380 110 670 155" fill="none" stroke="url(#goldGrad)" stroke-width="4" stroke-dasharray="10 8"/>
+    <!-- Stylized Jetliner -->
+    <g transform="translate(480, 155) rotate(-18)" filter="url(#shadow)">
+      <path d="M -90 0 L 70 -10 L 100 0 L 70 12 Z" fill="#FFFFFF"/>
+      <path d="M -15 -4 L -45 -62 L -15 -62 L 25 -4 Z" fill="#E2E8F0"/>
+      <path d="M -15 6 L -45 64 L -15 64 L 25 6 Z" fill="#CBD5E1"/>
+      <path d="M -75 -2 L -98 -32 L -78 -32 L -55 -2 Z" fill="url(#redGrad)"/>
+    </g>
+    <!-- Boarding Pass Card -->
+    <g transform="translate(120, 235)" filter="url(#shadow)">
+      <rect width="310" height="145" rx="18" fill="#FFFFFF"/>
+      <rect width="310" height="40" rx="18" fill="url(#redGrad)"/>
+      <rect y="22" width="310" height="18" fill="url(#redGrad)"/>
+      <text x="20" y="27" font-family="system-ui, sans-serif" font-size="13" font-weight="900" fill="#FFFFFF" letter-spacing="1.5">STUDENT BOARDING PASS • 46KG</text>
+      <text x="24" y="88" font-family="system-ui, sans-serif" font-size="30" font-weight="900" fill="#071B68">HYD</text>
+      <path d="M 112 78 L 190 78" stroke="#94A3B8" stroke-width="2.5" stroke-dasharray="5 4"/>
+      <text x="210" y="88" font-family="system-ui, sans-serif" font-size="30" font-weight="900" fill="#071B68">JFK</text>
+      <text x="24" y="122" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#64748B">EXTRA BAGGAGE • FLEXIBLE DATES</text>
+    </g>
+    
+  <!-- Subtle Corner Crest -->
+  <g transform="translate(36, 32)">
+    <rect width="128" height="32" rx="16" fill="#020617" fill-opacity="0.45" stroke="#FFFFFF" stroke-opacity="0.2"/>
+    <circle cx="18" cy="16" r="6" fill="url(#redGrad)"/>
+    <text x="32" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="800" fill="#FFFFFF" letter-spacing="1.2">SERVICE 06</text>
+  </g>
+  <g transform="translate(36, 444)">
+    <text x="0" y="0" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#93C5FD" fill-opacity="0.75" letter-spacing="2.5">IQ OVERSEAS • FLIGHT TICKET</text>
+  </g>
+</svg>
